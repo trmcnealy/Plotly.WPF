@@ -57,7 +57,7 @@ namespace Plotly
 
                 if(!plotlyView.IsNavigating)
                 {
-                    PlotlyEvent @event = new("DataSourceUpdated");
+                    PlotlyEvent @event = new(plotlyView.Id, "DataSourceUpdated");
                     plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
                 }
             }
@@ -87,7 +87,7 @@ namespace Plotly
 
                 if(!plotlyView.IsNavigating)
                 {
-                    PlotlyEvent @event = new("PlotDataUpdated");
+                    PlotlyEvent @event = new(plotlyView.Id, "PlotDataUpdated");
                     plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
                 }
             }
@@ -117,7 +117,7 @@ namespace Plotly
 
                 if(!plotlyView.IsNavigating)
                 {
-                    PlotlyEvent @event = new("PlotLayoutUpdated");
+                    PlotlyEvent @event = new(plotlyView.Id, "PlotLayoutUpdated");
                     plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
                 }
             }
@@ -176,33 +176,59 @@ namespace Plotly
 
         public bool IsNavigating { get; set; }
 
+
+        private readonly  Guid _id;
+        public string Id
+        {
+            get;
+        }
+
         public PlotlyView()
         {
+            _id          = Guid.NewGuid();
+            Id          = _id.ToString().Replace("-", "_");
+
+            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly"); 
+
+            if(!Directory.Exists(Plotly_folder))
+            {
+                Directory.CreateDirectory(Plotly_folder);
+            }
+
+            string Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
+
+            if(!File.Exists(Plotly_html_file))
+            {
+                using(StreamWriter sw = new StreamWriter(Plotly_html_file))
+                {
+                    sw.Write(global::Plotly.Resources.Plotly_html.Replace("{ID}", Id));
+                }
+            }
+
+
             CsPlotlyPlot = new CsPlotlyPlot();
+
+            Dispatcher.ShutdownStarted += Shutdown;
         }
-        //    //InitializeComponent();
 
-        //    CsPlotlyPlot = new CsPlotlyPlot();
+        ~PlotlyView()
+        {
+            Shutdown(this, new EventArgs());
+        }
 
-        //    //DataContext = ViewModel;
+        private void Shutdown(object?   sender,
+                              EventArgs e)
+        {
+            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
 
-        //    //WebViewElement.CreationProperties = new CoreWebView2CreationProperties();
+            string Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
 
-        //    WebViewElement = new WebView2
-        //    {
-        //        Source = new Uri(Path.Combine("file:///", AppDomain.CurrentDomain.BaseDirectory, "Plotly/PlotlyView.html"))
-        //    };
-
-        //    WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
-
-        //    CoreWebView2Environment? env = CoreWebView2Environment.CreateAsync().Result;
-
-        //    WebViewElement.EnsureCoreWebView2Async(env);
-        //}
-
-        //~PlotlyView()
-        //{
-        //}
+            if(File.Exists(Plotly_html_file))
+            {
+                File.Delete(Plotly_html_file);
+            
+            }
+        }
 
         private void WebView_OnNavigationStarting(object?                                 sender,
                                                   CoreWebView2NavigationStartingEventArgs e)
@@ -236,7 +262,7 @@ namespace Plotly
 
                 CsPlotlyPlot = new CsPlotlyPlot(DataSource, PlotData, PlotLayout);
 
-                WebViewElement.CoreWebView2.AddHostObjectToScript("CsPlotlyPlot", CsPlotlyPlot);
+                WebViewElement.CoreWebView2.AddHostObjectToScript($"CsPlotlyPlot_{Id}", CsPlotlyPlot);
             }
         }
 
@@ -307,7 +333,7 @@ namespace Plotly
         {
             if(!IsNavigating)
             {
-                PlotlyEvent @event = new("PlotUpdated");
+                PlotlyEvent @event = new(Id, "PlotUpdated");
 
                 WebViewElement.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
             }
@@ -336,21 +362,20 @@ namespace Plotly
 
         public override void OnApplyTemplate()
         {
-            //base.OnApplyTemplate();
             WebViewElement = GetTemplateChild("WebView") as WebView2;
 
-            //WebViewElement = new WebView2
-            //{
-            //    Source = new Uri(Path.Combine("file:///", AppDomain.CurrentDomain.BaseDirectory, "Plotly/PlotlyView.html"))
-            //};
+            InitializeAsync();
+        }
 
-            WebViewElement.Source = new Uri(Path.Combine("file:///", AppDomain.CurrentDomain.BaseDirectory, "Plotly/Plotly.html"));
+        public async void InitializeAsync()
+        {
+            WebViewElement.Source = new Uri(Path.Combine("file:///", AppDomain.CurrentDomain.BaseDirectory, $"Plotly/Plotly_{Id}.html"));
 
             WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
 
-            CoreWebView2Environment? env = CoreWebView2Environment.CreateAsync().Result;
+            CoreWebView2Environment? env = await CoreWebView2Environment.CreateAsync();
 
-            WebViewElement.EnsureCoreWebView2Async(env);
+            await WebViewElement.EnsureCoreWebView2Async(env);
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

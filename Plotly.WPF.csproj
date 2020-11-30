@@ -24,9 +24,9 @@
       <PackageIcon>nindra.png</PackageIcon>
       <RepositoryUrl>https://github.com/trmcnealy/Plotly.WPF</RepositoryUrl>
       <RepositoryType>WPF Charts Plotly</RepositoryType>
-      <AssemblyVersion>1.0.2.0</AssemblyVersion>
-      <FileVersion>1.0.2.0</FileVersion>
-      <Version>1.0.2</Version>
+      <AssemblyVersion>1.0.4.0</AssemblyVersion>
+      <FileVersion>1.0.4.0</FileVersion>
+      <Version>1.0.4</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,11 +38,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Content Include="Plotly/Plotly.html">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </Content>
+        <None Include="Plotly/Plotly.html">
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+        </None>
         <Content Include="Plotly/Plotly.js">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+            <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
 

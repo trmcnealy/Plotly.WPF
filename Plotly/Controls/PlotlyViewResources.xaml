@@ -10,7 +10,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="wpf:PlotlyView">
- <!--Background="{TemplateBinding Background}"-->
                     <Grid>
 
                         <VisualStateManager.VisualStateGroups>

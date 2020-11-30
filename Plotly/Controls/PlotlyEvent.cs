@@ -11,6 +11,10 @@ namespace Plotly
     public sealed class PlotlyEvent
     {
         [Required]
+        [JsonPropertyName("id")]
+        public string Id { get; }
+
+        [Required]
         [JsonPropertyName("event")]
         public string Event { get; }
 
@@ -19,9 +23,10 @@ namespace Plotly
         public SelectedData[]? Selected { get; set; }
 
 
-        public PlotlyEvent(string @event)
+        public PlotlyEvent(string id,string @event)
         {
-            Event = @event;
+            Id = id;
+            Event   = @event;
         }
 
         public static PlotlyEvent? FromJson(string json)

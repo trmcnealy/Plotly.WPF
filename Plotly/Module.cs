@@ -20,15 +20,15 @@ namespace Plotly.Plotly
                 Directory.CreateDirectory(Plotly_folder);
             }
 
-            string Plotly_html_file = Path.Combine(Plotly_folder, "Plotly.html");
+            //string Plotly_html_file = Path.Combine(Plotly_folder, "Plotly.html");
 
-            if(!File.Exists(Plotly_html_file))
-            {
-                using(StreamWriter sw = new StreamWriter(Plotly_html_file))
-                {
-                    sw.Write(Resources.Plotly_html);
-                }
-            }
+            //if(!File.Exists(Plotly_html_file))
+            //{
+            //    using(StreamWriter sw = new StreamWriter(Plotly_html_file))
+            //    {
+            //        sw.Write(Resources.Plotly_html);
+            //    }
+            //}
             
             string Plotly_js_file = Path.Combine(Plotly_folder, "Plotly.js");
 

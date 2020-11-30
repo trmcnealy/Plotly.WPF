@@ -24,6 +24,9 @@
       <PackageIcon>nindra.png</PackageIcon>
       <RepositoryUrl>https://github.com/trmcnealy/Plotly.WPF</RepositoryUrl>
       <RepositoryType>WPF Charts Plotly</RepositoryType>
+      <AssemblyVersion>1.0.1.0</AssemblyVersion>
+      <FileVersion>1.0.1.0</FileVersion>
+      <Version>1.0.1</Version>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,0 +1,53 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Plotly"
+                    xmlns:wv="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+                    xmlns:wpf="clr-namespace:Plotly">
+
+    <wv:CoreWebView2CreationProperties x:Key="EvergreenWebView2CreationProperties"/>
+
+    <Style TargetType="{x:Type wpf:PlotlyView}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="wpf:PlotlyView">
+ <!--Background="{TemplateBinding Background}"-->
+                    <Grid>
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="ValueStates">
+                                <VisualState Name="Navigating">
+                                    <!--<Storyboard>
+                                        <ColorAnimation To="Red"
+                                                        Storyboard.TargetName="TextBlock"
+                                                        Storyboard.TargetProperty="(Foreground).(Color)"/>
+                                    </Storyboard>-->
+                                </VisualState>
+                                <VisualState Name="Waiting"/>
+                            </VisualStateGroup>
+
+                            <VisualStateGroup Name="FocusStates">
+                                <VisualState Name="Focused">
+                                    <!--<Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual"
+                                                                       Storyboard.TargetProperty="Visibility"
+                                                                       Duration="0">
+                                            <DiscreteObjectKeyFrame KeyTime="0">
+                                                <DiscreteObjectKeyFrame.Value>
+                                                    <Visibility>Visible</Visibility>
+                                                </DiscreteObjectKeyFrame.Value>
+                                            </DiscreteObjectKeyFrame>
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>-->
+                                </VisualState>
+                                <VisualState Name="Unfocused"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <wv:WebView2 x:Name="WebView" CreationProperties="{StaticResource EvergreenWebView2CreationProperties}"/>
+
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

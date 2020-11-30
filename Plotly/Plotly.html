@@ -1,0 +1,323 @@
+﻿<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        html,
+        body,
+        #root {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="Plotly.js"></script>
+</head>
+<body>
+<div id="root">
+    <div id="plot_div" style="width: 100%; height: 100%;"></div>
+</div>
+<script>
+    window.plotly_container = document.getElementById("plot_div");
+
+    window.addEventListener("DOMContentLoaded", (event) => {
+    
+        const plotly_plot = window.PlotlyApp.getManagedObject("CsPlotlyPlot");
+        
+        const data = [];
+
+        const layout = {};
+
+        if (plotly_plot !== undefined && plotly_plot !== null) {
+
+            const config = JSON.parse(plotly_plot.GetConfig());
+
+            window.Plotly.newPlot(window.plotly_container, data, layout, config);
+
+        } else {
+
+            const config = window.PlotlyApp.getDefaultConfiguration();
+
+            window.Plotly.newPlot(window.plotly_container, data, layout, config);
+        }
+        
+        window.plotly_container = window.PlotlyApp.listenToSelectedEvent(window.plotly_container, PlotlySelectedHandler);
+        window.plotly_container = window.PlotlyApp.listenToDeselectEvent(window.plotly_container);
+        
+        //window.plotly_container = window.PlotlyApp.listenToAfterPlotEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToBeforePlotEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToRedrawEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToRelayoutEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToRelayoutingEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToEventEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToAnimatedEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToAutosizeEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToBeforeHoverEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToClickAnnotationEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToDoubleClickEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToLegendClickEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToLegendDoubleClickEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToRestyleEvent(window.plotly_container);
+        //window.plotly_container = window.PlotlyApp.listenToWebglContextLostEvent(window.plotly_container);
+
+        
+        window.chrome.webview.postMessage({
+            "event": "DOMContentLoaded"
+        });
+    });
+
+    window.chrome.webview.addEventListener('message', args => {
+
+        //console.log(args);
+
+        if ("event" in args.data) {
+
+            //console.log(args.data);
+
+            if (args.data.event === "PlotUpdated") {
+
+                const plotly_plot = window.chrome.webview.hostObjects.sync.CsPlotlyPlot;
+
+                //console.log(plotly_plot);
+
+                if (plotly_plot !== undefined && plotly_plot !== null) {
+
+                    let data_update = JSON.parse(plotly_plot.GetData());
+                    let data_type = "";
+
+                    for (let i = 0;i < data_update.length;++i) {
+
+                        //console.log(data_update[i]);
+
+                        if ((data_update[i].x === undefined || data_update[i].x === null) && data_update[i].xsrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].xsrc);
+
+                            if (data_type === "float") {
+                                data_update[i].x = new Float32Array(plotly_plot[data_update[i].xsrc]);
+                            } else if (data_type === "int") {
+                                data_update[i].x = new Int32Array(plotly_plot[data_update[i].xsrc]);
+                            } else if (data_type === "string") {
+                                data_update[i].x = plotly_plot[data_update[i].xsrc];
+                            }
+                        }
+
+                        if ((data_update[i].y === undefined || data_update[i].y === null) && data_update[i].ysrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].ysrc);
+
+                            if (data_type === "float") {
+                                data_update[i].y = new Float32Array(plotly_plot[data_update[i].ysrc]);
+                            } else if (data_type === "int") {
+                                data_update[i].y = new Int32Array(plotly_plot[data_update[i].ysrc]);
+                            } else if (data_type === "string") {
+                                data_update[i].y = plotly_plot[data_update[i].ysrc];
+                            }
+                        }
+
+                        if (data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
+
+                            if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {
+                                const temp_size = data_update[i].marker.size;
+                                if (data_type === "float") {
+
+                                    //console.log(temp_size);
+                                    //console.log(new Float32Array(plotly_plot[data_update[i].marker.sizesrc]));
+
+                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
+
+                                    //console.log(data_update[i].marker.size);
+
+                                } else if (data_type === "int") {
+                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
+                                } else if (data_type === "string") {
+                                    //console.log("marker.size cannot be a string");
+                                }
+                            } else {
+                                if (data_type === "float") {
+                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]);
+                                } else if (data_type === "int") {
+                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]);
+                                } else if (data_type === "string") {
+                                    //console.log("marker.size cannot be a string");
+                                }
+                            }
+                        }
+
+                    }
+
+                    //console.log(data_update);
+
+                    window.Plotly.addTraces(window.plotly_container, data_update);
+
+                    const layout_update = JSON.parse(plotly_plot.GetLayout());
+
+                    //console.log(layout_update);
+
+                    window.Plotly.relayout(window.plotly_container, layout_update);
+
+                }
+            } else if (args.data.event === "DataSourceUpdated" || args.data.event === "PlotDataUpdated") {
+
+                const plotly_plot = window.chrome.webview.hostObjects.sync.CsPlotlyPlot;
+
+                //console.log(plotly_plot);
+
+                if (plotly_plot !== undefined && plotly_plot !== null) {
+
+                    let data_update = JSON.parse(plotly_plot.GetData());
+                    let data_type = "";
+
+                    for (let i = 0;i < data_update.length;++i) {
+
+                        //console.log(data_update[i]);
+
+                        if ((data_update[i].x === undefined || data_update[i].x === null) && data_update[i].xsrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].xsrc);
+
+                            if (data_type === "float") {
+                                data_update[i].x = new Float32Array(plotly_plot[data_update[i].xsrc]);
+                            } else if (data_type === "int") {
+                                data_update[i].x = new Int32Array(plotly_plot[data_update[i].xsrc]);
+                            } else if (data_type === "string") {
+                                data_update[i].x = plotly_plot[data_update[i].xsrc];
+                            }
+                        }
+
+                        if ((data_update[i].y === undefined || data_update[i].y === null) && data_update[i].ysrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].ysrc);
+
+                            if (data_type === "float") {
+                                data_update[i].y = new Float32Array(plotly_plot[data_update[i].ysrc]);
+                            } else if (data_type === "int") {
+                                data_update[i].y = new Int32Array(plotly_plot[data_update[i].ysrc]);
+                            } else if (data_type === "string") {
+                                data_update[i].y = plotly_plot[data_update[i].ysrc];
+                            }
+                        }
+
+                        if (data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
+                            data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
+
+                            if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {
+                                const temp_size = data_update[i].marker.size;
+                                if (data_type === "float") {
+                                    //console.log(temp_size);
+                                    //console.log(new Float32Array(plotly_plot[data_update[i].marker.sizesrc]));
+
+                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
+
+                                    //console.log(data_update[i].marker.size);
+
+                                } else if (data_type === "int") {
+                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
+                                } else if (data_type === "string") {
+                                    //console.log("marker.size cannot be a string");
+                                }
+                            } else {
+                                if (data_type === "float") {
+                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]);
+                                } else if (data_type === "int") {
+                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]);
+                                } else if (data_type === "string") {
+                                    //console.log("marker.size cannot be a string");
+                                }
+                            }
+                        }
+                    }
+
+                    //if (data_update.length === window.plotly_container.data.length) {
+                    //    const indices = new Array(window.plotly_container.data.length).fill().map((element, index) => index);
+                    //    console.log(indices);
+                    //    window.Plotly.update(window.plotly_container, data_update, indices);
+                    //} else {
+                    while (window.plotly_container.data.length > 0) {
+                        window.Plotly.deleteTraces(window.plotly_container, 0);
+                    }
+
+                    window.Plotly.addTraces(window.plotly_container, data_update);
+                    //}
+                }
+            } else if (args.data.event === "PlotLayoutUpdated") {
+
+                const plotly_plot = window.chrome.webview.hostObjects.sync.CsPlotlyPlot;
+
+                //console.log(plotly_plot);
+
+                if (plotly_plot !== undefined && plotly_plot !== null) {
+
+                    const layout_update = JSON.parse(plotly_plot.GetLayout());
+
+                    //console.log(layout_update);
+
+                    window.Plotly.relayout(window.plotly_container, layout_update);
+                }
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+//window.plotly_container.on('plotly_selected', function(eventData) {
+
+//    if (eventData !== undefined && eventData !== null) {
+
+//        var selectedData = new Array(eventData.points.length);
+
+//        //var x = [];
+//        //var y = [];
+
+//        //var colors = [];
+
+//        //for (var i = 0;i < N;i++) {
+//        //     colors.push(color1Light);
+//        //}
+
+//        let i = 0;
+//        eventData.points.forEach(function(pt) {
+
+//            selectedData[i] = {
+//                "curveNumber": pt.curveNumber,
+//                "pointIndex": pt.pointIndex,
+//                "pointNumber": pt.pointNumber,
+//                "x": pt.x,
+//                "y": pt.y
+//            };
+
+//            i++;
+//        });
+
+//        //console.log(selectedData);
+
+//        //Plotly.restyle(graphDiv, {
+//        //    x: [x, y],
+//        //    xbins: {}
+//        //}, [1, 2]);
+
+//        //Plotly.restyle(graphDiv, 'marker.color', [colors], [0]);
+
+//        window.chrome.webview.postMessage({
+//            "event": "PlotlySelected",
+//            "selected": selectedData
+//        });
+//    }
+//});
+
+//window.plotly_container.on('plotly_deselect', function(eventData) {
+
+//    window.chrome.webview.postMessage({
+//        "event": "PlotlyUnSelected",
+//        "selected": null
+//    });
+
+//});

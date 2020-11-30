@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <LangVersion>9.0</LangVersion>
+        <TargetFramework>net5.0-windows</TargetFramework>
+        <TargetPlatformVersion></TargetPlatformVersion>
+        <UseWPF>true</UseWPF>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Plotly</RootNamespace>
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">false</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'!=''">$(PACKAGE_CACHE)</PackageOutputPath>
+        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'==''">$(OutputPath)</PackageOutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup>
+      <NoWarn>0649;0169;0414;8604;8625;8765;8600;8601;8602;8603;8604;8605;8634;8629;8765;8604;8625;8600;8602;8603;8629;8619;8612;8769;8767;3001;8622;8620;8073</NoWarn>
+      <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <PackageProjectUrl>https://github.com/trmcnealy/Plotly.WPF</PackageProjectUrl>
+      <Authors>Timothy R. McNealy</Authors>
+      <Description>Plotly.js in a WPF Control</Description>
+      <Copyright>© Timothy R. McNealy</Copyright>
+      <PackageIcon>nindra.png</PackageIcon>
+      <RepositoryUrl>https://github.com/trmcnealy/Plotly.WPF</RepositoryUrl>
+      <RepositoryType>WPF Charts Plotly</RepositoryType>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Plotly.WPF.csproj.DotSettings" />
+        <None Include="..\..\nindra.png">
+          <Pack>True</Pack>
+          <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Plotly/Plotly.html">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="Plotly/Plotly.js">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Text.Json" Version="5.0.0" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+    </ItemGroup>
+
+</Project>

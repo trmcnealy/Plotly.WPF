@@ -83,8 +83,7 @@ namespace Plotly {
         ///    &lt;div id=&quot;{ID}&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/div&gt;
         ///&lt;/div&gt;
         ///&lt;script&gt;
-        ///    window.plotly_container_{ID}_Id = &quot;{ID}&quot;;
-        ///    wi [rest of string was truncated]&quot;;.
+        ///    window.plotly_container_{ID} = document.getEleme [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_html {
             get {

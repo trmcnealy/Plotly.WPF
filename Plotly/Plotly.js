@@ -170,7 +170,6 @@ let PlotlyApp = {
       modeBarButtons: false,
       modeBarButtonsToAdd: [],
       modeBarButtonsToRemove: [
-        'toggleSpikelines',
         'hoverClosestCartesian',
         'hoverCompareCartesian'
       ],

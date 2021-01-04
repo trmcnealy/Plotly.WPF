@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,33 +15,45 @@ using Plotly.Models;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 
+//https://github.com/cefsharp/CefSharp
+//https://github.com/cefsharp/CefSharp.MinimalExample/tree/master/CefSharp.MinimalExample.Wpf
+
+
 [assembly: XmlnsPrefix("http://www.plotly.com", "plotly")]
 [assembly: XmlnsDefinition("http://www.plotly.com", "Plotly")]
 
 namespace Plotly
 {
-    [TemplatePart(Name        = "WebViewElement", Type         = typeof(WebView2))]
-    [TemplateVisualState(Name = "Navigating", GroupName = "ValueStates")]
-    [TemplateVisualState(Name = "Waiting", GroupName = "ValueStates")]
-    [TemplateVisualState(Name = "Focused", GroupName = "FocusedStates")]
-    [TemplateVisualState(Name = "Unfocused", GroupName = "FocusedStates")]
+    [TemplatePart(Name        = "WebViewElement", Type  = typeof(WebView2))]
+    //[TemplateVisualState(Name = "Navigating", GroupName = "ValueStates")]
+    //[TemplateVisualState(Name = "Waiting", GroupName    = "ValueStates")]
+    //[TemplateVisualState(Name = "Focused", GroupName    = "FocusedStates")]
+    //[TemplateVisualState(Name = "Unfocused", GroupName  = "FocusedStates")]
     public class PlotlyView : Control
     {
+        private static readonly string Plotly_folder;
         static PlotlyView()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PlotlyView), new FrameworkPropertyMetadata(typeof(PlotlyView)));
+            
+            Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
+
+            if(!Directory.Exists(Plotly_folder))
+            {
+                Directory.CreateDirectory(Plotly_folder);
+            }
         }
 
         #region DataSource Property
 
-        public Dictionary<string, (string type, List<object> array)> DataSource
+        public Dictionary<string, (string type, object[] array)> DataSource
         {
-            get { return (Dictionary<string, (string type, List<object> array)>)GetValue(DataSourceProperty); }
+            get { return (Dictionary<string, (string type, object[] array)>)GetValue(DataSourceProperty); }
             set { SetValue(DataSourceProperty, value); }
         }
 
         public static readonly DependencyProperty DataSourceProperty = DependencyProperty.Register("DataSource",
-                                                                                                   typeof(Dictionary<string, (string type, List<object> array)>),
+                                                                                                   typeof(Dictionary<string, (string type, object[] array)>),
                                                                                                    typeof(PlotlyView),
                                                                                                    new FrameworkPropertyMetadata(null, OnDataSourcePropertyChanged));
 
@@ -51,7 +62,7 @@ namespace Plotly
         {
             Debug.WriteLine("OnDataSourcePropertyChanged");
 
-            if(sender is PlotlyView plotlyView && e.NewValue is Dictionary<string, (string type, List<object> array)> data_source)
+            if(sender is PlotlyView plotlyView && e.NewValue is Dictionary<string, (string type, object[] array)> data_source)
             {
                 plotlyView.CsPlotlyPlot.DataSource = data_source;
 
@@ -176,35 +187,46 @@ namespace Plotly
 
         public bool IsNavigating { get; set; }
 
+        private readonly Guid _id;
 
-        private readonly  Guid _id;
-        public string Id
+        private readonly string Plotly_html_file;
+
+        private readonly Uri SourceUri;
+
+        public string Id { get; }
+
+        private static Guid MakeGuid(string guid)
         {
-            get;
-        }
-
-        public PlotlyView()
-        {
-            _id          = Guid.NewGuid();
-            Id          = _id.ToString().Replace("-", "_");
-
-            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly"); 
-
-            if(!Directory.Exists(Plotly_folder))
+            if(Guid.TryParse(guid, out Guid newGuid))
             {
-                Directory.CreateDirectory(Plotly_folder);
+                return newGuid;
             }
 
-            string Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
+            return Guid.NewGuid();
+        }
+
+        public PlotlyView():this(Guid.NewGuid())
+        {}
+
+        public PlotlyView(string guid):this(MakeGuid(guid))
+        {}
+
+        public PlotlyView(Guid guid)
+        {
+            _id = guid;
+            Id  = _id.ToString().Replace("-", "_");
+
+            Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
 
             if(!File.Exists(Plotly_html_file))
             {
                 using(StreamWriter sw = new StreamWriter(Plotly_html_file))
                 {
-                    sw.Write(global::Plotly.Resources.Plotly_html.Replace("{ID}", Id));
+                    sw.Write(Plotly.Resources.Plotly_html.Replace("{ID}", Id));
                 }
             }
-
+            
+            SourceUri = new Uri(Path.Combine("file:///", Plotly_html_file));
 
             CsPlotlyPlot = new CsPlotlyPlot();
 
@@ -226,21 +248,18 @@ namespace Plotly
             if(File.Exists(Plotly_html_file))
             {
                 File.Delete(Plotly_html_file);
-            
             }
         }
 
         private void WebView_OnNavigationStarting(object?                                 sender,
                                                   CoreWebView2NavigationStartingEventArgs e)
         {
-            Debug.WriteLine("WebView_OnNavigationStarting");
             IsNavigating = true;
         }
 
         private void WebView_OnNavigationCompleted(object?                                  sender,
                                                    CoreWebView2NavigationCompletedEventArgs e)
         {
-            Debug.WriteLine("WebView_OnNavigationCompleted");
             IsNavigating = false;
 
             UpdatePlot();
@@ -249,8 +268,6 @@ namespace Plotly
         private void WebView_CoreWebView2Ready(object?   sender,
                                                EventArgs e)
         {
-            Debug.WriteLine("WebView_CoreWebView2Ready");
-
             if(WebViewElement.CoreWebView2 is not null)
             {
                 //if(Debugger.IsAttached)
@@ -259,6 +276,19 @@ namespace Plotly
                 //}
 
                 WebViewElement.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
+
+                if(DataSource is null)
+                {
+                    throw new NullReferenceException(nameof(DataSource));
+                }
+                if(PlotData is null)
+                {
+                    throw new NullReferenceException(nameof(PlotData));
+                }
+                if(PlotLayout is null)
+                {
+                    throw new NullReferenceException(nameof(PlotLayout));
+                }
 
                 CsPlotlyPlot = new CsPlotlyPlot(DataSource, PlotData, PlotLayout);
 
@@ -269,7 +299,6 @@ namespace Plotly
         private void CoreWebView2_WebMessageReceived(object?                                 sender,
                                                      CoreWebView2WebMessageReceivedEventArgs e)
         {
-            Debug.WriteLine("CoreWebView2_WebMessageReceived");
             ProcessCallbackMessage(e.WebMessageAsJson);
         }
 
@@ -296,6 +325,7 @@ namespace Plotly
                         {
                             SelectedItems = @event.Selected;
                         }
+
                         break;
                     }
                     case "PlotlyDeselect":
@@ -339,26 +369,26 @@ namespace Plotly
             }
         }
 
-        private void UpdateStates(bool useTransitions)
-        {
-            if(IsNavigating)
-            {
-                VisualStateManager.GoToState(this, "Navigating", useTransitions);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, "Waiting", useTransitions);
-            }
+        //private void UpdateStates(bool useTransitions)
+        //{
+        //    if(IsNavigating)
+        //    {
+        //        VisualStateManager.GoToState(this, "Navigating", useTransitions);
+        //    }
+        //    else
+        //    {
+        //        VisualStateManager.GoToState(this, "Waiting", useTransitions);
+        //    }
 
-            if(IsFocused)
-            {
-                VisualStateManager.GoToState(this, "Focused", useTransitions);
-            }
-            else
-            {
-                VisualStateManager.GoToState(this, "Unfocused", useTransitions);
-            }
-        }
+        //    if(IsFocused)
+        //    {
+        //        VisualStateManager.GoToState(this, "Focused", useTransitions);
+        //    }
+        //    else
+        //    {
+        //        VisualStateManager.GoToState(this, "Unfocused", useTransitions);
+        //    }
+        //}
 
         public override void OnApplyTemplate()
         {
@@ -369,7 +399,7 @@ namespace Plotly
 
         public async void InitializeAsync()
         {
-            WebViewElement.Source = new Uri(Path.Combine("file:///", AppDomain.CurrentDomain.BaseDirectory, $"Plotly/Plotly_{Id}.html"));
+            WebViewElement.Source = SourceUri;
 
             WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
 
@@ -378,23 +408,23 @@ namespace Plotly
             await WebViewElement.EnsureCoreWebView2Async(env);
         }
 
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            Focus();
-        }
+        //protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        //{
+        //    base.OnMouseLeftButtonDown(e);
+        //    Focus();
+        //}
 
-        protected override void OnGotFocus(RoutedEventArgs e)
-        {
-            base.OnGotFocus(e);
-            UpdateStates(true);
-        }
+        //protected override void OnGotFocus(RoutedEventArgs e)
+        //{
+        //    base.OnGotFocus(e);
+        //    //UpdateStates(true);
+        //}
 
-        protected override void OnLostFocus(RoutedEventArgs e)
-        {
-            base.OnLostFocus(e);
-            UpdateStates(true);
-        }
+        //protected override void OnLostFocus(RoutedEventArgs e)
+        //{
+        //    base.OnLostFocus(e);
+        //    //UpdateStates(true);
+        //}
 
         public static string ArrayToString(List<object> values)
         {

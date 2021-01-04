@@ -1,39 +1,43 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+
+    <Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />
 
     <PropertyGroup>
         <LangVersion>9.0</LangVersion>
-        <TargetFramework>net5.0-windows</TargetFramework>
-        <TargetPlatformVersion></TargetPlatformVersion>
+        <TargetFramework>net5.0-$(TargetPlatformIdentifier)$(TargetPlatformVersion)</TargetFramework>
+        <Platforms>AnyCPU;x86;x64</Platforms>
         <UseWPF>true</UseWPF>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <Nullable>enable</Nullable>
         <RootNamespace>Plotly</RootNamespace>
-        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">false</GeneratePackageOnBuild>
-        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
-        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'!=''">$(PACKAGE_CACHE)</PackageOutputPath>
-        <PackageOutputPath Condition="'$(PACKAGE_CACHE)'==''">$(OutputPath)</PackageOutputPath>
+        <NoWarn>0649;0169;0414;8604;8625;8765;8600;8601;8602;8603;8604;8605;8634;8629;8765;8604;8625;8600;8602;8603;8629;8619;8612;8769;8767;3001;8622;8620;8073</NoWarn>
     </PropertyGroup>
 
+    <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />
+
     <PropertyGroup>
-      <NoWarn>0649;0169;0414;8604;8625;8765;8600;8601;8602;8603;8604;8605;8634;8629;8765;8604;8625;8600;8602;8603;8629;8619;8612;8769;8767;3001;8622;8620;8073</NoWarn>
-      <PackageLicenseExpression>MIT</PackageLicenseExpression>
-      <PackageProjectUrl>https://github.com/trmcnealy/Plotly.WPF</PackageProjectUrl>
-      <Authors>Timothy R. McNealy</Authors>
-      <Description>Plotly.js in a WPF Control</Description>
-      <Copyright>© Timothy R. McNealy</Copyright>
-      <PackageIcon>nindra.png</PackageIcon>
-      <RepositoryUrl>https://github.com/trmcnealy/Plotly.WPF</RepositoryUrl>
-      <RepositoryType>WPF Charts Plotly</RepositoryType>
-      <AssemblyVersion>1.0.4.0</AssemblyVersion>
-      <FileVersion>1.0.4.0</FileVersion>
-      <Version>1.0.4</Version>
+        <NuspecFile>Plotly.WPF.nuspec</NuspecFile>
     </PropertyGroup>
+
+    <!--<Target Name="Build">
+        <MSBuild Projects="@(_MSBuildProjectReferenceExistent)"
+                 Targets="GetTargetPath"
+                 RunEachTargetSeparately="false"
+                 BuildInParallel="$(BuildInParallel)"
+                 Properties="%(_MSBuildProjectReferenceExistent.SetConfiguration);%(_MSBuildProjectReferenceExistent.SetPlatform)"
+                 Condition="'@(NonVCProjectReference)'!='' and ('$(BuildingSolutionFile)' == 'true' or '$(BuildingInsideVisualStudio)' == 'true' or '$(BuildProjectReferences)' != 'true') and '@(_MSBuildProjectReferenceExistent)' != ''"
+                 ContinueOnError="!$(BuildingProject)">
+            <Output TaskParameter="TargetOutputs"
+                    ItemName="_ResolvedProjectReferencePaths"/>
+        </MSBuild>
+    </Target>-->
 
     <ItemGroup>
         <None Remove="Plotly.WPF.csproj.DotSettings" />
-        <None Include="..\..\nindra.png">
-          <Pack>True</Pack>
-          <PackagePath></PackagePath>
+
+        <None Include="..\..\trmcnealy.github.io\assets\nindra.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
         </None>
     </ItemGroup>
 
@@ -41,11 +45,10 @@
         <None Include="Plotly/Plotly.html">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </None>
-        <Content Include="Plotly/Plotly.js">
+        <None Include="Plotly/Plotly.js">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-        </Content>
+        </None>
     </ItemGroup>
-
 
     <ItemGroup>
         <Compile Update="Plotly\Resources.Designer.cs">
@@ -53,9 +56,6 @@
             <AutoGen>True</AutoGen>
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
-    </ItemGroup>
-
-    <ItemGroup>
         <EmbeddedResource Update="Plotly\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -67,6 +67,11 @@
         <PackageReference Include="System.Text.Json" Version="5.0.0" />
         <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+
+        <!--<PackageReference Include="Microsoft.Net.Native.Compiler" Version="2.2.9-rel-29512-01">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>-->
     </ItemGroup>
 
 </Project>

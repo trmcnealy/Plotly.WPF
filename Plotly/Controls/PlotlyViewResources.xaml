@@ -12,21 +12,21 @@
                 <ControlTemplate TargetType="wpf:PlotlyView">
                     <Grid>
 
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup Name="ValueStates">
-                                <VisualState Name="Navigating">
-                                    <!--<Storyboard>
+                        <!--<VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ValueStates">
+                                <VisualState x:Name="Navigating">
+                                    --><!--<Storyboard>
                                         <ColorAnimation To="Red"
                                                         Storyboard.TargetName="TextBlock"
                                                         Storyboard.TargetProperty="(Foreground).(Color)"/>
-                                    </Storyboard>-->
+                                    </Storyboard>--><!--
                                 </VisualState>
-                                <VisualState Name="Waiting"/>
+                                <VisualState x:Name="Waiting"/>
                             </VisualStateGroup>
 
-                            <VisualStateGroup Name="FocusStates">
-                                <VisualState Name="Focused">
-                                    <!--<Storyboard>
+                            <VisualStateGroup x:Name="FocusStates">
+                                <VisualState x:Name="Focused">
+                                    --><!--<Storyboard>
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="FocusVisual"
                                                                        Storyboard.TargetProperty="Visibility"
                                                                        Duration="0">
@@ -36,11 +36,11 @@
                                                 </DiscreteObjectKeyFrame.Value>
                                             </DiscreteObjectKeyFrame>
                                         </ObjectAnimationUsingKeyFrames>
-                                    </Storyboard>-->
+                                    </Storyboard>--><!--
                                 </VisualState>
-                                <VisualState Name="Unfocused"/>
+                                <VisualState x:Name="Unfocused"/>
                             </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
+                        </VisualStateManager.VisualStateGroups>-->
 
                         <wv:WebView2 x:Name="WebView" CreationProperties="{StaticResource EvergreenWebView2CreationProperties}"/>
 

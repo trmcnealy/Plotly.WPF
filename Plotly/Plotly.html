@@ -115,7 +115,8 @@
                             }
                         }
 
-                        if (data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
+                        if (data_update[i].marker !== undefined && data_update[i].marker !== null &&
+                            data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
                             data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
 
                             if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {
@@ -197,7 +198,8 @@
                             }
                         }
 
-                        if (data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
+                        if (data_update[i].marker !== undefined && data_update[i].marker !== null &&
+                            data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
                             data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
 
                             if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {

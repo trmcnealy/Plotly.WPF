@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Plotly.Plotly
+namespace Plotly
 {
     internal static class Module
     {
@@ -17,6 +17,11 @@ namespace Plotly.Plotly
 
             if(!Directory.Exists(Plotly_folder))
             {
+                Directory.CreateDirectory(Plotly_folder);
+            }
+            else
+            {
+                Directory.Delete(Plotly_folder, true);
                 Directory.CreateDirectory(Plotly_folder);
             }
 

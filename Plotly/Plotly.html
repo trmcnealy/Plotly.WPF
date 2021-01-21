@@ -26,21 +26,35 @@
     
         const plotly_plot = window.PlotlyApp.getManagedObject("CsPlotlyPlot_{ID}");
         
-        const data = [];
+        const plotly_data = [];
 
-        const layout = {};
+        const plotly_layout = {};
 
-        if (plotly_plot !== undefined && plotly_plot !== null) {
+        const plotly_frames = [];
 
-            const config = JSON.parse(plotly_plot.GetConfig());
+        if (IsNotNull(plotly_plot)) {
 
-            window.Plotly.newPlot(window.plotly_container_{ID}, data, layout, config);
+            const plotly_config = JSON.parse(plotly_plot.GetConfig());
+
+            window.Plotly.newPlot(window.plotly_container_{ID},
+            {
+                data: plotly_data,
+                layout: plotly_layout,
+                config: plotly_config,
+                frames: plotly_frames
+            });
 
         } else {
 
-            const config = window.PlotlyApp.getDefaultConfiguration();
+            const plotly_config = window.PlotlyApp.getDefaultConfiguration();
 
-            window.Plotly.newPlot(window.plotly_container_{ID}, data, layout, config);
+            window.Plotly.newPlot(window.plotly_container_{ID},
+            {
+                data: plotly_data,
+                layout: plotly_layout,
+                config: plotly_config,
+                frames: plotly_frames
+            });
         }
         
         window.plotly_container_{ID} = window.PlotlyApp.listenToSelectedEvent(window.plotly_container_{ID}, PlotlySelectedHandler);
@@ -62,7 +76,6 @@
         //window.plotly_container_{ID} = window.PlotlyApp.listenToRestyleEvent(window.plotly_container_{ID});
         //window.plotly_container_{ID} = window.PlotlyApp.listenToWebglContextLostEvent(window.plotly_container_{ID});
 
-        
         window.chrome.webview.postMessage({
             "event": "DOMContentLoaded"
         });
@@ -82,70 +95,53 @@
 
                 //console.log(plotly_plot);
 
-                if (plotly_plot !== undefined && plotly_plot !== null) {
+                if (IsNotNull(plotly_plot)) {
 
                     let data_update = JSON.parse(plotly_plot.GetData());
-                    let data_type = "";
 
                     for (let i = 0;i < data_update.length;++i) {
 
                         //console.log(data_update[i]);
 
-                        if ((data_update[i].x === undefined || data_update[i].x === null) && data_update[i].xsrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].xsrc);
-
-                            if (data_type === "float") {
-                                data_update[i].x = new Float32Array(plotly_plot[data_update[i].xsrc]);
-                            } else if (data_type === "int") {
-                                data_update[i].x = new Int32Array(plotly_plot[data_update[i].xsrc]);
-                            } else if (data_type === "string") {
-                                data_update[i].x = plotly_plot[data_update[i].xsrc];
-                            }
+                        if (IsNull(data_update[i].text) && IsNotNull(data_update[i].textsrc)) {
+                            data_update[i].text = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].textsrc);
                         }
 
-                        if ((data_update[i].y === undefined || data_update[i].y === null) && data_update[i].ysrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].ysrc);
-
-                            if (data_type === "float") {
-                                data_update[i].y = new Float32Array(plotly_plot[data_update[i].ysrc]);
-                            } else if (data_type === "int") {
-                                data_update[i].y = new Int32Array(plotly_plot[data_update[i].ysrc]);
-                            } else if (data_type === "string") {
-                                data_update[i].y = plotly_plot[data_update[i].ysrc];
-                            }
+                        if (IsNull(data_update[i].x) && IsNotNull(data_update[i].xsrc)) {
+                            data_update[i].x = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].xsrc);
                         }
 
-                        if (data_update[i].marker !== undefined && data_update[i].marker !== null &&
-                            data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
+                        if (IsNull(data_update[i].y) && IsNotNull(data_update[i].ysrc)) {
+                            data_update[i].y = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].ysrc);
+                        }
 
-                            if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {
-                                const temp_size = data_update[i].marker.size;
-                                if (data_type === "float") {
+                        if (IsNull(data_update[i].lon) && IsNotNull(data_update[i].lonsrc)) {
+                            data_update[i].lon = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].lonsrc);
+                        }
 
-                                    //console.log(temp_size);
-                                    //console.log(new Float32Array(plotly_plot[data_update[i].marker.sizesrc]));
+                        if (IsNull(data_update[i].lat) && IsNotNull(data_update[i].latsrc)) {
+                            data_update[i].lat = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].latsrc);
+                        }
 
-                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
-
-                                    //console.log(data_update[i].marker.size);
-
-                                } else if (data_type === "int") {
-                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
-                                } else if (data_type === "string") {
-                                    //console.log("marker.size cannot be a string");
+                        if (IsNotNull(data_update[i].dimensions) && data_update[i].dimensions.length > 0) {
+                            for (let j = 0;j < data_update[i].dimensions.length;++j) {
+                                if (IsNull(data_update[i].dimensions[j].values) && IsNotNull(data_update[i].dimensions[j].valuessrc)) {
+                                    data_update[i].dimensions[j].values = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].dimensions[j].valuessrc);
                                 }
+                            }
+                        }
+
+                        if (IsNotNull(data_update[i].marker) && IsNull(data_update[i].marker.color) && IsNotNull(data_update[i].marker.colorsrc)) {
+                            data_update[i].marker.color = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].marker.colorsrc);
+                        }
+
+                        if (IsNotNull(data_update[i].marker) && IsNotNull(data_update[i].marker.sizesrc)) {
+                            if (IsNotNull(data_update[i].marker.size)) {
+                                data_update[i].marker.size = window.PlotlyApp.getSourceArrayMapTimesValue(plotly_plot, data_update[i].marker.sizesrc, data_update[i].marker.size);
                             } else {
-                                if (data_type === "float") {
-                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]);
-                                } else if (data_type === "int") {
-                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]);
-                                } else if (data_type === "string") {
-                                    //console.log("marker.size cannot be a string");
-                                }
+                                data_update[i].marker.size = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].marker.sizesrc);
                             }
                         }
-
                     }
 
                     //console.log(data_update);
@@ -158,6 +154,15 @@
 
                     window.Plotly.relayout(window.plotly_container_{ID}, layout_update);
 
+
+                    const frames_update = JSON.parse(plotly_plot.GetFrames());
+                    
+                    if (IsNotNull(frames_update) && frames_update.length > 0) {
+
+                        window.Plotly.addFrames(window.plotly_container_{ID}, frames_update);
+
+                    }
+
                 }
             } else if (args.data.event === "DataSourceUpdated" || args.data.event === "PlotDataUpdated") {
 
@@ -165,66 +170,51 @@
 
                 //console.log(plotly_plot);
 
-                if (plotly_plot !== undefined && plotly_plot !== null) {
+                if (IsNotNull(plotly_plot)) {
 
                     let data_update = JSON.parse(plotly_plot.GetData());
-                    let data_type = "";
 
                     for (let i = 0;i < data_update.length;++i) {
 
                         //console.log(data_update[i]);
 
-                        if ((data_update[i].x === undefined || data_update[i].x === null) && data_update[i].xsrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].xsrc);
-
-                            if (data_type === "float") {
-                                data_update[i].x = new Float32Array(plotly_plot[data_update[i].xsrc]);
-                            } else if (data_type === "int") {
-                                data_update[i].x = new Int32Array(plotly_plot[data_update[i].xsrc]);
-                            } else if (data_type === "string") {
-                                data_update[i].x = plotly_plot[data_update[i].xsrc];
-                            }
+                        if (IsNull(data_update[i].text) && IsNotNull(data_update[i].textsrc)) {
+                            data_update[i].text = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].textsrc);
                         }
 
-                        if ((data_update[i].y === undefined || data_update[i].y === null) && data_update[i].ysrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].ysrc);
-
-                            if (data_type === "float") {
-                                data_update[i].y = new Float32Array(plotly_plot[data_update[i].ysrc]);
-                            } else if (data_type === "int") {
-                                data_update[i].y = new Int32Array(plotly_plot[data_update[i].ysrc]);
-                            } else if (data_type === "string") {
-                                data_update[i].y = plotly_plot[data_update[i].ysrc];
-                            }
+                        if (IsNull(data_update[i].x) && IsNotNull(data_update[i].xsrc)) {
+                            data_update[i].x = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].xsrc);
                         }
 
-                        if (data_update[i].marker !== undefined && data_update[i].marker !== null &&
-                            data_update[i].marker.sizesrc !== undefined && data_update[i].marker.sizesrc !== null) {
-                            data_type = plotly_plot.GetDataSourceType(data_update[i].marker.sizesrc);
+                        if (IsNull(data_update[i].y) && IsNotNull(data_update[i].ysrc)) {
+                            data_update[i].y = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].ysrc);
+                        }
 
-                            if (data_update[i].marker.size !== undefined && data_update[i].marker.size !== null) {
-                                const temp_size = data_update[i].marker.size;
-                                if (data_type === "float") {
-                                    //console.log(temp_size);
-                                    //console.log(new Float32Array(plotly_plot[data_update[i].marker.sizesrc]));
+                        if (IsNull(data_update[i].lon) && IsNotNull(data_update[i].lonsrc)) {
+                            data_update[i].lon = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].lonsrc);
+                        }
 
-                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
+                        if (IsNull(data_update[i].lat) && IsNotNull(data_update[i].latsrc)) {
+                            data_update[i].lat = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].latsrc);
+                        }
 
-                                    //console.log(data_update[i].marker.size);
-
-                                } else if (data_type === "int") {
-                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]).map((element, index) => element * temp_size);
-                                } else if (data_type === "string") {
-                                    //console.log("marker.size cannot be a string");
+                        if (IsNotNull(data_update[i].dimensions) && data_update[i].dimensions.length > 0) {
+                            for (let j = 0;j < data_update[i].dimensions.length;++j) {
+                                if (IsNull(data_update[i].dimensions[j].values) && IsNotNull(data_update[i].dimensions[j].valuessrc)) {
+                                    data_update[i].dimensions[j].values = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].dimensions[j].valuessrc);
                                 }
+                            }
+                        }
+
+                        if (IsNotNull(data_update[i].marker) && IsNull(data_update[i].marker.color) && IsNotNull(data_update[i].marker.colorsrc)) {
+                            data_update[i].marker.color = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].marker.colorsrc);
+                        }
+
+                        if (IsNotNull(data_update[i].marker) && IsNotNull(data_update[i].marker.sizesrc)) {
+                            if (IsNotNull(data_update[i].marker.size)) {
+                                data_update[i].marker.size = window.PlotlyApp.getSourceArrayMapTimesValue(plotly_plot, data_update[i].marker.sizesrc, data_update[i].marker.size);
                             } else {
-                                if (data_type === "float") {
-                                    data_update[i].marker.size = new Float32Array(plotly_plot[data_update[i].marker.sizesrc]);
-                                } else if (data_type === "int") {
-                                    data_update[i].marker.size = new Int32Array(plotly_plot[data_update[i].marker.sizesrc]);
-                                } else if (data_type === "string") {
-                                    //console.log("marker.size cannot be a string");
-                                }
+                                data_update[i].marker.size = window.PlotlyApp.getSourceArray(plotly_plot, data_update[i].marker.sizesrc);
                             }
                         }
                     }
@@ -238,6 +228,8 @@
                         window.Plotly.deleteTraces(window.plotly_container_{ID}, 0);
                     }
 
+                    console.log(data_update);
+
                     window.Plotly.addTraces(window.plotly_container_{ID}, data_update);
                     //}
                 }
@@ -247,15 +239,108 @@
 
                 //console.log(plotly_plot);
 
-                if (plotly_plot !== undefined && plotly_plot !== null) {
+                if (IsNotNull(plotly_plot)) {
 
                     const layout_update = JSON.parse(plotly_plot.GetLayout());
 
-                    //console.log(layout_update);
+                    console.log(layout_update);
 
                     window.Plotly.relayout(window.plotly_container_{ID}, layout_update);
                 }
+            } else if (args.data.event === "PlotFramesUpdated") {
+
+                const plotly_plot = window.PlotlyApp.getManagedObject("CsPlotlyPlot_{ID}");
+
+                //console.log(plotly_plot);
+
+                if (IsNotNull(plotly_plot)) {
+
+                    const frames_update = JSON.parse(plotly_plot.GetFrames());
+
+                    for (let i = 0;i < frames_update.length;++i) {
+
+                        if (IsNotNull(frames_update[i].data) && IsNotNull(frames_update[i].data.dimensions) && frames_update[i].data.dimensions.length > 0) {
+                            for (let j = 0;j < frames_update[i].data.dimensions.length;++j) {
+
+                                if (IsNull(frames_update[i].data.dimensions[j].values) && IsNotNull(frames_update[i].data.dimensions[j].valuessrc)) {
+                                    frames_update[i].data.dimensions[j].values = window.PlotlyApp.getSourceArray(plotly_plot, frames_update[i].data.dimensions[j].valuessrc);
+                                }
+                            }
+                        }
+                    }
+                    
+                    console.log(frames_update);
+
+                    window.Plotly.addFrames(window.plotly_container_{ID}, frames_update);
+                }
+            } else if (args.data.event === "PlotConfigUpdated") {
+
+                const plotly_plot = window.PlotlyApp.getManagedObject("CsPlotlyPlot_{ID}");
+
+                console.log(plotly_plot);
+                
+                if (IsNotNull(plotly_plot)) {
+
+                    let plotly_data = JSON.parse(plotly_plot.GetData());
+
+                    for (let i = 0;i < plotly_data.length;++i) {
+
+                        //console.log(plotly_data[i]);
+
+                        if (IsNull(plotly_data[i].x) && IsNotNull(plotly_data[i].xsrc)) {
+                            plotly_data[i].x = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].xsrc);
+                        }
+
+                        if (IsNull(plotly_data[i].y) && IsNotNull(plotly_data[i].ysrc)) {
+                            plotly_data[i].y = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].ysrc);
+                        }
+
+                        if (IsNull(plotly_data[i].lon) && IsNotNull(plotly_data[i].lonsrc)) {
+                            plotly_data[i].lon = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].lonsrc);
+                        }
+
+                        if (IsNull(plotly_data[i].lat) && IsNotNull(plotly_data[i].latsrc)) {
+                            plotly_data[i].lat = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].latsrc);
+                        }
+
+                        if (IsNotNull(plotly_data[i].dimensions) && plotly_data[i].dimensions.length > 0) {
+                            for (let j = 0;j < plotly_data[i].dimensions.length;++j) {
+                                if (IsNull(plotly_data[i].dimensions[j].values) && IsNotNull(plotly_data[i].dimensions[j].valuessrc)) {
+                                    plotly_data[i].dimensions[j].values = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].dimensions[j].valuessrc);
+                                }
+                            }
+                        }
+
+                        if (IsNotNull(plotly_data[i].marker) && IsNull(plotly_data[i].marker.color) && IsNotNull(plotly_data[i].marker.colorsrc)) {
+                            plotly_data[i].marker.color = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].marker.colorsrc);
+                        }
+
+                        if (IsNotNull(plotly_data[i].marker) && IsNotNull(plotly_data[i].marker.sizesrc)) {
+                            if (IsNotNull(plotly_data[i].marker.size)) {
+                                plotly_data[i].marker.size = window.PlotlyApp.getSourceArrayMapTimesValue(plotly_plot, plotly_data[i].marker.sizesrc, plotly_data[i].marker.size);
+                            } else {
+                                plotly_data[i].marker.size = window.PlotlyApp.getSourceArray(plotly_plot, plotly_data[i].marker.sizesrc);
+                            }
+                        }
+                    }
+
+                    const plotly_layout = JSON.parse(plotly_plot.GetLayout());
+
+                    const plotly_config = JSON.parse(plotly_plot.GetConfig());
+
+                    const plotly_frames = JSON.parse(plotly_plot.GetFrames());
+
+                    window.Plotly.newPlot(window.plotly_container_{ID},
+                    {
+                        data: plotly_data,
+                        layout: plotly_layout,
+                        config: plotly_config,
+                        frames: plotly_frames
+                    });
+                }
             }
+
+
         }
     });
 

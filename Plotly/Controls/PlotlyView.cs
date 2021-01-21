@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Markup;
 
 using Plotly.Models;
@@ -18,10 +19,8 @@ using Microsoft.Web.WebView2.Wpf;
 //https://github.com/cefsharp/CefSharp
 //https://github.com/cefsharp/CefSharp.MinimalExample/tree/master/CefSharp.MinimalExample.Wpf
 
-
 [assembly: XmlnsPrefix("http://www.plotly.com", "plotly")]
 [assembly: XmlnsDefinition("http://www.plotly.com", "Plotly")]
-
 namespace Plotly
 {
     [TemplatePart(Name        = "WebViewElement", Type  = typeof(WebView2))]
@@ -46,14 +45,36 @@ namespace Plotly
 
         #region DataSource Property
 
-        public Dictionary<string, (string type, object[] array)> DataSource
+        public ObservableDictionary<string, (string type, object[] array)> DataSource
         {
-            get { return (Dictionary<string, (string type, object[] array)>)GetValue(DataSourceProperty); }
-            set { SetValue(DataSourceProperty, value); }
+            get { return (ObservableDictionary<string, (string type, object[] array)>)GetValue(DataSourceProperty); }
+            set
+            {
+                SetValue(DataSourceProperty, value);
+
+                void DataSource_CollectionChanged(object?                                                         sender,
+                                                  System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    DependencyPropertyChangedEventArgs args = new(PlotDataProperty, e.OldItems, e.NewItems);
+
+                    if(sender is DependencyObject dependencyObject)
+                    {
+                        OnDataSourcePropertyChanged(dependencyObject, args);
+                    }
+                    else
+                    {
+                        OnDataSourcePropertyChanged(this, args);
+                    }
+                }
+
+                DataSource.CollectionChanged -= DataSource_CollectionChanged;
+                DataSource.CollectionChanged += DataSource_CollectionChanged;
+            }
         }
 
+
         public static readonly DependencyProperty DataSourceProperty = DependencyProperty.Register("DataSource",
-                                                                                                   typeof(Dictionary<string, (string type, object[] array)>),
+                                                                                                   typeof(ObservableDictionary<string, (string type, object[] array)>),
                                                                                                    typeof(PlotlyView),
                                                                                                    new FrameworkPropertyMetadata(null, OnDataSourcePropertyChanged));
 
@@ -62,9 +83,9 @@ namespace Plotly
         {
             Debug.WriteLine("OnDataSourcePropertyChanged");
 
-            if(sender is PlotlyView plotlyView && e.NewValue is Dictionary<string, (string type, object[] array)> data_source)
+            if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableDictionary<string, (string type, object[] array)> data_source)
             {
-                plotlyView.CsPlotlyPlot.DataSource = data_source;
+                plotlyView.CsPlotlyPlot.DataSource = data_source.ToDictionary();
 
                 if(!plotlyView.IsNavigating)
                 {
@@ -78,23 +99,44 @@ namespace Plotly
 
         #region PlotData Property
 
-        public List<ITrace> PlotData
+        public ObservableCollection<ITrace> PlotData
         {
-            get { return (List<ITrace>)GetValue(PlotDataProperty); }
-            set { SetValue(PlotDataProperty, value); }
+            get { return (ObservableCollection<ITrace>)GetValue(PlotDataProperty); }
+            set
+            {
+                SetValue(PlotDataProperty, value);
+
+                void PlotData_CollectionChanged(object?                                                         sender,
+                                                System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    DependencyPropertyChangedEventArgs args = new(PlotDataProperty, e.OldItems, e.NewItems);
+
+                    if(sender is DependencyObject dependencyObject)
+                    {
+                        OnPlotDataPropertyChanged(dependencyObject, args);
+                    }
+                    else
+                    {
+                        OnPlotDataPropertyChanged(this, args);
+                    }
+                }
+
+                PlotData.CollectionChanged -= PlotData_CollectionChanged;
+                PlotData.CollectionChanged += PlotData_CollectionChanged;
+            }
         }
 
         public static readonly DependencyProperty PlotDataProperty =
-            DependencyProperty.Register("PlotData", typeof(List<ITrace>), typeof(PlotlyView), new FrameworkPropertyMetadata(default, OnPlotDataPropertyChanged));
+            DependencyProperty.Register("PlotData", typeof(ObservableCollection<ITrace>), typeof(PlotlyView), new FrameworkPropertyMetadata(default, OnPlotDataPropertyChanged));
 
         private static void OnPlotDataPropertyChanged(DependencyObject                   sender,
                                                       DependencyPropertyChangedEventArgs e)
         {
             Debug.WriteLine("OnPlotDataPropertyChanged");
 
-            if(sender is PlotlyView plotlyView && e.NewValue is List<ITrace> plotData)
+            if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableCollection<ITrace> plotData)
             {
-                plotlyView.CsPlotlyPlot.PlotData = plotData;
+                plotlyView.CsPlotlyPlot.PlotData = plotData.ToList();
 
                 if(!plotlyView.IsNavigating)
                 {
@@ -122,13 +164,94 @@ namespace Plotly
         {
             Debug.WriteLine("OnPlotLayoutPropertyChanged");
 
-            if(sender is PlotlyView plotlyView && e.NewValue is Layout layout)
+            if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is Layout layout)
             {
                 plotlyView.CsPlotlyPlot.PlotLayout = layout;
 
                 if(!plotlyView.IsNavigating)
                 {
                     PlotlyEvent @event = new(plotlyView.Id, "PlotLayoutUpdated");
+                    plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
+                }
+            }
+        }
+
+        #endregion
+
+        #region PlotConfig Property
+
+        public Config? PlotConfig
+        {
+            get { return (Config?)GetValue(PlotConfigProperty); }
+            set { SetValue(PlotConfigProperty, value); }
+        }
+
+        public static readonly DependencyProperty PlotConfigProperty =
+            DependencyProperty.Register("PlotConfig", typeof(Config), typeof(PlotlyView), new FrameworkPropertyMetadata(default, OnPlotConfigPropertyChanged));
+
+        private static void OnPlotConfigPropertyChanged(DependencyObject                   sender,
+                                                        DependencyPropertyChangedEventArgs e)
+        {
+            Debug.WriteLine("OnPlotConfigPropertyChanged");
+
+            if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is Config config)
+            {
+                plotlyView.CsPlotlyPlot.PlotConfig = config;
+
+                if(!plotlyView.IsNavigating)
+                {
+                    PlotlyEvent @event = new(plotlyView.Id, "PlotConfigUpdated");
+                    plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
+                }
+            }
+        }
+
+        #endregion
+
+        #region PlotFrames Property
+
+        public ObservableCollection<Frames> PlotFrames
+        {
+            get { return (ObservableCollection<Frames>)GetValue(PlotFramesProperty); }
+            set
+            {
+                SetValue(PlotFramesProperty, value);
+
+                void PlotFrames_CollectionChanged(object?                                                         sender,
+                                                  System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    DependencyPropertyChangedEventArgs args = new(PlotFramesProperty, e.OldItems, e.NewItems);
+
+                    if(sender is DependencyObject dependencyObject)
+                    {
+                        OnPlotFramesPropertyChanged(dependencyObject, args);
+                    }
+                    else
+                    {
+                        OnPlotFramesPropertyChanged(this, args);
+                    }
+                }
+
+                PlotFrames.CollectionChanged -= PlotFrames_CollectionChanged;
+                PlotFrames.CollectionChanged += PlotFrames_CollectionChanged;
+            }
+        }
+
+        public static readonly DependencyProperty PlotFramesProperty =
+            DependencyProperty.Register("PlotFrames", typeof(ObservableCollection<Frames>), typeof(PlotlyView), new FrameworkPropertyMetadata(default, OnPlotFramesPropertyChanged));
+
+        private static void OnPlotFramesPropertyChanged(DependencyObject                   sender,
+                                                        DependencyPropertyChangedEventArgs e)
+        {
+            Debug.WriteLine("OnPlotFramesPropertyChanged");
+
+            if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableCollection<Frames> frames)
+            {
+                plotlyView.CsPlotlyPlot.PlotFrames = frames.ToList();
+
+                if(!plotlyView.IsNavigating)
+                {
+                    PlotlyEvent @event = new(plotlyView.Id, "PlotFramesUpdated");
                     plotlyView.WebViewElement?.CoreWebView2?.PostWebMessageAsJson(@event.ToJson());
                 }
             }
@@ -152,9 +275,9 @@ namespace Plotly
         {
             Debug.WriteLine("OnSelectedItemsPropertyChanged");
 
-            if(sender is PlotlyView plotlyView && e.NewValue is SelectedData[] selectedData)
-            {
-            }
+            //if(sender is PlotlyView plotlyView && e.NewValue is SelectedData[] selectedData)
+            //{
+            //}
         }
 
         #endregion
@@ -183,13 +306,9 @@ namespace Plotly
             }
         }
 
-        public CsPlotlyPlot CsPlotlyPlot { get; set; }
+        public CsPlotlyPlot? CsPlotlyPlot { get; set; }
 
         public bool IsNavigating { get; set; }
-
-        private readonly Guid _id;
-
-        private readonly string Plotly_html_file;
 
         private readonly Uri SourceUri;
 
@@ -213,20 +332,18 @@ namespace Plotly
 
         public PlotlyView(Guid guid)
         {
-            _id = guid;
-            Id  = _id.ToString().Replace("-", "_");
+            Id  = guid.ToString().Replace("-", "_");
 
-            Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
+            string plotlyHtmlFile = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
 
-            if(!File.Exists(Plotly_html_file))
+            if(!File.Exists(plotlyHtmlFile))
             {
-                using(StreamWriter sw = new StreamWriter(Plotly_html_file))
-                {
-                    sw.Write(Plotly.Resources.Plotly_html.Replace("{ID}", Id));
-                }
+                using StreamWriter sw = new(plotlyHtmlFile);
+
+                sw.Write(Plotly.Resources.Plotly_html.Replace("{ID}", Id));
             }
             
-            SourceUri = new Uri(Path.Combine("file:///", Plotly_html_file));
+            SourceUri = new Uri(Path.Combine("file:///", plotlyHtmlFile));
 
             CsPlotlyPlot = new CsPlotlyPlot();
 
@@ -241,13 +358,13 @@ namespace Plotly
         private void Shutdown(object?   sender,
                               EventArgs e)
         {
-            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
+            string plotlyFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
 
-            string Plotly_html_file = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
+            string plotlyHtmlFile = Path.Combine(plotlyFolder, $"Plotly_{Id}.html");
 
-            if(File.Exists(Plotly_html_file))
+            if(File.Exists(plotlyHtmlFile))
             {
-                File.Delete(Plotly_html_file);
+                File.Delete(plotlyHtmlFile);
             }
         }
 
@@ -268,33 +385,49 @@ namespace Plotly
         private void WebView_CoreWebView2Ready(object?   sender,
                                                EventArgs e)
         {
-            if(WebViewElement.CoreWebView2 is not null)
+            if(WebViewElement?.CoreWebView2 is null)
             {
-                //if(Debugger.IsAttached)
-                //{
-                //    WebViewElement.CoreWebView2.OpenDevToolsWindow();
-                //}
-
-                WebViewElement.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
-
-                if(DataSource is null)
-                {
-                    throw new NullReferenceException(nameof(DataSource));
-                }
-                if(PlotData is null)
-                {
-                    throw new NullReferenceException(nameof(PlotData));
-                }
-                if(PlotLayout is null)
-                {
-                    throw new NullReferenceException(nameof(PlotLayout));
-                }
-
-                CsPlotlyPlot = new CsPlotlyPlot(DataSource, PlotData, PlotLayout);
-
-                WebViewElement.CoreWebView2.AddHostObjectToScript($"CsPlotlyPlot_{Id}", CsPlotlyPlot);
+                return;
             }
+
+            if(Debugger.IsAttached)
+            {
+                WebViewElement.CoreWebView2.OpenDevToolsWindow();
+            }
+
+            WebViewElement.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
+
+            if(DataSource is null)
+            {
+                throw new NullReferenceException(nameof(DataSource));
+            }
+
+            if(PlotData is null)
+            {
+                throw new NullReferenceException(nameof(PlotData));
+            }
+
+            if(PlotLayout is null)
+            {
+                throw new NullReferenceException(nameof(PlotLayout));
+            }
+
+            if(PlotConfig is not null && PlotFrames is null)
+            {
+                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig);
+            }
+            else if(PlotConfig is not null && PlotFrames is not null)
+            {
+                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig, PlotFrames.ToList());
+            }
+            else
+            {
+                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout);
+            }
+
+            WebViewElement.CoreWebView2.AddHostObjectToScript($"CsPlotlyPlot_{Id}", CsPlotlyPlot);
         }
+
 
         private void CoreWebView2_WebMessageReceived(object?                                 sender,
                                                      CoreWebView2WebMessageReceivedEventArgs e)
@@ -334,21 +467,21 @@ namespace Plotly
 
                         break;
                     }
-                    case "PlotlyAfterPlot":
-                    case "PlotlyBeforePlot":
-                    case "PlotlyRedraw":
-                    case "PlotlyRelayout":
-                    case "PlotlyRelayouting":
-                    case "PlotlyEvent":
-                    case "PlotlyAnimated":
-                    case "PlotlyAutosize":
-                    case "PlotlyBeforeHover":
-                    case "PlotlyClickAnnotation":
-                    case "PlotlyDoubleClick":
-                    case "PlotlyLegendClick":
-                    case "PlotlyLegendDoubleClick":
-                    case "PlotlyRestyle":
-                    case "PlotlyWebglContextLost":
+                    //case "PlotlyAfterPlot":
+                    //case "PlotlyBeforePlot":
+                    //case "PlotlyRedraw":
+                    //case "PlotlyRelayout":
+                    //case "PlotlyRelayouting":
+                    //case "PlotlyEvent":
+                    //case "PlotlyAnimated":
+                    //case "PlotlyAutosize":
+                    //case "PlotlyBeforeHover":
+                    //case "PlotlyClickAnnotation":
+                    //case "PlotlyDoubleClick":
+                    //case "PlotlyLegendClick":
+                    //case "PlotlyLegendDoubleClick":
+                    //case "PlotlyRestyle":
+                    //case "PlotlyWebglContextLost":
                     default:
                     {
                         Debug.WriteLine(@event.Event);

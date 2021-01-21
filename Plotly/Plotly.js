@@ -1,5 +1,17 @@
 ﻿"use strict";
 
+window.addEventListener("dragover", function(e) {
+  e.preventDefault();
+}, false);
+
+window.addEventListener("drop", function(e) {
+  e.preventDefault();
+}, false);
+
+//window.addEventListener("contextmenu", window => {
+//  window.preventDefault();
+//});
+
 let PlotlyApp = {
   listenToAutosizeEvent: (div_container) => {
     div_container.on("plotly_autosize", function() {
@@ -158,10 +170,10 @@ let PlotlyApp = {
 
     const config = {
       showLink: true,
-      linkText: 'https://trmcnealy.github.io',
+      linkText: "https://trmcnealy.github.io",
       mapboxAccessToken: null,
       plotGlPixelRatio: 2,
-      displayModeBar: 'hover',
+      displayModeBar: "hover",
       frameMargins: 0,
       displaylogo: false,
       fillFrame: true,
@@ -170,12 +182,12 @@ let PlotlyApp = {
       modeBarButtons: false,
       modeBarButtonsToAdd: [],
       modeBarButtonsToRemove: [
-        'hoverClosestCartesian',
-        'hoverCompareCartesian'
+        "hoverClosestCartesian",
+        "hoverCompareCartesian"
       ],
       toImageButtonOptions: {
-        format: 'svg',
-        filename: 'custom_image',
+        format: "svg",
+        filename: "custom_image",
         height: window.plotly_container.height,
         width: window.plotly_container.width,
         scale: 1
@@ -184,14 +196,79 @@ let PlotlyApp = {
 
     return config;
   },
-  getManagedObject:(name) => {
+  getManagedObject: (name) => {
     return eval(`window.chrome.webview.hostObjects.sync.${name}`);
+  },
+  getSourceArray: (plotly_plot, source) => {
+    const data_type = plotly_plot.GetDataSourceType(source);
+
+    if (data_type === "float") {
+      return new Float32Array(plotly_plot[source]);
+    } else if (data_type === "double") {
+      return new Float64Array(plotly_plot[source]);
+    } else if (data_type === "int") {
+      return new Int32Array(plotly_plot[source]);
+    } else if (data_type === "long") {
+      return new BigInt64Array(plotly_plot[source]);
+    } else if (data_type === "string") {
+      return plotly_plot[source];
+    }
+    return null;
+  },
+  getSourceArrayMapTimesValue: (plotly_plot, source, value) => {
+    const data_type = plotly_plot.GetDataSourceType(source);
+
+    if (data_type === "float") {
+      return new Float32Array(plotly_plot[source]).map((element, index) => element * value);
+    } else if (data_type === "double") {
+      return new Float64Array(plotly_plot[source]).map((element, index) => element * value);
+    } else if (data_type === "int") {
+      return new Int32Array(plotly_plot[source]).map((element, index) => element * value);
+    } else if (data_type === "long") {
+      return new BigInt64Array(plotly_plot[source]).map((element, index) => element * value);
+    } else if (data_type === "string") {
+    }
+    return null;
   }
 };
 
+function IsNull(val) {
+  if (typeof val === typeof undefined) {
+    return true;
+  }
+
+  if (val === undefined) {
+    return true;
+  }
+
+  if (val === null) {
+    return true;
+  }
+  
+  return false;
+}
+
+function IsNotNull(val) {
+  if (typeof val === typeof undefined) {
+    return false;
+  }
+
+  if (val === undefined) {
+    return false;
+  }
+
+  if (val === null) {
+    return false;
+  }
+  
+  return true;
+}
+
 function PlotlySelectedHandler(eventData) {
-  if (eventData !== undefined && eventData !== null &&
-      eventData.points !== undefined && eventData.points !== null) {
+  if (eventData !== undefined &&
+    eventData !== null &&
+    eventData.points !== undefined &&
+    eventData.points !== null) {
     var selectedData = new Array(eventData.points.length);
     let i = 0;
     eventData.points.forEach(function(pt) {

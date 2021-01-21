@@ -1,8 +1,11 @@
-﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="Current">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <Import Project="$([MSBuild]::GetPathOfFileAbove(GlobalVersioning.props))" />
 
     <PropertyGroup>
+        <!--<OutputType>WinMDObj</OutputType>-->
+        <OutputType>Library</OutputType>
+        <ExportWinMDFile>true</ExportWinMDFile>
         <LangVersion>9.0</LangVersion>
         <TargetFramework>net5.0-$(TargetPlatformIdentifier)$(TargetPlatformVersion)</TargetFramework>
         <Platforms>AnyCPU;x86;x64</Platforms>
@@ -64,7 +67,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="System.Text.Json" Version="5.0.0" />
         <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
 

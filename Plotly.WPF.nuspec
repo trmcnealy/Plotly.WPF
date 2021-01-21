@@ -14,24 +14,11 @@
         <repository url="https://github.com/trmcnealy/Plotly.WPF"/>
         <dependencies>
             <group targetFramework="net5.0-windows">
-                <dependency id="PlatformApi"
-                            version="$PLATFORMAPI$"/>
-                <dependency id="UnManagedCil"
-                            version="$UNMANAGED$"/>
-                <dependency id="Prism.Core"
-                            version="8.0.0.1909"
-                            exclude="Build,Analyzers"/>
-                <dependency id="Prism.Wpf"
-                            version="8.0.0.1909"
-                            exclude="Build,Analyzers"/>
                 <dependency id="Microsoft.Web.WebView2"
                             version="1.0.664.37"
                             exclude="Build,Analyzers"/>
                 <dependency id="Microsoft.Xaml.Behaviors.Wpf"
                             version="1.1.19"
-                            exclude="Build,Analyzers"/>
-                <dependency id="System.Text.Json"
-                            version="5.0.0"
                             exclude="Build,Analyzers"/>
             </group>
         </dependencies>
@@ -45,10 +32,10 @@
         <file src="..\..\trmcnealy.github.io\Assets\nindra.png"
               target=""/>
 
-        <file src="..\bin\$Configuration$\$Platform$\net5.0-windows\Plotly.WPF.dll"
+        <file src="..\bin\Release\AnyCPU\net5.0-windows\Plotly.WPF.dll"
               target="lib\net5.0-windows"/>
 
-        <file src="..\bin\$Configuration$\$Platform$\net5.0-windows\Plotly.WPF.pdb"
+        <file src="..\bin\Release\AnyCPU\net5.0-windows\Plotly.WPF.pdb"
               target="lib\net5.0-windows"/>
 
         <!--<file src="..\bin\Release\x86\net5.0-windows\Plotly.WPF.dll"

@@ -94,6 +94,18 @@ namespace Plotly {
         /// <summary>
         ///   Looks up a localized string similar to &quot;use strict&quot;;
         ///
+        ///window.addEventListener(&quot;dragover&quot;, function(e) {
+        ///  e.preventDefault();
+        ///}, false);
+        ///
+        ///window.addEventListener(&quot;drop&quot;, function(e) {
+        ///  e.preventDefault();
+        ///}, false);
+        ///
+        /////window.addEventListener(&quot;contextmenu&quot;, window =&gt; {
+        /////  window.preventDefault();
+        /////});
+        ///
         ///let PlotlyApp = {
         ///  listenToAutosizeEvent: (div_container) =&gt; {
         ///    div_container.on(&quot;plotly_autosize&quot;, function() {
@@ -101,14 +113,7 @@ namespace Plotly {
         ///    });
         ///    return div_container;
         ///  },
-        ///  listenToEventEvent: (div_container) =&gt; {
-        ///    div_container.on(&quot;plotly_event&quot;, function() {
-        ///      window.chrome.webview.postMessage({ &quot;event&quot;: &quot;PlotlyEvent&quot; });
-        ///    });
-        ///    return div_container;
-        ///  },
-        ///  listenToClickEvent: (div_container, data_handler) =&gt; {
-        ///    div_con [rest of string was truncated]&quot;;.
+        ///  listenToEventE [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_js {
             get {

@@ -25,6 +25,8 @@ namespace Plotly
 
         string GetConfig();
 
+        string GetFrames();
+
         [IndexerName("DataItems")]
         object[] this[string variable] { get; }
     }
@@ -50,7 +52,7 @@ namespace Plotly
                 {
                     _plotData = value;
 
-                    _data = JsonSerializer.Serialize(PlotData, Converter.SerializerOptions);
+                    _data = JsonSerializer.Serialize(_plotData, Converter.SerializerOptions);
                 }
             }
         }
@@ -68,25 +70,43 @@ namespace Plotly
                 {
                     _plotLayout = value;
 
-                    _layout = JsonSerializer.Serialize(PlotLayout, Converter.SerializerOptions);
+                    _layout = JsonSerializer.Serialize(_plotLayout, Converter.SerializerOptions);
                 }
             }
         }
 
         [ComVisible(false)]
-        private Config _configuration;
+        private Config _plotConfig;
 
         [ComVisible(false)]
-        internal Config Configuration
+        internal Config PlotConfig
         {
-            get { return _configuration; }
+            get { return _plotConfig; }
             set
             {
-                if (_configuration != value)
+                if (_plotConfig != value)
                 {
-                    _configuration = value;
+                    _plotConfig = value;
 
-                    _config = JsonSerializer.Serialize(Configuration, Converter.SerializerOptions);
+                    _config = JsonSerializer.Serialize(_plotConfig, Converter.SerializerOptions);
+                }
+            }
+        }
+
+        [ComVisible(false)]
+        private List<Frames> _plotFrames;
+
+        [ComVisible(false)]
+        internal List<Frames> PlotFrames
+        {
+            get { return _plotFrames; }
+            set
+            {
+                if (_plotFrames != value)
+                {
+                    _plotFrames = value;
+
+                    _frames = JsonSerializer.Serialize(_plotFrames, Converter.SerializerOptions);
                 }
             }
         }
@@ -100,18 +120,18 @@ namespace Plotly
         {
             Config config = new()
             {
-                ShowLink = true,
-                LinkText = "https://trmcnealy.github.io",
-                MapboxAccessToken = null,
-                PlotGlPixelRatio = 2,
-                DisplayModeBar = DisplayModeBarEnum.Hover,
-                FrameMargins = 0,
-                DisplayLogo = false,
-                FillFrame = true,
-                Responsive = true,
-                ScrollZoom = ScrollZoomFlag.True,
-                Edits = new(),
-                ModeBarButtons = false,
+                ShowLink            = true,
+                LinkText            = "https://trmcnealy.github.io",
+                //MapboxAccessToken   = AccessToken,
+                PlotGlPixelRatio    = 2,
+                DisplayModeBar      = DisplayModeBarEnum.Hover,
+                FrameMargins        = 0,
+                DisplayLogo         = false,
+                FillFrame           = true,
+                Responsive          = true,
+                ScrollZoom          = ScrollZoomFlag.True,
+                Edits               = new(),
+                ModeBarButtons      = false,
                 ModeBarButtonsToAdd = Array.Empty<ModeBarButtons>(),
                 ModeBarButtonsToRemove = new ModeBarButtons[]
                 {
@@ -139,25 +159,69 @@ namespace Plotly
         
         [ComVisible(false)]
         private string _config;
+        
+        [ComVisible(false)]
+        private string _frames;
 
         public CsPlotlyPlot()
         {
             DataSource    = new Dictionary<string, (string type, object[] array)>();
             PlotData      = new List<ITrace>();
             PlotLayout    = new Layout();
-            Configuration = DefaultConfig();
+            PlotConfig = DefaultConfig();
+            PlotFrames    = new List<Frames>();
             SelectedData  = new List<List<JsNumber>>();
         }
 
         public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
-                            List<ITrace>                     data,
-                            Layout                           layout,
-                            Config?                          config = null)
+                            List<ITrace>                                      data,
+                            Layout                                            layout)
         {
             DataSource    = dataSource;
             PlotData      = data;
             PlotLayout    = layout;
-            Configuration = config ?? DefaultConfig();
+            PlotConfig = DefaultConfig();
+            PlotFrames    = new List<Frames>();
+            SelectedData  = new List<List<JsNumber>>();
+        }
+
+        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+                            List<ITrace>                                      data,
+                            Layout                                            layout,
+                            Config                                            config)
+        {
+            DataSource    = dataSource;
+            PlotData      = data;
+            PlotLayout    = layout;
+            PlotConfig = config;
+            PlotFrames    = new List<Frames>();
+            SelectedData  = new List<List<JsNumber>>();
+        }
+
+        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+                            List<ITrace>                                      data,
+                            Layout                                            layout,
+                            List<Frames>                                      frames)
+        {
+            DataSource    = dataSource;
+            PlotData      = data;
+            PlotLayout    = layout;
+            PlotConfig = DefaultConfig();
+            PlotFrames    = frames;
+            SelectedData  = new List<List<JsNumber>>();
+        }
+
+        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+                            List<ITrace>                                      data,
+                            Layout                                            layout,
+                            Config                                            config,
+                            List<Frames>                                      frames)
+        {
+            DataSource    = dataSource;
+            PlotData      = data;
+            PlotLayout    = layout;
+            PlotConfig = config;
+            PlotFrames    = frames;
             SelectedData  = new List<List<JsNumber>>();
         }
 
@@ -191,6 +255,11 @@ namespace Plotly
         public string GetConfig()
         {
             return _config;
+        }
+        
+        public string GetFrames()
+        {
+            return _frames;
         }
         
         [IndexerName("DataItems")]

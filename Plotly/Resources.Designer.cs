@@ -75,15 +75,13 @@ namespace Plotly {
         ///            height: 100%;
         ///        }
         ///    &lt;/style&gt;
-        ///    &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;!--&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;--&gt;
         ///    &lt;script src=&quot;Plotly.js&quot;&gt;&lt;/script&gt;
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///&lt;div id=&quot;root&quot;&gt;
-        ///    &lt;div id=&quot;{ID}&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/div&gt;
-        ///&lt;/div&gt;
-        ///&lt;script&gt;
-        ///    window.plotly_container_{ID} = document.getEleme [rest of string was truncated]&quot;;.
+        ///    &lt;div id=&quot;%ID%&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/d [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_html {
             get {
@@ -92,7 +90,7 @@ namespace Plotly {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;use strict&quot;;
+        ///   Looks up a localized string similar to //&quot;use strict&quot;;
         ///
         ///window.addEventListener(&quot;dragover&quot;, function(e) {
         ///  e.preventDefault();
@@ -113,7 +111,7 @@ namespace Plotly {
         ///    });
         ///    return div_container;
         ///  },
-        ///  listenToEventE [rest of string was truncated]&quot;;.
+        ///  listenToEven [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_js {
             get {

@@ -1,4 +1,4 @@
-﻿"use strict";
+﻿//"use strict";
 
 window.addEventListener("dragover", function(e) {
   e.preventDefault();
@@ -12,7 +12,7 @@ window.addEventListener("drop", function(e) {
 //  window.preventDefault();
 //});
 
-let PlotlyApp = {
+const PlotlyApp = {
   listenToAutosizeEvent: (div_container) => {
     div_container.on("plotly_autosize", function() {
       window.chrome.webview.postMessage({ "event": "PlotlyAutosize" });
@@ -171,7 +171,7 @@ let PlotlyApp = {
     const config = {
       showLink: true,
       linkText: "https://trmcnealy.github.io",
-      mapboxAccessToken: null,
+      mapboxAccessToken: "pk.eyJ1IjoidHJtY25lYWx5IiwiYSI6ImNrZDN3aGNvMzBxNjQycW16Zml2M2UwZmcifQ.aT8sIrXsA2pHPSjw_U-fUA",
       plotGlPixelRatio: 2,
       displayModeBar: "hover",
       frameMargins: 0,
@@ -265,12 +265,11 @@ function IsNotNull(val) {
 }
 
 function PlotlySelectedHandler(eventData) {
-  if (eventData !== undefined &&
-    eventData !== null &&
-    eventData.points !== undefined &&
-    eventData.points !== null) {
+  if (IsNotNull(eventData) && IsNotNull(eventData.points)) {
+
     var selectedData = new Array(eventData.points.length);
     let i = 0;
+
     eventData.points.forEach(function(pt) {
       selectedData[i] = {
         "curveNumber": pt.curveNumber,
@@ -281,9 +280,120 @@ function PlotlySelectedHandler(eventData) {
       };
       ++i;
     });
+
     return selectedData;
   }
   return null;
 }
 
+async function GetWasmExportsAsync(callback, wasmUrl, imports) {
+
+  let wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
+
+    if (!importObject) {
+
+      importObject = {
+        env: {
+          abort: () => {
+            return console.log("Abort!");
+          }
+        }
+      };
+
+    }
+    
+    const fetchAndInstantiateTask = async () => {
+
+      //const buf = fs.readFileSync(wasmModuleUrl);
+      const buf = window.fetch(wasmModuleUrl);
+
+      return await WebAssembly.instantiate(buf, importObject);
+    }
+
+    return await fetchAndInstantiateTask();
+  };
+  
+  var exports = (await wasmBrowserInstantiate(wasmUrl, imports)).instance.exports;
+
+  callback(exports);
+
+  return exports;
+}
+
+function GetWasmExports(wasmUrl) {
+
+  const importFunctions = {
+    env: {
+      log: function (value) {
+        console.log(`${value}`);
+      }
+    }
+  };
+
+  //const buf = fs.readFileSync(wasmUrl);
+  const buf = window.fetch(wasmUrl);
+
+  let mod = new WebAssembly.Module(buf);
+
+  let instance = new WebAssembly.Instance(mod, importFunctions);
+
+  return instance.exports;
+}
+
 window.PlotlyApp = PlotlyApp;
+
+
+
+//window.plotly_container.on('plotly_selected', function(eventData) {
+
+// if (eventData !== undefined && eventData !== null) {
+
+// var selectedData = new Array(eventData.points.length);
+
+// //var x = [];
+// //var y = [];
+
+// //var colors = [];
+
+// //for (var i = 0;i < N;i++) {
+// // colors.push(color1Light);
+// //}
+
+// let i = 0;
+// eventData.points.forEach(function(pt) {
+
+// selectedData[i] = {
+// "curveNumber": pt.curveNumber,
+// "pointIndex": pt.pointIndex,
+// "pointNumber": pt.pointNumber,
+// "x": pt.x,
+// "y": pt.y
+// };
+
+// i++;
+// });
+
+// //console.log(selectedData);
+
+// //Plotly.restyle(graphDiv, {
+// // x: [x, y],
+// // xbins: {}
+// //}, [1, 2]);
+
+// //Plotly.restyle(graphDiv, 'marker.color', [colors], [0]);
+
+// window.chrome.webview.postMessage({
+// "event": "PlotlySelected",
+// "selected": selectedData
+// });
+// }
+//});
+
+//window.plotly_container.on('plotly_deselect', function(eventData) {
+
+// window.chrome.webview.postMessage({
+// "event": "PlotlyUnSelected",
+// "selected": null
+// });
+
+//});

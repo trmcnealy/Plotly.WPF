@@ -282,6 +282,14 @@ namespace Plotly
 
         #endregion
 
+        public bool EnableLogging
+        {
+            get { return (bool)GetValue(EnableLoggingProperty); }
+            set { SetValue(EnableLoggingProperty, value); }
+        }
+        
+        public static readonly DependencyProperty EnableLoggingProperty = DependencyProperty.Register("EnableLogging", typeof(bool), typeof(PlotlyView), new PropertyMetadata(false));
+
         private WebView2? webViewElement;
 
         private WebView2? WebViewElement
@@ -340,7 +348,7 @@ namespace Plotly
             {
                 using StreamWriter sw = new(plotlyHtmlFile);
 
-                sw.Write(Plotly.Resources.Plotly_html.Replace("{ID}", Id));
+                sw.Write(Plotly.Resources.Plotly_html.Replace("%ID%", Id));
             }
             
             SourceUri = new Uri(Path.Combine("file:///", plotlyHtmlFile));
@@ -390,10 +398,10 @@ namespace Plotly
                 return;
             }
 
-            if(Debugger.IsAttached)
-            {
-                WebViewElement.CoreWebView2.OpenDevToolsWindow();
-            }
+            //if(Debugger.IsAttached)
+            //{
+            //    WebViewElement.CoreWebView2.OpenDevToolsWindow();
+            //}
 
             WebViewElement.CoreWebView2.WebMessageReceived += CoreWebView2_WebMessageReceived;
 
@@ -414,15 +422,15 @@ namespace Plotly
 
             if(PlotConfig is not null && PlotFrames is null)
             {
-                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig);
+                CsPlotlyPlot = new CsPlotlyPlot(EnableLogging, DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig);
             }
             else if(PlotConfig is not null && PlotFrames is not null)
             {
-                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig, PlotFrames.ToList());
+                CsPlotlyPlot = new CsPlotlyPlot(EnableLogging, DataSource.ToDictionary(), PlotData.ToList(), PlotLayout, PlotConfig, PlotFrames.ToList());
             }
             else
             {
-                CsPlotlyPlot = new CsPlotlyPlot(DataSource.ToDictionary(), PlotData.ToList(), PlotLayout);
+                CsPlotlyPlot = new CsPlotlyPlot(EnableLogging, DataSource.ToDictionary(), PlotData.ToList(), PlotLayout);
             }
 
             WebViewElement.CoreWebView2.AddHostObjectToScript($"CsPlotlyPlot_{Id}", CsPlotlyPlot);
@@ -532,13 +540,24 @@ namespace Plotly
 
         public async void InitializeAsync()
         {
-            WebViewElement.Source = SourceUri;
+            if(WebViewElement != null)
+            {
+                WebViewElement.Source = SourceUri;
 
-            WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
+                WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
 
-            CoreWebView2Environment? env = await CoreWebView2Environment.CreateAsync();
+                string?                         browserExecutableFolder = null;
+                string?                         userDataFolder          = null;
 
-            await WebViewElement.EnsureCoreWebView2Async(env);
+                //string                          localAppData            = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                //string                          cacheFolder             = Path.Combine(localAppData, "WindowsFormsWebView2");
+
+                CoreWebView2EnvironmentOptions? options                 = new ("--disk-cache-size=200");
+
+                CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options);
+
+                await WebViewElement.EnsureCoreWebView2Async(env);
+            }
         }
 
         //protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -577,7 +596,7 @@ namespace Plotly
 
         public static string GetFullPath(string relativePath)
         {
-            string? basePath = Assembly.GetEntryAssembly()?.GetName().CodeBase;
+            string basePath = Assembly.GetEntryAssembly()?.GetName().CodeBase;
 
             if(basePath is null)
             {
@@ -586,7 +605,7 @@ namespace Plotly
 
             Uri location = new(basePath);
 
-            DirectoryInfo? absolutePath = new FileInfo(location.AbsolutePath).Directory;
+            DirectoryInfo absolutePath = new FileInfo(location.AbsolutePath).Directory;
 
             return absolutePath is null ? "" : Path.Combine(absolutePath.FullName, relativePath);
         }

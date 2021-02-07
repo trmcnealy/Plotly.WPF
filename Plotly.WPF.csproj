@@ -14,6 +14,7 @@
         <Nullable>enable</Nullable>
         <RootNamespace>Plotly</RootNamespace>
         <NoWarn>0649;0169;0414;8604;8625;8765;8600;8601;8602;8603;8604;8605;8634;8629;8765;8604;8625;8600;8602;8603;8629;8619;8612;8769;8767;3001;8622;8620;8073</NoWarn>
+        <Configurations>Debug;Release;Mixed</Configurations>
     </PropertyGroup>
 
     <Import Project="$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))\Artifacts.props" Condition="'$([MSBuild]::GetDirectoryNameOfFileAbove($(MSBuildThisFileDirectory), Artifacts.props))' != '' " />
@@ -75,5 +76,13 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
         </PackageReference>-->
     </ItemGroup>
+
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+      <Exec Command="rd /s /q C:\Users\trmcnealy\.nuget\packages\plotly.wpf" />
+    </Target>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="dotnet restore" />
+    </Target>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text.Json;
@@ -15,6 +16,8 @@ namespace Plotly
     [InterfaceType(ComInterfaceType.InterfaceIsDual)]
     public interface ICsPlotlyPlot
     {
+        bool GetEnableLogging();
+
         string GetDataSource();
 
         string GetDataSourceType(string variable);
@@ -53,6 +56,10 @@ namespace Plotly
                     _plotData = value;
 
                     _data = JsonSerializer.Serialize(_plotData, Converter.SerializerOptions);
+
+                    if (_enableLogging) {
+                        Trace.WriteLine(_data);
+                    }
                 }
             }
         }
@@ -71,6 +78,10 @@ namespace Plotly
                     _plotLayout = value;
 
                     _layout = JsonSerializer.Serialize(_plotLayout, Converter.SerializerOptions);
+                    
+                    if (_enableLogging) {
+                        Trace.WriteLine(_layout);
+                    }
                 }
             }
         }
@@ -89,6 +100,10 @@ namespace Plotly
                     _plotConfig = value;
 
                     _config = JsonSerializer.Serialize(_plotConfig, Converter.SerializerOptions);
+                    
+                    if (_enableLogging) {
+                        Trace.WriteLine(_config);
+                    }
                 }
             }
         }
@@ -107,6 +122,10 @@ namespace Plotly
                     _plotFrames = value;
 
                     _frames = JsonSerializer.Serialize(_plotFrames, Converter.SerializerOptions);
+                    
+                    if (_enableLogging) {
+                        Trace.WriteLine(_frames);
+                    }
                 }
             }
         }
@@ -122,7 +141,7 @@ namespace Plotly
             {
                 ShowLink            = true,
                 LinkText            = "https://trmcnealy.github.io",
-                //MapboxAccessToken   = AccessToken,
+                MapboxAccessToken   = "pk.eyJ1IjoidHJtY25lYWx5IiwiYSI6ImNrZDN3aGNvMzBxNjQycW16Zml2M2UwZmcifQ.aT8sIrXsA2pHPSjw_U-fUA",
                 PlotGlPixelRatio    = 2,
                 DisplayModeBar      = DisplayModeBarEnum.Hover,
                 FrameMargins        = 0,
@@ -152,6 +171,9 @@ namespace Plotly
         #endregion
 
         [ComVisible(false)]
+        private bool _enableLogging;
+
+        [ComVisible(false)]
         private string _data;
         
         [ComVisible(false)]
@@ -162,34 +184,53 @@ namespace Plotly
         
         [ComVisible(false)]
         private string _frames;
-
         public CsPlotlyPlot()
         {
-            DataSource    = new Dictionary<string, (string type, object[] array)>();
-            PlotData      = new List<ITrace>();
-            PlotLayout    = new Layout();
-            PlotConfig = DefaultConfig();
-            PlotFrames    = new List<Frames>();
-            SelectedData  = new List<List<JsNumber>>();
+            _enableLogging = false;
+
+            DataSource   = new Dictionary<string, (string type, object[] array)>();
+            PlotData     = new List<ITrace>();
+            PlotLayout   = new Layout();
+            PlotConfig   = DefaultConfig();
+            PlotFrames   = new List<Frames>();
+            SelectedData = new List<List<JsNumber>>();
         }
 
-        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+        public CsPlotlyPlot(bool enableLogging)
+        {
+            _enableLogging = enableLogging;
+
+            DataSource     = new Dictionary<string, (string type, object[] array)>();
+            PlotData       = new List<ITrace>();
+            PlotLayout     = new Layout();
+            PlotConfig     = DefaultConfig();
+            PlotFrames     = new List<Frames>();
+            SelectedData   = new List<List<JsNumber>>();
+        }
+
+        public CsPlotlyPlot(bool enableLogging,
+                            Dictionary<string, (string type, object[] array)> dataSource,
                             List<ITrace>                                      data,
                             Layout                                            layout)
         {
-            DataSource    = dataSource;
-            PlotData      = data;
-            PlotLayout    = layout;
-            PlotConfig = DefaultConfig();
-            PlotFrames    = new List<Frames>();
-            SelectedData  = new List<List<JsNumber>>();
+            _enableLogging = enableLogging;
+
+            DataSource     = dataSource;
+            PlotData       = data;
+            PlotLayout     = layout;
+            PlotConfig     = DefaultConfig();
+            PlotFrames     = new List<Frames>();
+            SelectedData   = new List<List<JsNumber>>();
         }
 
-        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+        public CsPlotlyPlot(bool                                              enableLogging,
+                            Dictionary<string, (string type, object[] array)> dataSource,
                             List<ITrace>                                      data,
                             Layout                                            layout,
                             Config                                            config)
         {
+            _enableLogging = enableLogging;
+
             DataSource    = dataSource;
             PlotData      = data;
             PlotLayout    = layout;
@@ -198,11 +239,14 @@ namespace Plotly
             SelectedData  = new List<List<JsNumber>>();
         }
 
-        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+        public CsPlotlyPlot(bool                                              enableLogging,
+                            Dictionary<string, (string type, object[] array)> dataSource,
                             List<ITrace>                                      data,
                             Layout                                            layout,
                             List<Frames>                                      frames)
         {
+            _enableLogging = enableLogging;
+
             DataSource    = dataSource;
             PlotData      = data;
             PlotLayout    = layout;
@@ -211,12 +255,15 @@ namespace Plotly
             SelectedData  = new List<List<JsNumber>>();
         }
 
-        public CsPlotlyPlot(Dictionary<string, (string type, object[] array)> dataSource,
+        public CsPlotlyPlot(bool                                              enableLogging,
+                            Dictionary<string, (string type, object[] array)> dataSource,
                             List<ITrace>                                      data,
                             Layout                                            layout,
                             Config                                            config,
                             List<Frames>                                      frames)
         {
+            _enableLogging = enableLogging;
+
             DataSource    = dataSource;
             PlotData      = data;
             PlotLayout    = layout;
@@ -229,6 +276,10 @@ namespace Plotly
         {
             string data = JsonSerializer.Serialize(DataSource, Converter.SerializerOptions);
 
+            if (_enableLogging) {
+                Trace.WriteLine(data);
+            }
+
             return data;
         }
 
@@ -240,6 +291,11 @@ namespace Plotly
             }
 
             return DataSource[variable].type;
+        }
+
+        public bool GetEnableLogging()
+        {
+            return _enableLogging;
         }
 
         public string GetData()

@@ -13,16 +13,17 @@ namespace Plotly.Models.Traces.Sankeys
     ///     is superseded by <c>node.hoverinfo</c> and <c>node.hoverinfo</c> for nodes
     ///     and links respectively.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All
     }
 }

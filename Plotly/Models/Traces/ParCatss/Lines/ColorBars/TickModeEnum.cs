@@ -14,15 +14,16 @@ namespace Plotly.Models.Traces.ParCatss.Lines.ColorBars
     ///     the tick text is <c>ticktext</c>. (<c>array</c> is the default value if
     ///     <c>tickvals</c> is provided).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TickModeEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear,
-        [EnumMember(Value=@"array")]
+
+        [EnumMember(Value = @"array")]
         Array
     }
 }

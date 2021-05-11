@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.Tables.Headers
     ///     one or more &lt;br&gt; HTML tags) or if an explicit width is set to override
     ///     the text width.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AlignEnum
     {
-        [EnumMember(Value=@"center")]
+        [EnumMember(Value = @"center")]
         Center = 0,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

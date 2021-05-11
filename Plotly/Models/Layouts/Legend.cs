@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Legend class.
     /// </summary>
-    
     [Serializable]
     public class Legend : IEquatable<Legend>
     {
@@ -20,31 +19,31 @@ namespace Plotly.Models.Layouts
         ///     Sets the legend background color. Defaults to <c>layout.paper_bgcolor</c>.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set;} 
+        public object BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the legend.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set;} 
+        public object BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the legend.
         /// </summary>
         [JsonPropertyName(@"borderwidth")]
-        public JsNumber? BorderWidth { get; set;} 
+        public JsNumber? BorderWidth { get; set; }
 
         /// <summary>
         ///     Sets the font used to text the legend items.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Legends.Font Font { get; set;} 
+        public Legends.Font Font { get; set; }
 
         /// <summary>
         ///     Sets the orientation of the legend.
         /// </summary>
         [JsonPropertyName(@"orientation")]
-        public OrientationEnum? Orientation { get; set;} 
+        public OrientationEnum? Orientation { get; set; }
 
         /// <summary>
         ///     Determines the order at which the legend items are displayed. If <c>normal</c>,
@@ -55,13 +54,13 @@ namespace Plotly.Models.Layouts
         ///     opposite order as <c>grouped</c>.
         /// </summary>
         [JsonPropertyName(@"traceorder")]
-        public TraceOrderFlag? TraceOrder { get; set;} 
+        public TraceOrderFlag? TraceOrder { get; set; }
 
         /// <summary>
         ///     Sets the amount of vertical space (in px) between legend groups.
         /// </summary>
         [JsonPropertyName(@"tracegroupgap")]
-        public JsNumber? TraceGroupGap { get; set;} 
+        public JsNumber? TraceGroupGap { get; set; }
 
         /// <summary>
         ///     Determines if the legend items symbols scale with their corresponding <c>trace</c>
@@ -69,7 +68,7 @@ namespace Plotly.Models.Layouts
         ///     graph.
         /// </summary>
         [JsonPropertyName(@"itemsizing")]
-        public ItemSizingEnum? ItemSizing { get; set;} 
+        public ItemSizingEnum? ItemSizing { get; set; }
 
         /// <summary>
         ///     Determines the behavior on legend item click. <c>toggle</c> toggles the
@@ -78,7 +77,7 @@ namespace Plotly.Models.Layouts
         ///     item click interactions.
         /// </summary>
         [JsonPropertyName(@"itemclick")]
-        public ItemClickEnum? ItemClick { get; set;} 
+        public ItemClickEnum? ItemClick { get; set; }
 
         /// <summary>
         ///     Determines the behavior on legend item double-click. <c>toggle</c> toggles
@@ -87,7 +86,7 @@ namespace Plotly.Models.Layouts
         ///     legend item double-click interactions.
         /// </summary>
         [JsonPropertyName(@"itemdoubleclick")]
-        public ItemDoubleClickEnum? ItemDoubleClick { get; set;} 
+        public ItemDoubleClickEnum? ItemDoubleClick { get; set; }
 
         /// <summary>
         ///     Sets the x position (in normalized coordinates) of the legend. Defaults
@@ -95,7 +94,7 @@ namespace Plotly.Models.Layouts
         ///     legends.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public JsNumber? X { get; set;} 
+        public JsNumber? X { get; set; }
 
         /// <summary>
         ///     Sets the legend&#39;s horizontal position anchor. This anchor binds the
@@ -106,7 +105,7 @@ namespace Plotly.Models.Layouts
         ///     otherwise.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public XAnchorEnum? XAnchor { get; set;} 
+        public XAnchorEnum? XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the y position (in normalized coordinates) of the legend. Defaults
@@ -115,7 +114,7 @@ namespace Plotly.Models.Layouts
         ///     legends on graph with one or multiple range sliders.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public JsNumber? Y { get; set;} 
+        public JsNumber? Y { get; set; }
 
         /// <summary>
         ///     Sets the legend&#39;s vertical position anchor This anchor binds the <c>y</c>
@@ -126,153 +125,120 @@ namespace Plotly.Models.Layouts
         ///     otherwise.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public YAnchorEnum? YAnchor { get; set;} 
+        public YAnchorEnum? YAnchor { get; set; }
 
         /// <summary>
         ///     Controls persistence of legend-driven changes in trace and pie label visibility.
         ///     Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
         /// <summary>
         ///     Sets the vertical alignment of the symbols with respect to their associated
         ///     text.
         /// </summary>
         [JsonPropertyName(@"valign")]
-        public VAlignEnum? VAlign { get; set;} 
+        public VAlignEnum? VAlign { get; set; }
 
         /// <summary>
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Legends.Title Title { get; set;} 
+        public Legends.Title Title { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Legend other)) return false;
+            if(!(obj is Legend other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Legend other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    BgColor == other.BgColor &&
-                    BgColor != null && other.BgColor != null &&
-                    BgColor.Equals(other.BgColor)
-                ) && 
-                (
-                    BorderColor == other.BorderColor &&
-                    BorderColor != null && other.BorderColor != null &&
-                    BorderColor.Equals(other.BorderColor)
-                ) && 
-                (
-                    BorderWidth == other.BorderWidth &&
-                    BorderWidth != null && other.BorderWidth != null &&
-                    BorderWidth.Equals(other.BorderWidth)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    Orientation == other.Orientation &&
-                    Orientation != null && other.Orientation != null &&
-                    Orientation.Equals(other.Orientation)
-                ) && 
-                (
-                    TraceOrder == other.TraceOrder &&
-                    TraceOrder != null && other.TraceOrder != null &&
-                    TraceOrder.Equals(other.TraceOrder)
-                ) && 
-                (
-                    TraceGroupGap == other.TraceGroupGap &&
-                    TraceGroupGap != null && other.TraceGroupGap != null &&
-                    TraceGroupGap.Equals(other.TraceGroupGap)
-                ) && 
-                (
-                    ItemSizing == other.ItemSizing &&
-                    ItemSizing != null && other.ItemSizing != null &&
-                    ItemSizing.Equals(other.ItemSizing)
-                ) && 
-                (
-                    ItemClick == other.ItemClick &&
-                    ItemClick != null && other.ItemClick != null &&
-                    ItemClick.Equals(other.ItemClick)
-                ) && 
-                (
-                    ItemDoubleClick == other.ItemDoubleClick &&
-                    ItemDoubleClick != null && other.ItemDoubleClick != null &&
-                    ItemDoubleClick.Equals(other.ItemDoubleClick)
-                ) && 
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                ) && 
-                (
-                    VAlign == other.VAlign &&
-                    VAlign != null && other.VAlign != null &&
-                    VAlign.Equals(other.VAlign)
-                ) && 
-                (
-                    Title == other.Title &&
-                    Title != null && other.Title != null &&
-                    Title.Equals(other.Title)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (BgColor         == other.BgColor         && BgColor         != null && other.BgColor         != null && BgColor.Equals(other.BgColor))                 &&
+                   (BorderColor     == other.BorderColor     && BorderColor     != null && other.BorderColor     != null && BorderColor.Equals(other.BorderColor))         &&
+                   (BorderWidth     == other.BorderWidth     && BorderWidth     != null && other.BorderWidth     != null && BorderWidth.Equals(other.BorderWidth))         &&
+                   (Font            == other.Font            && Font            != null && other.Font            != null && Font.Equals(other.Font))                       &&
+                   (Orientation     == other.Orientation     && Orientation     != null && other.Orientation     != null && Orientation.Equals(other.Orientation))         &&
+                   (TraceOrder      == other.TraceOrder      && TraceOrder      != null && other.TraceOrder      != null && TraceOrder.Equals(other.TraceOrder))           &&
+                   (TraceGroupGap   == other.TraceGroupGap   && TraceGroupGap   != null && other.TraceGroupGap   != null && TraceGroupGap.Equals(other.TraceGroupGap))     &&
+                   (ItemSizing      == other.ItemSizing      && ItemSizing      != null && other.ItemSizing      != null && ItemSizing.Equals(other.ItemSizing))           &&
+                   (ItemClick       == other.ItemClick       && ItemClick       != null && other.ItemClick       != null && ItemClick.Equals(other.ItemClick))             &&
+                   (ItemDoubleClick == other.ItemDoubleClick && ItemDoubleClick != null && other.ItemDoubleClick != null && ItemDoubleClick.Equals(other.ItemDoubleClick)) &&
+                   (X               == other.X               && X               != null && other.X               != null && X.Equals(other.X))                             &&
+                   (XAnchor         == other.XAnchor         && XAnchor         != null && other.XAnchor         != null && XAnchor.Equals(other.XAnchor))                 &&
+                   (Y               == other.Y               && Y               != null && other.Y               != null && Y.Equals(other.Y))                             &&
+                   (YAnchor         == other.YAnchor         && YAnchor         != null && other.YAnchor         != null && YAnchor.Equals(other.YAnchor))                 &&
+                   (UiRevision      == other.UiRevision      && UiRevision      != null && other.UiRevision      != null && UiRevision.Equals(other.UiRevision))           &&
+                   (VAlign          == other.VAlign          && VAlign          != null && other.VAlign          != null && VAlign.Equals(other.VAlign))                   &&
+                   (Title           == other.Title           && Title           != null && other.Title           != null && Title.Equals(other.Title));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (BgColor != null) hashCode = hashCode * 59 + BgColor.GetHashCode();
-                if (BorderColor != null) hashCode = hashCode * 59 + BorderColor.GetHashCode();
-                if (BorderWidth != null) hashCode = hashCode * 59 + BorderWidth.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (Orientation != null) hashCode = hashCode * 59 + Orientation.GetHashCode();
-                if (TraceOrder != null) hashCode = hashCode * 59 + TraceOrder.GetHashCode();
-                if (TraceGroupGap != null) hashCode = hashCode * 59 + TraceGroupGap.GetHashCode();
-                if (ItemSizing != null) hashCode = hashCode * 59 + ItemSizing.GetHashCode();
-                if (ItemClick != null) hashCode = hashCode * 59 + ItemClick.GetHashCode();
-                if (ItemDoubleClick != null) hashCode = hashCode * 59 + ItemDoubleClick.GetHashCode();
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
-                if (VAlign != null) hashCode = hashCode * 59 + VAlign.GetHashCode();
-                if (Title != null) hashCode = hashCode * 59 + Title.GetHashCode();
+
+                if(BgColor != null)
+                    hashCode = hashCode * 59 + BgColor.GetHashCode();
+
+                if(BorderColor != null)
+                    hashCode = hashCode * 59 + BorderColor.GetHashCode();
+
+                if(BorderWidth != null)
+                    hashCode = hashCode * 59 + BorderWidth.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(Orientation != null)
+                    hashCode = hashCode * 59 + Orientation.GetHashCode();
+
+                if(TraceOrder != null)
+                    hashCode = hashCode * 59 + TraceOrder.GetHashCode();
+
+                if(TraceGroupGap != null)
+                    hashCode = hashCode * 59 + TraceGroupGap.GetHashCode();
+
+                if(ItemSizing != null)
+                    hashCode = hashCode * 59 + ItemSizing.GetHashCode();
+
+                if(ItemClick != null)
+                    hashCode = hashCode * 59 + ItemClick.GetHashCode();
+
+                if(ItemDoubleClick != null)
+                    hashCode = hashCode * 59 + ItemDoubleClick.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(VAlign != null)
+                    hashCode = hashCode * 59 + VAlign.GetHashCode();
+
+                if(Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -283,7 +249,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Legend.</param>
         /// <param name="right">Right Legend.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Legend left, Legend right)
+        public static bool operator ==(Legend left,
+                                       Legend right)
         {
             return Equals(left, right);
         }
@@ -294,7 +261,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Legend.</param>
         /// <param name="right">Right Legend.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Legend left, Legend right)
+        public static bool operator !=(Legend left,
+                                       Legend right)
         {
             return !Equals(left, right);
         }
@@ -306,9 +274,10 @@ namespace Plotly.Models.Layouts
         public Legend DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Legend>(ms).Result;
         }
     }

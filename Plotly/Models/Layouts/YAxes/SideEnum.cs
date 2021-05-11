@@ -9,17 +9,19 @@ namespace Plotly.Models.Layouts.YAxes
     ///     Determines whether a x (y) axis is positioned at the <c>bottom</c> (<c>left</c>)
     ///     or <c>top</c> (<c>right</c>) of the plotting area.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SideEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

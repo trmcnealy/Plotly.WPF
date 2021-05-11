@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.TreeMaps.PathBars
     ///     Determines on which side of the the treemap the <c>pathbar</c> should be
     ///     presented.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SideEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top = 0,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

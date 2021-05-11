@@ -11,24 +11,29 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs
     ///     are set, no information is displayed upon hovering. But, if <c>none</c>
     ///     is set, click and hover events are still fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"location")]
+
+        [EnumMember(Value = @"location")]
         Location = 2,
-        [EnumMember(Value=@"z")]
+
+        [EnumMember(Value = @"z")]
         Z = 4,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 8,
-        [EnumMember(Value=@"name")]
+
+        [EnumMember(Value = @"name")]
         Name = 16,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = Location | Z | Text | Name
     }
 }

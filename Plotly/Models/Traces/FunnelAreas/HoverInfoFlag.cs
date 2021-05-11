@@ -11,26 +11,32 @@ namespace Plotly.Models.Traces.FunnelAreas
     ///     are set, no information is displayed upon hovering. But, if <c>none</c>
     ///     is set, click and hover events are still fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"label")]
+
+        [EnumMember(Value = @"label")]
         Label = 2,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 4,
-        [EnumMember(Value=@"value")]
+
+        [EnumMember(Value = @"value")]
         Value = 8,
-        [EnumMember(Value=@"percent")]
+
+        [EnumMember(Value = @"percent")]
         Percent = 16,
-        [EnumMember(Value=@"name")]
+
+        [EnumMember(Value = @"name")]
         Name = 32,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = Label | Text | Value | Percent | Name
     }
 }

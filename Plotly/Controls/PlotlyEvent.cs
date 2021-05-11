@@ -1,5 +1,4 @@
-﻿
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -7,7 +6,6 @@ using Plotly.Models;
 
 namespace Plotly
 {
-
     public sealed class PlotlyEvent
     {
         [Required]
@@ -18,15 +16,14 @@ namespace Plotly
         [JsonPropertyName("event")]
         public string Event { get; }
 
-
         [JsonPropertyName("selected")]
         public SelectedData[]? Selected { get; set; }
 
-
-        public PlotlyEvent(string id,string @event)
+        public PlotlyEvent(string id,
+                           string @event)
         {
-            Id = id;
-            Event   = @event;
+            Id    = id;
+            Event = @event;
         }
 
         public static PlotlyEvent? FromJson(string json)

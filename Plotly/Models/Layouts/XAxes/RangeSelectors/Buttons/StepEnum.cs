@@ -8,23 +8,28 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors.Buttons
     /// <summary>
     ///     The unit of measurement that the <c>count</c> value will set the range by.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum StepEnum
     {
-        [EnumMember(Value=@"month")]
+        [EnumMember(Value = @"month")]
         Month = 0,
-        [EnumMember(Value=@"year")]
+
+        [EnumMember(Value = @"year")]
         Year,
-        [EnumMember(Value=@"day")]
+
+        [EnumMember(Value = @"day")]
         Day,
-        [EnumMember(Value=@"hour")]
+
+        [EnumMember(Value = @"hour")]
         Hour,
-        [EnumMember(Value=@"minute")]
+
+        [EnumMember(Value = @"minute")]
         Minute,
-        [EnumMember(Value=@"second")]
+
+        [EnumMember(Value = @"second")]
         Second,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All
     }
 }

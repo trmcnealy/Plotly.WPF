@@ -9,13 +9,13 @@ namespace Plotly.Models.Animations.Transitions
     ///     Determines whether the figure&#39;s layout or traces smoothly transitions
     ///     during updates that make both traces and layout change.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrderingEnum
     {
-        [EnumMember(Value=@"layout first")]
+        [EnumMember(Value = @"layout first")]
         LayoutFirst = 0,
-        [EnumMember(Value=@"traces first")]
+
+        [EnumMember(Value = @"traces first")]
         TracesFirst
     }
 }

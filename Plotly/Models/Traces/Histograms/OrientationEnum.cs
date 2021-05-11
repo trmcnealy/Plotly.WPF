@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.Histograms
     ///     Sets the orientation of the bars. With <c>v</c> (<c>h</c>), the value of
     ///     the each bar spans along the vertical (horizontal).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

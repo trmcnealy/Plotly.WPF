@@ -8,33 +8,43 @@ namespace Plotly.Models.Layouts
     ///     apply only to scatter traces with markers or text. <c>orbit</c> and <c>turntable</c>
     ///     apply only to 3D scenes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DragModeEnum
     {
-        [EnumMember(Value=@"zoom")]
+        [EnumMember(Value = @"zoom")]
         Zoom = 0,
-        [EnumMember(Value=@"pan")]
+
+        [EnumMember(Value = @"pan")]
         Pan,
-        [EnumMember(Value=@"select")]
+
+        [EnumMember(Value = @"select")]
         Select,
-        [EnumMember(Value=@"lasso")]
+
+        [EnumMember(Value = @"lasso")]
         Lasso,
-        [EnumMember(Value=@"drawclosedpath")]
+
+        [EnumMember(Value = @"drawclosedpath")]
         DrawClosedPath,
-        [EnumMember(Value=@"drawopenpath")]
+
+        [EnumMember(Value = @"drawopenpath")]
         DrawOpenPath,
-        [EnumMember(Value=@"drawline")]
+
+        [EnumMember(Value = @"drawline")]
         DrawLine,
-        [EnumMember(Value=@"drawrect")]
+
+        [EnumMember(Value = @"drawrect")]
         DrawRect,
-        [EnumMember(Value=@"drawcircle")]
+
+        [EnumMember(Value = @"drawcircle")]
         DrawCircle,
-        [EnumMember(Value=@"orbit")]
+
+        [EnumMember(Value = @"orbit")]
         Orbit,
-        [EnumMember(Value=@"turntable")]
+
+        [EnumMember(Value = @"turntable")]
         Turntable,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

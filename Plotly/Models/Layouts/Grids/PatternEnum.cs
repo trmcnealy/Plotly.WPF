@@ -12,13 +12,13 @@ namespace Plotly.Models.Layouts.Grids
     ///     y axis per row. <c>independent</c> uses a new xy pair for each cell, left-to-right
     ///     across each row then iterating rows according to <c>roworder</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PatternEnum
     {
-        [EnumMember(Value=@"coupled")]
+        [EnumMember(Value = @"coupled")]
         Coupled = 0,
-        [EnumMember(Value=@"independent")]
+
+        [EnumMember(Value = @"independent")]
         Independent
     }
 }

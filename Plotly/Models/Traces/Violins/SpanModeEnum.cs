@@ -13,15 +13,16 @@ namespace Plotly.Models.Traces.Violins
     ///     to its maximum value. For custom span settings, use mode <c>manual</c> and
     ///     fill in the <c>span</c> attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SpanModeEnum
     {
-        [EnumMember(Value=@"soft")]
+        [EnumMember(Value = @"soft")]
         Soft = 0,
-        [EnumMember(Value=@"hard")]
+
+        [EnumMember(Value = @"hard")]
         Hard,
-        [EnumMember(Value=@"manual")]
+
+        [EnumMember(Value = @"manual")]
         Manual
     }
 }

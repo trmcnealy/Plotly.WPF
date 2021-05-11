@@ -8,13 +8,13 @@ namespace Plotly.Models.Traces.Mesh3Ds
     /// <summary>
     ///     Determines the source of <c>intensity</c> values.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum IntensityModeEnum
     {
-        [EnumMember(Value=@"vertex")]
+        [EnumMember(Value = @"vertex")]
         Vertex = 0,
-        [EnumMember(Value=@"cell")]
+
+        [EnumMember(Value = @"cell")]
         Cell
     }
 }

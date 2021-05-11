@@ -15,17 +15,19 @@ namespace Plotly.Models.Layouts.Scenes.Annotations
     ///     whereas for paper-referenced with no arrow, the anchor picked corresponds
     ///     to the closest side.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YAnchorEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

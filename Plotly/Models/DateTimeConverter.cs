@@ -8,6 +8,7 @@ namespace Plotly.Models
     public class DateTimeConverter : JsonConverter<DateTime>
     {
         public static readonly DateTimeConverter Singleton = new();
+
         public override DateTime Read(ref Utf8JsonReader    reader,
                                       Type                  typeToConvert,
                                       JsonSerializerOptions options)
@@ -15,20 +16,17 @@ namespace Plotly.Models
             return DateTime.ParseExact(reader.GetString(), "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
         }
 
-        public override void Write(
-            Utf8JsonWriter writer,
-            DateTime dateTimeValue,
-            JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter        writer,
+                                   DateTime              dateTimeValue,
+                                   JsonSerializerOptions options)
         {
-            if (dateTimeValue.Hour == default && dateTimeValue.Minute == default && dateTimeValue.Second == default)
+            if(dateTimeValue.Hour == default && dateTimeValue.Minute == default && dateTimeValue.Second == default)
             {
-                writer.WriteStringValue(dateTimeValue.ToString(
-                    "yyyy-MM-dd", CultureInfo.InvariantCulture));
+                writer.WriteStringValue(dateTimeValue.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
             }
             else
             {
-                writer.WriteStringValue(dateTimeValue.ToString(
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+                writer.WriteStringValue(dateTimeValue.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             }
         }
     }
@@ -36,30 +34,26 @@ namespace Plotly.Models
     public class DateTimeOffsetConverter : JsonConverter<DateTimeOffset>
     {
         public static readonly DateTimeOffsetConverter Singleton = new();
-        public override DateTimeOffset Read(
-            ref Utf8JsonReader reader,
-            Type typeToConvert,
-            JsonSerializerOptions options)
+
+        public override DateTimeOffset Read(ref Utf8JsonReader    reader,
+                                            Type                  typeToConvert,
+                                            JsonSerializerOptions options)
         {
             return DateTimeOffset.ParseExact(reader.GetString(), "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
         }
 
-        public override void Write(
-            Utf8JsonWriter writer,
-            DateTimeOffset dateTimeValue,
-            JsonSerializerOptions options)
+        public override void Write(Utf8JsonWriter        writer,
+                                   DateTimeOffset        dateTimeValue,
+                                   JsonSerializerOptions options)
         {
-            if (dateTimeValue.Hour == default && dateTimeValue.Minute == default && dateTimeValue.Second == default)
+            if(dateTimeValue.Hour == default && dateTimeValue.Minute == default && dateTimeValue.Second == default)
             {
-                writer.WriteStringValue(dateTimeValue.ToString(
-                    "yyyy-MM-dd", CultureInfo.InvariantCulture));
+                writer.WriteStringValue(dateTimeValue.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture));
             }
             else
             {
-                writer.WriteStringValue(dateTimeValue.ToString(
-                    "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+                writer.WriteStringValue(dateTimeValue.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             }
         }
-
     }
 }

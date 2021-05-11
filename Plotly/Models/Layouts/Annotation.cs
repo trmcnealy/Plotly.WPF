@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Annotation class.
     /// </summary>
-    
     [Serializable]
     public class Annotation : IEquatable<Annotation>
     {
@@ -20,7 +19,7 @@ namespace Plotly.Models.Layouts
         ///     Determines whether or not this annotation is visible.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Sets the text associated with this annotation. Plotly uses a subset of HTML
@@ -29,19 +28,19 @@ namespace Plotly.Models.Layouts
         ///     Tags &lt;em&gt;, &lt;sup&gt;, &lt;sub&gt; &lt;span&gt; are also supported.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set;} 
+        public string Text { get; set; }
 
         /// <summary>
         ///     Sets the angle at which the <c>text</c> is drawn with respect to the horizontal.
         /// </summary>
         [JsonPropertyName(@"textangle")]
-        public JsNumber? TextAngle { get; set;} 
+        public JsNumber? TextAngle { get; set; }
 
         /// <summary>
         ///     Sets the annotation text font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Annotations.Font Font { get; set;} 
+        public Annotations.Font Font { get; set; }
 
         /// <summary>
         ///     Sets an explicit width for the text box. null (default) lets the text set
@@ -49,20 +48,20 @@ namespace Plotly.Models.Layouts
         ///     use &lt;br&gt; to start a new line.
         /// </summary>
         [JsonPropertyName(@"width")]
-        public JsNumber? Width { get; set;} 
+        public JsNumber? Width { get; set; }
 
         /// <summary>
         ///     Sets an explicit height for the text box. null (default) lets the text set
         ///     the box height. Taller text will be clipped.
         /// </summary>
         [JsonPropertyName(@"height")]
-        public JsNumber? Height { get; set;} 
+        public JsNumber? Height { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the annotation (text + arrow).
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the <c>text</c> within the box. Has an
@@ -71,38 +70,38 @@ namespace Plotly.Models.Layouts
         ///     the text width.
         /// </summary>
         [JsonPropertyName(@"align")]
-        public AlignEnum? Align { get; set;} 
+        public AlignEnum? Align { get; set; }
 
         /// <summary>
         ///     Sets the vertical alignment of the <c>text</c> within the box. Has an effect
         ///     only if an explicit height is set to override the text height.
         /// </summary>
         [JsonPropertyName(@"valign")]
-        public VAlignEnum? VAlign { get; set;} 
+        public VAlignEnum? VAlign { get; set; }
 
         /// <summary>
         ///     Sets the background color of the annotation.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set;} 
+        public object BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the annotation <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set;} 
+        public object BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the padding (in px) between the <c>text</c> and the enclosing border.
         /// </summary>
         [JsonPropertyName(@"borderpad")]
-        public JsNumber? BorderPad { get; set;} 
+        public JsNumber? BorderPad { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the annotation <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"borderwidth")]
-        public JsNumber? BorderWidth { get; set;} 
+        public JsNumber? BorderWidth { get; set; }
 
         /// <summary>
         ///     Determines whether or not the annotation is drawn with an arrow. If <c>true</c>,
@@ -110,51 +109,51 @@ namespace Plotly.Models.Layouts
         ///     lines up with the <c>x</c> and <c>y</c> provided.
         /// </summary>
         [JsonPropertyName(@"showarrow")]
-        public bool? ShowArrow { get; set;} 
+        public bool? ShowArrow { get; set; }
 
         /// <summary>
         ///     Sets the color of the annotation arrow.
         /// </summary>
         [JsonPropertyName(@"arrowcolor")]
-        public object ArrowColor { get; set;} 
+        public object ArrowColor { get; set; }
 
         /// <summary>
         ///     Sets the end annotation arrow head style.
         /// </summary>
         [JsonPropertyName(@"arrowhead")]
-        public int? Arrowhead { get; set;} 
+        public int? Arrowhead { get; set; }
 
         /// <summary>
         ///     Sets the start annotation arrow head style.
         /// </summary>
         [JsonPropertyName(@"startarrowhead")]
-        public int? StartArrowhead { get; set;} 
+        public int? StartArrowhead { get; set; }
 
         /// <summary>
         ///     Sets the annotation arrow head position.
         /// </summary>
         [JsonPropertyName(@"arrowside")]
-        public ArrowSideFlag? ArrowSide { get; set;} 
+        public ArrowSideFlag? ArrowSide { get; set; }
 
         /// <summary>
         ///     Sets the size of the end annotation arrow head, relative to <c>arrowwidth</c>.
         ///     A value of 1 (default) gives a head about 3x as wide as the line.
         /// </summary>
         [JsonPropertyName(@"arrowsize")]
-        public JsNumber? ArrowSize { get; set;} 
+        public JsNumber? ArrowSize { get; set; }
 
         /// <summary>
         ///     Sets the size of the start annotation arrow head, relative to <c>arrowwidth</c>.
         ///     A value of 1 (default) gives a head about 3x as wide as the line.
         /// </summary>
         [JsonPropertyName(@"startarrowsize")]
-        public JsNumber? StartArrowSize { get; set;} 
+        public JsNumber? StartArrowSize { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of annotation arrow line.
         /// </summary>
         [JsonPropertyName(@"arrowwidth")]
-        public JsNumber? ArrowWidth { get; set;} 
+        public JsNumber? ArrowWidth { get; set; }
 
         /// <summary>
         ///     Sets a distance, in pixels, to move the end arrowhead away from the position
@@ -164,7 +163,7 @@ namespace Plotly.Models.Layouts
         ///     by this amount.
         /// </summary>
         [JsonPropertyName(@"standoff")]
-        public JsNumber? Standoff { get; set;} 
+        public JsNumber? Standoff { get; set; }
 
         /// <summary>
         ///     Sets a distance, in pixels, to move the start arrowhead away from the position
@@ -174,7 +173,7 @@ namespace Plotly.Models.Layouts
         ///     by this amount.
         /// </summary>
         [JsonPropertyName(@"startstandoff")]
-        public JsNumber? StartStandoff { get; set;} 
+        public JsNumber? StartStandoff { get; set; }
 
         /// <summary>
         ///     Sets the x component of the arrow tail about the arrow head. If <c>axref</c>
@@ -183,7 +182,7 @@ namespace Plotly.Models.Layouts
         ///     this is an absolute value on that axis, like <c>x</c>, NOT a relative value.
         /// </summary>
         [JsonPropertyName(@"ax")]
-        public object Ax { get; set;} 
+        public object Ax { get; set; }
 
         /// <summary>
         ///     Sets the y component of the arrow tail about the arrow head. If <c>ayref</c>
@@ -192,7 +191,7 @@ namespace Plotly.Models.Layouts
         ///     this is an absolute value on that axis, like <c>y</c>, NOT a relative value.
         /// </summary>
         [JsonPropertyName(@"ay")]
-        public object Ay { get; set;} 
+        public object Ay { get; set; }
 
         /// <summary>
         ///     Indicates in what terms the tail of the annotation (ax,ay)  is specified.
@@ -202,7 +201,7 @@ namespace Plotly.Models.Layouts
         ///     which should continue to indicate  the correct trend when zoomed.
         /// </summary>
         [JsonPropertyName(@"axref")]
-        public string AXref { get; set;} 
+        public string AXref { get; set; }
 
         /// <summary>
         ///     Indicates in what terms the tail of the annotation (ax,ay)  is specified.
@@ -212,7 +211,7 @@ namespace Plotly.Models.Layouts
         ///     which should continue to indicate  the correct trend when zoomed.
         /// </summary>
         [JsonPropertyName(@"ayref")]
-        public string AyRef { get; set;} 
+        public string AyRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s x coordinate axis. If set to an x axis id (e.g.
@@ -222,7 +221,7 @@ namespace Plotly.Models.Layouts
         ///     corresponds to the left (right) side.
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public string XRef { get; set;} 
+        public string XRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s x position. If the axis <c>type</c> is <c>log</c>,
@@ -234,7 +233,7 @@ namespace Plotly.Models.Layouts
         ///     appears.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public object X { get; set;} 
+        public object X { get; set; }
 
         /// <summary>
         ///     Sets the text box&#39;s horizontal position anchor This anchor binds the
@@ -247,14 +246,14 @@ namespace Plotly.Models.Layouts
         ///     anchor picked corresponds to the closest side.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public XAnchorEnum? XAnchor { get; set;} 
+        public XAnchorEnum? XAnchor { get; set; }
 
         /// <summary>
         ///     Shifts the position of the whole annotation and arrow to the right (positive)
         ///     or left (negative) by this many pixels.
         /// </summary>
         [JsonPropertyName(@"xshift")]
-        public JsNumber? XShift { get; set;} 
+        public JsNumber? XShift { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y coordinate axis. If set to an y axis id (e.g.
@@ -264,7 +263,7 @@ namespace Plotly.Models.Layouts
         ///     to the bottom (top).
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public string YRef { get; set;} 
+        public string YRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y position. If the axis <c>type</c> is <c>log</c>,
@@ -276,7 +275,7 @@ namespace Plotly.Models.Layouts
         ///     appears.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public object Y { get; set;} 
+        public object Y { get; set; }
 
         /// <summary>
         ///     Sets the text box&#39;s vertical position anchor This anchor binds the <c>y</c>
@@ -289,14 +288,14 @@ namespace Plotly.Models.Layouts
         ///     to the closest side.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public YAnchorEnum? YAnchor { get; set;} 
+        public YAnchorEnum? YAnchor { get; set; }
 
         /// <summary>
         ///     Shifts the position of the whole annotation and arrow up (positive) or down
         ///     (negative) by this many pixels.
         /// </summary>
         [JsonPropertyName(@"yshift")]
-        public JsNumber? YShift { get; set;} 
+        public JsNumber? YShift { get; set; }
 
         /// <summary>
         ///     Makes this annotation respond to clicks on the plot. If you click a data
@@ -312,34 +311,34 @@ namespace Plotly.Models.Layouts
         ///     <c>yclick</c>.
         /// </summary>
         [JsonPropertyName(@"clicktoshow")]
-        public ClickToShowEnum? ClickToShow { get; set;} 
+        public ClickToShowEnum? ClickToShow { get; set; }
 
         /// <summary>
         ///     Toggle this annotation when clicking a data point whose <c>x</c> value is
         ///     <c>xclick</c> rather than the annotation&#39;s <c>x</c> value.
         /// </summary>
         [JsonPropertyName(@"xclick")]
-        public object XClick { get; set;} 
+        public object XClick { get; set; }
 
         /// <summary>
         ///     Toggle this annotation when clicking a data point whose <c>y</c> value is
         ///     <c>yclick</c> rather than the annotation&#39;s <c>y</c> value.
         /// </summary>
         [JsonPropertyName(@"yclick")]
-        public object YClick { get; set;} 
+        public object YClick { get; set; }
 
         /// <summary>
         ///     Sets text to appear when hovering over this annotation. If omitted or blank,
         ///     no hover label will appear.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public string HoverText { get; set;} 
+        public string HoverText { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public Annotations.HoverLabel HoverLabel { get; set;} 
+        public Annotations.HoverLabel HoverLabel { get; set; }
 
         /// <summary>
         ///     Determines whether the annotation text box captures mouse move and click
@@ -349,7 +348,7 @@ namespace Plotly.Models.Layouts
         ///     without <c>hovertext</c> you must explicitly enable <c>captureevents</c>.
         /// </summary>
         [JsonPropertyName(@"captureevents")]
-        public bool? CaptureEvents { get; set;} 
+        public bool? CaptureEvents { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -360,7 +359,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -372,289 +371,204 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Annotation other)) return false;
+            if(!(obj is Annotation other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Annotation other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    Text == other.Text &&
-                    Text != null && other.Text != null &&
-                    Text.Equals(other.Text)
-                ) && 
-                (
-                    TextAngle == other.TextAngle &&
-                    TextAngle != null && other.TextAngle != null &&
-                    TextAngle.Equals(other.TextAngle)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    Width == other.Width &&
-                    Width != null && other.Width != null &&
-                    Width.Equals(other.Width)
-                ) && 
-                (
-                    Height == other.Height &&
-                    Height != null && other.Height != null &&
-                    Height.Equals(other.Height)
-                ) && 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                ) && 
-                (
-                    Align == other.Align &&
-                    Align != null && other.Align != null &&
-                    Align.Equals(other.Align)
-                ) && 
-                (
-                    VAlign == other.VAlign &&
-                    VAlign != null && other.VAlign != null &&
-                    VAlign.Equals(other.VAlign)
-                ) && 
-                (
-                    BgColor == other.BgColor &&
-                    BgColor != null && other.BgColor != null &&
-                    BgColor.Equals(other.BgColor)
-                ) && 
-                (
-                    BorderColor == other.BorderColor &&
-                    BorderColor != null && other.BorderColor != null &&
-                    BorderColor.Equals(other.BorderColor)
-                ) && 
-                (
-                    BorderPad == other.BorderPad &&
-                    BorderPad != null && other.BorderPad != null &&
-                    BorderPad.Equals(other.BorderPad)
-                ) && 
-                (
-                    BorderWidth == other.BorderWidth &&
-                    BorderWidth != null && other.BorderWidth != null &&
-                    BorderWidth.Equals(other.BorderWidth)
-                ) && 
-                (
-                    ShowArrow == other.ShowArrow &&
-                    ShowArrow != null && other.ShowArrow != null &&
-                    ShowArrow.Equals(other.ShowArrow)
-                ) && 
-                (
-                    ArrowColor == other.ArrowColor &&
-                    ArrowColor != null && other.ArrowColor != null &&
-                    ArrowColor.Equals(other.ArrowColor)
-                ) && 
-                (
-                    Arrowhead == other.Arrowhead &&
-                    Arrowhead != null && other.Arrowhead != null &&
-                    Arrowhead.Equals(other.Arrowhead)
-                ) && 
-                (
-                    StartArrowhead == other.StartArrowhead &&
-                    StartArrowhead != null && other.StartArrowhead != null &&
-                    StartArrowhead.Equals(other.StartArrowhead)
-                ) && 
-                (
-                    ArrowSide == other.ArrowSide &&
-                    ArrowSide != null && other.ArrowSide != null &&
-                    ArrowSide.Equals(other.ArrowSide)
-                ) && 
-                (
-                    ArrowSize == other.ArrowSize &&
-                    ArrowSize != null && other.ArrowSize != null &&
-                    ArrowSize.Equals(other.ArrowSize)
-                ) && 
-                (
-                    StartArrowSize == other.StartArrowSize &&
-                    StartArrowSize != null && other.StartArrowSize != null &&
-                    StartArrowSize.Equals(other.StartArrowSize)
-                ) && 
-                (
-                    ArrowWidth == other.ArrowWidth &&
-                    ArrowWidth != null && other.ArrowWidth != null &&
-                    ArrowWidth.Equals(other.ArrowWidth)
-                ) && 
-                (
-                    Standoff == other.Standoff &&
-                    Standoff != null && other.Standoff != null &&
-                    Standoff.Equals(other.Standoff)
-                ) && 
-                (
-                    StartStandoff == other.StartStandoff &&
-                    StartStandoff != null && other.StartStandoff != null &&
-                    StartStandoff.Equals(other.StartStandoff)
-                ) && 
-                (
-                    Ax == other.Ax &&
-                    Ax != null && other.Ax != null &&
-                    Ax.Equals(other.Ax)
-                ) && 
-                (
-                    Ay == other.Ay &&
-                    Ay != null && other.Ay != null &&
-                    Ay.Equals(other.Ay)
-                ) && 
-                (
-                    AXref == other.AXref &&
-                    AXref != null && other.AXref != null &&
-                    AXref.Equals(other.AXref)
-                ) && 
-                (
-                    AyRef == other.AyRef &&
-                    AyRef != null && other.AyRef != null &&
-                    AyRef.Equals(other.AyRef)
-                ) && 
-                (
-                    XRef == other.XRef &&
-                    XRef != null && other.XRef != null &&
-                    XRef.Equals(other.XRef)
-                ) && 
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    XShift == other.XShift &&
-                    XShift != null && other.XShift != null &&
-                    XShift.Equals(other.XShift)
-                ) && 
-                (
-                    YRef == other.YRef &&
-                    YRef != null && other.YRef != null &&
-                    YRef.Equals(other.YRef)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    YShift == other.YShift &&
-                    YShift != null && other.YShift != null &&
-                    YShift.Equals(other.YShift)
-                ) && 
-                (
-                    ClickToShow == other.ClickToShow &&
-                    ClickToShow != null && other.ClickToShow != null &&
-                    ClickToShow.Equals(other.ClickToShow)
-                ) && 
-                (
-                    XClick == other.XClick &&
-                    XClick != null && other.XClick != null &&
-                    XClick.Equals(other.XClick)
-                ) && 
-                (
-                    YClick == other.YClick &&
-                    YClick != null && other.YClick != null &&
-                    YClick.Equals(other.YClick)
-                ) && 
-                (
-                    HoverText == other.HoverText &&
-                    HoverText != null && other.HoverText != null &&
-                    HoverText.Equals(other.HoverText)
-                ) && 
-                (
-                    HoverLabel == other.HoverLabel &&
-                    HoverLabel != null && other.HoverLabel != null &&
-                    HoverLabel.Equals(other.HoverLabel)
-                ) && 
-                (
-                    CaptureEvents == other.CaptureEvents &&
-                    CaptureEvents != null && other.CaptureEvents != null &&
-                    CaptureEvents.Equals(other.CaptureEvents)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible          == other.Visible          && Visible          != null && other.Visible          != null && Visible.Equals(other.Visible))               &&
+                   (Text             == other.Text             && Text             != null && other.Text             != null && Text.Equals(other.Text))                     &&
+                   (TextAngle        == other.TextAngle        && TextAngle        != null && other.TextAngle        != null && TextAngle.Equals(other.TextAngle))           &&
+                   (Font             == other.Font             && Font             != null && other.Font             != null && Font.Equals(other.Font))                     &&
+                   (Width            == other.Width            && Width            != null && other.Width            != null && Width.Equals(other.Width))                   &&
+                   (Height           == other.Height           && Height           != null && other.Height           != null && Height.Equals(other.Height))                 &&
+                   (Opacity          == other.Opacity          && Opacity          != null && other.Opacity          != null && Opacity.Equals(other.Opacity))               &&
+                   (Align            == other.Align            && Align            != null && other.Align            != null && Align.Equals(other.Align))                   &&
+                   (VAlign           == other.VAlign           && VAlign           != null && other.VAlign           != null && VAlign.Equals(other.VAlign))                 &&
+                   (BgColor          == other.BgColor          && BgColor          != null && other.BgColor          != null && BgColor.Equals(other.BgColor))               &&
+                   (BorderColor      == other.BorderColor      && BorderColor      != null && other.BorderColor      != null && BorderColor.Equals(other.BorderColor))       &&
+                   (BorderPad        == other.BorderPad        && BorderPad        != null && other.BorderPad        != null && BorderPad.Equals(other.BorderPad))           &&
+                   (BorderWidth      == other.BorderWidth      && BorderWidth      != null && other.BorderWidth      != null && BorderWidth.Equals(other.BorderWidth))       &&
+                   (ShowArrow        == other.ShowArrow        && ShowArrow        != null && other.ShowArrow        != null && ShowArrow.Equals(other.ShowArrow))           &&
+                   (ArrowColor       == other.ArrowColor       && ArrowColor       != null && other.ArrowColor       != null && ArrowColor.Equals(other.ArrowColor))         &&
+                   (Arrowhead        == other.Arrowhead        && Arrowhead        != null && other.Arrowhead        != null && Arrowhead.Equals(other.Arrowhead))           &&
+                   (StartArrowhead   == other.StartArrowhead   && StartArrowhead   != null && other.StartArrowhead   != null && StartArrowhead.Equals(other.StartArrowhead)) &&
+                   (ArrowSide        == other.ArrowSide        && ArrowSide        != null && other.ArrowSide        != null && ArrowSide.Equals(other.ArrowSide))           &&
+                   (ArrowSize        == other.ArrowSize        && ArrowSize        != null && other.ArrowSize        != null && ArrowSize.Equals(other.ArrowSize))           &&
+                   (StartArrowSize   == other.StartArrowSize   && StartArrowSize   != null && other.StartArrowSize   != null && StartArrowSize.Equals(other.StartArrowSize)) &&
+                   (ArrowWidth       == other.ArrowWidth       && ArrowWidth       != null && other.ArrowWidth       != null && ArrowWidth.Equals(other.ArrowWidth))         &&
+                   (Standoff         == other.Standoff         && Standoff         != null && other.Standoff         != null && Standoff.Equals(other.Standoff))             &&
+                   (StartStandoff    == other.StartStandoff    && StartStandoff    != null && other.StartStandoff    != null && StartStandoff.Equals(other.StartStandoff))   &&
+                   (Ax               == other.Ax               && Ax               != null && other.Ax               != null && Ax.Equals(other.Ax))                         &&
+                   (Ay               == other.Ay               && Ay               != null && other.Ay               != null && Ay.Equals(other.Ay))                         &&
+                   (AXref            == other.AXref            && AXref            != null && other.AXref            != null && AXref.Equals(other.AXref))                   &&
+                   (AyRef            == other.AyRef            && AyRef            != null && other.AyRef            != null && AyRef.Equals(other.AyRef))                   &&
+                   (XRef             == other.XRef             && XRef             != null && other.XRef             != null && XRef.Equals(other.XRef))                     &&
+                   (X                == other.X                && X                != null && other.X                != null && X.Equals(other.X))                           &&
+                   (XAnchor          == other.XAnchor          && XAnchor          != null && other.XAnchor          != null && XAnchor.Equals(other.XAnchor))               &&
+                   (XShift           == other.XShift           && XShift           != null && other.XShift           != null && XShift.Equals(other.XShift))                 &&
+                   (YRef             == other.YRef             && YRef             != null && other.YRef             != null && YRef.Equals(other.YRef))                     &&
+                   (Y                == other.Y                && Y                != null && other.Y                != null && Y.Equals(other.Y))                           &&
+                   (YAnchor          == other.YAnchor          && YAnchor          != null && other.YAnchor          != null && YAnchor.Equals(other.YAnchor))               &&
+                   (YShift           == other.YShift           && YShift           != null && other.YShift           != null && YShift.Equals(other.YShift))                 &&
+                   (ClickToShow      == other.ClickToShow      && ClickToShow      != null && other.ClickToShow      != null && ClickToShow.Equals(other.ClickToShow))       &&
+                   (XClick           == other.XClick           && XClick           != null && other.XClick           != null && XClick.Equals(other.XClick))                 &&
+                   (YClick           == other.YClick           && YClick           != null && other.YClick           != null && YClick.Equals(other.YClick))                 &&
+                   (HoverText        == other.HoverText        && HoverText        != null && other.HoverText        != null && HoverText.Equals(other.HoverText))           &&
+                   (HoverLabel       == other.HoverLabel       && HoverLabel       != null && other.HoverLabel       != null && HoverLabel.Equals(other.HoverLabel))         &&
+                   (CaptureEvents    == other.CaptureEvents    && CaptureEvents    != null && other.CaptureEvents    != null && CaptureEvents.Equals(other.CaptureEvents))   &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))                     &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (TextAngle != null) hashCode = hashCode * 59 + TextAngle.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (Width != null) hashCode = hashCode * 59 + Width.GetHashCode();
-                if (Height != null) hashCode = hashCode * 59 + Height.GetHashCode();
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
-                if (Align != null) hashCode = hashCode * 59 + Align.GetHashCode();
-                if (VAlign != null) hashCode = hashCode * 59 + VAlign.GetHashCode();
-                if (BgColor != null) hashCode = hashCode * 59 + BgColor.GetHashCode();
-                if (BorderColor != null) hashCode = hashCode * 59 + BorderColor.GetHashCode();
-                if (BorderPad != null) hashCode = hashCode * 59 + BorderPad.GetHashCode();
-                if (BorderWidth != null) hashCode = hashCode * 59 + BorderWidth.GetHashCode();
-                if (ShowArrow != null) hashCode = hashCode * 59 + ShowArrow.GetHashCode();
-                if (ArrowColor != null) hashCode = hashCode * 59 + ArrowColor.GetHashCode();
-                if (Arrowhead != null) hashCode = hashCode * 59 + Arrowhead.GetHashCode();
-                if (StartArrowhead != null) hashCode = hashCode * 59 + StartArrowhead.GetHashCode();
-                if (ArrowSide != null) hashCode = hashCode * 59 + ArrowSide.GetHashCode();
-                if (ArrowSize != null) hashCode = hashCode * 59 + ArrowSize.GetHashCode();
-                if (StartArrowSize != null) hashCode = hashCode * 59 + StartArrowSize.GetHashCode();
-                if (ArrowWidth != null) hashCode = hashCode * 59 + ArrowWidth.GetHashCode();
-                if (Standoff != null) hashCode = hashCode * 59 + Standoff.GetHashCode();
-                if (StartStandoff != null) hashCode = hashCode * 59 + StartStandoff.GetHashCode();
-                if (Ax != null) hashCode = hashCode * 59 + Ax.GetHashCode();
-                if (Ay != null) hashCode = hashCode * 59 + Ay.GetHashCode();
-                if (AXref != null) hashCode = hashCode * 59 + AXref.GetHashCode();
-                if (AyRef != null) hashCode = hashCode * 59 + AyRef.GetHashCode();
-                if (XRef != null) hashCode = hashCode * 59 + XRef.GetHashCode();
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (XShift != null) hashCode = hashCode * 59 + XShift.GetHashCode();
-                if (YRef != null) hashCode = hashCode * 59 + YRef.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (YShift != null) hashCode = hashCode * 59 + YShift.GetHashCode();
-                if (ClickToShow != null) hashCode = hashCode * 59 + ClickToShow.GetHashCode();
-                if (XClick != null) hashCode = hashCode * 59 + XClick.GetHashCode();
-                if (YClick != null) hashCode = hashCode * 59 + YClick.GetHashCode();
-                if (HoverText != null) hashCode = hashCode * 59 + HoverText.GetHashCode();
-                if (HoverLabel != null) hashCode = hashCode * 59 + HoverLabel.GetHashCode();
-                if (CaptureEvents != null) hashCode = hashCode * 59 + CaptureEvents.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(TextAngle != null)
+                    hashCode = hashCode * 59 + TextAngle.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(Width != null)
+                    hashCode = hashCode * 59 + Width.GetHashCode();
+
+                if(Height != null)
+                    hashCode = hashCode * 59 + Height.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Align != null)
+                    hashCode = hashCode * 59 + Align.GetHashCode();
+
+                if(VAlign != null)
+                    hashCode = hashCode * 59 + VAlign.GetHashCode();
+
+                if(BgColor != null)
+                    hashCode = hashCode * 59 + BgColor.GetHashCode();
+
+                if(BorderColor != null)
+                    hashCode = hashCode * 59 + BorderColor.GetHashCode();
+
+                if(BorderPad != null)
+                    hashCode = hashCode * 59 + BorderPad.GetHashCode();
+
+                if(BorderWidth != null)
+                    hashCode = hashCode * 59 + BorderWidth.GetHashCode();
+
+                if(ShowArrow != null)
+                    hashCode = hashCode * 59 + ShowArrow.GetHashCode();
+
+                if(ArrowColor != null)
+                    hashCode = hashCode * 59 + ArrowColor.GetHashCode();
+
+                if(Arrowhead != null)
+                    hashCode = hashCode * 59 + Arrowhead.GetHashCode();
+
+                if(StartArrowhead != null)
+                    hashCode = hashCode * 59 + StartArrowhead.GetHashCode();
+
+                if(ArrowSide != null)
+                    hashCode = hashCode * 59 + ArrowSide.GetHashCode();
+
+                if(ArrowSize != null)
+                    hashCode = hashCode * 59 + ArrowSize.GetHashCode();
+
+                if(StartArrowSize != null)
+                    hashCode = hashCode * 59 + StartArrowSize.GetHashCode();
+
+                if(ArrowWidth != null)
+                    hashCode = hashCode * 59 + ArrowWidth.GetHashCode();
+
+                if(Standoff != null)
+                    hashCode = hashCode * 59 + Standoff.GetHashCode();
+
+                if(StartStandoff != null)
+                    hashCode = hashCode * 59 + StartStandoff.GetHashCode();
+
+                if(Ax != null)
+                    hashCode = hashCode * 59 + Ax.GetHashCode();
+
+                if(Ay != null)
+                    hashCode = hashCode * 59 + Ay.GetHashCode();
+
+                if(AXref != null)
+                    hashCode = hashCode * 59 + AXref.GetHashCode();
+
+                if(AyRef != null)
+                    hashCode = hashCode * 59 + AyRef.GetHashCode();
+
+                if(XRef != null)
+                    hashCode = hashCode * 59 + XRef.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(XShift != null)
+                    hashCode = hashCode * 59 + XShift.GetHashCode();
+
+                if(YRef != null)
+                    hashCode = hashCode * 59 + YRef.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(YShift != null)
+                    hashCode = hashCode * 59 + YShift.GetHashCode();
+
+                if(ClickToShow != null)
+                    hashCode = hashCode * 59 + ClickToShow.GetHashCode();
+
+                if(XClick != null)
+                    hashCode = hashCode * 59 + XClick.GetHashCode();
+
+                if(YClick != null)
+                    hashCode = hashCode * 59 + YClick.GetHashCode();
+
+                if(HoverText != null)
+                    hashCode = hashCode * 59 + HoverText.GetHashCode();
+
+                if(HoverLabel != null)
+                    hashCode = hashCode * 59 + HoverLabel.GetHashCode();
+
+                if(CaptureEvents != null)
+                    hashCode = hashCode * 59 + CaptureEvents.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -665,7 +579,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Annotation.</param>
         /// <param name="right">Right Annotation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Annotation left, Annotation right)
+        public static bool operator ==(Annotation left,
+                                       Annotation right)
         {
             return Equals(left, right);
         }
@@ -676,7 +591,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Annotation.</param>
         /// <param name="right">Right Annotation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Annotation left, Annotation right)
+        public static bool operator !=(Annotation left,
+                                       Annotation right)
         {
             return !Equals(left, right);
         }
@@ -688,9 +604,10 @@ namespace Plotly.Models.Layouts
         public Annotation DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Annotation>(ms).Result;
         }
     }

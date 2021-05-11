@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.Titles
     /// <summary>
     ///     The Pad class.
     /// </summary>
-    
     [Serializable]
     public class Pad : IEquatable<Pad>
     {
@@ -18,73 +17,66 @@ namespace Plotly.Models.Layouts.Titles
         ///     The amount of padding (in px) along the top of the component.
         /// </summary>
         [JsonPropertyName(@"t")]
-        public JsNumber? T { get; set;} 
+        public JsNumber? T { get; set; }
 
         /// <summary>
         ///     The amount of padding (in px) on the right side of the component.
         /// </summary>
         [JsonPropertyName(@"r")]
-        public JsNumber? R { get; set;} 
+        public JsNumber? R { get; set; }
 
         /// <summary>
         ///     The amount of padding (in px) along the bottom of the component.
         /// </summary>
         [JsonPropertyName(@"b")]
-        public JsNumber? B { get; set;} 
+        public JsNumber? B { get; set; }
 
         /// <summary>
         ///     The amount of padding (in px) on the left side of the component.
         /// </summary>
         [JsonPropertyName(@"l")]
-        public JsNumber? L { get; set;} 
+        public JsNumber? L { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Pad other)) return false;
+            if(!(obj is Pad other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Pad other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    T == other.T &&
-                    T != null && other.T != null &&
-                    T.Equals(other.T)
-                ) && 
-                (
-                    R == other.R &&
-                    R != null && other.R != null &&
-                    R.Equals(other.R)
-                ) && 
-                (
-                    B == other.B &&
-                    B != null && other.B != null &&
-                    B.Equals(other.B)
-                ) && 
-                (
-                    L == other.L &&
-                    L != null && other.L != null &&
-                    L.Equals(other.L)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (T == other.T && T != null && other.T != null && T.Equals(other.T)) &&
+                   (R == other.R && R != null && other.R != null && R.Equals(other.R)) &&
+                   (B == other.B && B != null && other.B != null && B.Equals(other.B)) &&
+                   (L == other.L && L != null && other.L != null && L.Equals(other.L));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (T != null) hashCode = hashCode * 59 + T.GetHashCode();
-                if (R != null) hashCode = hashCode * 59 + R.GetHashCode();
-                if (B != null) hashCode = hashCode * 59 + B.GetHashCode();
-                if (L != null) hashCode = hashCode * 59 + L.GetHashCode();
+
+                if(T != null)
+                    hashCode = hashCode * 59 + T.GetHashCode();
+
+                if(R != null)
+                    hashCode = hashCode * 59 + R.GetHashCode();
+
+                if(B != null)
+                    hashCode = hashCode * 59 + B.GetHashCode();
+
+                if(L != null)
+                    hashCode = hashCode * 59 + L.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -95,7 +87,8 @@ namespace Plotly.Models.Layouts.Titles
         /// <param name="left">Left Pad.</param>
         /// <param name="right">Right Pad.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Pad left, Pad right)
+        public static bool operator ==(Pad left,
+                                       Pad right)
         {
             return Equals(left, right);
         }
@@ -106,7 +99,8 @@ namespace Plotly.Models.Layouts.Titles
         /// <param name="left">Left Pad.</param>
         /// <param name="right">Right Pad.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Pad left, Pad right)
+        public static bool operator !=(Pad left,
+                                       Pad right)
         {
             return !Equals(left, right);
         }
@@ -118,9 +112,10 @@ namespace Plotly.Models.Layouts.Titles
         public Pad DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Pad>(ms).Result;
         }
     }

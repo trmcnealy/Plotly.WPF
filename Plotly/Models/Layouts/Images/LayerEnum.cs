@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.Images
     ///     and <c>yref</c> are both set to <c>paper</c>, image is drawn below the entire
     ///     plot area.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum LayerEnum
     {
-        [EnumMember(Value=@"above")]
+        [EnumMember(Value = @"above")]
         Above = 0,
-        [EnumMember(Value=@"below")]
+
+        [EnumMember(Value = @"below")]
         Below
     }
 }

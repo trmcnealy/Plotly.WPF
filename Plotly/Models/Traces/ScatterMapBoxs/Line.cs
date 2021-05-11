@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
     /// <summary>
     ///     The Line class.
     /// </summary>
-    
     [Serializable]
     public class Line : IEquatable<Line>
     {
@@ -18,49 +17,46 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
         ///     Sets the line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).
         /// </summary>
         [JsonPropertyName(@"width")]
-        public JsNumber? Width { get; set;} 
+        public JsNumber? Width { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Line other)) return false;
+            if(!(obj is Line other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Line other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Width == other.Width &&
-                    Width != null && other.Width != null &&
-                    Width.Equals(other.Width)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color)) &&
+                   (Width == other.Width && Width != null && other.Width != null && Width.Equals(other.Width));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (Width != null) hashCode = hashCode * 59 + Width.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Width != null)
+                    hashCode = hashCode * 59 + Width.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -71,7 +67,8 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
         /// <param name="left">Left Line.</param>
         /// <param name="right">Right Line.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Line left, Line right)
+        public static bool operator ==(Line left,
+                                       Line right)
         {
             return Equals(left, right);
         }
@@ -82,7 +79,8 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
         /// <param name="left">Left Line.</param>
         /// <param name="right">Right Line.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Line left, Line right)
+        public static bool operator !=(Line left,
+                                       Line right)
         {
             return !Equals(left, right);
         }
@@ -94,9 +92,10 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
         public Line DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Line>(ms).Result;
         }
     }

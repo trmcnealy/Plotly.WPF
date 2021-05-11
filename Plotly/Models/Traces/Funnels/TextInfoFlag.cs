@@ -11,24 +11,29 @@ namespace Plotly.Models.Traces.Funnels
     ///     multiple funnels, percentages &amp; totals are computed separately (per
     ///     trace).
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum TextInfoFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"label")]
+
+        [EnumMember(Value = @"label")]
         Label = 1,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 2,
-        [EnumMember(Value=@"percent initial")]
+
+        [EnumMember(Value = @"percent initial")]
         PercentInitial = 4,
-        [EnumMember(Value=@"percent previous")]
+
+        [EnumMember(Value = @"percent previous")]
         PercentPrevious = 8,
-        [EnumMember(Value=@"percent total")]
+
+        [EnumMember(Value = @"percent total")]
         PercentTotal = 16,
-        [EnumMember(Value=@"value")]
+
+        [EnumMember(Value = @"value")]
         Value = 32
     }
 }

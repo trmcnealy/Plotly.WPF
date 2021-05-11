@@ -11,15 +11,16 @@ namespace Plotly.Models.Traces.ParCatss
     ///     take place per color per category. If <c>dimension</c>, hover interactions
     ///     take place across all categories per dimension.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverOnEnum
     {
-        [EnumMember(Value=@"category")]
+        [EnumMember(Value = @"category")]
         Category = 0,
-        [EnumMember(Value=@"color")]
+
+        [EnumMember(Value = @"color")]
         Color,
-        [EnumMember(Value=@"dimension")]
+
+        [EnumMember(Value = @"dimension")]
         Dimension
     }
 }

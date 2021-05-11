@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Indicators.Deltas
     /// <summary>
     ///     The Decreasing class.
     /// </summary>
-    
     [Serializable]
     public class Decreasing : IEquatable<Decreasing>
     {
@@ -18,49 +17,46 @@ namespace Plotly.Models.Traces.Indicators.Deltas
         ///     Sets the symbol to display for increasing value
         /// </summary>
         [JsonPropertyName(@"symbol")]
-        public string Symbol { get; set;} 
+        public string Symbol { get; set; }
 
         /// <summary>
         ///     Sets the color for increasing value.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Decreasing other)) return false;
+            if(!(obj is Decreasing other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Decreasing other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Symbol == other.Symbol &&
-                    Symbol != null && other.Symbol != null &&
-                    Symbol.Equals(other.Symbol)
-                ) && 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Symbol == other.Symbol && Symbol != null && other.Symbol != null && Symbol.Equals(other.Symbol)) &&
+                   (Color  == other.Color  && Color  != null && other.Color  != null && Color.Equals(other.Color));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Symbol != null) hashCode = hashCode * 59 + Symbol.GetHashCode();
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Symbol != null)
+                    hashCode = hashCode * 59 + Symbol.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -71,7 +67,8 @@ namespace Plotly.Models.Traces.Indicators.Deltas
         /// <param name="left">Left Decreasing.</param>
         /// <param name="right">Right Decreasing.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Decreasing left, Decreasing right)
+        public static bool operator ==(Decreasing left,
+                                       Decreasing right)
         {
             return Equals(left, right);
         }
@@ -82,7 +79,8 @@ namespace Plotly.Models.Traces.Indicators.Deltas
         /// <param name="left">Left Decreasing.</param>
         /// <param name="right">Right Decreasing.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Decreasing left, Decreasing right)
+        public static bool operator !=(Decreasing left,
+                                       Decreasing right)
         {
             return !Equals(left, right);
         }
@@ -94,9 +92,10 @@ namespace Plotly.Models.Traces.Indicators.Deltas
         public Decreasing DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Decreasing>(ms).Result;
         }
     }

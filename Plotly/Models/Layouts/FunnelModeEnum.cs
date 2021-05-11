@@ -12,15 +12,16 @@ namespace Plotly.Models.Layouts
     ///     shared location. With <c>overlay</c>, the bars are plotted over one another,
     ///     you might need to an <c>opacity</c> to see multiple bars.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FunnelModeEnum
     {
-        [EnumMember(Value=@"stack")]
+        [EnumMember(Value = @"stack")]
         Stack = 0,
-        [EnumMember(Value=@"group")]
+
+        [EnumMember(Value = @"group")]
         Group,
-        [EnumMember(Value=@"overlay")]
+
+        [EnumMember(Value = @"overlay")]
         Overlay
     }
 }

@@ -24,23 +24,28 @@ namespace Plotly.Models.Traces.Scatters
     ///     are not already consecutive, the later ones will be pushed down in the drawing
     ///     order.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FillEnum
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None,
-        [EnumMember(Value=@"tozeroy")]
+
+        [EnumMember(Value = @"tozeroy")]
         ToZeroY,
-        [EnumMember(Value=@"tozerox")]
+
+        [EnumMember(Value = @"tozerox")]
         ToZeroX,
-        [EnumMember(Value=@"tonexty")]
+
+        [EnumMember(Value = @"tonexty")]
         ToNextY,
-        [EnumMember(Value=@"tonextx")]
+
+        [EnumMember(Value = @"tonextx")]
         ToNextX,
-        [EnumMember(Value=@"toself")]
+
+        [EnumMember(Value = @"toself")]
         ToSelf,
-        [EnumMember(Value=@"tonext")]
+
+        [EnumMember(Value = @"tonext")]
         ToNext
     }
 }

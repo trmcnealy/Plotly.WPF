@@ -14,35 +14,46 @@ namespace Plotly.Models.Traces.ContourCarpets.Contourss
     ///     to value[1]` Open vs. closed intervals make no difference to constraint
     ///     display, but all versions are allowed for consistency with filter transforms.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OperationEnum
     {
-        [EnumMember(Value=@"=")]
+        [EnumMember(Value = @"=")]
         Equal = 0,
-        [EnumMember(Value=@"<")]
+
+        [EnumMember(Value = @"<")]
         LessThan,
-        [EnumMember(Value=@">=")]
+
+        [EnumMember(Value = @">=")]
         GreaterThanOrEqual,
-        [EnumMember(Value=@">")]
+
+        [EnumMember(Value = @">")]
         GreaterThan,
-        [EnumMember(Value=@"<=")]
+
+        [EnumMember(Value = @"<=")]
         LessThanOrEqual,
-        [EnumMember(Value=@"[]")]
+
+        [EnumMember(Value = @"[]")]
         OpeningSquareBracketClosingSquareBracket,
-        [EnumMember(Value=@"()")]
+
+        [EnumMember(Value = @"()")]
         OpeningRoundBracketClosingRoundBracket,
-        [EnumMember(Value=@"[)")]
+
+        [EnumMember(Value = @"[)")]
         OpeningSquareBracketClosingRoundBracket,
-        [EnumMember(Value=@"(]")]
+
+        [EnumMember(Value = @"(]")]
         OpeningRoundBracketClosingSquareBracket,
-        [EnumMember(Value=@"][")]
+
+        [EnumMember(Value = @"][")]
         ClosingSquareBracketOpeningSquareBracket,
-        [EnumMember(Value=@")(")]
+
+        [EnumMember(Value = @")(")]
         ClosingRoundBracketOpeningRoundBracket,
-        [EnumMember(Value=@"](")]
+
+        [EnumMember(Value = @"](")]
         ClosingSquareBracketOpeningRoundBracket,
-        [EnumMember(Value=@")[")]
+
+        [EnumMember(Value = @")[")]
         ClosingRoundBracketOpeningSquareBracket
     }
 }

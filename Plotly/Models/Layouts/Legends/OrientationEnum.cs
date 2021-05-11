@@ -8,13 +8,13 @@ namespace Plotly.Models.Layouts.Legends
     /// <summary>
     ///     Sets the orientation of the legend.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V = 0,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

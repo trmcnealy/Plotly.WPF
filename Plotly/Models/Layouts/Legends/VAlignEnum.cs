@@ -9,15 +9,16 @@ namespace Plotly.Models.Layouts.Legends
     ///     Sets the vertical alignment of the symbols with respect to their associated
     ///     text.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum VAlignEnum
     {
-        [EnumMember(Value=@"middle")]
+        [EnumMember(Value = @"middle")]
         Middle = 0,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

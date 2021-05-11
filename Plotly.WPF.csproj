@@ -7,7 +7,7 @@
         <OutputType>Library</OutputType>
         <ExportWinMDFile>true</ExportWinMDFile>
         <LangVersion>9.0</LangVersion>
-        <TargetFramework>net5.0-$(TargetPlatformIdentifier)$(TargetPlatformVersion)</TargetFramework>
+        <TargetFramework>net5.0-$(TargetFrameworkOSPlatform)</TargetFramework>
         <Platforms>AnyCPU;x86;x64</Platforms>
         <UseWPF>true</UseWPF>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -38,18 +38,14 @@
 
     <ItemGroup>
         <None Remove="Plotly.WPF.csproj.DotSettings" />
-
-        <None Include="..\..\trmcnealy.github.io\assets\nindra.png">
-            <Pack>True</Pack>
-            <PackagePath></PackagePath>
-        </None>
+        <None Remove="Plotly\Plotly.html.bk" />
     </ItemGroup>
 
     <ItemGroup>
         <None Include="Plotly/Plotly.html">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </None>
-        <None Include="Plotly/Plotly.js">
+        <None Include="Plotly\PlotlyApp.js">
             <CopyToOutputDirectory>Never</CopyToOutputDirectory>
         </None>
     </ItemGroup>
@@ -68,8 +64,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.19" />
-        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.664.37" />
+        <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
+        <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.774.44" />
 
         <!--<PackageReference Include="Microsoft.Net.Native.Compiler" Version="2.2.9-rel-29512-01">
             <PrivateAssets>all</PrivateAssets>
@@ -82,7 +78,7 @@
     </Target>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-      <Exec Command="dotnet restore" />
+      <Exec Command="dotnet restore &amp;&#xD;&#xA;jsc.cmd E:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.js E:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.min.js" />
     </Target>
 
 </Project>

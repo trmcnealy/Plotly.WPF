@@ -5,13 +5,13 @@ namespace Plotly.Models.Traces.Carpets.BAxes
 {
     /// <summary>
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum CheaterTypeEnum
     {
-        [EnumMember(Value=@"value")]
+        [EnumMember(Value = @"value")]
         Value = 0,
-        [EnumMember(Value=@"index")]
+
+        [EnumMember(Value = @"index")]
         Index
     }
 }

@@ -10,15 +10,16 @@ namespace Plotly.Models.Layouts.Scenes.ZAxes
     ///     not drawn. If <c>outside</c> (<c>inside</c>), this axis&#39; are drawn outside
     ///     (inside) the axis lines.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TicksEnum
     {
-        [EnumMember(Value=@"outside")]
+        [EnumMember(Value = @"outside")]
         Outside,
-        [EnumMember(Value=@"inside")]
+
+        [EnumMember(Value = @"inside")]
         Inside,
-        [EnumMember(Value=@"")]
+
+        [EnumMember(Value = @"")]
         Empty
     }
 }

@@ -9,13 +9,13 @@ namespace Plotly.Models.Layouts.UpdateMenus
     ///     Determines whether the buttons are accessible via a dropdown menu or whether
     ///     the buttons are stacked horizontally or vertically
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"dropdown")]
+        [EnumMember(Value = @"dropdown")]
         DropDown = 0,
-        [EnumMember(Value=@"buttons")]
+
+        [EnumMember(Value = @"buttons")]
         Buttons
     }
 }

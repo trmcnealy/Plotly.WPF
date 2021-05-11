@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The UniformText class.
     /// </summary>
-    
     [Serializable]
     public class UniformText : IEquatable<UniformText>
     {
@@ -25,49 +24,46 @@ namespace Plotly.Models.Layouts
         ///     font size defined by trace, then the <c>minsize</c> is used.
         /// </summary>
         [JsonPropertyName(@"mode")]
-        public ModeEnum? Mode { get; set;} 
+        public ModeEnum? Mode { get; set; }
 
         /// <summary>
         ///     Sets the minimum text size between traces of the same type.
         /// </summary>
         [JsonPropertyName(@"minsize")]
-        public JsNumber? MinSize { get; set;} 
+        public JsNumber? MinSize { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is UniformText other)) return false;
+            if(!(obj is UniformText other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] UniformText other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Mode == other.Mode &&
-                    Mode != null && other.Mode != null &&
-                    Mode.Equals(other.Mode)
-                ) && 
-                (
-                    MinSize == other.MinSize &&
-                    MinSize != null && other.MinSize != null &&
-                    MinSize.Equals(other.MinSize)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Mode    == other.Mode    && Mode    != null && other.Mode    != null && Mode.Equals(other.Mode)) &&
+                   (MinSize == other.MinSize && MinSize != null && other.MinSize != null && MinSize.Equals(other.MinSize));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Mode != null) hashCode = hashCode * 59 + Mode.GetHashCode();
-                if (MinSize != null) hashCode = hashCode * 59 + MinSize.GetHashCode();
+
+                if(Mode != null)
+                    hashCode = hashCode * 59 + Mode.GetHashCode();
+
+                if(MinSize != null)
+                    hashCode = hashCode * 59 + MinSize.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -78,7 +74,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left UniformText.</param>
         /// <param name="right">Right UniformText.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (UniformText left, UniformText right)
+        public static bool operator ==(UniformText left,
+                                       UniformText right)
         {
             return Equals(left, right);
         }
@@ -89,7 +86,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left UniformText.</param>
         /// <param name="right">Right UniformText.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (UniformText left, UniformText right)
+        public static bool operator !=(UniformText left,
+                                       UniformText right)
         {
             return !Equals(left, right);
         }
@@ -101,9 +99,10 @@ namespace Plotly.Models.Layouts
         public UniformText DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<UniformText>(ms).Result;
         }
     }

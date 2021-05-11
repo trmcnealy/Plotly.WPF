@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Indicators.Gauges
     /// <summary>
     ///     The Threshold class.
     /// </summary>
-    
     [Serializable]
     public class Threshold : IEquatable<Threshold>
     {
@@ -20,62 +19,57 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Sets the thickness of the threshold line as a fraction of the thickness
         ///     of the gauge.
         /// </summary>
         [JsonPropertyName(@"thickness")]
-        public JsNumber? Thickness { get; set;} 
+        public JsNumber? Thickness { get; set; }
 
         /// <summary>
         ///     Sets a treshold value drawn as a line.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public JsNumber? Value { get; set;} 
+        public JsNumber? Value { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Threshold other)) return false;
+            if(!(obj is Threshold other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Threshold other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    Thickness == other.Thickness &&
-                    Thickness != null && other.Thickness != null &&
-                    Thickness.Equals(other.Thickness)
-                ) && 
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Line      == other.Line      && Line      != null && other.Line      != null && Line.Equals(other.Line))           &&
+                   (Thickness == other.Thickness && Thickness != null && other.Thickness != null && Thickness.Equals(other.Thickness)) &&
+                   (Value     == other.Value     && Value     != null && other.Value     != null && Value.Equals(other.Value));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (Thickness != null) hashCode = hashCode * 59 + Thickness.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(Thickness != null)
+                    hashCode = hashCode * 59 + Thickness.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -86,7 +80,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Threshold.</param>
         /// <param name="right">Right Threshold.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Threshold left, Threshold right)
+        public static bool operator ==(Threshold left,
+                                       Threshold right)
         {
             return Equals(left, right);
         }
@@ -97,7 +92,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Threshold.</param>
         /// <param name="right">Right Threshold.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Threshold left, Threshold right)
+        public static bool operator !=(Threshold left,
+                                       Threshold right)
         {
             return !Equals(left, right);
         }
@@ -109,9 +105,10 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         public Threshold DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Threshold>(ms).Result;
         }
     }

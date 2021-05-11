@@ -1,5 +1,4 @@
-﻿
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 using Plotly.Models;
@@ -27,6 +26,7 @@ namespace Plotly
         {
             return JsonSerializer.Deserialize<PlotlyEvent>(json, Converter.SerializerOptions);
         }
+
         public string ToJson()
         {
             return JsonSerializer.Serialize(this, Converter.SerializerOptions);

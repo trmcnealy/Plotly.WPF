@@ -12,19 +12,22 @@ namespace Plotly.Models.Traces.Histogram2DContours
     ///     histogram values are computed using the sum, the average, the minimum or
     ///     the maximum of the values lying inside each bin respectively.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HistFuncEnum
     {
-        [EnumMember(Value=@"count")]
+        [EnumMember(Value = @"count")]
         Count = 0,
-        [EnumMember(Value=@"sum")]
+
+        [EnumMember(Value = @"sum")]
         Sum,
-        [EnumMember(Value=@"avg")]
+
+        [EnumMember(Value = @"avg")]
         Avg,
-        [EnumMember(Value=@"min")]
+
+        [EnumMember(Value = @"min")]
         Min,
-        [EnumMember(Value=@"max")]
+
+        [EnumMember(Value = @"max")]
         Max
     }
 }

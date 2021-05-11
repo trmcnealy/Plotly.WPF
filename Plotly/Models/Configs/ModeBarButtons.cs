@@ -6,83 +6,121 @@ namespace Plotly.Models.Configs
     [JsonConverter(typeof(EnumConverter))]
     public enum ModeBarButtons
     {
-        [EnumMember(Value =@"toImage")]
+        [EnumMember(Value = @"toImage")]
         ToImage,
-        [EnumMember(Value =@"sendDataToCloud")]
+
+        [EnumMember(Value = @"sendDataToCloud")]
         SendDataToCloud,
-        [EnumMember(Value =@"editInChartStudio")]
+
+        [EnumMember(Value = @"editInChartStudio")]
         EditInChartStudio,
-        [EnumMember(Value =@"zoom2d")]
+
+        [EnumMember(Value = @"zoom2d")]
         Zoom2d,
-        [EnumMember(Value =@"pan2d")]
+
+        [EnumMember(Value = @"pan2d")]
         Pan2d,
-        [EnumMember(Value =@"select2d")]
+
+        [EnumMember(Value = @"select2d")]
         Select2d,
-        [EnumMember(Value =@"lasso2d")]
+
+        [EnumMember(Value = @"lasso2d")]
         Lasso2d,
-        [EnumMember(Value =@"drawclosedpath")]
+
+        [EnumMember(Value = @"drawclosedpath")]
         Drawclosedpath,
-        [EnumMember(Value =@"drawopenpath")]
+
+        [EnumMember(Value = @"drawopenpath")]
         Drawopenpath,
-        [EnumMember(Value =@"drawline")]
+
+        [EnumMember(Value = @"drawline")]
         Drawline,
-        [EnumMember(Value =@"drawrect")]
+
+        [EnumMember(Value = @"drawrect")]
         Drawrect,
-        [EnumMember(Value =@"drawcircle")]
+
+        [EnumMember(Value = @"drawcircle")]
         Drawcircle,
-        [EnumMember(Value =@"eraseshape")]
+
+        [EnumMember(Value = @"eraseshape")]
         Eraseshape,
-        [EnumMember(Value =@"zoomIn2d")]
+
+        [EnumMember(Value = @"zoomIn2d")]
         ZoomIn2d,
-        [EnumMember(Value =@"zoomOut2d")]
+
+        [EnumMember(Value = @"zoomOut2d")]
         ZoomOut2d,
-        [EnumMember(Value =@"autoScale2d")]
+
+        [EnumMember(Value = @"autoScale2d")]
         AutoScale2d,
-        [EnumMember(Value =@"resetScale2d")]
+
+        [EnumMember(Value = @"resetScale2d")]
         ResetScale2d,
-        [EnumMember(Value =@"hoverClosestCartesian")]
+
+        [EnumMember(Value = @"hoverClosestCartesian")]
         HoverClosestCartesian,
-        [EnumMember(Value =@"hoverCompareCartesian")]
+
+        [EnumMember(Value = @"hoverCompareCartesian")]
         HoverCompareCartesian,
-        [EnumMember(Value =@"zoom3d")]
+
+        [EnumMember(Value = @"zoom3d")]
         Zoom3d,
-        [EnumMember(Value =@"pan3d")]
+
+        [EnumMember(Value = @"pan3d")]
         Pan3d,
-        [EnumMember(Value =@"orbitRotation")]
+
+        [EnumMember(Value = @"orbitRotation")]
         OrbitRotation,
-        [EnumMember(Value =@"tableRotation")]
+
+        [EnumMember(Value = @"tableRotation")]
         TableRotation,
-        [EnumMember(Value =@"resetCameraDefault3d")]
+
+        [EnumMember(Value = @"resetCameraDefault3d")]
         ResetCameraDefault3d,
-        [EnumMember(Value =@"resetCameraLastSave3d")]
+
+        [EnumMember(Value = @"resetCameraLastSave3d")]
         ResetCameraLastSave3d,
-        [EnumMember(Value =@"hoverClosest3d")]
+
+        [EnumMember(Value = @"hoverClosest3d")]
         HoverClosest3d,
-        [EnumMember(Value =@"zoomInGeo")]
+
+        [EnumMember(Value = @"zoomInGeo")]
         ZoomInGeo,
-        [EnumMember(Value =@"zoomOutGeo")]
+
+        [EnumMember(Value = @"zoomOutGeo")]
         ZoomOutGeo,
-        [EnumMember(Value =@"resetGeo")]
+
+        [EnumMember(Value = @"resetGeo")]
         ResetGeo,
-        [EnumMember(Value =@"hoverClosrestGeo")]
+
+        [EnumMember(Value = @"hoverClosrestGeo")]
         HoverClosrestGeo,
-        [EnumMember(Value =@"hoverClosestGl2d")]
+
+        [EnumMember(Value = @"hoverClosestGl2d")]
         HoverClosestGl2d,
-        [EnumMember(Value =@"hoverClosestPie")]
+
+        [EnumMember(Value = @"hoverClosestPie")]
         HoverClosestPie,
-        [EnumMember(Value =@"resetViewSankey")]
+
+        [EnumMember(Value = @"resetViewSankey")]
         ResetViewSankey,
-        [EnumMember(Value =@"toggleHover")]
+
+        [EnumMember(Value = @"toggleHover")]
         ToggleHover,
-        [EnumMember(Value =@"resetViews")]
+
+        [EnumMember(Value = @"resetViews")]
         ResetViews,
-        [EnumMember(Value =@"toggleSpikelines")]
+
+        [EnumMember(Value = @"toggleSpikelines")]
         ToggleSpikelines,
-        [EnumMember(Value =@"resetViewMapbo")]
+
+        [EnumMember(Value = @"resetViewMapbo")]
         ResetViewMapbo,
-        [EnumMember(Value =@"zoomInMapbox")]
+
+        [EnumMember(Value = @"zoomInMapbox")]
         ZoomInMapbox,
-        [EnumMember(Value =@"zoomOutMapbox")]
+
+        [EnumMember(Value = @"zoomOutMapbox")]
         ZoomOutMapbox
     }
 }

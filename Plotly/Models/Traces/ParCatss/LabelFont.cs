@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.ParCatss
     /// <summary>
     ///     The LabelFont class.
     /// </summary>
-    
     [Serializable]
     public class LabelFont : IEquatable<LabelFont>
     {
@@ -28,61 +27,56 @@ namespace Plotly.Models.Traces.ParCatss
         ///     New Roman&#39;.
         /// </summary>
         [JsonPropertyName(@"family")]
-        public string Family { get; set;} 
+        public string Family { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public JsNumber? Size { get; set;} 
+        public JsNumber? Size { get; set; }
 
         /// <summary>
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is LabelFont other)) return false;
+            if(!(obj is LabelFont other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] LabelFont other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Family == other.Family &&
-                    Family != null && other.Family != null &&
-                    Family.Equals(other.Family)
-                ) && 
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                ) && 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Family == other.Family && Family != null && other.Family != null && Family.Equals(other.Family)) &&
+                   (Size   == other.Size   && Size   != null && other.Size   != null && Size.Equals(other.Size))     &&
+                   (Color  == other.Color  && Color  != null && other.Color  != null && Color.Equals(other.Color));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Family != null) hashCode = hashCode * 59 + Family.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Family != null)
+                    hashCode = hashCode * 59 + Family.GetHashCode();
+
+                if(Size != null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -93,7 +87,8 @@ namespace Plotly.Models.Traces.ParCatss
         /// <param name="left">Left LabelFont.</param>
         /// <param name="right">Right LabelFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (LabelFont left, LabelFont right)
+        public static bool operator ==(LabelFont left,
+                                       LabelFont right)
         {
             return Equals(left, right);
         }
@@ -104,7 +99,8 @@ namespace Plotly.Models.Traces.ParCatss
         /// <param name="left">Left LabelFont.</param>
         /// <param name="right">Right LabelFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (LabelFont left, LabelFont right)
+        public static bool operator !=(LabelFont left,
+                                       LabelFont right)
         {
             return !Equals(left, right);
         }
@@ -116,9 +112,10 @@ namespace Plotly.Models.Traces.ParCatss
         public LabelFont DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<LabelFont>(ms).Result;
         }
     }

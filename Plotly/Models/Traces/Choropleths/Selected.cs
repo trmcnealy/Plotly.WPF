@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Choropleths
     /// <summary>
     ///     The Selected class.
     /// </summary>
-    
     [Serializable]
     public class Selected : IEquatable<Selected>
     {
@@ -18,37 +17,36 @@ namespace Plotly.Models.Traces.Choropleths
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Selecteds.Marker Marker { get; set;} 
+        public Selecteds.Marker Marker { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Selected other)) return false;
+            if(!(obj is Selected other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Selected other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Marker == other.Marker &&
-                    Marker != null && other.Marker != null &&
-                    Marker.Equals(other.Marker)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Marker == other.Marker && Marker != null && other.Marker != null && Marker.Equals(other.Marker));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Marker != null) hashCode = hashCode * 59 + Marker.GetHashCode();
+
+                if(Marker != null)
+                    hashCode = hashCode * 59 + Marker.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -59,7 +57,8 @@ namespace Plotly.Models.Traces.Choropleths
         /// <param name="left">Left Selected.</param>
         /// <param name="right">Right Selected.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Selected left, Selected right)
+        public static bool operator ==(Selected left,
+                                       Selected right)
         {
             return Equals(left, right);
         }
@@ -70,7 +69,8 @@ namespace Plotly.Models.Traces.Choropleths
         /// <param name="left">Left Selected.</param>
         /// <param name="right">Right Selected.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Selected left, Selected right)
+        public static bool operator !=(Selected left,
+                                       Selected right)
         {
             return !Equals(left, right);
         }
@@ -82,9 +82,10 @@ namespace Plotly.Models.Traces.Choropleths
         public Selected DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Selected>(ms).Result;
         }
     }

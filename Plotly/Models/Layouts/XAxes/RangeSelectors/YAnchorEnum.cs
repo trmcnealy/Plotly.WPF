@@ -10,17 +10,19 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors
     ///     the <c>y</c> position to the <c>top</c>, <c>middle</c> or <c>bottom</c>
     ///     of the range selector.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YAnchorEnum
     {
-        [EnumMember(Value=@"bottom")]
+        [EnumMember(Value = @"bottom")]
         Bottom = 0,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle
     }
 }

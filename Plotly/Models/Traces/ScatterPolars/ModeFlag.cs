@@ -13,18 +13,20 @@ namespace Plotly.Models.Traces.ScatterPolars
     ///     20 points and the trace is not stacked then the default is <c>lines+markers</c>.
     ///     Otherwise, <c>lines</c>.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum ModeFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"lines")]
+
+        [EnumMember(Value = @"lines")]
         Lines = 1,
-        [EnumMember(Value=@"markers")]
+
+        [EnumMember(Value = @"markers")]
         Markers = 2,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 4
     }
 }

@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.ParCatss.Lines
     ///     Sets the shape of the paths. If <c>linear</c>, paths are composed of straight
     ///     lines. If <c>hspline</c>, paths are composed of horizontal curved splines
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShapeEnum
     {
-        [EnumMember(Value=@"linear")]
+        [EnumMember(Value = @"linear")]
         Linear = 0,
-        [EnumMember(Value=@"hspline")]
+
+        [EnumMember(Value = @"hspline")]
         HSpline
     }
 }

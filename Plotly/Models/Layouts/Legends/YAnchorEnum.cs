@@ -13,17 +13,19 @@ namespace Plotly.Models.Layouts.Legends
     ///     greater than or equal to 2/3 and anchors legends with respect to their middle
     ///     otherwise.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YAnchorEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

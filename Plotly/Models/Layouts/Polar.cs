@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Polar class.
     /// </summary>
-    
     [Serializable]
     public class Polar : IEquatable<Polar>
     {
@@ -22,7 +21,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set;} 
+        public Domain Domain { get; set; }
 
         /// <summary>
         ///     Sets angular span of this polar subplot with two angles (in degrees). Sector
@@ -30,31 +29,31 @@ namespace Plotly.Models.Layouts
         ///     corresponding to rightmost limit of the polar subplot.
         /// </summary>
         [JsonPropertyName(@"sector")]
-        public List<object> Sector { get; set;} 
+        public List<object> Sector { get; set; }
 
         /// <summary>
         ///     Sets the fraction of the radius to cut out of the polar subplot.
         /// </summary>
         [JsonPropertyName(@"hole")]
-        public JsNumber? Hole { get; set;} 
+        public JsNumber? Hole { get; set; }
 
         /// <summary>
         ///     Set the background color of the subplot
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set;} 
+        public object BgColor { get; set; }
 
         /// <summary>
         ///     Gets or sets the RadialAxis.
         /// </summary>
         [JsonPropertyName(@"radialaxis")]
-        public Polars.RadialAxis RadialAxis { get; set;} 
+        public Polars.RadialAxis RadialAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the AngularAxis.
         /// </summary>
         [JsonPropertyName(@"angularaxis")]
-        public Polars.AngularAxis AngularAxis { get; set;} 
+        public Polars.AngularAxis AngularAxis { get; set; }
 
         /// <summary>
         ///     Determines if the radial axis grid lines and angular axis line are drawn
@@ -65,86 +64,71 @@ namespace Plotly.Models.Layouts
         ///     same as the data scale).
         /// </summary>
         [JsonPropertyName(@"gridshape")]
-        public GridShapeEnum? GridShape { get; set;} 
+        public GridShapeEnum? GridShape { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in axis attributes, if not overridden
         ///     in the individual axes. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Polar other)) return false;
+            if(!(obj is Polar other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Polar other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Domain == other.Domain &&
-                    Domain != null && other.Domain != null &&
-                    Domain.Equals(other.Domain)
-                ) && 
-                (
-                    Equals(Sector, other.Sector) ||
-                    Sector != null && other.Sector != null &&
-                    Sector.SequenceEqual(other.Sector)
-                ) &&
-                (
-                    Hole == other.Hole &&
-                    Hole != null && other.Hole != null &&
-                    Hole.Equals(other.Hole)
-                ) && 
-                (
-                    BgColor == other.BgColor &&
-                    BgColor != null && other.BgColor != null &&
-                    BgColor.Equals(other.BgColor)
-                ) && 
-                (
-                    RadialAxis == other.RadialAxis &&
-                    RadialAxis != null && other.RadialAxis != null &&
-                    RadialAxis.Equals(other.RadialAxis)
-                ) && 
-                (
-                    AngularAxis == other.AngularAxis &&
-                    AngularAxis != null && other.AngularAxis != null &&
-                    AngularAxis.Equals(other.AngularAxis)
-                ) && 
-                (
-                    GridShape == other.GridShape &&
-                    GridShape != null && other.GridShape != null &&
-                    GridShape.Equals(other.GridShape)
-                ) && 
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Domain == other.Domain && Domain != null && other.Domain != null && Domain.Equals(other.Domain))                               &&
+                   (Equals(Sector, other.Sector) || Sector != null && other.Sector != null && Sector.SequenceEqual(other.Sector))                  &&
+                   (Hole        == other.Hole        && Hole        != null && other.Hole        != null && Hole.Equals(other.Hole))               &&
+                   (BgColor     == other.BgColor     && BgColor     != null && other.BgColor     != null && BgColor.Equals(other.BgColor))         &&
+                   (RadialAxis  == other.RadialAxis  && RadialAxis  != null && other.RadialAxis  != null && RadialAxis.Equals(other.RadialAxis))   &&
+                   (AngularAxis == other.AngularAxis && AngularAxis != null && other.AngularAxis != null && AngularAxis.Equals(other.AngularAxis)) &&
+                   (GridShape   == other.GridShape   && GridShape   != null && other.GridShape   != null && GridShape.Equals(other.GridShape))     &&
+                   (UiRevision  == other.UiRevision  && UiRevision  != null && other.UiRevision  != null && UiRevision.Equals(other.UiRevision));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Domain != null) hashCode = hashCode * 59 + Domain.GetHashCode();
-                if (Sector != null) hashCode = hashCode * 59 + Sector.GetHashCode();
-                if (Hole != null) hashCode = hashCode * 59 + Hole.GetHashCode();
-                if (BgColor != null) hashCode = hashCode * 59 + BgColor.GetHashCode();
-                if (RadialAxis != null) hashCode = hashCode * 59 + RadialAxis.GetHashCode();
-                if (AngularAxis != null) hashCode = hashCode * 59 + AngularAxis.GetHashCode();
-                if (GridShape != null) hashCode = hashCode * 59 + GridShape.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(Domain != null)
+                    hashCode = hashCode * 59 + Domain.GetHashCode();
+
+                if(Sector != null)
+                    hashCode = hashCode * 59 + Sector.GetHashCode();
+
+                if(Hole != null)
+                    hashCode = hashCode * 59 + Hole.GetHashCode();
+
+                if(BgColor != null)
+                    hashCode = hashCode * 59 + BgColor.GetHashCode();
+
+                if(RadialAxis != null)
+                    hashCode = hashCode * 59 + RadialAxis.GetHashCode();
+
+                if(AngularAxis != null)
+                    hashCode = hashCode * 59 + AngularAxis.GetHashCode();
+
+                if(GridShape != null)
+                    hashCode = hashCode * 59 + GridShape.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -155,7 +139,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Polar.</param>
         /// <param name="right">Right Polar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Polar left, Polar right)
+        public static bool operator ==(Polar left,
+                                       Polar right)
         {
             return Equals(left, right);
         }
@@ -166,7 +151,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Polar.</param>
         /// <param name="right">Right Polar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Polar left, Polar right)
+        public static bool operator !=(Polar left,
+                                       Polar right)
         {
             return !Equals(left, right);
         }
@@ -178,9 +164,10 @@ namespace Plotly.Models.Layouts
         public Polar DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Polar>(ms).Result;
         }
     }

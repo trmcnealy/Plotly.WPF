@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -14,7 +12,6 @@ namespace Plotly.Models
     /// <summary>
     ///     The Animation class.
     /// </summary>
-    
     [Serializable]
     public class Animation : IEquatable<Animation>
     {
@@ -26,85 +23,76 @@ namespace Plotly.Models
         ///     are animated to completion before the new animation is started.
         /// </summary>
         [JsonPropertyName(@"mode")]
-        public ModeEnum? Mode { get; set;} 
+        public ModeEnum? Mode { get; set; }
 
         /// <summary>
         ///     The direction in which to play the frames triggered by the animation call
         /// </summary>
         [JsonPropertyName(@"direction")]
-        public DirectionEnum? Direction { get; set;} 
+        public DirectionEnum? Direction { get; set; }
 
         /// <summary>
         ///     Play frames starting at the current frame instead of the beginning.
         /// </summary>
         [JsonPropertyName(@"fromcurrent")]
-        public bool? FromCurrent { get; set;} 
+        public bool? FromCurrent { get; set; }
 
         /// <summary>
         ///     Gets or sets the Frame.
         /// </summary>
         [JsonPropertyName(@"frame")]
-        public Frame Frame { get; set;} 
+        public Frame Frame { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transition.
         /// </summary>
         [JsonPropertyName(@"transition")]
-        public Transition Transition { get; set;} 
+        public Transition Transition { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Animation other)) return false;
+            if(!(obj is Animation other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Animation other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Mode == other.Mode &&
-                    Mode != null && other.Mode != null &&
-                    Mode.Equals(other.Mode)
-                ) && 
-                (
-                    Direction == other.Direction &&
-                    Direction != null && other.Direction != null &&
-                    Direction.Equals(other.Direction)
-                ) && 
-                (
-                    FromCurrent == other.FromCurrent &&
-                    FromCurrent != null && other.FromCurrent != null &&
-                    FromCurrent.Equals(other.FromCurrent)
-                ) && 
-                (
-                    Frame == other.Frame &&
-                    Frame != null && other.Frame != null &&
-                    Frame.Equals(other.Frame)
-                ) && 
-                (
-                    Transition == other.Transition &&
-                    Transition != null && other.Transition != null &&
-                    Transition.Equals(other.Transition)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Mode        == other.Mode        && Mode        != null && other.Mode        != null && Mode.Equals(other.Mode))               &&
+                   (Direction   == other.Direction   && Direction   != null && other.Direction   != null && Direction.Equals(other.Direction))     &&
+                   (FromCurrent == other.FromCurrent && FromCurrent != null && other.FromCurrent != null && FromCurrent.Equals(other.FromCurrent)) &&
+                   (Frame       == other.Frame       && Frame       != null && other.Frame       != null && Frame.Equals(other.Frame))             &&
+                   (Transition  == other.Transition  && Transition  != null && other.Transition  != null && Transition.Equals(other.Transition));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Mode != null) hashCode = hashCode * 59 + Mode.GetHashCode();
-                if (Direction != null) hashCode = hashCode * 59 + Direction.GetHashCode();
-                if (FromCurrent != null) hashCode = hashCode * 59 + FromCurrent.GetHashCode();
-                if (Frame != null) hashCode = hashCode * 59 + Frame.GetHashCode();
-                if (Transition != null) hashCode = hashCode * 59 + Transition.GetHashCode();
+
+                if(Mode != null)
+                    hashCode = hashCode * 59 + Mode.GetHashCode();
+
+                if(Direction != null)
+                    hashCode = hashCode * 59 + Direction.GetHashCode();
+
+                if(FromCurrent != null)
+                    hashCode = hashCode * 59 + FromCurrent.GetHashCode();
+
+                if(Frame != null)
+                    hashCode = hashCode * 59 + Frame.GetHashCode();
+
+                if(Transition != null)
+                    hashCode = hashCode * 59 + Transition.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -115,7 +103,8 @@ namespace Plotly.Models
         /// <param name="left">Left Animation.</param>
         /// <param name="right">Right Animation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Animation left, Animation right)
+        public static bool operator ==(Animation left,
+                                       Animation right)
         {
             return Equals(left, right);
         }
@@ -126,7 +115,8 @@ namespace Plotly.Models
         /// <param name="left">Left Animation.</param>
         /// <param name="right">Right Animation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Animation left, Animation right)
+        public static bool operator !=(Animation left,
+                                       Animation right)
         {
             return !Equals(left, right);
         }
@@ -138,9 +128,10 @@ namespace Plotly.Models
         public Animation DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Animation>(ms).Result;
         }
     }

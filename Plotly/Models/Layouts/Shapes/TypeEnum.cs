@@ -16,17 +16,19 @@ namespace Plotly.Models.Layouts.Shapes
     ///     with respect to the axes&#39; sizing mode. If <c>path</c>, draw a custom
     ///     SVG path using <c>path</c>. with respect to the axes&#39; sizing mode.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"circle")]
+        [EnumMember(Value = @"circle")]
         Circle,
-        [EnumMember(Value=@"rect")]
+
+        [EnumMember(Value = @"rect")]
         Rect,
-        [EnumMember(Value=@"path")]
+
+        [EnumMember(Value = @"path")]
         Path,
-        [EnumMember(Value=@"line")]
+
+        [EnumMember(Value = @"line")]
         Line
     }
 }

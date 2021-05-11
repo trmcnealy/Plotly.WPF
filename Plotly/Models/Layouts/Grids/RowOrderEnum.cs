@@ -9,13 +9,13 @@ namespace Plotly.Models.Layouts.Grids
     ///     Is the first row the top or the bottom? Note that columns are always enumerated
     ///     from left to right.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum RowOrderEnum
     {
-        [EnumMember(Value=@"top to bottom")]
+        [EnumMember(Value = @"top to bottom")]
         TopToBottom = 0,
-        [EnumMember(Value=@"bottom to top")]
+
+        [EnumMember(Value = @"bottom to top")]
         BottomToTop
     }
 }

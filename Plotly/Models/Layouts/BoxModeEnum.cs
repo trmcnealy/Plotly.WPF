@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts
     ///     one another, you might need to set <c>opacity</c> to see them multiple boxes.
     ///     Has no effect on traces that have <c>width</c> set.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BoxModeEnum
     {
-        [EnumMember(Value=@"overlay")]
+        [EnumMember(Value = @"overlay")]
         Overlay = 0,
-        [EnumMember(Value=@"group")]
+
+        [EnumMember(Value = @"group")]
         Group
     }
 }

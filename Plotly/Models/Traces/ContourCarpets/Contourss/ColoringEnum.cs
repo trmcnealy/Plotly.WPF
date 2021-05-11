@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.ContourCarpets.Contourss
     ///     is done on the contour lines. If <c>none</c>, no coloring is applied on
     ///     this trace.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ColoringEnum
     {
-        [EnumMember(Value=@"fill")]
+        [EnumMember(Value = @"fill")]
         Fill = 0,
-        [EnumMember(Value=@"lines")]
+
+        [EnumMember(Value = @"lines")]
         Lines,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

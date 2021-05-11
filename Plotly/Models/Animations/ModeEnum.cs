@@ -12,15 +12,16 @@ namespace Plotly.Models.Animations
     ///     which the new animation is started. If <c>afterall</c> all existing frames
     ///     are animated to completion before the new animation is started.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ModeEnum
     {
-        [EnumMember(Value=@"afterall")]
+        [EnumMember(Value = @"afterall")]
         AfterAll = 0,
-        [EnumMember(Value=@"immediate")]
+
+        [EnumMember(Value = @"immediate")]
         Immediate,
-        [EnumMember(Value=@"next")]
+
+        [EnumMember(Value = @"next")]
         Next
     }
 }

@@ -14,17 +14,19 @@ namespace Plotly.Models.Traces.Violins
     ///     to <c>suspectedoutliers</c> when <c>marker.outliercolor</c> or <c>marker.line.outliercolor</c>
     ///     is set, otherwise defaults to <c>outliers</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PointsEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All,
-        [EnumMember(Value=@"outliers")]
+
+        [EnumMember(Value = @"outliers")]
         Outliers,
-        [EnumMember(Value=@"suspectedoutliers")]
+
+        [EnumMember(Value = @"suspectedoutliers")]
         SuspectedOutliers,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

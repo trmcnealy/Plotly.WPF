@@ -14,7 +14,6 @@ namespace Plotly.Models.Traces.DensityMapBoxs
     /// <summary>
     ///     The ColorBar class.
     /// </summary>
-    
     [Serializable]
     public class ColorBar : IEquatable<ColorBar>
     {
@@ -24,14 +23,14 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     <c>pixels</c>. Use <c>thickness</c> to set the value.
         /// </summary>
         [JsonPropertyName(@"thicknessmode")]
-        public ThicknessModeEnum? ThicknessMode { get; set;} 
+        public ThicknessModeEnum? ThicknessMode { get; set; }
 
         /// <summary>
         ///     Sets the thickness of the color bar This measure excludes the size of the
         ///     padding, ticks and labels.
         /// </summary>
         [JsonPropertyName(@"thickness")]
-        public JsNumber? Thickness { get; set;} 
+        public JsNumber? Thickness { get; set; }
 
         /// <summary>
         ///     Determines whether this color bar&#39;s length (i.e. the measure in the
@@ -39,7 +38,7 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     *pixels. Use <c>len</c> to set the value.
         /// </summary>
         [JsonPropertyName(@"lenmode")]
-        public LenModeEnum? LenMode { get; set;} 
+        public LenModeEnum? LenMode { get; set; }
 
         /// <summary>
         ///     Sets the length of the color bar This measure excludes the padding of both
@@ -47,13 +46,13 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     both ends.
         /// </summary>
         [JsonPropertyName(@"len")]
-        public JsNumber? Len { get; set;} 
+        public JsNumber? Len { get; set; }
 
         /// <summary>
         ///     Sets the x position of the color bar (in plot fraction).
         /// </summary>
         [JsonPropertyName(@"x")]
-        public JsNumber? X { get; set;} 
+        public JsNumber? X { get; set; }
 
         /// <summary>
         ///     Sets this color bar&#39;s horizontal position anchor. This anchor binds
@@ -61,19 +60,19 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     of the color bar.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public XAnchorEnum? XAnchor { get; set;} 
+        public XAnchorEnum? XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the amount of padding (in px) along the x direction.
         /// </summary>
         [JsonPropertyName(@"xpad")]
-        public JsNumber? XPad { get; set;} 
+        public JsNumber? XPad { get; set; }
 
         /// <summary>
         ///     Sets the y position of the color bar (in plot fraction).
         /// </summary>
         [JsonPropertyName(@"y")]
-        public JsNumber? Y { get; set;} 
+        public JsNumber? Y { get; set; }
 
         /// <summary>
         ///     Sets this color bar&#39;s vertical position anchor This anchor binds the
@@ -81,43 +80,43 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     color bar.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public YAnchorEnum? YAnchor { get; set;} 
+        public YAnchorEnum? YAnchor { get; set; }
 
         /// <summary>
         ///     Sets the amount of padding (in px) along the y direction.
         /// </summary>
         [JsonPropertyName(@"ypad")]
-        public JsNumber? YPad { get; set;} 
+        public JsNumber? YPad { get; set; }
 
         /// <summary>
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"outlinecolor")]
-        public object OutlineColor { get; set;} 
+        public object OutlineColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the axis line.
         /// </summary>
         [JsonPropertyName(@"outlinewidth")]
-        public JsNumber? OutlineWidth { get; set;} 
+        public JsNumber? OutlineWidth { get; set; }
 
         /// <summary>
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set;} 
+        public object BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) or the border enclosing this color bar.
         /// </summary>
         [JsonPropertyName(@"borderwidth")]
-        public JsNumber? BorderWidth { get; set;} 
+        public JsNumber? BorderWidth { get; set; }
 
         /// <summary>
         ///     Sets the color of padded area.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set;} 
+        public object BgColor { get; set; }
 
         /// <summary>
         ///     Sets the tick mode for this axis. If <c>auto</c>, the number of ticks is
@@ -129,7 +128,7 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     <c>tickvals</c> is provided).
         /// </summary>
         [JsonPropertyName(@"tickmode")]
-        public TickModeEnum? TickMode { get; set;} 
+        public TickModeEnum? TickMode { get; set; }
 
         /// <summary>
         ///     Specifies the maximum number of ticks for the particular axis. The actual
@@ -137,7 +136,7 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     <c>nticks</c>. Has an effect only if <c>tickmode</c> is set to <c>auto</c>.
         /// </summary>
         [JsonPropertyName(@"nticks")]
-        public int? NTicks { get; set;} 
+        public int? NTicks { get; set; }
 
         /// <summary>
         ///     Sets the placement of the first tick on this axis. Use with <c>dtick</c>.
@@ -150,7 +149,7 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"tick0")]
-        public object Tick0 { get; set;} 
+        public object Tick0 { get; set; }
 
         /// <summary>
         ///     Sets the step in-between ticks on this axis. Use with <c>tick0</c>. Must
@@ -174,21 +173,21 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     to <c>M48</c>
         /// </summary>
         [JsonPropertyName(@"dtick")]
-        public object DTick { get; set;} 
+        public object DTick { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear. Only has an effect if
         ///     <c>tickmode</c> is set to <c>array</c>. Used with <c>ticktext</c>.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set;} 
+        public List<object> TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>. Only
         ///     has an effect if <c>tickmode</c> is set to <c>array</c>. Used with <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set;} 
+        public List<object> TickText { get; set; }
 
         /// <summary>
         ///     Determines whether ticks are drawn or not. If **, this axis&#39; ticks are
@@ -196,44 +195,44 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     (inside) the axis lines.
         /// </summary>
         [JsonPropertyName(@"ticks")]
-        public TicksEnum? Ticks { get; set;} 
+        public TicksEnum? Ticks { get; set; }
 
         /// <summary>
         ///     Sets the tick length (in px).
         /// </summary>
         [JsonPropertyName(@"ticklen")]
-        public JsNumber? TickleN { get; set;} 
+        public JsNumber? TickleN { get; set; }
 
         /// <summary>
         ///     Sets the tick width (in px).
         /// </summary>
         [JsonPropertyName(@"tickwidth")]
-        public JsNumber? TickWidth { get; set;} 
+        public JsNumber? TickWidth { get; set; }
 
         /// <summary>
         ///     Sets the tick color.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set;} 
+        public object TickColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the tick labels are drawn.
         /// </summary>
         [JsonPropertyName(@"showticklabels")]
-        public bool? ShowTickLabels { get; set;} 
+        public bool? ShowTickLabels { get; set; }
 
         /// <summary>
         ///     Sets the color bar&#39;s tick label font
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set;} 
+        public TickFont TickFont { get; set; }
 
         /// <summary>
         ///     Sets the angle of the tick labels with respect to the horizontal. For example,
         ///     a <c>tickangle</c> of -90 draws the tick labels vertically.
         /// </summary>
         [JsonPropertyName(@"tickangle")]
-        public JsNumber? TickAngle { get; set;} 
+        public JsNumber? TickAngle { get; set; }
 
         /// <summary>
         ///     Sets the tick label formatting rule using d3 formatting mini-languages which
@@ -244,19 +243,19 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set;} 
+        public string TickFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the TickFormatStops.
         /// </summary>
         [JsonPropertyName(@"tickformatstops")]
-        public List<TickFormatStop> TickFormatStops { get; set;} 
+        public List<TickFormatStop> TickFormatStops { get; set; }
 
         /// <summary>
         ///     Sets a tick label prefix.
         /// </summary>
         [JsonPropertyName(@"tickprefix")]
-        public string TickPrefix { get; set;} 
+        public string TickPrefix { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all tick labels are displayed with a prefix. If <c>first</c>,
@@ -265,25 +264,25 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     hidden.
         /// </summary>
         [JsonPropertyName(@"showtickprefix")]
-        public ShowTickPrefixEnum? ShowTickPrefix { get; set;} 
+        public ShowTickPrefixEnum? ShowTickPrefix { get; set; }
 
         /// <summary>
         ///     Sets a tick label suffix.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set;} 
+        public string TickSuffix { get; set; }
 
         /// <summary>
         ///     Same as <c>showtickprefix</c> but for tick suffixes.
         /// </summary>
         [JsonPropertyName(@"showticksuffix")]
-        public ShowTickSuffixEnum? ShowTickSuffix { get; set;} 
+        public ShowTickSuffixEnum? ShowTickSuffix { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, even 4-digit integers are separated
         /// </summary>
         [JsonPropertyName(@"separatethousands")]
-        public bool? SeparateThousands { get; set;} 
+        public bool? SeparateThousands { get; set; }
 
         /// <summary>
         ///     Determines a formatting rule for the tick exponents. For example, consider
@@ -292,7 +291,7 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     super script). If <c>SI</c>, 1G. If <c>B</c>, 1B.
         /// </summary>
         [JsonPropertyName(@"exponentformat")]
-        public ExponentFormatEnum? ExponentFormat { get; set;} 
+        public ExponentFormatEnum? ExponentFormat { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all exponents are shown besides their significands. If <c>first</c>,
@@ -300,289 +299,210 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         ///     of the last tick is shown. If <c>none</c>, no exponents appear.
         /// </summary>
         [JsonPropertyName(@"showexponent")]
-        public ShowExponentEnum? ShowExponent { get; set;} 
+        public ShowExponentEnum? ShowExponent { get; set; }
 
         /// <summary>
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Title Title { get; set;} 
+        public Title Title { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set;} 
+        public string TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set;} 
+        public string TickTextSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is ColorBar other)) return false;
+            if(!(obj is ColorBar other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] ColorBar other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    ThicknessMode == other.ThicknessMode &&
-                    ThicknessMode != null && other.ThicknessMode != null &&
-                    ThicknessMode.Equals(other.ThicknessMode)
-                ) && 
-                (
-                    Thickness == other.Thickness &&
-                    Thickness != null && other.Thickness != null &&
-                    Thickness.Equals(other.Thickness)
-                ) && 
-                (
-                    LenMode == other.LenMode &&
-                    LenMode != null && other.LenMode != null &&
-                    LenMode.Equals(other.LenMode)
-                ) && 
-                (
-                    Len == other.Len &&
-                    Len != null && other.Len != null &&
-                    Len.Equals(other.Len)
-                ) && 
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    XPad == other.XPad &&
-                    XPad != null && other.XPad != null &&
-                    XPad.Equals(other.XPad)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    YPad == other.YPad &&
-                    YPad != null && other.YPad != null &&
-                    YPad.Equals(other.YPad)
-                ) && 
-                (
-                    OutlineColor == other.OutlineColor &&
-                    OutlineColor != null && other.OutlineColor != null &&
-                    OutlineColor.Equals(other.OutlineColor)
-                ) && 
-                (
-                    OutlineWidth == other.OutlineWidth &&
-                    OutlineWidth != null && other.OutlineWidth != null &&
-                    OutlineWidth.Equals(other.OutlineWidth)
-                ) && 
-                (
-                    BorderColor == other.BorderColor &&
-                    BorderColor != null && other.BorderColor != null &&
-                    BorderColor.Equals(other.BorderColor)
-                ) && 
-                (
-                    BorderWidth == other.BorderWidth &&
-                    BorderWidth != null && other.BorderWidth != null &&
-                    BorderWidth.Equals(other.BorderWidth)
-                ) && 
-                (
-                    BgColor == other.BgColor &&
-                    BgColor != null && other.BgColor != null &&
-                    BgColor.Equals(other.BgColor)
-                ) && 
-                (
-                    TickMode == other.TickMode &&
-                    TickMode != null && other.TickMode != null &&
-                    TickMode.Equals(other.TickMode)
-                ) && 
-                (
-                    NTicks == other.NTicks &&
-                    NTicks != null && other.NTicks != null &&
-                    NTicks.Equals(other.NTicks)
-                ) && 
-                (
-                    Tick0 == other.Tick0 &&
-                    Tick0 != null && other.Tick0 != null &&
-                    Tick0.Equals(other.Tick0)
-                ) && 
-                (
-                    DTick == other.DTick &&
-                    DTick != null && other.DTick != null &&
-                    DTick.Equals(other.DTick)
-                ) && 
-                (
-                    Equals(TickVals, other.TickVals) ||
-                    TickVals != null && other.TickVals != null &&
-                    TickVals.SequenceEqual(other.TickVals)
-                ) &&
-                (
-                    Equals(TickText, other.TickText) ||
-                    TickText != null && other.TickText != null &&
-                    TickText.SequenceEqual(other.TickText)
-                ) &&
-                (
-                    Ticks == other.Ticks &&
-                    Ticks != null && other.Ticks != null &&
-                    Ticks.Equals(other.Ticks)
-                ) && 
-                (
-                    TickleN == other.TickleN &&
-                    TickleN != null && other.TickleN != null &&
-                    TickleN.Equals(other.TickleN)
-                ) && 
-                (
-                    TickWidth == other.TickWidth &&
-                    TickWidth != null && other.TickWidth != null &&
-                    TickWidth.Equals(other.TickWidth)
-                ) && 
-                (
-                    TickColor == other.TickColor &&
-                    TickColor != null && other.TickColor != null &&
-                    TickColor.Equals(other.TickColor)
-                ) && 
-                (
-                    ShowTickLabels == other.ShowTickLabels &&
-                    ShowTickLabels != null && other.ShowTickLabels != null &&
-                    ShowTickLabels.Equals(other.ShowTickLabels)
-                ) && 
-                (
-                    TickFont == other.TickFont &&
-                    TickFont != null && other.TickFont != null &&
-                    TickFont.Equals(other.TickFont)
-                ) && 
-                (
-                    TickAngle == other.TickAngle &&
-                    TickAngle != null && other.TickAngle != null &&
-                    TickAngle.Equals(other.TickAngle)
-                ) && 
-                (
-                    TickFormat == other.TickFormat &&
-                    TickFormat != null && other.TickFormat != null &&
-                    TickFormat.Equals(other.TickFormat)
-                ) && 
-                (
-                    Equals(TickFormatStops, other.TickFormatStops) ||
-                    TickFormatStops != null && other.TickFormatStops != null &&
-                    TickFormatStops.SequenceEqual(other.TickFormatStops)
-                ) &&
-                (
-                    TickPrefix == other.TickPrefix &&
-                    TickPrefix != null && other.TickPrefix != null &&
-                    TickPrefix.Equals(other.TickPrefix)
-                ) && 
-                (
-                    ShowTickPrefix == other.ShowTickPrefix &&
-                    ShowTickPrefix != null && other.ShowTickPrefix != null &&
-                    ShowTickPrefix.Equals(other.ShowTickPrefix)
-                ) && 
-                (
-                    TickSuffix == other.TickSuffix &&
-                    TickSuffix != null && other.TickSuffix != null &&
-                    TickSuffix.Equals(other.TickSuffix)
-                ) && 
-                (
-                    ShowTickSuffix == other.ShowTickSuffix &&
-                    ShowTickSuffix != null && other.ShowTickSuffix != null &&
-                    ShowTickSuffix.Equals(other.ShowTickSuffix)
-                ) && 
-                (
-                    SeparateThousands == other.SeparateThousands &&
-                    SeparateThousands != null && other.SeparateThousands != null &&
-                    SeparateThousands.Equals(other.SeparateThousands)
-                ) && 
-                (
-                    ExponentFormat == other.ExponentFormat &&
-                    ExponentFormat != null && other.ExponentFormat != null &&
-                    ExponentFormat.Equals(other.ExponentFormat)
-                ) && 
-                (
-                    ShowExponent == other.ShowExponent &&
-                    ShowExponent != null && other.ShowExponent != null &&
-                    ShowExponent.Equals(other.ShowExponent)
-                ) && 
-                (
-                    Title == other.Title &&
-                    Title != null && other.Title != null &&
-                    Title.Equals(other.Title)
-                ) && 
-                (
-                    TickValsSrc == other.TickValsSrc &&
-                    TickValsSrc != null && other.TickValsSrc != null &&
-                    TickValsSrc.Equals(other.TickValsSrc)
-                ) && 
-                (
-                    TickTextSrc == other.TickTextSrc &&
-                    TickTextSrc != null && other.TickTextSrc != null &&
-                    TickTextSrc.Equals(other.TickTextSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (ThicknessMode == other.ThicknessMode && ThicknessMode != null && other.ThicknessMode != null && ThicknessMode.Equals(other.ThicknessMode))                          &&
+                   (Thickness     == other.Thickness     && Thickness     != null && other.Thickness     != null && Thickness.Equals(other.Thickness))                                  &&
+                   (LenMode       == other.LenMode       && LenMode       != null && other.LenMode       != null && LenMode.Equals(other.LenMode))                                      &&
+                   (Len           == other.Len           && Len           != null && other.Len           != null && Len.Equals(other.Len))                                              &&
+                   (X             == other.X             && X             != null && other.X             != null && X.Equals(other.X))                                                  &&
+                   (XAnchor       == other.XAnchor       && XAnchor       != null && other.XAnchor       != null && XAnchor.Equals(other.XAnchor))                                      &&
+                   (XPad          == other.XPad          && XPad          != null && other.XPad          != null && XPad.Equals(other.XPad))                                            &&
+                   (Y             == other.Y             && Y             != null && other.Y             != null && Y.Equals(other.Y))                                                  &&
+                   (YAnchor       == other.YAnchor       && YAnchor       != null && other.YAnchor       != null && YAnchor.Equals(other.YAnchor))                                      &&
+                   (YPad          == other.YPad          && YPad          != null && other.YPad          != null && YPad.Equals(other.YPad))                                            &&
+                   (OutlineColor  == other.OutlineColor  && OutlineColor  != null && other.OutlineColor  != null && OutlineColor.Equals(other.OutlineColor))                            &&
+                   (OutlineWidth  == other.OutlineWidth  && OutlineWidth  != null && other.OutlineWidth  != null && OutlineWidth.Equals(other.OutlineWidth))                            &&
+                   (BorderColor   == other.BorderColor   && BorderColor   != null && other.BorderColor   != null && BorderColor.Equals(other.BorderColor))                              &&
+                   (BorderWidth   == other.BorderWidth   && BorderWidth   != null && other.BorderWidth   != null && BorderWidth.Equals(other.BorderWidth))                              &&
+                   (BgColor       == other.BgColor       && BgColor       != null && other.BgColor       != null && BgColor.Equals(other.BgColor))                                      &&
+                   (TickMode      == other.TickMode      && TickMode      != null && other.TickMode      != null && TickMode.Equals(other.TickMode))                                    &&
+                   (NTicks        == other.NTicks        && NTicks        != null && other.NTicks        != null && NTicks.Equals(other.NTicks))                                        &&
+                   (Tick0         == other.Tick0         && Tick0         != null && other.Tick0         != null && Tick0.Equals(other.Tick0))                                          &&
+                   (DTick         == other.DTick         && DTick         != null && other.DTick         != null && DTick.Equals(other.DTick))                                          &&
+                   (Equals(TickVals, other.TickVals) || TickVals != null && other.TickVals != null && TickVals.SequenceEqual(other.TickVals))                                           &&
+                   (Equals(TickText, other.TickText) || TickText != null && other.TickText != null && TickText.SequenceEqual(other.TickText))                                           &&
+                   (Ticks          == other.Ticks          && Ticks          != null && other.Ticks          != null && Ticks.Equals(other.Ticks))                                      &&
+                   (TickleN        == other.TickleN        && TickleN        != null && other.TickleN        != null && TickleN.Equals(other.TickleN))                                  &&
+                   (TickWidth      == other.TickWidth      && TickWidth      != null && other.TickWidth      != null && TickWidth.Equals(other.TickWidth))                              &&
+                   (TickColor      == other.TickColor      && TickColor      != null && other.TickColor      != null && TickColor.Equals(other.TickColor))                              &&
+                   (ShowTickLabels == other.ShowTickLabels && ShowTickLabels != null && other.ShowTickLabels != null && ShowTickLabels.Equals(other.ShowTickLabels))                    &&
+                   (TickFont       == other.TickFont       && TickFont       != null && other.TickFont       != null && TickFont.Equals(other.TickFont))                                &&
+                   (TickAngle      == other.TickAngle      && TickAngle      != null && other.TickAngle      != null && TickAngle.Equals(other.TickAngle))                              &&
+                   (TickFormat     == other.TickFormat     && TickFormat     != null && other.TickFormat     != null && TickFormat.Equals(other.TickFormat))                            &&
+                   (Equals(TickFormatStops, other.TickFormatStops) || TickFormatStops != null && other.TickFormatStops != null && TickFormatStops.SequenceEqual(other.TickFormatStops)) &&
+                   (TickPrefix        == other.TickPrefix        && TickPrefix        != null && other.TickPrefix        != null && TickPrefix.Equals(other.TickPrefix))                &&
+                   (ShowTickPrefix    == other.ShowTickPrefix    && ShowTickPrefix    != null && other.ShowTickPrefix    != null && ShowTickPrefix.Equals(other.ShowTickPrefix))        &&
+                   (TickSuffix        == other.TickSuffix        && TickSuffix        != null && other.TickSuffix        != null && TickSuffix.Equals(other.TickSuffix))                &&
+                   (ShowTickSuffix    == other.ShowTickSuffix    && ShowTickSuffix    != null && other.ShowTickSuffix    != null && ShowTickSuffix.Equals(other.ShowTickSuffix))        &&
+                   (SeparateThousands == other.SeparateThousands && SeparateThousands != null && other.SeparateThousands != null && SeparateThousands.Equals(other.SeparateThousands))  &&
+                   (ExponentFormat    == other.ExponentFormat    && ExponentFormat    != null && other.ExponentFormat    != null && ExponentFormat.Equals(other.ExponentFormat))        &&
+                   (ShowExponent      == other.ShowExponent      && ShowExponent      != null && other.ShowExponent      != null && ShowExponent.Equals(other.ShowExponent))            &&
+                   (Title             == other.Title             && Title             != null && other.Title             != null && Title.Equals(other.Title))                          &&
+                   (TickValsSrc       == other.TickValsSrc       && TickValsSrc       != null && other.TickValsSrc       != null && TickValsSrc.Equals(other.TickValsSrc))              &&
+                   (TickTextSrc       == other.TickTextSrc       && TickTextSrc       != null && other.TickTextSrc       != null && TickTextSrc.Equals(other.TickTextSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (ThicknessMode != null) hashCode = hashCode * 59 + ThicknessMode.GetHashCode();
-                if (Thickness != null) hashCode = hashCode * 59 + Thickness.GetHashCode();
-                if (LenMode != null) hashCode = hashCode * 59 + LenMode.GetHashCode();
-                if (Len != null) hashCode = hashCode * 59 + Len.GetHashCode();
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (XPad != null) hashCode = hashCode * 59 + XPad.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (YPad != null) hashCode = hashCode * 59 + YPad.GetHashCode();
-                if (OutlineColor != null) hashCode = hashCode * 59 + OutlineColor.GetHashCode();
-                if (OutlineWidth != null) hashCode = hashCode * 59 + OutlineWidth.GetHashCode();
-                if (BorderColor != null) hashCode = hashCode * 59 + BorderColor.GetHashCode();
-                if (BorderWidth != null) hashCode = hashCode * 59 + BorderWidth.GetHashCode();
-                if (BgColor != null) hashCode = hashCode * 59 + BgColor.GetHashCode();
-                if (TickMode != null) hashCode = hashCode * 59 + TickMode.GetHashCode();
-                if (NTicks != null) hashCode = hashCode * 59 + NTicks.GetHashCode();
-                if (Tick0 != null) hashCode = hashCode * 59 + Tick0.GetHashCode();
-                if (DTick != null) hashCode = hashCode * 59 + DTick.GetHashCode();
-                if (TickVals != null) hashCode = hashCode * 59 + TickVals.GetHashCode();
-                if (TickText != null) hashCode = hashCode * 59 + TickText.GetHashCode();
-                if (Ticks != null) hashCode = hashCode * 59 + Ticks.GetHashCode();
-                if (TickleN != null) hashCode = hashCode * 59 + TickleN.GetHashCode();
-                if (TickWidth != null) hashCode = hashCode * 59 + TickWidth.GetHashCode();
-                if (TickColor != null) hashCode = hashCode * 59 + TickColor.GetHashCode();
-                if (ShowTickLabels != null) hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
-                if (TickFont != null) hashCode = hashCode * 59 + TickFont.GetHashCode();
-                if (TickAngle != null) hashCode = hashCode * 59 + TickAngle.GetHashCode();
-                if (TickFormat != null) hashCode = hashCode * 59 + TickFormat.GetHashCode();
-                if (TickFormatStops != null) hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
-                if (TickPrefix != null) hashCode = hashCode * 59 + TickPrefix.GetHashCode();
-                if (ShowTickPrefix != null) hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
-                if (TickSuffix != null) hashCode = hashCode * 59 + TickSuffix.GetHashCode();
-                if (ShowTickSuffix != null) hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
-                if (SeparateThousands != null) hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
-                if (ExponentFormat != null) hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
-                if (ShowExponent != null) hashCode = hashCode * 59 + ShowExponent.GetHashCode();
-                if (Title != null) hashCode = hashCode * 59 + Title.GetHashCode();
-                if (TickValsSrc != null) hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
-                if (TickTextSrc != null) hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
+                if(ThicknessMode != null)
+                    hashCode = hashCode * 59 + ThicknessMode.GetHashCode();
+
+                if(Thickness != null)
+                    hashCode = hashCode * 59 + Thickness.GetHashCode();
+
+                if(LenMode != null)
+                    hashCode = hashCode * 59 + LenMode.GetHashCode();
+
+                if(Len != null)
+                    hashCode = hashCode * 59 + Len.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(XPad != null)
+                    hashCode = hashCode * 59 + XPad.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(YPad != null)
+                    hashCode = hashCode * 59 + YPad.GetHashCode();
+
+                if(OutlineColor != null)
+                    hashCode = hashCode * 59 + OutlineColor.GetHashCode();
+
+                if(OutlineWidth != null)
+                    hashCode = hashCode * 59 + OutlineWidth.GetHashCode();
+
+                if(BorderColor != null)
+                    hashCode = hashCode * 59 + BorderColor.GetHashCode();
+
+                if(BorderWidth != null)
+                    hashCode = hashCode * 59 + BorderWidth.GetHashCode();
+
+                if(BgColor != null)
+                    hashCode = hashCode * 59 + BgColor.GetHashCode();
+
+                if(TickMode != null)
+                    hashCode = hashCode * 59 + TickMode.GetHashCode();
+
+                if(NTicks != null)
+                    hashCode = hashCode * 59 + NTicks.GetHashCode();
+
+                if(Tick0 != null)
+                    hashCode = hashCode * 59 + Tick0.GetHashCode();
+
+                if(DTick != null)
+                    hashCode = hashCode * 59 + DTick.GetHashCode();
+
+                if(TickVals != null)
+                    hashCode = hashCode * 59 + TickVals.GetHashCode();
+
+                if(TickText != null)
+                    hashCode = hashCode * 59 + TickText.GetHashCode();
+
+                if(Ticks != null)
+                    hashCode = hashCode * 59 + Ticks.GetHashCode();
+
+                if(TickleN != null)
+                    hashCode = hashCode * 59 + TickleN.GetHashCode();
+
+                if(TickWidth != null)
+                    hashCode = hashCode * 59 + TickWidth.GetHashCode();
+
+                if(TickColor != null)
+                    hashCode = hashCode * 59 + TickColor.GetHashCode();
+
+                if(ShowTickLabels != null)
+                    hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
+
+                if(TickFont != null)
+                    hashCode = hashCode * 59 + TickFont.GetHashCode();
+
+                if(TickAngle != null)
+                    hashCode = hashCode * 59 + TickAngle.GetHashCode();
+
+                if(TickFormat != null)
+                    hashCode = hashCode * 59 + TickFormat.GetHashCode();
+
+                if(TickFormatStops != null)
+                    hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
+
+                if(TickPrefix != null)
+                    hashCode = hashCode * 59 + TickPrefix.GetHashCode();
+
+                if(ShowTickPrefix != null)
+                    hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
+
+                if(TickSuffix != null)
+                    hashCode = hashCode * 59 + TickSuffix.GetHashCode();
+
+                if(ShowTickSuffix != null)
+                    hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
+
+                if(SeparateThousands != null)
+                    hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
+
+                if(ExponentFormat != null)
+                    hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
+
+                if(ShowExponent != null)
+                    hashCode = hashCode * 59 + ShowExponent.GetHashCode();
+
+                if(Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+
+                if(TickValsSrc != null)
+                    hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
+
+                if(TickTextSrc != null)
+                    hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -593,7 +513,8 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         /// <param name="left">Left ColorBar.</param>
         /// <param name="right">Right ColorBar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (ColorBar left, ColorBar right)
+        public static bool operator ==(ColorBar left,
+                                       ColorBar right)
         {
             return Equals(left, right);
         }
@@ -604,7 +525,8 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         /// <param name="left">Left ColorBar.</param>
         /// <param name="right">Right ColorBar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (ColorBar left, ColorBar right)
+        public static bool operator !=(ColorBar left,
+                                       ColorBar right)
         {
             return !Equals(left, right);
         }
@@ -616,9 +538,10 @@ namespace Plotly.Models.Traces.DensityMapBoxs
         public ColorBar DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<ColorBar>(ms).Result;
         }
     }

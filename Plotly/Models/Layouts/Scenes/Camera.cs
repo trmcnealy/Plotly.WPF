@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.Scenes
     /// <summary>
     ///     The Camera class.
     /// </summary>
-    
     [Serializable]
     public class Camera : IEquatable<Camera>
     {
@@ -23,7 +22,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     up.
         /// </summary>
         [JsonPropertyName(@"up")]
-        public Up Up { get; set;} 
+        public Up Up { get; set; }
 
         /// <summary>
         ///     Sets the (x,y,z) components of the <c>center</c> camera vector This vector
@@ -31,68 +30,61 @@ namespace Plotly.Models.Layouts.Scenes
         ///     By default, there is no such translation.
         /// </summary>
         [JsonPropertyName(@"center")]
-        public Center Center { get; set;} 
+        public Center Center { get; set; }
 
         /// <summary>
         ///     Sets the (x,y,z) components of the <c>eye</c> camera vector. This vector
         ///     determines the view point about the origin of this scene.
         /// </summary>
         [JsonPropertyName(@"eye")]
-        public Eye Eye { get; set;} 
+        public Eye Eye { get; set; }
 
         /// <summary>
         ///     Gets or sets the Projection.
         /// </summary>
         [JsonPropertyName(@"projection")]
-        public Projection Projection { get; set;} 
+        public Projection Projection { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Camera other)) return false;
+            if(!(obj is Camera other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Camera other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Up == other.Up &&
-                    Up != null && other.Up != null &&
-                    Up.Equals(other.Up)
-                ) && 
-                (
-                    Center == other.Center &&
-                    Center != null && other.Center != null &&
-                    Center.Equals(other.Center)
-                ) && 
-                (
-                    Eye == other.Eye &&
-                    Eye != null && other.Eye != null &&
-                    Eye.Equals(other.Eye)
-                ) && 
-                (
-                    Projection == other.Projection &&
-                    Projection != null && other.Projection != null &&
-                    Projection.Equals(other.Projection)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Up         == other.Up         && Up         != null && other.Up         != null && Up.Equals(other.Up))         &&
+                   (Center     == other.Center     && Center     != null && other.Center     != null && Center.Equals(other.Center)) &&
+                   (Eye        == other.Eye        && Eye        != null && other.Eye        != null && Eye.Equals(other.Eye))       &&
+                   (Projection == other.Projection && Projection != null && other.Projection != null && Projection.Equals(other.Projection));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Up != null) hashCode = hashCode * 59 + Up.GetHashCode();
-                if (Center != null) hashCode = hashCode * 59 + Center.GetHashCode();
-                if (Eye != null) hashCode = hashCode * 59 + Eye.GetHashCode();
-                if (Projection != null) hashCode = hashCode * 59 + Projection.GetHashCode();
+
+                if(Up != null)
+                    hashCode = hashCode * 59 + Up.GetHashCode();
+
+                if(Center != null)
+                    hashCode = hashCode * 59 + Center.GetHashCode();
+
+                if(Eye != null)
+                    hashCode = hashCode * 59 + Eye.GetHashCode();
+
+                if(Projection != null)
+                    hashCode = hashCode * 59 + Projection.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -103,7 +95,8 @@ namespace Plotly.Models.Layouts.Scenes
         /// <param name="left">Left Camera.</param>
         /// <param name="right">Right Camera.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Camera left, Camera right)
+        public static bool operator ==(Camera left,
+                                       Camera right)
         {
             return Equals(left, right);
         }
@@ -114,7 +107,8 @@ namespace Plotly.Models.Layouts.Scenes
         /// <param name="left">Left Camera.</param>
         /// <param name="right">Right Camera.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Camera left, Camera right)
+        public static bool operator !=(Camera left,
+                                       Camera right)
         {
             return !Equals(left, right);
         }
@@ -126,9 +120,10 @@ namespace Plotly.Models.Layouts.Scenes
         public Camera DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Camera>(ms).Result;
         }
     }

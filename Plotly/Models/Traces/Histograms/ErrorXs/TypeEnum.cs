@@ -13,17 +13,19 @@ namespace Plotly.Models.Traces.Histograms.ErrorXs
     ///     correspond to the sqaure of the underlying data. If <c>data</c>, the bar
     ///     lengths are set with data set <c>array</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"percent")]
+        [EnumMember(Value = @"percent")]
         Percent,
-        [EnumMember(Value=@"constant")]
+
+        [EnumMember(Value = @"constant")]
         Constant,
-        [EnumMember(Value=@"sqrt")]
+
+        [EnumMember(Value = @"sqrt")]
         SqRt,
-        [EnumMember(Value=@"data")]
+
+        [EnumMember(Value = @"data")]
         Data
     }
 }

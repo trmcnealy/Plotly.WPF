@@ -12,13 +12,13 @@ namespace Plotly.Models.Traces.Scatters
     ///     With <c>v</c> (<c>h</c>), the y (x) values of subsequent traces are added.
     ///     Also affects the default value of <c>fill</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

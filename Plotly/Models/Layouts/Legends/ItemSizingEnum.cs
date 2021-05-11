@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.Legends
     ///     attributes or remain <c>constant</c> independent of the symbol size on the
     ///     graph.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ItemSizingEnum
     {
-        [EnumMember(Value=@"trace")]
+        [EnumMember(Value = @"trace")]
         Trace = 0,
-        [EnumMember(Value=@"constant")]
+
+        [EnumMember(Value = @"constant")]
         Constant
     }
 }

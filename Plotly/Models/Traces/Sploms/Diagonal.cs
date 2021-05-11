@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Sploms
     /// <summary>
     ///     The Diagonal class.
     /// </summary>
-    
     [Serializable]
     public class Diagonal : IEquatable<Diagonal>
     {
@@ -18,37 +17,36 @@ namespace Plotly.Models.Traces.Sploms
         ///     Determines whether or not subplots on the diagonal are displayed.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Diagonal other)) return false;
+            if(!(obj is Diagonal other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Diagonal other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible == other.Visible && Visible != null && other.Visible != null && Visible.Equals(other.Visible));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -59,7 +57,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Diagonal.</param>
         /// <param name="right">Right Diagonal.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Diagonal left, Diagonal right)
+        public static bool operator ==(Diagonal left,
+                                       Diagonal right)
         {
             return Equals(left, right);
         }
@@ -70,7 +69,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Diagonal.</param>
         /// <param name="right">Right Diagonal.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Diagonal left, Diagonal right)
+        public static bool operator !=(Diagonal left,
+                                       Diagonal right)
         {
             return !Equals(left, right);
         }
@@ -82,9 +82,10 @@ namespace Plotly.Models.Traces.Sploms
         public Diagonal DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Diagonal>(ms).Result;
         }
     }

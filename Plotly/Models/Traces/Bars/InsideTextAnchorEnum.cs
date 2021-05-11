@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.Bars
     ///     Determines if texts are kept at center or start/end points in <c>textposition</c>
     ///     <c>inside</c> mode.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum InsideTextAnchorEnum
     {
-        [EnumMember(Value=@"end")]
+        [EnumMember(Value = @"end")]
         End = 0,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"start")]
+
+        [EnumMember(Value = @"start")]
         Start
     }
 }

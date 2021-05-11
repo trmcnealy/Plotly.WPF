@@ -11,15 +11,16 @@ namespace Plotly.Models.Traces.Violins
     ///     under <c>overlay</c> mode, where one trace has <c>side</c> set to <c>positive</c>
     ///     and the other to <c>negative</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SideEnum
     {
-        [EnumMember(Value=@"both")]
+        [EnumMember(Value = @"both")]
         Both = 0,
-        [EnumMember(Value=@"positive")]
+
+        [EnumMember(Value = @"positive")]
         Positive,
-        [EnumMember(Value=@"negative")]
+
+        [EnumMember(Value = @"negative")]
         Negative
     }
 }

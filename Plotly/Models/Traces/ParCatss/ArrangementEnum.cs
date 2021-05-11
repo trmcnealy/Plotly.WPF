@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.ParCatss
     ///     <c>freeform</c>, the categories can freely move on the plane. If <c>fixed</c>,
     ///     the categories and dimensions are stationary.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ArrangementEnum
     {
-        [EnumMember(Value=@"perpendicular")]
+        [EnumMember(Value = @"perpendicular")]
         Perpendicular = 0,
-        [EnumMember(Value=@"freeform")]
+
+        [EnumMember(Value = @"freeform")]
         FreeForm,
-        [EnumMember(Value=@"fixed")]
+
+        [EnumMember(Value = @"fixed")]
         Fixed
     }
 }

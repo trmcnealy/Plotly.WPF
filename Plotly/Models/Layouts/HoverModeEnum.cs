@@ -21,21 +21,25 @@ namespace Plotly.Models.Layouts
     ///     <c>y</c> (depending on the trace&#39;s <c>orientation</c> value) for plots
     ///     based on cartesian coordinates. For anything else the default value is <c>closest</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverModeEnum
     {
-        [EnumMember(Value=@"x")]
+        [EnumMember(Value = @"x")]
         X,
-        [EnumMember(Value=@"y")]
+
+        [EnumMember(Value = @"y")]
         Y,
-        [EnumMember(Value=@"closest")]
+
+        [EnumMember(Value = @"closest")]
         Closest,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False,
-        [EnumMember(Value=@"x unified")]
+
+        [EnumMember(Value = @"x unified")]
         XUnified,
-        [EnumMember(Value=@"y unified")]
+
+        [EnumMember(Value = @"y unified")]
         YUnified
     }
 }

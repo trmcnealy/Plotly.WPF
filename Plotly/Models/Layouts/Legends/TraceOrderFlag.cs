@@ -14,16 +14,17 @@ namespace Plotly.Models.Layouts.Legends
     ///     is provided). if <c>grouped+reversed</c>, the items are displayed in the
     ///     opposite order as <c>grouped</c>.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum TraceOrderFlag
     {
-        [EnumMember(Value=@"normal")]
+        [EnumMember(Value = @"normal")]
         Normal = 0,
-        [EnumMember(Value=@"reversed")]
+
+        [EnumMember(Value = @"reversed")]
         Reversed = 1,
-        [EnumMember(Value=@"grouped")]
+
+        [EnumMember(Value = @"grouped")]
         Grouped = 2
     }
 }

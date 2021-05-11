@@ -19,15 +19,16 @@ namespace Plotly.Models.Layouts.Geos
     ///     provided) is considered in the <c>fitbounds</c> computations, Defaults to
     ///     <c>false</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FitBoundsEnum
     {
-        [EnumMember(Value=@"false")]
+        [EnumMember(Value = @"false")]
         False = 0,
-        [EnumMember(Value=@"locations")]
+
+        [EnumMember(Value = @"locations")]
         Locations,
-        [EnumMember(Value=@"geojson")]
+
+        [EnumMember(Value = @"geojson")]
         GeoJson
     }
 }

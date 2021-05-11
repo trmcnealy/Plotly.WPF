@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Scatter3Ds
     /// <summary>
     ///     The TextFont class.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class TextFont : IEquatable<TextFont>
@@ -21,27 +20,27 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set;} 
+        public List<object> ColorArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public JsNumber? Size { get; set;} 
+        public JsNumber? Size { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
         /// </summary>
         [JsonPropertyName(@"size")]
         [Array]
-        public List<JsNumber?> SizeArray { get; set;} 
+        public List<JsNumber?> SizeArray { get; set; }
 
         /// <summary>
         ///     HTML font family - the typeface that will be applied by the web browser.
@@ -57,85 +56,72 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     New Roman&#39;.
         /// </summary>
         [JsonPropertyName(@"family")]
-        public string Family { get; set;} 
+        public string Family { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set;} 
+        public string ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  size .
         /// </summary>
         [JsonPropertyName(@"sizesrc")]
-        public string SizeSrc { get; set;} 
+        public string SizeSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is TextFont other)) return false;
+            if(!(obj is TextFont other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] TextFont other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Equals(ColorArray, other.ColorArray) ||
-                    ColorArray != null && other.ColorArray != null &&
-                    ColorArray.SequenceEqual(other.ColorArray)
-                ) &&
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                ) && 
-                (
-                    Equals(SizeArray, other.SizeArray) ||
-                    SizeArray != null && other.SizeArray != null &&
-                    SizeArray.SequenceEqual(other.SizeArray)
-                ) &&
-                (
-                    Family == other.Family &&
-                    Family != null && other.Family != null &&
-                    Family.Equals(other.Family)
-                ) && 
-                (
-                    ColorSrc == other.ColorSrc &&
-                    ColorSrc != null && other.ColorSrc != null &&
-                    ColorSrc.Equals(other.ColorSrc)
-                ) && 
-                (
-                    SizeSrc == other.SizeSrc &&
-                    SizeSrc != null && other.SizeSrc != null &&
-                    SizeSrc.Equals(other.SizeSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color))                                            &&
+                   (Equals(ColorArray, other.ColorArray) || ColorArray != null && other.ColorArray != null && ColorArray.SequenceEqual(other.ColorArray)) &&
+                   (Size == other.Size && Size != null && other.Size != null && Size.Equals(other.Size))                                                  &&
+                   (Equals(SizeArray, other.SizeArray) || SizeArray != null && other.SizeArray != null && SizeArray.SequenceEqual(other.SizeArray))       &&
+                   (Family   == other.Family   && Family   != null && other.Family   != null && Family.Equals(other.Family))                              &&
+                   (ColorSrc == other.ColorSrc && ColorSrc != null && other.ColorSrc != null && ColorSrc.Equals(other.ColorSrc))                          &&
+                   (SizeSrc  == other.SizeSrc  && SizeSrc  != null && other.SizeSrc  != null && SizeSrc.Equals(other.SizeSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (ColorArray != null) hashCode = hashCode * 59 + ColorArray.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
-                if (SizeArray != null) hashCode = hashCode * 59 + SizeArray.GetHashCode();
-                if (Family != null) hashCode = hashCode * 59 + Family.GetHashCode();
-                if (ColorSrc != null) hashCode = hashCode * 59 + ColorSrc.GetHashCode();
-                if (SizeSrc != null) hashCode = hashCode * 59 + SizeSrc.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(ColorArray != null)
+                    hashCode = hashCode * 59 + ColorArray.GetHashCode();
+
+                if(Size != null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(SizeArray != null)
+                    hashCode = hashCode * 59 + SizeArray.GetHashCode();
+
+                if(Family != null)
+                    hashCode = hashCode * 59 + Family.GetHashCode();
+
+                if(ColorSrc != null)
+                    hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
+                if(SizeSrc != null)
+                    hashCode = hashCode * 59 + SizeSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -146,7 +132,8 @@ namespace Plotly.Models.Traces.Scatter3Ds
         /// <param name="left">Left TextFont.</param>
         /// <param name="right">Right TextFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (TextFont left, TextFont right)
+        public static bool operator ==(TextFont left,
+                                       TextFont right)
         {
             return Equals(left, right);
         }
@@ -157,7 +144,8 @@ namespace Plotly.Models.Traces.Scatter3Ds
         /// <param name="left">Left TextFont.</param>
         /// <param name="right">Right TextFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (TextFont left, TextFont right)
+        public static bool operator !=(TextFont left,
+                                       TextFont right)
         {
             return !Equals(left, right);
         }
@@ -169,9 +157,10 @@ namespace Plotly.Models.Traces.Scatter3Ds
         public TextFont DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<TextFont>(ms).Result;
         }
     }

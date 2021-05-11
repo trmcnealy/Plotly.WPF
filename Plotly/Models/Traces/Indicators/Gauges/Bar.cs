@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Indicators.Gauges
     /// <summary>
     ///     The Bar class.
     /// </summary>
-    
     [Serializable]
     public class Bar : IEquatable<Bar>
     {
@@ -20,62 +19,57 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     Sets the background color of the arc.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Sets the thickness of the bar as a fraction of the total thickness of the
         ///     gauge.
         /// </summary>
         [JsonPropertyName(@"thickness")]
-        public JsNumber? Thickness { get; set;} 
+        public JsNumber? Thickness { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Bar other)) return false;
+            if(!(obj is Bar other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Bar other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    Thickness == other.Thickness &&
-                    Thickness != null && other.Thickness != null &&
-                    Thickness.Equals(other.Thickness)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color     == other.Color     && Color     != null && other.Color     != null && Color.Equals(other.Color)) &&
+                   (Line      == other.Line      && Line      != null && other.Line      != null && Line.Equals(other.Line))   &&
+                   (Thickness == other.Thickness && Thickness != null && other.Thickness != null && Thickness.Equals(other.Thickness));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (Thickness != null) hashCode = hashCode * 59 + Thickness.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(Thickness != null)
+                    hashCode = hashCode * 59 + Thickness.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -86,7 +80,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Bar.</param>
         /// <param name="right">Right Bar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Bar left, Bar right)
+        public static bool operator ==(Bar left,
+                                       Bar right)
         {
             return Equals(left, right);
         }
@@ -97,7 +92,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Bar.</param>
         /// <param name="right">Right Bar.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Bar left, Bar right)
+        public static bool operator !=(Bar left,
+                                       Bar right)
         {
             return !Equals(left, right);
         }
@@ -109,9 +105,10 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         public Bar DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Bar>(ms).Result;
         }
     }

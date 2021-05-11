@@ -14,17 +14,19 @@ namespace Plotly.Models.Traces.Carpets.BAxes
     ///     that attribute will be identical to the <c>trace</c> mode. The unspecified
     ///     categories will follow the categories in <c>categoryarray</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum CategoryOrderEnum
     {
-        [EnumMember(Value=@"trace")]
+        [EnumMember(Value = @"trace")]
         Trace = 0,
-        [EnumMember(Value=@"category ascending")]
+
+        [EnumMember(Value = @"category ascending")]
         CategoryAscending,
-        [EnumMember(Value=@"category descending")]
+
+        [EnumMember(Value = @"category descending")]
         CategoryDescending,
-        [EnumMember(Value=@"array")]
+
+        [EnumMember(Value = @"array")]
         Array
     }
 }

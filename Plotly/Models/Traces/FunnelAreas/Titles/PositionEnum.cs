@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.FunnelAreas.Titles
     ///     Specifies the location of the <c>title</c>. Note that the title&#39;s position
     ///     used to be set by the now deprecated <c>titleposition</c> attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PositionEnum
     {
-        [EnumMember(Value=@"top center")]
+        [EnumMember(Value = @"top center")]
         TopCenter = 0,
-        [EnumMember(Value=@"top left")]
+
+        [EnumMember(Value = @"top left")]
         TopLeft,
-        [EnumMember(Value=@"top right")]
+
+        [EnumMember(Value = @"top right")]
         TopRight
     }
 }

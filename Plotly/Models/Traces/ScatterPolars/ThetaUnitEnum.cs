@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.ScatterPolars
     ///     Sets the unit of input <c>theta</c> values. Has an effect only when on <c>linear</c>
     ///     angular axes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ThetaUnitEnum
     {
-        [EnumMember(Value=@"degrees")]
+        [EnumMember(Value = @"degrees")]
         Degrees = 0,
-        [EnumMember(Value=@"radians")]
+
+        [EnumMember(Value = @"radians")]
         Radians,
-        [EnumMember(Value=@"gradians")]
+
+        [EnumMember(Value = @"gradians")]
         Gradians
     }
 }

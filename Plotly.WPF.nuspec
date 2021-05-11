@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Plotly.WPF</id>
@@ -9,45 +10,46 @@
         <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
         <icon>nindra.png</icon>
         <projectUrl>https://github.com/trmcnealy/Plotly.WPF</projectUrl>
+        <repository type="git"
+                    url="https://github.com/trmcnealy/Plotly.WPF.git"/>
         <description>Plotly.js in a WPF Control</description>
         <copyright>© Timothy R. McNealy</copyright>
-        <repository url="https://github.com/trmcnealy/Plotly.WPF"/>
         <dependencies>
-            <group targetFramework="net5.0-windows">
+            <group targetFramework="net5.0-windows7">
                 <dependency id="Microsoft.Web.WebView2"
-                            version="1.0.664.37"
+                            version="1.0.774.44"
                             exclude="Build,Analyzers"/>
                 <dependency id="Microsoft.Xaml.Behaviors.Wpf"
-                            version="1.1.19"
+                            version="1.1.31"
                             exclude="Build,Analyzers"/>
             </group>
         </dependencies>
         <frameworkReferences>
-            <group targetFramework="net5.0-windows">
+            <group targetFramework="net5.0-windows7">
                 <frameworkReference name="Microsoft.WindowsDesktop.App.WPF"/>
             </group>
         </frameworkReferences>
     </metadata>
     <files>
-        <file src="..\..\trmcnealy.github.io\Assets\nindra.png"
+        <file src="E:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png"
               target=""/>
 
-        <file src="..\bin\Release\AnyCPU\net5.0-windows\Plotly.WPF.dll"
-              target="lib\net5.0-windows"/>
+        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.dll"
+              target="lib\net5.0-windows7"/>
 
-        <file src="..\bin\Release\AnyCPU\net5.0-windows\Plotly.WPF.pdb"
-              target="lib\net5.0-windows"/>
+        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.pdb"
+              target="lib\net5.0-windows7"/>
 
-        <!--<file src="..\bin\Release\x86\net5.0-windows\Plotly.WPF.dll"
+        <!--<file src="E:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.dll"
               target="lib\net5.0-windows\x86"/>
 
-        <file src="..\bin\Release\x86\net5.0-windows\Plotly.WPF.pdb"
+        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.pdb"
               target="lib\net5.0-windows\x86"/>
 
-        <file src="..\bin\Release\x64\net5.0-windows\Plotly.WPF.dll"
+        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.dll"
               target="lib\net5.0-windows\x64"/>
 
-        <file src="..\bin\Release\x64\net5.0-windows\Plotly.WPF.pdb"
+        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.pdb"
               target="lib\net5.0-windows\x64"/>-->
 
     </files>

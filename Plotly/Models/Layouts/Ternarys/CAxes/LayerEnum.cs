@@ -13,13 +13,13 @@ namespace Plotly.Models.Layouts.Ternarys.CAxes
     ///     with <c>cliponaxis</c> set to <c>false</c> to show markers and/or text nodes
     ///     above this axis.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum LayerEnum
     {
-        [EnumMember(Value=@"above traces")]
+        [EnumMember(Value = @"above traces")]
         AboveTraces = 0,
-        [EnumMember(Value=@"below traces")]
+
+        [EnumMember(Value = @"below traces")]
         BelowTraces
     }
 }

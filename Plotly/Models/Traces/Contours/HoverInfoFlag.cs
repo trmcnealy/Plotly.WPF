@@ -11,26 +11,32 @@ namespace Plotly.Models.Traces.Contours
     ///     are set, no information is displayed upon hovering. But, if <c>none</c>
     ///     is set, click and hover events are still fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"x")]
+
+        [EnumMember(Value = @"x")]
         X = 2,
-        [EnumMember(Value=@"y")]
+
+        [EnumMember(Value = @"y")]
         Y = 4,
-        [EnumMember(Value=@"z")]
+
+        [EnumMember(Value = @"z")]
         Z = 8,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 16,
-        [EnumMember(Value=@"name")]
+
+        [EnumMember(Value = @"name")]
         Name = 32,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = X | Y | Z | Text | Name
     }
 }

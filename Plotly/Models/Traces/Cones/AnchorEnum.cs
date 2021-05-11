@@ -8,17 +8,19 @@ namespace Plotly.Models.Traces.Cones
     ///     <c>cm</c> denote the cone&#39;s center of mass which corresponds to 1/4
     ///     from the tail to tip.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AnchorEnum
     {
-        [EnumMember(Value=@"cm")]
+        [EnumMember(Value = @"cm")]
         Cm = 0,
-        [EnumMember(Value=@"tip")]
+
+        [EnumMember(Value = @"tip")]
         Tip,
-        [EnumMember(Value=@"tail")]
+
+        [EnumMember(Value = @"tail")]
         Tail,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center
     }
 }

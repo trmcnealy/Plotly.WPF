@@ -8,17 +8,19 @@ namespace Plotly.Models.Traces.Pies
     /// <summary>
     ///     Specifies the location of the <c>textinfo</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TextPositionEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"inside")]
+
+        [EnumMember(Value = @"inside")]
         Inside,
-        [EnumMember(Value=@"outside")]
+
+        [EnumMember(Value = @"outside")]
         Outside,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

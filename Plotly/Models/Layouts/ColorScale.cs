@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The ColorScale class.
     /// </summary>
-    
     [Serializable]
     public class ColorScale : IEquatable<ColorScale>
     {
@@ -19,63 +18,58 @@ namespace Plotly.Models.Layouts
         ///     must be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"sequential")]
-        public object Sequential { get; set;} 
+        public object Sequential { get; set; }
 
         /// <summary>
         ///     Sets the default sequential colorscale for negative values. Note that <c>autocolorscale</c>
         ///     must be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"sequentialminus")]
-        public object SequentialMinus { get; set;} 
+        public object SequentialMinus { get; set; }
 
         /// <summary>
         ///     Sets the default diverging colorscale. Note that <c>autocolorscale</c> must
         ///     be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"diverging")]
-        public object Diverging { get; set;} 
+        public object Diverging { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is ColorScale other)) return false;
+            if(!(obj is ColorScale other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] ColorScale other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Sequential == other.Sequential &&
-                    Sequential != null && other.Sequential != null &&
-                    Sequential.Equals(other.Sequential)
-                ) && 
-                (
-                    SequentialMinus == other.SequentialMinus &&
-                    SequentialMinus != null && other.SequentialMinus != null &&
-                    SequentialMinus.Equals(other.SequentialMinus)
-                ) && 
-                (
-                    Diverging == other.Diverging &&
-                    Diverging != null && other.Diverging != null &&
-                    Diverging.Equals(other.Diverging)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Sequential      == other.Sequential      && Sequential      != null && other.Sequential      != null && Sequential.Equals(other.Sequential))           &&
+                   (SequentialMinus == other.SequentialMinus && SequentialMinus != null && other.SequentialMinus != null && SequentialMinus.Equals(other.SequentialMinus)) &&
+                   (Diverging       == other.Diverging       && Diverging       != null && other.Diverging       != null && Diverging.Equals(other.Diverging));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Sequential != null) hashCode = hashCode * 59 + Sequential.GetHashCode();
-                if (SequentialMinus != null) hashCode = hashCode * 59 + SequentialMinus.GetHashCode();
-                if (Diverging != null) hashCode = hashCode * 59 + Diverging.GetHashCode();
+
+                if(Sequential != null)
+                    hashCode = hashCode * 59 + Sequential.GetHashCode();
+
+                if(SequentialMinus != null)
+                    hashCode = hashCode * 59 + SequentialMinus.GetHashCode();
+
+                if(Diverging != null)
+                    hashCode = hashCode * 59 + Diverging.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -86,7 +80,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left ColorScale.</param>
         /// <param name="right">Right ColorScale.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (ColorScale left, ColorScale right)
+        public static bool operator ==(ColorScale left,
+                                       ColorScale right)
         {
             return Equals(left, right);
         }
@@ -97,7 +92,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left ColorScale.</param>
         /// <param name="right">Right ColorScale.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (ColorScale left, ColorScale right)
+        public static bool operator !=(ColorScale left,
+                                       ColorScale right)
         {
             return !Equals(left, right);
         }
@@ -109,9 +105,10 @@ namespace Plotly.Models.Layouts
         public ColorScale DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<ColorScale>(ms).Result;
         }
     }

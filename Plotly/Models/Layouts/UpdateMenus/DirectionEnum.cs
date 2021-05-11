@@ -8,17 +8,19 @@ namespace Plotly.Models.Layouts.UpdateMenus
     ///     dropdown menu or a row/column of buttons. For <c>left</c> and <c>up</c>,
     ///     the buttons will still appear in left-to-right or top-to-bottom order respectively.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DirectionEnum
     {
-        [EnumMember(Value=@"down")]
+        [EnumMember(Value = @"down")]
         Down = 0,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right,
-        [EnumMember(Value=@"up")]
+
+        [EnumMember(Value = @"up")]
         Up
     }
 }

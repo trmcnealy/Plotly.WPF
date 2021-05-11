@@ -12,17 +12,19 @@ namespace Plotly.Models.Traces.ScatterGeos
     ///     corresponds to features from a custom GeoJSON linked to the <c>geojson</c>
     ///     attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum LocationModeEnum
     {
-        [EnumMember(Value=@"iso-3")]
+        [EnumMember(Value = @"iso-3")]
         ISO3 = 0,
-        [EnumMember(Value=@"USA-states")]
+
+        [EnumMember(Value = @"USA-states")]
         USAStates,
-        [EnumMember(Value=@"country names")]
+
+        [EnumMember(Value = @"country names")]
         CountryNames,
-        [EnumMember(Value=@"geojson-id")]
+
+        [EnumMember(Value = @"geojson-id")]
         GeoJsonId
     }
 }

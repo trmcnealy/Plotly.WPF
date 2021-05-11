@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.Violins
     ///     means each violin has the same (max) width<c>count</c> means the violins
     ///     are scaled by the number of sample points makingup each violin.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ScaleModeEnum
     {
-        [EnumMember(Value=@"width")]
+        [EnumMember(Value = @"width")]
         Width = 0,
-        [EnumMember(Value=@"count")]
+
+        [EnumMember(Value = @"count")]
         Count
     }
 }

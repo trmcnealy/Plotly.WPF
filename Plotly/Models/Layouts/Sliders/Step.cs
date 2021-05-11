@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts.Sliders
     /// <summary>
     ///     The Step class.
     /// </summary>
-    
     [Serializable]
     public class Step : IEquatable<Step>
     {
@@ -22,7 +21,7 @@ namespace Plotly.Models.Layouts.Sliders
         ///     Determines whether or not this step is included in the slider.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Sets the Plotly method to be called when the slider value is changed. If
@@ -32,27 +31,27 @@ namespace Plotly.Models.Layouts.Sliders
         ///     manually via JavaScript.
         /// </summary>
         [JsonPropertyName(@"method")]
-        public MethodEnum? Method { get; set;} 
+        public MethodEnum? Method { get; set; }
 
         /// <summary>
         ///     Sets the arguments values to be passed to the Plotly method set in <c>method</c>
         ///     on slide.
         /// </summary>
         [JsonPropertyName(@"args")]
-        public List<object> Args { get; set;} 
+        public List<object> Args { get; set; }
 
         /// <summary>
         ///     Sets the text label to appear on the slider
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set;} 
+        public string Label { get; set; }
 
         /// <summary>
         ///     Sets the value of the slider step, used to refer to the step programatically.
         ///     Defaults to the slider label if not provided.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public string Value { get; set;} 
+        public string Value { get; set; }
 
         /// <summary>
         ///     When true, the API method is executed. When false, all other behaviors are
@@ -63,7 +62,7 @@ namespace Plotly.Models.Layouts.Sliders
         ///     and <c>args</c>.
         /// </summary>
         [JsonPropertyName(@"execute")]
-        public bool? Execute { get; set;} 
+        public bool? Execute { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -74,7 +73,7 @@ namespace Plotly.Models.Layouts.Sliders
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -86,79 +85,64 @@ namespace Plotly.Models.Layouts.Sliders
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Step other)) return false;
+            if(!(obj is Step other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Step other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    Method == other.Method &&
-                    Method != null && other.Method != null &&
-                    Method.Equals(other.Method)
-                ) && 
-                (
-                    Equals(Args, other.Args) ||
-                    Args != null && other.Args != null &&
-                    Args.SequenceEqual(other.Args)
-                ) &&
-                (
-                    Label == other.Label &&
-                    Label != null && other.Label != null &&
-                    Label.Equals(other.Label)
-                ) && 
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                ) && 
-                (
-                    Execute == other.Execute &&
-                    Execute != null && other.Execute != null &&
-                    Execute.Equals(other.Execute)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible == other.Visible && Visible != null && other.Visible != null && Visible.Equals(other.Visible))                                     &&
+                   (Method  == other.Method  && Method  != null && other.Method  != null && Method.Equals(other.Method))                                       &&
+                   (Equals(Args, other.Args) || Args != null && other.Args != null && Args.SequenceEqual(other.Args))                                          &&
+                   (Label            == other.Label            && Label            != null && other.Label            != null && Label.Equals(other.Label))     &&
+                   (Value            == other.Value            && Value            != null && other.Value            != null && Value.Equals(other.Value))     &&
+                   (Execute          == other.Execute          && Execute          != null && other.Execute          != null && Execute.Equals(other.Execute)) &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))       &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (Method != null) hashCode = hashCode * 59 + Method.GetHashCode();
-                if (Args != null) hashCode = hashCode * 59 + Args.GetHashCode();
-                if (Label != null) hashCode = hashCode * 59 + Label.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
-                if (Execute != null) hashCode = hashCode * 59 + Execute.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Method != null)
+                    hashCode = hashCode * 59 + Method.GetHashCode();
+
+                if(Args != null)
+                    hashCode = hashCode * 59 + Args.GetHashCode();
+
+                if(Label != null)
+                    hashCode = hashCode * 59 + Label.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(Execute != null)
+                    hashCode = hashCode * 59 + Execute.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -169,7 +153,8 @@ namespace Plotly.Models.Layouts.Sliders
         /// <param name="left">Left Step.</param>
         /// <param name="right">Right Step.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Step left, Step right)
+        public static bool operator ==(Step left,
+                                       Step right)
         {
             return Equals(left, right);
         }
@@ -180,7 +165,8 @@ namespace Plotly.Models.Layouts.Sliders
         /// <param name="left">Left Step.</param>
         /// <param name="right">Right Step.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Step left, Step right)
+        public static bool operator !=(Step left,
+                                       Step right)
         {
             return !Equals(left, right);
         }
@@ -192,9 +178,10 @@ namespace Plotly.Models.Layouts.Sliders
         public Step DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Step>(ms).Result;
         }
     }

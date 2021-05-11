@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Candlesticks
     /// <summary>
     ///     The Decreasing class.
     /// </summary>
-    
     [Serializable]
     public class Decreasing : IEquatable<Decreasing>
     {
@@ -18,50 +17,47 @@ namespace Plotly.Models.Traces.Candlesticks
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Decreasings.Line Line { get; set;} 
+        public Decreasings.Line Line { get; set; }
 
         /// <summary>
         ///     Sets the fill color. Defaults to a half-transparent variant of the line
         ///     color, marker color, or marker line color, whichever is available.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set;} 
+        public object FillColor { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Decreasing other)) return false;
+            if(!(obj is Decreasing other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Decreasing other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    FillColor == other.FillColor &&
-                    FillColor != null && other.FillColor != null &&
-                    FillColor.Equals(other.FillColor)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Line      == other.Line      && Line      != null && other.Line      != null && Line.Equals(other.Line)) &&
+                   (FillColor == other.FillColor && FillColor != null && other.FillColor != null && FillColor.Equals(other.FillColor));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (FillColor != null) hashCode = hashCode * 59 + FillColor.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(FillColor != null)
+                    hashCode = hashCode * 59 + FillColor.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -72,7 +68,8 @@ namespace Plotly.Models.Traces.Candlesticks
         /// <param name="left">Left Decreasing.</param>
         /// <param name="right">Right Decreasing.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Decreasing left, Decreasing right)
+        public static bool operator ==(Decreasing left,
+                                       Decreasing right)
         {
             return Equals(left, right);
         }
@@ -83,7 +80,8 @@ namespace Plotly.Models.Traces.Candlesticks
         /// <param name="left">Left Decreasing.</param>
         /// <param name="right">Right Decreasing.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Decreasing left, Decreasing right)
+        public static bool operator !=(Decreasing left,
+                                       Decreasing right)
         {
             return !Equals(left, right);
         }
@@ -95,9 +93,10 @@ namespace Plotly.Models.Traces.Candlesticks
         public Decreasing DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Decreasing>(ms).Result;
         }
     }

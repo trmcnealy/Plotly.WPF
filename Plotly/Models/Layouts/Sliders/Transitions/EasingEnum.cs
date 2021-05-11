@@ -6,81 +6,115 @@ namespace Plotly.Models.Layouts.Sliders.Transitions
     /// <summary>
     ///     Sets the easing function of the slider transition
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum EasingEnum
     {
-        [EnumMember(Value=@"cubic-in-out")]
+        [EnumMember(Value = @"cubic-in-out")]
         CubicInOut = 0,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear,
-        [EnumMember(Value=@"quad")]
+
+        [EnumMember(Value = @"quad")]
         Quad,
-        [EnumMember(Value=@"cubic")]
+
+        [EnumMember(Value = @"cubic")]
         Cubic,
-        [EnumMember(Value=@"sin")]
+
+        [EnumMember(Value = @"sin")]
         Sin,
-        [EnumMember(Value=@"exp")]
+
+        [EnumMember(Value = @"exp")]
         Exp,
-        [EnumMember(Value=@"circle")]
+
+        [EnumMember(Value = @"circle")]
         Circle,
-        [EnumMember(Value=@"elastic")]
+
+        [EnumMember(Value = @"elastic")]
         Elastic,
-        [EnumMember(Value=@"back")]
+
+        [EnumMember(Value = @"back")]
         Back,
-        [EnumMember(Value=@"bounce")]
+
+        [EnumMember(Value = @"bounce")]
         Bounce,
-        [EnumMember(Value=@"linear-in")]
+
+        [EnumMember(Value = @"linear-in")]
         LinearIn,
-        [EnumMember(Value=@"quad-in")]
+
+        [EnumMember(Value = @"quad-in")]
         QuadIn,
-        [EnumMember(Value=@"cubic-in")]
+
+        [EnumMember(Value = @"cubic-in")]
         CubicIn,
-        [EnumMember(Value=@"sin-in")]
+
+        [EnumMember(Value = @"sin-in")]
         SinIn,
-        [EnumMember(Value=@"exp-in")]
+
+        [EnumMember(Value = @"exp-in")]
         ExpIn,
-        [EnumMember(Value=@"circle-in")]
+
+        [EnumMember(Value = @"circle-in")]
         CircleIn,
-        [EnumMember(Value=@"elastic-in")]
+
+        [EnumMember(Value = @"elastic-in")]
         ElasticIn,
-        [EnumMember(Value=@"back-in")]
+
+        [EnumMember(Value = @"back-in")]
         BackIn,
-        [EnumMember(Value=@"bounce-in")]
+
+        [EnumMember(Value = @"bounce-in")]
         BounceIn,
-        [EnumMember(Value=@"linear-out")]
+
+        [EnumMember(Value = @"linear-out")]
         LinearOut,
-        [EnumMember(Value=@"quad-out")]
+
+        [EnumMember(Value = @"quad-out")]
         QuadOut,
-        [EnumMember(Value=@"cubic-out")]
+
+        [EnumMember(Value = @"cubic-out")]
         CubicOut,
-        [EnumMember(Value=@"sin-out")]
+
+        [EnumMember(Value = @"sin-out")]
         SinOut,
-        [EnumMember(Value=@"exp-out")]
+
+        [EnumMember(Value = @"exp-out")]
         ExpOut,
-        [EnumMember(Value=@"circle-out")]
+
+        [EnumMember(Value = @"circle-out")]
         CircleOut,
-        [EnumMember(Value=@"elastic-out")]
+
+        [EnumMember(Value = @"elastic-out")]
         ElasticOut,
-        [EnumMember(Value=@"back-out")]
+
+        [EnumMember(Value = @"back-out")]
         BackOut,
-        [EnumMember(Value=@"bounce-out")]
+
+        [EnumMember(Value = @"bounce-out")]
         BounceOut,
-        [EnumMember(Value=@"linear-in-out")]
+
+        [EnumMember(Value = @"linear-in-out")]
         LinearInOut,
-        [EnumMember(Value=@"quad-in-out")]
+
+        [EnumMember(Value = @"quad-in-out")]
         QuadInOut,
-        [EnumMember(Value=@"sin-in-out")]
+
+        [EnumMember(Value = @"sin-in-out")]
         SinInOut,
-        [EnumMember(Value=@"exp-in-out")]
+
+        [EnumMember(Value = @"exp-in-out")]
         ExpInOut,
-        [EnumMember(Value=@"circle-in-out")]
+
+        [EnumMember(Value = @"circle-in-out")]
         CircleInOut,
-        [EnumMember(Value=@"elastic-in-out")]
+
+        [EnumMember(Value = @"elastic-in-out")]
         ElasticInOut,
-        [EnumMember(Value=@"back-in-out")]
+
+        [EnumMember(Value = @"back-in-out")]
         BackInOut,
-        [EnumMember(Value=@"bounce-in-out")]
+
+        [EnumMember(Value = @"bounce-in-out")]
         BounceInOut
     }
 }

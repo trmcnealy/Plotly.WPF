@@ -7,17 +7,19 @@ namespace Plotly.Models.Traces.Bars
     ///     Constrain the size of text inside or outside a bar to be no larger than
     ///     the bar itself.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ConstrainTextEnum
     {
-        [EnumMember(Value=@"both")]
+        [EnumMember(Value = @"both")]
         Both = 0,
-        [EnumMember(Value=@"inside")]
+
+        [EnumMember(Value = @"inside")]
         Inside,
-        [EnumMember(Value=@"outside")]
+
+        [EnumMember(Value = @"outside")]
         Outside,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

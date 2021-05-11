@@ -14,26 +14,32 @@ namespace Plotly.Models.Traces.Volumes.Surfaces
     ///     <c>B</c>, <c>C</c>, <c>D</c> and <c>E</c> may also be used to reduce the
     ///     number of triangles on the iso-surfaces and creating other patterns of interest.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum PatternFlag
     {
-        [EnumMember(Value=@"odd")]
+        [EnumMember(Value = @"odd")]
         Odd = 0,
-        [EnumMember(Value=@"even")]
+
+        [EnumMember(Value = @"even")]
         Even = 1,
-        [EnumMember(Value=@"A")]
+
+        [EnumMember(Value = @"A")]
         A = 2,
-        [EnumMember(Value=@"B")]
+
+        [EnumMember(Value = @"B")]
         B = 4,
-        [EnumMember(Value=@"C")]
+
+        [EnumMember(Value = @"C")]
         C = 8,
-        [EnumMember(Value=@"D")]
+
+        [EnumMember(Value = @"D")]
         D = 16,
-        [EnumMember(Value=@"E")]
+
+        [EnumMember(Value = @"E")]
         E = 32,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = A | B | C | D | E
     }
 }

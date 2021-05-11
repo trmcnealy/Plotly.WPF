@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.Shapes
     /// <summary>
     ///     The Line class.
     /// </summary>
-    
     [Serializable]
     public class Line : IEquatable<Line>
     {
@@ -18,13 +17,13 @@ namespace Plotly.Models.Layouts.Shapes
         ///     Sets the line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).
         /// </summary>
         [JsonPropertyName(@"width")]
-        public JsNumber? Width { get; set;} 
+        public JsNumber? Width { get; set; }
 
         /// <summary>
         ///     Sets the dash style of lines. Set to a dash type string (<c>solid</c>, <c>dot</c>,
@@ -32,49 +31,44 @@ namespace Plotly.Models.Layouts.Shapes
         ///     a dash length list in px (eg <c>5px,10px,2px,2px</c>).
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set;} 
+        public string Dash { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Line other)) return false;
+            if(!(obj is Line other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Line other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Width == other.Width &&
-                    Width != null && other.Width != null &&
-                    Width.Equals(other.Width)
-                ) && 
-                (
-                    Dash == other.Dash &&
-                    Dash != null && other.Dash != null &&
-                    Dash.Equals(other.Dash)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color)) &&
+                   (Width == other.Width && Width != null && other.Width != null && Width.Equals(other.Width)) &&
+                   (Dash  == other.Dash  && Dash  != null && other.Dash  != null && Dash.Equals(other.Dash));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (Width != null) hashCode = hashCode * 59 + Width.GetHashCode();
-                if (Dash != null) hashCode = hashCode * 59 + Dash.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Width != null)
+                    hashCode = hashCode * 59 + Width.GetHashCode();
+
+                if(Dash != null)
+                    hashCode = hashCode * 59 + Dash.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -85,7 +79,8 @@ namespace Plotly.Models.Layouts.Shapes
         /// <param name="left">Left Line.</param>
         /// <param name="right">Right Line.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Line left, Line right)
+        public static bool operator ==(Line left,
+                                       Line right)
         {
             return Equals(left, right);
         }
@@ -96,7 +91,8 @@ namespace Plotly.Models.Layouts.Shapes
         /// <param name="left">Left Line.</param>
         /// <param name="right">Right Line.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Line left, Line right)
+        public static bool operator !=(Line left,
+                                       Line right)
         {
             return !Equals(left, right);
         }
@@ -108,9 +104,10 @@ namespace Plotly.Models.Layouts.Shapes
         public Line DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Line>(ms).Result;
         }
     }

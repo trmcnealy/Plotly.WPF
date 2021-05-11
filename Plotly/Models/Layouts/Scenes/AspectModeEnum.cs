@@ -13,17 +13,19 @@ namespace Plotly.Models.Layouts.Scenes
     ///     more than four times the size of the two others, where in that case the
     ///     results of <c>cube</c> are used.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AspectModeEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"cube")]
+
+        [EnumMember(Value = @"cube")]
         Cube,
-        [EnumMember(Value=@"data")]
+
+        [EnumMember(Value = @"data")]
         Data,
-        [EnumMember(Value=@"manual")]
+
+        [EnumMember(Value = @"manual")]
         Manual
     }
 }

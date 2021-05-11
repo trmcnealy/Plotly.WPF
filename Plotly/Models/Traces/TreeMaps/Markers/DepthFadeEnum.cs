@@ -11,15 +11,16 @@ namespace Plotly.Models.Traces.TreeMaps.Markers
     ///     that is the top elements within hierarchy are drawn with fully saturated
     ///     colors while the leaves are faded towards the background color.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DepthFadeEnum
     {
-        [EnumMember(Value=@"True")]
+        [EnumMember(Value = @"True")]
         True,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False,
-        [EnumMember(Value=@"reversed")]
+
+        [EnumMember(Value = @"reversed")]
         Reversed
     }
 }

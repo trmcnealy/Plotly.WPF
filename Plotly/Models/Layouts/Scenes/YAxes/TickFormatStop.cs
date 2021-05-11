@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
     /// <summary>
     ///     The TickFormatStop class.
     /// </summary>
-    
     [Serializable]
     public class TickFormatStop : IEquatable<TickFormatStop>
     {
@@ -21,7 +20,7 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         ///     is ignored even within its <c>dtickrange</c>.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
         /// <summary>
         ///     range [<c>min</c>, <c>max</c>], where <c>min</c>, <c>max</c> - dtick values
@@ -29,13 +28,13 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         ///     value by passing <c>null</c>
         /// </summary>
         [JsonPropertyName(@"dtickrange")]
-        public List<object> DTickRange { get; set;} 
+        public List<object> DTickRange { get; set; }
 
         /// <summary>
         ///     string - dtickformat for described zoom level, the same as <c>tickformat</c>
         /// </summary>
         [JsonPropertyName(@"value")]
-        public string Value { get; set;} 
+        public string Value { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -46,7 +45,7 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -58,61 +57,52 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is TickFormatStop other)) return false;
+            if(!(obj is TickFormatStop other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] TickFormatStop other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    Equals(DTickRange, other.DTickRange) ||
-                    DTickRange != null && other.DTickRange != null &&
-                    DTickRange.SequenceEqual(other.DTickRange)
-                ) &&
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Enabled == other.Enabled && Enabled != null && other.Enabled != null && Enabled.Equals(other.Enabled))                                 &&
+                   (Equals(DTickRange, other.DTickRange) || DTickRange != null && other.DTickRange != null && DTickRange.SequenceEqual(other.DTickRange))  &&
+                   (Value            == other.Value            && Value            != null && other.Value            != null && Value.Equals(other.Value)) &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))   &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
-                if (DTickRange != null) hashCode = hashCode * 59 + DTickRange.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(DTickRange != null)
+                    hashCode = hashCode * 59 + DTickRange.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -123,7 +113,8 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         /// <param name="left">Left TickFormatStop.</param>
         /// <param name="right">Right TickFormatStop.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (TickFormatStop left, TickFormatStop right)
+        public static bool operator ==(TickFormatStop left,
+                                       TickFormatStop right)
         {
             return Equals(left, right);
         }
@@ -134,7 +125,8 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         /// <param name="left">Left TickFormatStop.</param>
         /// <param name="right">Right TickFormatStop.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (TickFormatStop left, TickFormatStop right)
+        public static bool operator !=(TickFormatStop left,
+                                       TickFormatStop right)
         {
             return !Equals(left, right);
         }
@@ -146,9 +138,10 @@ namespace Plotly.Models.Layouts.Scenes.YAxes
         public TickFormatStop DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<TickFormatStop>(ms).Result;
         }
     }

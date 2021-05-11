@@ -11,15 +11,16 @@ namespace Plotly.Models.Layouts.Legends
     ///     the clicked item the sole visible item on the graph. <c>false</c> disable
     ///     legend item double-click interactions.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ItemDoubleClickEnum
     {
-        [EnumMember(Value=@"toggleothers")]
+        [EnumMember(Value = @"toggleothers")]
         ToggleOthers = 0,
-        [EnumMember(Value=@"toggle")]
+
+        [EnumMember(Value = @"toggle")]
         Toggle,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

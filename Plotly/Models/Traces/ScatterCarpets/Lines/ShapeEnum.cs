@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.ScatterCarpets.Lines
     ///     spline interpolation. The other available values correspond to step-wise
     ///     line shapes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShapeEnum
     {
-        [EnumMember(Value=@"linear")]
+        [EnumMember(Value = @"linear")]
         Linear = 0,
-        [EnumMember(Value=@"spline")]
+
+        [EnumMember(Value = @"spline")]
         Spline
     }
 }

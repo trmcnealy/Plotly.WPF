@@ -10,18 +10,20 @@ namespace Plotly.Models.Traces.Violins
     ///     Do the hover effects highlight individual violins or sample points or the
     ///     kernel density estimate or any combination of them?
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverOnFlag
     {
-        [EnumMember(Value=@"violins")]
+        [EnumMember(Value = @"violins")]
         Violins = 0,
-        [EnumMember(Value=@"points")]
+
+        [EnumMember(Value = @"points")]
         Points = 1,
-        [EnumMember(Value=@"kde")]
+
+        [EnumMember(Value = @"kde")]
         Kde = 2,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = Violins | Points | Kde
     }
 }

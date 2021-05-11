@@ -18,19 +18,22 @@ namespace Plotly.Models.Traces.Histogram2Ds
     ///     that an event will fall into the corresponding bin (here, the sum of all
     ///     bin AREAS equals 1).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HistNormEnum
     {
-        [EnumMember(Value=@"")]
+        [EnumMember(Value = @"")]
         Empty = 0,
-        [EnumMember(Value=@"percent")]
+
+        [EnumMember(Value = @"percent")]
         Percent,
-        [EnumMember(Value=@"probability")]
+
+        [EnumMember(Value = @"probability")]
         Probability,
-        [EnumMember(Value=@"density")]
+
+        [EnumMember(Value = @"density")]
         Density,
-        [EnumMember(Value=@"probability density")]
+
+        [EnumMember(Value = @"probability density")]
         ProbabilityDensity
     }
 }

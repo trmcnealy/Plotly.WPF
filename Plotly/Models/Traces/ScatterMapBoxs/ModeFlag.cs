@@ -11,18 +11,20 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
     ///     includes <c>text</c> then the <c>text</c> elements appear at the coordinates.
     ///     Otherwise, the <c>text</c> elements appear on hover.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum ModeFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"lines")]
+
+        [EnumMember(Value = @"lines")]
         Lines = 1,
-        [EnumMember(Value=@"markers")]
+
+        [EnumMember(Value = @"markers")]
         Markers = 2,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 4
     }
 }

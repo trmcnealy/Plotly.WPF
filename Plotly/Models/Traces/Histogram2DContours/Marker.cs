@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Histogram2DContours
     /// <summary>
     ///     The Marker class.
     /// </summary>
-    
     [Serializable]
     public class Marker : IEquatable<Marker>
     {
@@ -20,49 +19,46 @@ namespace Plotly.Models.Traces.Histogram2DContours
         ///     Sets the aggregation data.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public List<object> Color { get; set;} 
+        public List<object> Color { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set;} 
+        public string ColorSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Marker other)) return false;
+            if(!(obj is Marker other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Marker other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Equals(Color, other.Color) ||
-                    Color != null && other.Color != null &&
-                    Color.SequenceEqual(other.Color)
-                ) &&
-                (
-                    ColorSrc == other.ColorSrc &&
-                    ColorSrc != null && other.ColorSrc != null &&
-                    ColorSrc.Equals(other.ColorSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Equals(Color, other.Color) || Color != null && other.Color != null && Color.SequenceEqual(other.Color)) &&
+                   (ColorSrc == other.ColorSrc && ColorSrc != null && other.ColorSrc != null && ColorSrc.Equals(other.ColorSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (ColorSrc != null) hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(ColorSrc != null)
+                    hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -73,7 +69,8 @@ namespace Plotly.Models.Traces.Histogram2DContours
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Marker left, Marker right)
+        public static bool operator ==(Marker left,
+                                       Marker right)
         {
             return Equals(left, right);
         }
@@ -84,7 +81,8 @@ namespace Plotly.Models.Traces.Histogram2DContours
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Marker left, Marker right)
+        public static bool operator !=(Marker left,
+                                       Marker right)
         {
             return !Equals(left, right);
         }
@@ -96,9 +94,10 @@ namespace Plotly.Models.Traces.Histogram2DContours
         public Marker DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Marker>(ms).Result;
         }
     }

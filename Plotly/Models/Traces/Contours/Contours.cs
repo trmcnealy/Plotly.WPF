@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Contours
     /// <summary>
     ///     The Contours class.
     /// </summary>
-    
     [Serializable]
     public class Contours : IEquatable<Contours>
     {
@@ -23,25 +22,25 @@ namespace Plotly.Models.Traces.Contours
         ///     <c>value</c> parameters.
         /// </summary>
         [JsonPropertyName(@"type")]
-        public TypeEnum? Type { get; set;} 
+        public TypeEnum? Type { get; set; }
 
         /// <summary>
         ///     Sets the starting contour level value. Must be less than <c>contours.end</c>
         /// </summary>
         [JsonPropertyName(@"start")]
-        public JsNumber? Start { get; set;} 
+        public JsNumber? Start { get; set; }
 
         /// <summary>
         ///     Sets the end contour level value. Must be more than <c>contours.start</c>
         /// </summary>
         [JsonPropertyName(@"end")]
-        public JsNumber? End { get; set;} 
+        public JsNumber? End { get; set; }
 
         /// <summary>
         ///     Sets the step between each contour level. Must be positive.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public JsNumber? Size { get; set;} 
+        public JsNumber? Size { get; set; }
 
         /// <summary>
         ///     Determines the coloring method showing the contour values. If <c>fill</c>,
@@ -51,34 +50,34 @@ namespace Plotly.Models.Traces.Contours
         ///     on this trace.
         /// </summary>
         [JsonPropertyName(@"coloring")]
-        public ColoringEnum? Coloring { get; set;} 
+        public ColoringEnum? Coloring { get; set; }
 
         /// <summary>
         ///     Determines whether or not the contour lines are drawn. Has an effect only
         ///     if <c>contours.coloring</c> is set to <c>fill</c>.
         /// </summary>
         [JsonPropertyName(@"showlines")]
-        public bool? ShowLines { get; set;} 
+        public bool? ShowLines { get; set; }
 
         /// <summary>
         ///     Determines whether to label the contour lines with their values.
         /// </summary>
         [JsonPropertyName(@"showlabels")]
-        public bool? ShowLabels { get; set;} 
+        public bool? ShowLabels { get; set; }
 
         /// <summary>
         ///     Sets the font used for labeling the contour levels. The default color comes
         ///     from the lines, if shown. The default family and size come from <c>layout.font</c>.
         /// </summary>
         [JsonPropertyName(@"labelfont")]
-        public LabelFont LabelFont { get; set;} 
+        public LabelFont LabelFont { get; set; }
 
         /// <summary>
         ///     Sets the contour label formatting rule using d3 formatting mini-language
         ///     which is very similar to Python, see: https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"labelformat")]
-        public string LabelFormat { get; set;} 
+        public string LabelFormat { get; set; }
 
         /// <summary>
         ///     Sets the constraint operation. <c>=</c> keeps regions equal to <c>value</c>
@@ -90,7 +89,7 @@ namespace Plotly.Models.Traces.Contours
         ///     display, but all versions are allowed for consistency with filter transforms.
         /// </summary>
         [JsonPropertyName(@"operation")]
-        public OperationEnum? Operation { get; set;} 
+        public OperationEnum? Operation { get; set; }
 
         /// <summary>
         ///     Sets the value or values of the constraint boundary. When <c>operation</c>
@@ -101,97 +100,76 @@ namespace Plotly.Models.Traces.Contours
         ///     upper bound.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set;} 
+        public object Value { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Contours other)) return false;
+            if(!(obj is Contours other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Contours other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Start == other.Start &&
-                    Start != null && other.Start != null &&
-                    Start.Equals(other.Start)
-                ) && 
-                (
-                    End == other.End &&
-                    End != null && other.End != null &&
-                    End.Equals(other.End)
-                ) && 
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                ) && 
-                (
-                    Coloring == other.Coloring &&
-                    Coloring != null && other.Coloring != null &&
-                    Coloring.Equals(other.Coloring)
-                ) && 
-                (
-                    ShowLines == other.ShowLines &&
-                    ShowLines != null && other.ShowLines != null &&
-                    ShowLines.Equals(other.ShowLines)
-                ) && 
-                (
-                    ShowLabels == other.ShowLabels &&
-                    ShowLabels != null && other.ShowLabels != null &&
-                    ShowLabels.Equals(other.ShowLabels)
-                ) && 
-                (
-                    LabelFont == other.LabelFont &&
-                    LabelFont != null && other.LabelFont != null &&
-                    LabelFont.Equals(other.LabelFont)
-                ) && 
-                (
-                    LabelFormat == other.LabelFormat &&
-                    LabelFormat != null && other.LabelFormat != null &&
-                    LabelFormat.Equals(other.LabelFormat)
-                ) && 
-                (
-                    Operation == other.Operation &&
-                    Operation != null && other.Operation != null &&
-                    Operation.Equals(other.Operation)
-                ) && 
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type        == other.Type        && Type        != null && other.Type        != null && Type.Equals(other.Type))               &&
+                   (Start       == other.Start       && Start       != null && other.Start       != null && Start.Equals(other.Start))             &&
+                   (End         == other.End         && End         != null && other.End         != null && End.Equals(other.End))                 &&
+                   (Size        == other.Size        && Size        != null && other.Size        != null && Size.Equals(other.Size))               &&
+                   (Coloring    == other.Coloring    && Coloring    != null && other.Coloring    != null && Coloring.Equals(other.Coloring))       &&
+                   (ShowLines   == other.ShowLines   && ShowLines   != null && other.ShowLines   != null && ShowLines.Equals(other.ShowLines))     &&
+                   (ShowLabels  == other.ShowLabels  && ShowLabels  != null && other.ShowLabels  != null && ShowLabels.Equals(other.ShowLabels))   &&
+                   (LabelFont   == other.LabelFont   && LabelFont   != null && other.LabelFont   != null && LabelFont.Equals(other.LabelFont))     &&
+                   (LabelFormat == other.LabelFormat && LabelFormat != null && other.LabelFormat != null && LabelFormat.Equals(other.LabelFormat)) &&
+                   (Operation   == other.Operation   && Operation   != null && other.Operation   != null && Operation.Equals(other.Operation))     &&
+                   (Value       == other.Value       && Value       != null && other.Value       != null && Value.Equals(other.Value));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Start != null) hashCode = hashCode * 59 + Start.GetHashCode();
-                if (End != null) hashCode = hashCode * 59 + End.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
-                if (Coloring != null) hashCode = hashCode * 59 + Coloring.GetHashCode();
-                if (ShowLines != null) hashCode = hashCode * 59 + ShowLines.GetHashCode();
-                if (ShowLabels != null) hashCode = hashCode * 59 + ShowLabels.GetHashCode();
-                if (LabelFont != null) hashCode = hashCode * 59 + LabelFont.GetHashCode();
-                if (LabelFormat != null) hashCode = hashCode * 59 + LabelFormat.GetHashCode();
-                if (Operation != null) hashCode = hashCode * 59 + Operation.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Start != null)
+                    hashCode = hashCode * 59 + Start.GetHashCode();
+
+                if(End != null)
+                    hashCode = hashCode * 59 + End.GetHashCode();
+
+                if(Size != null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(Coloring != null)
+                    hashCode = hashCode * 59 + Coloring.GetHashCode();
+
+                if(ShowLines != null)
+                    hashCode = hashCode * 59 + ShowLines.GetHashCode();
+
+                if(ShowLabels != null)
+                    hashCode = hashCode * 59 + ShowLabels.GetHashCode();
+
+                if(LabelFont != null)
+                    hashCode = hashCode * 59 + LabelFont.GetHashCode();
+
+                if(LabelFormat != null)
+                    hashCode = hashCode * 59 + LabelFormat.GetHashCode();
+
+                if(Operation != null)
+                    hashCode = hashCode * 59 + Operation.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -202,7 +180,8 @@ namespace Plotly.Models.Traces.Contours
         /// <param name="left">Left Contours.</param>
         /// <param name="right">Right Contours.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Contours left, Contours right)
+        public static bool operator ==(Contours left,
+                                       Contours right)
         {
             return Equals(left, right);
         }
@@ -213,7 +192,8 @@ namespace Plotly.Models.Traces.Contours
         /// <param name="left">Left Contours.</param>
         /// <param name="right">Right Contours.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Contours left, Contours right)
+        public static bool operator !=(Contours left,
+                                       Contours right)
         {
             return !Equals(left, right);
         }
@@ -225,9 +205,10 @@ namespace Plotly.Models.Traces.Contours
         public Contours DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Contours>(ms).Result;
         }
     }

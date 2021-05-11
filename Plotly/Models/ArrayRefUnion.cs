@@ -29,7 +29,6 @@ namespace Plotly.Models
             Ref = @ref;
         }
 
-        
         public bool IsArray
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
@@ -42,13 +41,11 @@ namespace Plotly.Models
             get { return Ref != null; }
         }
 
-
         public bool IsNull
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
             get { return Array == null && Ref == null; }
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator List<object>?(ArrayRefUnion from)
@@ -61,7 +58,6 @@ namespace Plotly.Models
         {
             return from.Ref;
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator ArrayRefUnion(List<object> to)
@@ -156,17 +152,18 @@ namespace Plotly.Models
 
                 writer.WriteStringValue($"{array[0]}");
 
-                for (int i = 1; i < array.Count; ++i)
+                for(int i = 1; i < array.Count; ++i)
                 {
                     writer.WriteStringValue($",{array[i]}");
                 }
 
                 return;
             }
-            
+
             if(value.IsRef)
             {
                 writer.WriteStringValue(value.Ref);
+
                 return;
             }
 

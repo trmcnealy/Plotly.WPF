@@ -16,15 +16,16 @@ namespace Plotly.Models.Layouts.XAxes.RangeBreaks
     ///     the weekends). - { pattern: <c>hour</c>, bounds: [17, 8] }   breaks from
     ///     5pm to 8am (i.e. skips non-work hours).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PatternEnum
     {
-        [EnumMember(Value=@"day of week")]
+        [EnumMember(Value = @"day of week")]
         DayOfWeek,
-        [EnumMember(Value=@"hour")]
+
+        [EnumMember(Value = @"hour")]
         Hour,
-        [EnumMember(Value=@"")]
+
+        [EnumMember(Value = @"")]
         Empty
     }
 }

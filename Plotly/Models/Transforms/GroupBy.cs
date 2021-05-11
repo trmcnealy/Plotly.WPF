@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -16,7 +15,6 @@ namespace Plotly.Models.Transforms
     ///     The GroupBy class.
     ///     Implements the <see cref="ITransform" />.
     /// </summary>
-    
     [Serializable]
     public class GroupBy : ITransform, IEquatable<GroupBy>
     {
@@ -28,7 +26,7 @@ namespace Plotly.Models.Transforms
         ///     Determines whether this group-by transform is enabled or disabled.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
         /// <summary>
         ///     Sets the groups in which the trace data will be split. For example, with
@@ -37,7 +35,7 @@ namespace Plotly.Models.Transforms
         ///     one trace with <c>x</c> [1, 3] and one trace with <c>x</c> [2, 4].
         /// </summary>
         [JsonPropertyName(@"groups")]
-        public List<object> Groups { get; set;} 
+        public List<object> Groups { get; set; }
 
         /// <summary>
         ///     Pattern by which grouped traces are named. If only one trace is present,
@@ -49,79 +47,68 @@ namespace Plotly.Models.Transforms
         ///     &quot;%{group} (%{trace})&quot; would return &quot;Monaco (GDP per capita)&quot;.
         /// </summary>
         [JsonPropertyName(@"nameformat")]
-        public string NameFormat { get; set;} 
+        public string NameFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the Styles.
         /// </summary>
         [JsonPropertyName(@"styles")]
-        public List<Style> Styles { get; set;} 
+        public List<Style> Styles { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  groups .
         /// </summary>
         [JsonPropertyName(@"groupssrc")]
-        public string GroupsSrc { get; set;} 
+        public string GroupsSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is GroupBy other)) return false;
+            if(!(obj is GroupBy other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] GroupBy other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    Equals(Groups, other.Groups) ||
-                    Groups != null && other.Groups != null &&
-                    Groups.SequenceEqual(other.Groups)
-                ) &&
-                (
-                    NameFormat == other.NameFormat &&
-                    NameFormat != null && other.NameFormat != null &&
-                    NameFormat.Equals(other.NameFormat)
-                ) && 
-                (
-                    Equals(Styles, other.Styles) ||
-                    Styles != null && other.Styles != null &&
-                    Styles.SequenceEqual(other.Styles)
-                ) &&
-                (
-                    GroupsSrc == other.GroupsSrc &&
-                    GroupsSrc != null && other.GroupsSrc != null &&
-                    GroupsSrc.Equals(other.GroupsSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type    == other.Type    && Type    != null && other.Type    != null && Type.Equals(other.Type))                         &&
+                   (Enabled == other.Enabled && Enabled != null && other.Enabled != null && Enabled.Equals(other.Enabled))                   &&
+                   (Equals(Groups, other.Groups) || Groups != null && other.Groups != null && Groups.SequenceEqual(other.Groups))            &&
+                   (NameFormat == other.NameFormat && NameFormat != null && other.NameFormat != null && NameFormat.Equals(other.NameFormat)) &&
+                   (Equals(Styles, other.Styles) || Styles != null && other.Styles != null && Styles.SequenceEqual(other.Styles))            &&
+                   (GroupsSrc == other.GroupsSrc && GroupsSrc != null && other.GroupsSrc != null && GroupsSrc.Equals(other.GroupsSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
-                if (Groups != null) hashCode = hashCode * 59 + Groups.GetHashCode();
-                if (NameFormat != null) hashCode = hashCode * 59 + NameFormat.GetHashCode();
-                if (Styles != null) hashCode = hashCode * 59 + Styles.GetHashCode();
-                if (GroupsSrc != null) hashCode = hashCode * 59 + GroupsSrc.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(Groups != null)
+                    hashCode = hashCode * 59 + Groups.GetHashCode();
+
+                if(NameFormat != null)
+                    hashCode = hashCode * 59 + NameFormat.GetHashCode();
+
+                if(Styles != null)
+                    hashCode = hashCode * 59 + Styles.GetHashCode();
+
+                if(GroupsSrc != null)
+                    hashCode = hashCode * 59 + GroupsSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -132,7 +119,8 @@ namespace Plotly.Models.Transforms
         /// <param name="left">Left GroupBy.</param>
         /// <param name="right">Right GroupBy.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (GroupBy left, GroupBy right)
+        public static bool operator ==(GroupBy left,
+                                       GroupBy right)
         {
             return Equals(left, right);
         }
@@ -143,7 +131,8 @@ namespace Plotly.Models.Transforms
         /// <param name="left">Left GroupBy.</param>
         /// <param name="right">Right GroupBy.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (GroupBy left, GroupBy right)
+        public static bool operator !=(GroupBy left,
+                                       GroupBy right)
         {
             return !Equals(left, right);
         }
@@ -155,9 +144,10 @@ namespace Plotly.Models.Transforms
         public GroupBy DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<GroupBy>(ms).Result;
         }
     }

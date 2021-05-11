@@ -10,17 +10,19 @@ namespace Plotly.Models.Layouts.UpdateMenus
     ///     <c>y</c> position to the <c>top</c>, <c>middle</c> or <c>bottom</c> of the
     ///     range selector.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YAnchorEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top = 0,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

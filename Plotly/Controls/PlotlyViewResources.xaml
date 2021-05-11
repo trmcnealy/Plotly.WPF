@@ -42,7 +42,8 @@
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>-->
 
-                        <wv:WebView2 x:Name="WebView" CreationProperties="{StaticResource EvergreenWebView2CreationProperties}"/>
+                        <wv:WebView2 x:Name="WebView"
+                                     CreationProperties="{StaticResource EvergreenWebView2CreationProperties}"/>
 
                     </Grid>
                 </ControlTemplate>

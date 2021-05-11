@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.Sankeys.Links
     ///     or <c>skip</c> are set, no information is displayed upon hovering. But,
     ///     if <c>none</c> is set, click and hover events are still fired.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None,
-        [EnumMember(Value=@"skip")]
+
+        [EnumMember(Value = @"skip")]
         Skip
     }
 }

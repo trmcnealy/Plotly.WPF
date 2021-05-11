@@ -21,9 +21,10 @@ using Microsoft.Web.WebView2.Wpf;
 
 [assembly: XmlnsPrefix("http://www.plotly.com", "plotly")]
 [assembly: XmlnsDefinition("http://www.plotly.com", "Plotly")]
+
 namespace Plotly
 {
-    [TemplatePart(Name        = "WebViewElement", Type  = typeof(WebView2))]
+    [TemplatePart(Name = "WebViewElement", Type = typeof(WebView2))]
     //[TemplateVisualState(Name = "Navigating", GroupName = "ValueStates")]
     //[TemplateVisualState(Name = "Waiting", GroupName    = "ValueStates")]
     //[TemplateVisualState(Name = "Focused", GroupName    = "FocusedStates")]
@@ -31,10 +32,11 @@ namespace Plotly
     public class PlotlyView : Control
     {
         private static readonly string Plotly_folder;
+
         static PlotlyView()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(PlotlyView), new FrameworkPropertyMetadata(typeof(PlotlyView)));
-            
+
             Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
 
             if(!Directory.Exists(Plotly_folder))
@@ -71,7 +73,6 @@ namespace Plotly
                 DataSource.CollectionChanged += DataSource_CollectionChanged;
             }
         }
-
 
         public static readonly DependencyProperty DataSourceProperty = DependencyProperty.Register("DataSource",
                                                                                                    typeof(ObservableDictionary<string, (string type, object[] array)>),
@@ -210,9 +211,9 @@ namespace Plotly
 
         #region PlotFrames Property
 
-        public ObservableCollection<Frames> PlotFrames
+        public ObservableCollection<Frames>? PlotFrames
         {
-            get { return (ObservableCollection<Frames>)GetValue(PlotFramesProperty); }
+            get { return (ObservableCollection<Frames>?)GetValue(PlotFramesProperty); }
             set
             {
                 SetValue(PlotFramesProperty, value);
@@ -287,7 +288,7 @@ namespace Plotly
             get { return (bool)GetValue(EnableLoggingProperty); }
             set { SetValue(EnableLoggingProperty, value); }
         }
-        
+
         public static readonly DependencyProperty EnableLoggingProperty = DependencyProperty.Register("EnableLogging", typeof(bool), typeof(PlotlyView), new PropertyMetadata(false));
 
         private WebView2? webViewElement;
@@ -332,15 +333,19 @@ namespace Plotly
             return Guid.NewGuid();
         }
 
-        public PlotlyView():this(Guid.NewGuid())
-        {}
+        public PlotlyView()
+            : this(Guid.NewGuid())
+        {
+        }
 
-        public PlotlyView(string guid):this(MakeGuid(guid))
-        {}
+        public PlotlyView(string guid)
+            : this(MakeGuid(guid))
+        {
+        }
 
         public PlotlyView(Guid guid)
         {
-            Id  = guid.ToString().Replace("-", "_");
+            Id = guid.ToString().Replace("-", "_");
 
             string plotlyHtmlFile = Path.Combine(Plotly_folder, $"Plotly_{Id}.html");
 
@@ -350,7 +355,7 @@ namespace Plotly
 
                 sw.Write(Plotly.Resources.Plotly_html.Replace("%ID%", Id));
             }
-            
+
             SourceUri = new Uri(Path.Combine("file:///", plotlyHtmlFile));
 
             CsPlotlyPlot = new CsPlotlyPlot();
@@ -436,7 +441,6 @@ namespace Plotly
             WebViewElement.CoreWebView2.AddHostObjectToScript($"CsPlotlyPlot_{Id}", CsPlotlyPlot);
         }
 
-
         private void CoreWebView2_WebMessageReceived(object?                                 sender,
                                                      CoreWebView2WebMessageReceivedEventArgs e)
         {
@@ -510,6 +514,11 @@ namespace Plotly
             }
         }
 
+        public void CallJavascriptFunction()
+        {
+            //WebViewElement.CoreWebView2.ExecuteScriptAsync(script);
+        }
+
         //private void UpdateStates(bool useTransitions)
         //{
         //    if(IsNavigating)
@@ -544,19 +553,19 @@ namespace Plotly
             {
                 WebViewElement.Source = SourceUri;
 
-                WebViewElement.CoreWebView2Ready += WebView_CoreWebView2Ready;
+                WebViewElement.CoreWebView2InitializationCompleted += WebView_CoreWebView2Ready;
 
-                string?                         browserExecutableFolder = null;
-                string?                         userDataFolder          = null;
+                string? browserExecutableFolder = null;
+                string? userDataFolder          = null;
 
                 //string                          localAppData            = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 //string                          cacheFolder             = Path.Combine(localAppData, "WindowsFormsWebView2");
 
-                CoreWebView2EnvironmentOptions? options                 = new ("--disk-cache-size=200");
+                CoreWebView2EnvironmentOptions options = new("--disk-cache-size=200");
 
-                CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options);
+                CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options).ConfigureAwait(false);
 
-                await WebViewElement.EnsureCoreWebView2Async(env);
+                await WebViewElement.EnsureCoreWebView2Async(env).ConfigureAwait(false);
             }
         }
 

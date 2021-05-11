@@ -8,15 +8,16 @@ namespace Plotly.Models.Layouts.Sliders.CurrentValues
     /// <summary>
     ///     The alignment of the value readout relative to the length of the slider.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XAnchorEnum
     {
-        [EnumMember(Value=@"left")]
+        [EnumMember(Value = @"left")]
         Left = 0,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

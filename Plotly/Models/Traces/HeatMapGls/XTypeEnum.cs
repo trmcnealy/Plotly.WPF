@@ -11,13 +11,13 @@ namespace Plotly.Models.Traces.HeatMapGls
     ///     x coordinates are given by <c>x0</c> and <c>dx</c> (the default behavior
     ///     when <c>x</c> is not provided).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XTypeEnum
     {
-        [EnumMember(Value=@"array")]
+        [EnumMember(Value = @"array")]
         Array,
-        [EnumMember(Value=@"scaled")]
+
+        [EnumMember(Value = @"scaled")]
         Scaled
     }
 }

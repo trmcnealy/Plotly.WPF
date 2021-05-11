@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.ParCoordss
     /// <summary>
     ///     The RangeFont class.
     /// </summary>
-    
     [Serializable]
     public class RangeFont : IEquatable<RangeFont>
     {
@@ -28,61 +27,56 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     New Roman&#39;.
         /// </summary>
         [JsonPropertyName(@"family")]
-        public string Family { get; set;} 
+        public string Family { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public JsNumber? Size { get; set;} 
+        public JsNumber? Size { get; set; }
 
         /// <summary>
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is RangeFont other)) return false;
+            if(!(obj is RangeFont other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] RangeFont other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Family == other.Family &&
-                    Family != null && other.Family != null &&
-                    Family.Equals(other.Family)
-                ) && 
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                ) && 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Family == other.Family && Family != null && other.Family != null && Family.Equals(other.Family)) &&
+                   (Size   == other.Size   && Size   != null && other.Size   != null && Size.Equals(other.Size))     &&
+                   (Color  == other.Color  && Color  != null && other.Color  != null && Color.Equals(other.Color));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Family != null) hashCode = hashCode * 59 + Family.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Family != null)
+                    hashCode = hashCode * 59 + Family.GetHashCode();
+
+                if(Size != null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -93,7 +87,8 @@ namespace Plotly.Models.Traces.ParCoordss
         /// <param name="left">Left RangeFont.</param>
         /// <param name="right">Right RangeFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (RangeFont left, RangeFont right)
+        public static bool operator ==(RangeFont left,
+                                       RangeFont right)
         {
             return Equals(left, right);
         }
@@ -104,7 +99,8 @@ namespace Plotly.Models.Traces.ParCoordss
         /// <param name="left">Left RangeFont.</param>
         /// <param name="right">Right RangeFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (RangeFont left, RangeFont right)
+        public static bool operator !=(RangeFont left,
+                                       RangeFont right)
         {
             return !Equals(left, right);
         }
@@ -116,9 +112,10 @@ namespace Plotly.Models.Traces.ParCoordss
         public RangeFont DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<RangeFont>(ms).Result;
         }
     }

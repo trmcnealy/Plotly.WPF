@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -18,7 +17,6 @@ namespace Plotly.Models.Traces
     ///     The Pie class.
     ///     Implements the <see cref="ITrace" />.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class Pie : ITrace, IEquatable<Pie>
@@ -33,40 +31,40 @@ namespace Plotly.Models.Traces
         ///     itself is visible).
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public VisibleEnum? Visible { get; set;} 
+        public VisibleEnum? Visible { get; set; }
 
         /// <summary>
         ///     Determines whether or not an item corresponding to this trace is shown in
         ///     the legend.
         /// </summary>
         [JsonPropertyName(@"showlegend")]
-        public bool? ShowLegend { get; set;} 
+        public bool? ShowLegend { get; set; }
 
         /// <summary>
         ///     Sets the legend group for this trace. Traces part of the same legend group
         ///     hide/show at the same time when toggling legend items.
         /// </summary>
         [JsonPropertyName(@"legendgroup")]
-        public string LegendGroup { get; set;} 
+        public string LegendGroup { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the trace.
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
         /// <summary>
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set;} 
+        public string UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -74,7 +72,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set;} 
+        public List<object> Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -82,7 +80,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set;} 
+        public List<object> CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -96,7 +94,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set;} 
+        public object Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -111,25 +109,25 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set;} 
+        public List<object> MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public HoverLabel HoverLabel { get; set;} 
+        public HoverLabel HoverLabel { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set;} 
+        public Stream Stream { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transforms.
         /// </summary>
         [JsonPropertyName(@"transforms")]
-        public List<ITransform> Transforms { get; set;} 
+        public List<ITransform> Transforms { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -146,7 +144,7 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
         /// <summary>
         ///     Sets the sector labels. If <c>labels</c> entries are duplicated, we sum
@@ -155,33 +153,33 @@ namespace Plotly.Models.Traces
         ///     non-empty entry among all occurrences of the label.
         /// </summary>
         [JsonPropertyName(@"labels")]
-        public List<object> Labels { get; set;} 
+        public List<object> Labels { get; set; }
 
         /// <summary>
         ///     Alternate to <c>labels</c>. Builds a numeric set of labels. Use with <c>dlabel</c>
         ///     where <c>label0</c> is the starting label and <c>dlabel</c> the step.
         /// </summary>
         [JsonPropertyName(@"label0")]
-        public JsNumber? Label0 { get; set;} 
+        public JsNumber? Label0 { get; set; }
 
         /// <summary>
         ///     Sets the label step. See <c>label0</c> for more info.
         /// </summary>
         [JsonPropertyName(@"dlabel")]
-        public JsNumber? DLabel { get; set;} 
+        public JsNumber? DLabel { get; set; }
 
         /// <summary>
         ///     Sets the values of the sectors. If omitted, we count occurrences of each
         ///     label.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set;} 
+        public List<object> Values { get; set; }
 
         /// <summary>
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Marker Marker { get; set;} 
+        public Marker Marker { get; set; }
 
         /// <summary>
         ///     Sets text elements associated with each sector. If trace <c>textinfo</c>
@@ -190,7 +188,7 @@ namespace Plotly.Models.Traces
         ///     is not set, these elements will be seen in the hover labels.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public List<object> Text { get; set;} 
+        public List<object> Text { get; set; }
 
         /// <summary>
         ///     Sets hover text elements associated with each sector. If a single string,
@@ -199,7 +197,7 @@ namespace Plotly.Models.Traces
         ///     <c>hoverinfo</c> must contain a <c>text</c> flag.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public string HoverText { get; set;} 
+        public string HoverText { get; set; }
 
         /// <summary>
         ///     Sets hover text elements associated with each sector. If a single string,
@@ -209,7 +207,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hovertext")]
         [Array]
-        public List<string> HoverTextArray { get; set;} 
+        public List<string> HoverTextArray { get; set; }
 
         /// <summary>
         ///     If there are multiple pie charts that should be sized according to their
@@ -217,13 +215,13 @@ namespace Plotly.Models.Traces
         ///     trace in the same group.
         /// </summary>
         [JsonPropertyName(@"scalegroup")]
-        public string ScaleGroup { get; set;} 
+        public string ScaleGroup { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on the graph.
         /// </summary>
         [JsonPropertyName(@"textinfo")]
-        public TextInfoFlag? TextInfo { get; set;} 
+        public TextInfoFlag? TextInfo { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -231,7 +229,7 @@ namespace Plotly.Models.Traces
         ///     is set, click and hover events are still fired.
         /// </summary>
         [JsonPropertyName(@"hoverinfo")]
-        public HoverInfoFlag? HoverInfo { get; set;} 
+        public HoverInfoFlag? HoverInfo { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -240,7 +238,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hoverinfo")]
         [Array]
-        public List<HoverInfoFlag?> HoverInfoArray { get; set;} 
+        public List<HoverInfoFlag?> HoverInfoArray { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -261,7 +259,7 @@ namespace Plotly.Models.Traces
         ///     box completely, use an empty tag <c>&lt;extra&gt;&lt;/extra&gt;</c>.
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
-        public string HoverTemplate { get; set;} 
+        public string HoverTemplate { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -283,7 +281,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
         [Array]
-        public List<string> HoverTemplateArray { get; set;} 
+        public List<string> HoverTemplateArray { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information text that appear on points.
@@ -299,7 +297,7 @@ namespace Plotly.Models.Traces
         ///     variables <c>label</c>, <c>color</c>, <c>value</c>, <c>percent</c> and <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"texttemplate")]
-        public string TextTemplate { get; set;} 
+        public string TextTemplate { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information text that appear on points.
@@ -316,26 +314,26 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"texttemplate")]
         [Array]
-        public List<string> TextTemplateArray { get; set;} 
+        public List<string> TextTemplateArray { get; set; }
 
         /// <summary>
         ///     Specifies the location of the <c>textinfo</c>.
         /// </summary>
         [JsonPropertyName(@"textposition")]
-        public TextPositionEnum? TextPosition { get; set;} 
+        public TextPositionEnum? TextPosition { get; set; }
 
         /// <summary>
         ///     Specifies the location of the <c>textinfo</c>.
         /// </summary>
         [JsonPropertyName(@"textposition")]
         [Array]
-        public List<TextPositionEnum?> TextPositionArray { get; set;} 
+        public List<TextPositionEnum?> TextPositionArray { get; set; }
 
         /// <summary>
         ///     Sets the font used for <c>textinfo</c>.
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public TextFont TextFont { get; set;} 
+        public TextFont TextFont { get; set; }
 
         /// <summary>
         ///     Controls the orientation of the text inside chart sectors. When set to <c>auto</c>,
@@ -347,63 +345,63 @@ namespace Plotly.Models.Traces
         ///     the radius of the sector.
         /// </summary>
         [JsonPropertyName(@"insidetextorientation")]
-        public InsideTextOrientationEnum? InsideTextOrientation { get; set;} 
+        public InsideTextOrientationEnum? InsideTextOrientation { get; set; }
 
         /// <summary>
         ///     Sets the font used for <c>textinfo</c> lying inside the sector.
         /// </summary>
         [JsonPropertyName(@"insidetextfont")]
-        public InsideTextFont InsideTextFont { get; set;} 
+        public InsideTextFont InsideTextFont { get; set; }
 
         /// <summary>
         ///     Sets the font used for <c>textinfo</c> lying outside the sector.
         /// </summary>
         [JsonPropertyName(@"outsidetextfont")]
-        public OutsideTextFont OutsideTextFont { get; set;} 
+        public OutsideTextFont OutsideTextFont { get; set; }
 
         /// <summary>
         ///     Determines whether outside text labels can push the margins.
         /// </summary>
         [JsonPropertyName(@"automargin")]
-        public bool? AutoMargin { get; set;} 
+        public bool? AutoMargin { get; set; }
 
         /// <summary>
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Title Title { get; set;} 
+        public Title Title { get; set; }
 
         /// <summary>
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set;} 
+        public Domain Domain { get; set; }
 
         /// <summary>
         ///     Sets the fraction of the radius to cut out of the pie. Use this to make
         ///     a donut chart.
         /// </summary>
         [JsonPropertyName(@"hole")]
-        public JsNumber? Hole { get; set;} 
+        public JsNumber? Hole { get; set; }
 
         /// <summary>
         ///     Determines whether or not the sectors are reordered from largest to smallest.
         /// </summary>
         [JsonPropertyName(@"sort")]
-        public bool? Sort { get; set;} 
+        public bool? Sort { get; set; }
 
         /// <summary>
         ///     Specifies the direction at which succeeding sectors follow one another.
         /// </summary>
         [JsonPropertyName(@"direction")]
-        public DirectionEnum? Direction { get; set;} 
+        public DirectionEnum? Direction { get; set; }
 
         /// <summary>
         ///     Instead of the first slice starting at 12 o&#39;clock, rotate to some other
         ///     angle.
         /// </summary>
         [JsonPropertyName(@"rotation")]
-        public JsNumber? Rotation { get; set;} 
+        public JsNumber? Rotation { get; set; }
 
         /// <summary>
         ///     Sets the fraction of larger radius to pull the sectors out from the center.
@@ -411,7 +409,7 @@ namespace Plotly.Models.Traces
         ///     or an array to highlight one or more slices.
         /// </summary>
         [JsonPropertyName(@"pull")]
-        public JsNumber? Pull { get; set;} 
+        public JsNumber? Pull { get; set; }
 
         /// <summary>
         ///     Sets the fraction of larger radius to pull the sectors out from the center.
@@ -420,451 +418,340 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"pull")]
         [Array]
-        public List<JsNumber?> PullArray { get; set;} 
+        public List<JsNumber?> PullArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set;} 
+        public string IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set;} 
+        public string CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set;} 
+        public string MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  labels .
         /// </summary>
         [JsonPropertyName(@"labelssrc")]
-        public string LabelsSrc { get; set;} 
+        public string LabelsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set;} 
+        public string ValuesSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  text .
         /// </summary>
         [JsonPropertyName(@"textsrc")]
-        public string TextSrc { get; set;} 
+        public string TextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertext .
         /// </summary>
         [JsonPropertyName(@"hovertextsrc")]
-        public string HoverTextSrc { get; set;} 
+        public string HoverTextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hoverinfo .
         /// </summary>
         [JsonPropertyName(@"hoverinfosrc")]
-        public string HoverInfoSrc { get; set;} 
+        public string HoverInfoSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertemplate .
         /// </summary>
         [JsonPropertyName(@"hovertemplatesrc")]
-        public string HoverTemplateSrc { get; set;} 
+        public string HoverTemplateSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  texttemplate .
         /// </summary>
         [JsonPropertyName(@"texttemplatesrc")]
-        public string TextTemplateSrc { get; set;} 
+        public string TextTemplateSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  textposition .
         /// </summary>
         [JsonPropertyName(@"textpositionsrc")]
-        public string TextPositionSrc { get; set;} 
+        public string TextPositionSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  pull .
         /// </summary>
         [JsonPropertyName(@"pullsrc")]
-        public string PullSrc { get; set;} 
+        public string PullSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Pie other)) return false;
+            if(!(obj is Pie other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Pie other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    ShowLegend == other.ShowLegend &&
-                    ShowLegend != null && other.ShowLegend != null &&
-                    ShowLegend.Equals(other.ShowLegend)
-                ) && 
-                (
-                    LegendGroup == other.LegendGroup &&
-                    LegendGroup != null && other.LegendGroup != null &&
-                    LegendGroup.Equals(other.LegendGroup)
-                ) && 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    UId == other.UId &&
-                    UId != null && other.UId != null &&
-                    UId.Equals(other.UId)
-                ) && 
-                (
-                    Equals(Ids, other.Ids) ||
-                    Ids != null && other.Ids != null &&
-                    Ids.SequenceEqual(other.Ids)
-                ) &&
-                (
-                    Equals(CustomData, other.CustomData) ||
-                    CustomData != null && other.CustomData != null &&
-                    CustomData.SequenceEqual(other.CustomData)
-                ) &&
-                (
-                    Meta == other.Meta &&
-                    Meta != null && other.Meta != null &&
-                    Meta.Equals(other.Meta)
-                ) && 
-                (
-                    Equals(MetaArray, other.MetaArray) ||
-                    MetaArray != null && other.MetaArray != null &&
-                    MetaArray.SequenceEqual(other.MetaArray)
-                ) &&
-                (
-                    HoverLabel == other.HoverLabel &&
-                    HoverLabel != null && other.HoverLabel != null &&
-                    HoverLabel.Equals(other.HoverLabel)
-                ) && 
-                (
-                    Stream == other.Stream &&
-                    Stream != null && other.Stream != null &&
-                    Stream.Equals(other.Stream)
-                ) && 
-                (
-                    Equals(Transforms, other.Transforms) ||
-                    Transforms != null && other.Transforms != null &&
-                    Transforms.SequenceEqual(other.Transforms)
-                ) &&
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                ) && 
-                (
-                    Equals(Labels, other.Labels) ||
-                    Labels != null && other.Labels != null &&
-                    Labels.SequenceEqual(other.Labels)
-                ) &&
-                (
-                    Label0 == other.Label0 &&
-                    Label0 != null && other.Label0 != null &&
-                    Label0.Equals(other.Label0)
-                ) && 
-                (
-                    DLabel == other.DLabel &&
-                    DLabel != null && other.DLabel != null &&
-                    DLabel.Equals(other.DLabel)
-                ) && 
-                (
-                    Equals(Values, other.Values) ||
-                    Values != null && other.Values != null &&
-                    Values.SequenceEqual(other.Values)
-                ) &&
-                (
-                    Marker == other.Marker &&
-                    Marker != null && other.Marker != null &&
-                    Marker.Equals(other.Marker)
-                ) && 
-                (
-                    Equals(Text, other.Text) ||
-                    Text != null && other.Text != null &&
-                    Text.SequenceEqual(other.Text)
-                ) &&
-                (
-                    HoverText == other.HoverText &&
-                    HoverText != null && other.HoverText != null &&
-                    HoverText.Equals(other.HoverText)
-                ) && 
-                (
-                    Equals(HoverTextArray, other.HoverTextArray) ||
-                    HoverTextArray != null && other.HoverTextArray != null &&
-                    HoverTextArray.SequenceEqual(other.HoverTextArray)
-                ) &&
-                (
-                    ScaleGroup == other.ScaleGroup &&
-                    ScaleGroup != null && other.ScaleGroup != null &&
-                    ScaleGroup.Equals(other.ScaleGroup)
-                ) && 
-                (
-                    TextInfo == other.TextInfo &&
-                    TextInfo != null && other.TextInfo != null &&
-                    TextInfo.Equals(other.TextInfo)
-                ) && 
-                (
-                    HoverInfo == other.HoverInfo &&
-                    HoverInfo != null && other.HoverInfo != null &&
-                    HoverInfo.Equals(other.HoverInfo)
-                ) && 
-                (
-                    Equals(HoverInfoArray, other.HoverInfoArray) ||
-                    HoverInfoArray != null && other.HoverInfoArray != null &&
-                    HoverInfoArray.SequenceEqual(other.HoverInfoArray)
-                ) &&
-                (
-                    HoverTemplate == other.HoverTemplate &&
-                    HoverTemplate != null && other.HoverTemplate != null &&
-                    HoverTemplate.Equals(other.HoverTemplate)
-                ) && 
-                (
-                    Equals(HoverTemplateArray, other.HoverTemplateArray) ||
-                    HoverTemplateArray != null && other.HoverTemplateArray != null &&
-                    HoverTemplateArray.SequenceEqual(other.HoverTemplateArray)
-                ) &&
-                (
-                    TextTemplate == other.TextTemplate &&
-                    TextTemplate != null && other.TextTemplate != null &&
-                    TextTemplate.Equals(other.TextTemplate)
-                ) && 
-                (
-                    Equals(TextTemplateArray, other.TextTemplateArray) ||
-                    TextTemplateArray != null && other.TextTemplateArray != null &&
-                    TextTemplateArray.SequenceEqual(other.TextTemplateArray)
-                ) &&
-                (
-                    TextPosition == other.TextPosition &&
-                    TextPosition != null && other.TextPosition != null &&
-                    TextPosition.Equals(other.TextPosition)
-                ) && 
-                (
-                    Equals(TextPositionArray, other.TextPositionArray) ||
-                    TextPositionArray != null && other.TextPositionArray != null &&
-                    TextPositionArray.SequenceEqual(other.TextPositionArray)
-                ) &&
-                (
-                    TextFont == other.TextFont &&
-                    TextFont != null && other.TextFont != null &&
-                    TextFont.Equals(other.TextFont)
-                ) && 
-                (
-                    InsideTextOrientation == other.InsideTextOrientation &&
-                    InsideTextOrientation != null && other.InsideTextOrientation != null &&
-                    InsideTextOrientation.Equals(other.InsideTextOrientation)
-                ) && 
-                (
-                    InsideTextFont == other.InsideTextFont &&
-                    InsideTextFont != null && other.InsideTextFont != null &&
-                    InsideTextFont.Equals(other.InsideTextFont)
-                ) && 
-                (
-                    OutsideTextFont == other.OutsideTextFont &&
-                    OutsideTextFont != null && other.OutsideTextFont != null &&
-                    OutsideTextFont.Equals(other.OutsideTextFont)
-                ) && 
-                (
-                    AutoMargin == other.AutoMargin &&
-                    AutoMargin != null && other.AutoMargin != null &&
-                    AutoMargin.Equals(other.AutoMargin)
-                ) && 
-                (
-                    Title == other.Title &&
-                    Title != null && other.Title != null &&
-                    Title.Equals(other.Title)
-                ) && 
-                (
-                    Domain == other.Domain &&
-                    Domain != null && other.Domain != null &&
-                    Domain.Equals(other.Domain)
-                ) && 
-                (
-                    Hole == other.Hole &&
-                    Hole != null && other.Hole != null &&
-                    Hole.Equals(other.Hole)
-                ) && 
-                (
-                    Sort == other.Sort &&
-                    Sort != null && other.Sort != null &&
-                    Sort.Equals(other.Sort)
-                ) && 
-                (
-                    Direction == other.Direction &&
-                    Direction != null && other.Direction != null &&
-                    Direction.Equals(other.Direction)
-                ) && 
-                (
-                    Rotation == other.Rotation &&
-                    Rotation != null && other.Rotation != null &&
-                    Rotation.Equals(other.Rotation)
-                ) && 
-                (
-                    Pull == other.Pull &&
-                    Pull != null && other.Pull != null &&
-                    Pull.Equals(other.Pull)
-                ) && 
-                (
-                    Equals(PullArray, other.PullArray) ||
-                    PullArray != null && other.PullArray != null &&
-                    PullArray.SequenceEqual(other.PullArray)
-                ) &&
-                (
-                    IdsSrc == other.IdsSrc &&
-                    IdsSrc != null && other.IdsSrc != null &&
-                    IdsSrc.Equals(other.IdsSrc)
-                ) && 
-                (
-                    CustomDataSrc == other.CustomDataSrc &&
-                    CustomDataSrc != null && other.CustomDataSrc != null &&
-                    CustomDataSrc.Equals(other.CustomDataSrc)
-                ) && 
-                (
-                    MetaSrc == other.MetaSrc &&
-                    MetaSrc != null && other.MetaSrc != null &&
-                    MetaSrc.Equals(other.MetaSrc)
-                ) && 
-                (
-                    LabelsSrc == other.LabelsSrc &&
-                    LabelsSrc != null && other.LabelsSrc != null &&
-                    LabelsSrc.Equals(other.LabelsSrc)
-                ) && 
-                (
-                    ValuesSrc == other.ValuesSrc &&
-                    ValuesSrc != null && other.ValuesSrc != null &&
-                    ValuesSrc.Equals(other.ValuesSrc)
-                ) && 
-                (
-                    TextSrc == other.TextSrc &&
-                    TextSrc != null && other.TextSrc != null &&
-                    TextSrc.Equals(other.TextSrc)
-                ) && 
-                (
-                    HoverTextSrc == other.HoverTextSrc &&
-                    HoverTextSrc != null && other.HoverTextSrc != null &&
-                    HoverTextSrc.Equals(other.HoverTextSrc)
-                ) && 
-                (
-                    HoverInfoSrc == other.HoverInfoSrc &&
-                    HoverInfoSrc != null && other.HoverInfoSrc != null &&
-                    HoverInfoSrc.Equals(other.HoverInfoSrc)
-                ) && 
-                (
-                    HoverTemplateSrc == other.HoverTemplateSrc &&
-                    HoverTemplateSrc != null && other.HoverTemplateSrc != null &&
-                    HoverTemplateSrc.Equals(other.HoverTemplateSrc)
-                ) && 
-                (
-                    TextTemplateSrc == other.TextTemplateSrc &&
-                    TextTemplateSrc != null && other.TextTemplateSrc != null &&
-                    TextTemplateSrc.Equals(other.TextTemplateSrc)
-                ) && 
-                (
-                    TextPositionSrc == other.TextPositionSrc &&
-                    TextPositionSrc != null && other.TextPositionSrc != null &&
-                    TextPositionSrc.Equals(other.TextPositionSrc)
-                ) && 
-                (
-                    PullSrc == other.PullSrc &&
-                    PullSrc != null && other.PullSrc != null &&
-                    PullSrc.Equals(other.PullSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type        == other.Type        && Type        != null && other.Type        != null && Type.Equals(other.Type))                                              &&
+                   (Visible     == other.Visible     && Visible     != null && other.Visible     != null && Visible.Equals(other.Visible))                                        &&
+                   (ShowLegend  == other.ShowLegend  && ShowLegend  != null && other.ShowLegend  != null && ShowLegend.Equals(other.ShowLegend))                                  &&
+                   (LegendGroup == other.LegendGroup && LegendGroup != null && other.LegendGroup != null && LegendGroup.Equals(other.LegendGroup))                                &&
+                   (Opacity     == other.Opacity     && Opacity     != null && other.Opacity     != null && Opacity.Equals(other.Opacity))                                        &&
+                   (Name        == other.Name        && Name        != null && other.Name        != null && Name.Equals(other.Name))                                              &&
+                   (UId         == other.UId         && UId         != null && other.UId         != null && UId.Equals(other.UId))                                                &&
+                   (Equals(Ids,        other.Ids)        || Ids        != null && other.Ids        != null && Ids.SequenceEqual(other.Ids))                                       &&
+                   (Equals(CustomData, other.CustomData) || CustomData != null && other.CustomData != null && CustomData.SequenceEqual(other.CustomData))                         &&
+                   (Meta == other.Meta && Meta != null && other.Meta != null && Meta.Equals(other.Meta))                                                                          &&
+                   (Equals(MetaArray, other.MetaArray) || MetaArray != null && other.MetaArray != null && MetaArray.SequenceEqual(other.MetaArray))                               &&
+                   (HoverLabel == other.HoverLabel && HoverLabel != null && other.HoverLabel != null && HoverLabel.Equals(other.HoverLabel))                                      &&
+                   (Stream     == other.Stream     && Stream     != null && other.Stream     != null && Stream.Equals(other.Stream))                                              &&
+                   (Equals(Transforms, other.Transforms) || Transforms != null && other.Transforms != null && Transforms.SequenceEqual(other.Transforms))                         &&
+                   (UiRevision == other.UiRevision && UiRevision != null && other.UiRevision != null && UiRevision.Equals(other.UiRevision))                                      &&
+                   (Equals(Labels, other.Labels) || Labels != null && other.Labels != null && Labels.SequenceEqual(other.Labels))                                                 &&
+                   (Label0 == other.Label0 && Label0 != null && other.Label0 != null && Label0.Equals(other.Label0))                                                              &&
+                   (DLabel == other.DLabel && DLabel != null && other.DLabel != null && DLabel.Equals(other.DLabel))                                                              &&
+                   (Equals(Values, other.Values) || Values != null && other.Values != null && Values.SequenceEqual(other.Values))                                                 &&
+                   (Marker == other.Marker && Marker != null && other.Marker != null && Marker.Equals(other.Marker))                                                              &&
+                   (Equals(Text, other.Text) || Text != null && other.Text != null && Text.SequenceEqual(other.Text))                                                             &&
+                   (HoverText == other.HoverText && HoverText != null && other.HoverText != null && HoverText.Equals(other.HoverText))                                            &&
+                   (Equals(HoverTextArray, other.HoverTextArray) || HoverTextArray != null && other.HoverTextArray != null && HoverTextArray.SequenceEqual(other.HoverTextArray)) &&
+                   (ScaleGroup == other.ScaleGroup && ScaleGroup != null && other.ScaleGroup != null && ScaleGroup.Equals(other.ScaleGroup))                                      &&
+                   (TextInfo   == other.TextInfo   && TextInfo   != null && other.TextInfo   != null && TextInfo.Equals(other.TextInfo))                                          &&
+                   (HoverInfo  == other.HoverInfo  && HoverInfo  != null && other.HoverInfo  != null && HoverInfo.Equals(other.HoverInfo))                                        &&
+                   (Equals(HoverInfoArray, other.HoverInfoArray) || HoverInfoArray != null && other.HoverInfoArray != null && HoverInfoArray.SequenceEqual(other.HoverInfoArray)) &&
+                   (HoverTemplate == other.HoverTemplate && HoverTemplate != null && other.HoverTemplate != null && HoverTemplate.Equals(other.HoverTemplate))                    &&
+                   (Equals(HoverTemplateArray, other.HoverTemplateArray) ||
+                    HoverTemplateArray != null && other.HoverTemplateArray != null && HoverTemplateArray.SequenceEqual(other.HoverTemplateArray))                                                   &&
+                   (TextTemplate == other.TextTemplate && TextTemplate != null && other.TextTemplate != null && TextTemplate.Equals(other.TextTemplate))                                            &&
+                   (Equals(TextTemplateArray, other.TextTemplateArray) || TextTemplateArray != null && other.TextTemplateArray != null && TextTemplateArray.SequenceEqual(other.TextTemplateArray)) &&
+                   (TextPosition == other.TextPosition && TextPosition != null && other.TextPosition != null && TextPosition.Equals(other.TextPosition))                                            &&
+                   (Equals(TextPositionArray, other.TextPositionArray) || TextPositionArray != null && other.TextPositionArray != null && TextPositionArray.SequenceEqual(other.TextPositionArray)) &&
+                   (TextFont == other.TextFont && TextFont != null && other.TextFont != null && TextFont.Equals(other.TextFont))                                                                    &&
+                   (InsideTextOrientation       == other.InsideTextOrientation &&
+                    InsideTextOrientation       != null                        &&
+                    other.InsideTextOrientation != null                        &&
+                    InsideTextOrientation.Equals(other.InsideTextOrientation))                                                                                                   &&
+                   (InsideTextFont  == other.InsideTextFont  && InsideTextFont  != null && other.InsideTextFont  != null && InsideTextFont.Equals(other.InsideTextFont))         &&
+                   (OutsideTextFont == other.OutsideTextFont && OutsideTextFont != null && other.OutsideTextFont != null && OutsideTextFont.Equals(other.OutsideTextFont))       &&
+                   (AutoMargin      == other.AutoMargin      && AutoMargin      != null && other.AutoMargin      != null && AutoMargin.Equals(other.AutoMargin))                 &&
+                   (Title           == other.Title           && Title           != null && other.Title           != null && Title.Equals(other.Title))                           &&
+                   (Domain          == other.Domain          && Domain          != null && other.Domain          != null && Domain.Equals(other.Domain))                         &&
+                   (Hole            == other.Hole            && Hole            != null && other.Hole            != null && Hole.Equals(other.Hole))                             &&
+                   (Sort            == other.Sort            && Sort            != null && other.Sort            != null && Sort.Equals(other.Sort))                             &&
+                   (Direction       == other.Direction       && Direction       != null && other.Direction       != null && Direction.Equals(other.Direction))                   &&
+                   (Rotation        == other.Rotation        && Rotation        != null && other.Rotation        != null && Rotation.Equals(other.Rotation))                     &&
+                   (Pull            == other.Pull            && Pull            != null && other.Pull            != null && Pull.Equals(other.Pull))                             &&
+                   (Equals(PullArray, other.PullArray) || PullArray != null && other.PullArray != null && PullArray.SequenceEqual(other.PullArray))                              &&
+                   (IdsSrc           == other.IdsSrc           && IdsSrc           != null && other.IdsSrc           != null && IdsSrc.Equals(other.IdsSrc))                     &&
+                   (CustomDataSrc    == other.CustomDataSrc    && CustomDataSrc    != null && other.CustomDataSrc    != null && CustomDataSrc.Equals(other.CustomDataSrc))       &&
+                   (MetaSrc          == other.MetaSrc          && MetaSrc          != null && other.MetaSrc          != null && MetaSrc.Equals(other.MetaSrc))                   &&
+                   (LabelsSrc        == other.LabelsSrc        && LabelsSrc        != null && other.LabelsSrc        != null && LabelsSrc.Equals(other.LabelsSrc))               &&
+                   (ValuesSrc        == other.ValuesSrc        && ValuesSrc        != null && other.ValuesSrc        != null && ValuesSrc.Equals(other.ValuesSrc))               &&
+                   (TextSrc          == other.TextSrc          && TextSrc          != null && other.TextSrc          != null && TextSrc.Equals(other.TextSrc))                   &&
+                   (HoverTextSrc     == other.HoverTextSrc     && HoverTextSrc     != null && other.HoverTextSrc     != null && HoverTextSrc.Equals(other.HoverTextSrc))         &&
+                   (HoverInfoSrc     == other.HoverInfoSrc     && HoverInfoSrc     != null && other.HoverInfoSrc     != null && HoverInfoSrc.Equals(other.HoverInfoSrc))         &&
+                   (HoverTemplateSrc == other.HoverTemplateSrc && HoverTemplateSrc != null && other.HoverTemplateSrc != null && HoverTemplateSrc.Equals(other.HoverTemplateSrc)) &&
+                   (TextTemplateSrc  == other.TextTemplateSrc  && TextTemplateSrc  != null && other.TextTemplateSrc  != null && TextTemplateSrc.Equals(other.TextTemplateSrc))   &&
+                   (TextPositionSrc  == other.TextPositionSrc  && TextPositionSrc  != null && other.TextPositionSrc  != null && TextPositionSrc.Equals(other.TextPositionSrc))   &&
+                   (PullSrc          == other.PullSrc          && PullSrc          != null && other.PullSrc          != null && PullSrc.Equals(other.PullSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (ShowLegend != null) hashCode = hashCode * 59 + ShowLegend.GetHashCode();
-                if (LegendGroup != null) hashCode = hashCode * 59 + LegendGroup.GetHashCode();
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (UId != null) hashCode = hashCode * 59 + UId.GetHashCode();
-                if (Ids != null) hashCode = hashCode * 59 + Ids.GetHashCode();
-                if (CustomData != null) hashCode = hashCode * 59 + CustomData.GetHashCode();
-                if (Meta != null) hashCode = hashCode * 59 + Meta.GetHashCode();
-                if (MetaArray != null) hashCode = hashCode * 59 + MetaArray.GetHashCode();
-                if (HoverLabel != null) hashCode = hashCode * 59 + HoverLabel.GetHashCode();
-                if (Stream != null) hashCode = hashCode * 59 + Stream.GetHashCode();
-                if (Transforms != null) hashCode = hashCode * 59 + Transforms.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
-                if (Labels != null) hashCode = hashCode * 59 + Labels.GetHashCode();
-                if (Label0 != null) hashCode = hashCode * 59 + Label0.GetHashCode();
-                if (DLabel != null) hashCode = hashCode * 59 + DLabel.GetHashCode();
-                if (Values != null) hashCode = hashCode * 59 + Values.GetHashCode();
-                if (Marker != null) hashCode = hashCode * 59 + Marker.GetHashCode();
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (HoverText != null) hashCode = hashCode * 59 + HoverText.GetHashCode();
-                if (HoverTextArray != null) hashCode = hashCode * 59 + HoverTextArray.GetHashCode();
-                if (ScaleGroup != null) hashCode = hashCode * 59 + ScaleGroup.GetHashCode();
-                if (TextInfo != null) hashCode = hashCode * 59 + TextInfo.GetHashCode();
-                if (HoverInfo != null) hashCode = hashCode * 59 + HoverInfo.GetHashCode();
-                if (HoverInfoArray != null) hashCode = hashCode * 59 + HoverInfoArray.GetHashCode();
-                if (HoverTemplate != null) hashCode = hashCode * 59 + HoverTemplate.GetHashCode();
-                if (HoverTemplateArray != null) hashCode = hashCode * 59 + HoverTemplateArray.GetHashCode();
-                if (TextTemplate != null) hashCode = hashCode * 59 + TextTemplate.GetHashCode();
-                if (TextTemplateArray != null) hashCode = hashCode * 59 + TextTemplateArray.GetHashCode();
-                if (TextPosition != null) hashCode = hashCode * 59 + TextPosition.GetHashCode();
-                if (TextPositionArray != null) hashCode = hashCode * 59 + TextPositionArray.GetHashCode();
-                if (TextFont != null) hashCode = hashCode * 59 + TextFont.GetHashCode();
-                if (InsideTextOrientation != null) hashCode = hashCode * 59 + InsideTextOrientation.GetHashCode();
-                if (InsideTextFont != null) hashCode = hashCode * 59 + InsideTextFont.GetHashCode();
-                if (OutsideTextFont != null) hashCode = hashCode * 59 + OutsideTextFont.GetHashCode();
-                if (AutoMargin != null) hashCode = hashCode * 59 + AutoMargin.GetHashCode();
-                if (Title != null) hashCode = hashCode * 59 + Title.GetHashCode();
-                if (Domain != null) hashCode = hashCode * 59 + Domain.GetHashCode();
-                if (Hole != null) hashCode = hashCode * 59 + Hole.GetHashCode();
-                if (Sort != null) hashCode = hashCode * 59 + Sort.GetHashCode();
-                if (Direction != null) hashCode = hashCode * 59 + Direction.GetHashCode();
-                if (Rotation != null) hashCode = hashCode * 59 + Rotation.GetHashCode();
-                if (Pull != null) hashCode = hashCode * 59 + Pull.GetHashCode();
-                if (PullArray != null) hashCode = hashCode * 59 + PullArray.GetHashCode();
-                if (IdsSrc != null) hashCode = hashCode * 59 + IdsSrc.GetHashCode();
-                if (CustomDataSrc != null) hashCode = hashCode * 59 + CustomDataSrc.GetHashCode();
-                if (MetaSrc != null) hashCode = hashCode * 59 + MetaSrc.GetHashCode();
-                if (LabelsSrc != null) hashCode = hashCode * 59 + LabelsSrc.GetHashCode();
-                if (ValuesSrc != null) hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
-                if (TextSrc != null) hashCode = hashCode * 59 + TextSrc.GetHashCode();
-                if (HoverTextSrc != null) hashCode = hashCode * 59 + HoverTextSrc.GetHashCode();
-                if (HoverInfoSrc != null) hashCode = hashCode * 59 + HoverInfoSrc.GetHashCode();
-                if (HoverTemplateSrc != null) hashCode = hashCode * 59 + HoverTemplateSrc.GetHashCode();
-                if (TextTemplateSrc != null) hashCode = hashCode * 59 + TextTemplateSrc.GetHashCode();
-                if (TextPositionSrc != null) hashCode = hashCode * 59 + TextPositionSrc.GetHashCode();
-                if (PullSrc != null) hashCode = hashCode * 59 + PullSrc.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(ShowLegend != null)
+                    hashCode = hashCode * 59 + ShowLegend.GetHashCode();
+
+                if(LegendGroup != null)
+                    hashCode = hashCode * 59 + LegendGroup.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(UId != null)
+                    hashCode = hashCode * 59 + UId.GetHashCode();
+
+                if(Ids != null)
+                    hashCode = hashCode * 59 + Ids.GetHashCode();
+
+                if(CustomData != null)
+                    hashCode = hashCode * 59 + CustomData.GetHashCode();
+
+                if(Meta != null)
+                    hashCode = hashCode * 59 + Meta.GetHashCode();
+
+                if(MetaArray != null)
+                    hashCode = hashCode * 59 + MetaArray.GetHashCode();
+
+                if(HoverLabel != null)
+                    hashCode = hashCode * 59 + HoverLabel.GetHashCode();
+
+                if(Stream != null)
+                    hashCode = hashCode * 59 + Stream.GetHashCode();
+
+                if(Transforms != null)
+                    hashCode = hashCode * 59 + Transforms.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(Labels != null)
+                    hashCode = hashCode * 59 + Labels.GetHashCode();
+
+                if(Label0 != null)
+                    hashCode = hashCode * 59 + Label0.GetHashCode();
+
+                if(DLabel != null)
+                    hashCode = hashCode * 59 + DLabel.GetHashCode();
+
+                if(Values != null)
+                    hashCode = hashCode * 59 + Values.GetHashCode();
+
+                if(Marker != null)
+                    hashCode = hashCode * 59 + Marker.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(HoverText != null)
+                    hashCode = hashCode * 59 + HoverText.GetHashCode();
+
+                if(HoverTextArray != null)
+                    hashCode = hashCode * 59 + HoverTextArray.GetHashCode();
+
+                if(ScaleGroup != null)
+                    hashCode = hashCode * 59 + ScaleGroup.GetHashCode();
+
+                if(TextInfo != null)
+                    hashCode = hashCode * 59 + TextInfo.GetHashCode();
+
+                if(HoverInfo != null)
+                    hashCode = hashCode * 59 + HoverInfo.GetHashCode();
+
+                if(HoverInfoArray != null)
+                    hashCode = hashCode * 59 + HoverInfoArray.GetHashCode();
+
+                if(HoverTemplate != null)
+                    hashCode = hashCode * 59 + HoverTemplate.GetHashCode();
+
+                if(HoverTemplateArray != null)
+                    hashCode = hashCode * 59 + HoverTemplateArray.GetHashCode();
+
+                if(TextTemplate != null)
+                    hashCode = hashCode * 59 + TextTemplate.GetHashCode();
+
+                if(TextTemplateArray != null)
+                    hashCode = hashCode * 59 + TextTemplateArray.GetHashCode();
+
+                if(TextPosition != null)
+                    hashCode = hashCode * 59 + TextPosition.GetHashCode();
+
+                if(TextPositionArray != null)
+                    hashCode = hashCode * 59 + TextPositionArray.GetHashCode();
+
+                if(TextFont != null)
+                    hashCode = hashCode * 59 + TextFont.GetHashCode();
+
+                if(InsideTextOrientation != null)
+                    hashCode = hashCode * 59 + InsideTextOrientation.GetHashCode();
+
+                if(InsideTextFont != null)
+                    hashCode = hashCode * 59 + InsideTextFont.GetHashCode();
+
+                if(OutsideTextFont != null)
+                    hashCode = hashCode * 59 + OutsideTextFont.GetHashCode();
+
+                if(AutoMargin != null)
+                    hashCode = hashCode * 59 + AutoMargin.GetHashCode();
+
+                if(Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+
+                if(Domain != null)
+                    hashCode = hashCode * 59 + Domain.GetHashCode();
+
+                if(Hole != null)
+                    hashCode = hashCode * 59 + Hole.GetHashCode();
+
+                if(Sort != null)
+                    hashCode = hashCode * 59 + Sort.GetHashCode();
+
+                if(Direction != null)
+                    hashCode = hashCode * 59 + Direction.GetHashCode();
+
+                if(Rotation != null)
+                    hashCode = hashCode * 59 + Rotation.GetHashCode();
+
+                if(Pull != null)
+                    hashCode = hashCode * 59 + Pull.GetHashCode();
+
+                if(PullArray != null)
+                    hashCode = hashCode * 59 + PullArray.GetHashCode();
+
+                if(IdsSrc != null)
+                    hashCode = hashCode * 59 + IdsSrc.GetHashCode();
+
+                if(CustomDataSrc != null)
+                    hashCode = hashCode * 59 + CustomDataSrc.GetHashCode();
+
+                if(MetaSrc != null)
+                    hashCode = hashCode * 59 + MetaSrc.GetHashCode();
+
+                if(LabelsSrc != null)
+                    hashCode = hashCode * 59 + LabelsSrc.GetHashCode();
+
+                if(ValuesSrc != null)
+                    hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
+
+                if(TextSrc != null)
+                    hashCode = hashCode * 59 + TextSrc.GetHashCode();
+
+                if(HoverTextSrc != null)
+                    hashCode = hashCode * 59 + HoverTextSrc.GetHashCode();
+
+                if(HoverInfoSrc != null)
+                    hashCode = hashCode * 59 + HoverInfoSrc.GetHashCode();
+
+                if(HoverTemplateSrc != null)
+                    hashCode = hashCode * 59 + HoverTemplateSrc.GetHashCode();
+
+                if(TextTemplateSrc != null)
+                    hashCode = hashCode * 59 + TextTemplateSrc.GetHashCode();
+
+                if(TextPositionSrc != null)
+                    hashCode = hashCode * 59 + TextPositionSrc.GetHashCode();
+
+                if(PullSrc != null)
+                    hashCode = hashCode * 59 + PullSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -875,7 +762,8 @@ namespace Plotly.Models.Traces
         /// <param name="left">Left Pie.</param>
         /// <param name="right">Right Pie.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Pie left, Pie right)
+        public static bool operator ==(Pie left,
+                                       Pie right)
         {
             return Equals(left, right);
         }
@@ -886,7 +774,8 @@ namespace Plotly.Models.Traces
         /// <param name="left">Left Pie.</param>
         /// <param name="right">Right Pie.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Pie left, Pie right)
+        public static bool operator !=(Pie left,
+                                       Pie right)
         {
             return !Equals(left, right);
         }
@@ -898,9 +787,10 @@ namespace Plotly.Models.Traces
         public Pie DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Pie>(ms).Result;
         }
     }

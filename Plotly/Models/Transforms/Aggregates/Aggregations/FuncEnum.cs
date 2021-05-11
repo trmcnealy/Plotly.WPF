@@ -21,35 +21,46 @@ namespace Plotly.Models.Transforms.Aggregates.Aggregations
     ///     the first and last linked values. <c>range</c> will return the difference
     ///     between the min and max linked values.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FuncEnum
     {
-        [EnumMember(Value=@"first")]
+        [EnumMember(Value = @"first")]
         First = 0,
-        [EnumMember(Value=@"count")]
+
+        [EnumMember(Value = @"count")]
         Count,
-        [EnumMember(Value=@"sum")]
+
+        [EnumMember(Value = @"sum")]
         Sum,
-        [EnumMember(Value=@"avg")]
+
+        [EnumMember(Value = @"avg")]
         Avg,
-        [EnumMember(Value=@"median")]
+
+        [EnumMember(Value = @"median")]
         Median,
-        [EnumMember(Value=@"mode")]
+
+        [EnumMember(Value = @"mode")]
         Mode,
-        [EnumMember(Value=@"rms")]
+
+        [EnumMember(Value = @"rms")]
         RMs,
-        [EnumMember(Value=@"stddev")]
+
+        [EnumMember(Value = @"stddev")]
         StdDev,
-        [EnumMember(Value=@"min")]
+
+        [EnumMember(Value = @"min")]
         Min,
-        [EnumMember(Value=@"max")]
+
+        [EnumMember(Value = @"max")]
         Max,
-        [EnumMember(Value=@"last")]
+
+        [EnumMember(Value = @"last")]
         Last,
-        [EnumMember(Value=@"change")]
+
+        [EnumMember(Value = @"change")]
         Change,
-        [EnumMember(Value=@"range")]
+
+        [EnumMember(Value = @"range")]
         Range
     }
 }

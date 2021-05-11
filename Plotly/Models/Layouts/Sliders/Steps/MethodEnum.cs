@@ -12,19 +12,22 @@ namespace Plotly.Models.Layouts.Sliders.Steps
     ///     This may be used to create a component interface and attach to slider events
     ///     manually via JavaScript.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum MethodEnum
     {
-        [EnumMember(Value=@"restyle")]
+        [EnumMember(Value = @"restyle")]
         Restyle = 0,
-        [EnumMember(Value=@"relayout")]
+
+        [EnumMember(Value = @"relayout")]
         ReLayout,
-        [EnumMember(Value=@"animate")]
+
+        [EnumMember(Value = @"animate")]
         Animate,
-        [EnumMember(Value=@"update")]
+
+        [EnumMember(Value = @"update")]
         Update,
-        [EnumMember(Value=@"skip")]
+
+        [EnumMember(Value = @"skip")]
         Skip
     }
 }

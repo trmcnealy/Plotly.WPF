@@ -11,15 +11,16 @@ namespace Plotly.Models.Layouts.YAxes
     ///     input data If <c>nonnegative</c>, the range is non-negative, regardless
     ///     of the input data. Applies only to linear axes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum RangeModeEnum
     {
-        [EnumMember(Value=@"normal")]
+        [EnumMember(Value = @"normal")]
         Normal = 0,
-        [EnumMember(Value=@"tozero")]
+
+        [EnumMember(Value = @"tozero")]
         ToZero,
-        [EnumMember(Value=@"nonnegative")]
+
+        [EnumMember(Value = @"nonnegative")]
         NonNegative
     }
 }

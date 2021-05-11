@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.Histograms.Cumulatives
     ///     however it introduces a half-bin bias to the results. <c>exclude</c> makes
     ///     the opposite half-bin bias, and <c>half</c> removes it.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum CurrentBinEnum
     {
-        [EnumMember(Value=@"include")]
+        [EnumMember(Value = @"include")]
         Include = 0,
-        [EnumMember(Value=@"exclude")]
+
+        [EnumMember(Value = @"exclude")]
         Exclude,
-        [EnumMember(Value=@"half")]
+
+        [EnumMember(Value = @"half")]
         Half
     }
 }

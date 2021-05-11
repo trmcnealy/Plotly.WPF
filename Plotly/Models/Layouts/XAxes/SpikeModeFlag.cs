@@ -13,16 +13,17 @@ namespace Plotly.Models.Layouts.XAxes
     ///     If <c>marker</c>, then a marker dot is drawn on the axis the series is plotted
     ///     on
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum SpikeModeFlag
     {
-        [EnumMember(Value=@"toaxis")]
+        [EnumMember(Value = @"toaxis")]
         ToAxis = 0,
-        [EnumMember(Value=@"across")]
+
+        [EnumMember(Value = @"across")]
         Across = 1,
-        [EnumMember(Value=@"marker")]
+
+        [EnumMember(Value = @"marker")]
         Marker = 2
     }
 }

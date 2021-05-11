@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.ParCatss
     ///     dimension categories from left to right. If <c>backward</c>, sort paths
     ///     based on dimensions categories from right to left.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SortPathsEnum
     {
-        [EnumMember(Value=@"forward")]
+        [EnumMember(Value = @"forward")]
         Forward = 0,
-        [EnumMember(Value=@"backward")]
+
+        [EnumMember(Value = @"backward")]
         Backward
     }
 }

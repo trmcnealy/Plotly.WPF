@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -14,7 +13,6 @@ namespace Plotly.Models.Traces.Sploms
     /// <summary>
     ///     The Marker class.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class Marker : IEquatable<Marker>
@@ -25,7 +23,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     the array or relative to <c>marker.cmin</c> and <c>marker.cmax</c> if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets themarkercolor. It accepts either a specific color or an array of numbers
@@ -34,7 +32,7 @@ namespace Plotly.Models.Traces.Sploms
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set;} 
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -44,7 +42,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     <c>marker.cmax</c> are set by the user.
         /// </summary>
         [JsonPropertyName(@"cauto")]
-        public bool? CAuto { get; set;} 
+        public bool? CAuto { get; set; }
 
         /// <summary>
         ///     Sets the lower bound of the color domain. Has an effect only if in <c>marker.color</c>is
@@ -52,7 +50,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     and if set, <c>marker.cmax</c> must be set as well.
         /// </summary>
         [JsonPropertyName(@"cmin")]
-        public JsNumber? CMin { get; set;} 
+        public JsNumber? CMin { get; set; }
 
         /// <summary>
         ///     Sets the upper bound of the color domain. Has an effect only if in <c>marker.color</c>is
@@ -60,7 +58,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     and if set, <c>marker.cmin</c> must be set as well.
         /// </summary>
         [JsonPropertyName(@"cmax")]
-        public JsNumber? CMax { get; set;} 
+        public JsNumber? CMax { get; set; }
 
         /// <summary>
         ///     Sets the mid-point of the color domain by scaling <c>marker.cmin</c> and/or
@@ -70,7 +68,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     is <c>false</c>.
         /// </summary>
         [JsonPropertyName(@"cmid")]
-        public JsNumber? CMid { get; set;} 
+        public JsNumber? CMid { get; set; }
 
         /// <summary>
         ///     Sets the colorscale. Has an effect only if in <c>marker.color</c>is set
@@ -83,7 +81,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     name string of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set;} 
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -94,7 +92,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     array are all positive, all negative or mixed.
         /// </summary>
         [JsonPropertyName(@"autocolorscale")]
-        public bool? AutoColorScale { get; set;} 
+        public bool? AutoColorScale { get; set; }
 
         /// <summary>
         ///     Reverses the color mapping if true. Has an effect only if in <c>marker.color</c>is
@@ -103,20 +101,20 @@ namespace Plotly.Models.Traces.Sploms
         ///     first color.
         /// </summary>
         [JsonPropertyName(@"reversescale")]
-        public bool? ReverseScale { get; set;} 
+        public bool? ReverseScale { get; set; }
 
         /// <summary>
         ///     Determines whether or not a colorbar is displayed for this trace. Has an
         ///     effect only if in <c>marker.color</c>is set to a numerical array.
         /// </summary>
         [JsonPropertyName(@"showscale")]
-        public bool? ShowScale { get; set;} 
+        public bool? ShowScale { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set;} 
+        public ColorBar? ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -126,7 +124,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set;} 
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the marker symbol type. Adding 100 is equivalent to appending <c>-open</c>
@@ -135,7 +133,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     to a symbol name.
         /// </summary>
         [JsonPropertyName(@"symbol")]
-        public SymbolEnum? Symbol { get; set;} 
+        public SymbolEnum? Symbol { get; set; }
 
         /// <summary>
         ///     Sets the marker symbol type. Adding 100 is equivalent to appending <c>-open</c>
@@ -145,20 +143,20 @@ namespace Plotly.Models.Traces.Sploms
         /// </summary>
         [JsonPropertyName(@"symbol")]
         [Array]
-        public List<SymbolEnum?> SymbolArray { get; set;} 
+        public List<SymbolEnum?>? SymbolArray { get; set; }
 
         /// <summary>
         ///     Sets the marker size (in px).
         /// </summary>
         [JsonPropertyName(@"size")]
-        public JsNumber? Size { get; set;} 
+        public JsNumber? Size { get; set; }
 
         /// <summary>
         ///     Sets the marker size (in px).
         /// </summary>
         [JsonPropertyName(@"size")]
         [Array]
-        public List<JsNumber?> SizeArray { get; set;} 
+        public List<JsNumber?>? SizeArray { get; set; }
 
         /// <summary>
         ///     Has an effect only if <c>marker.size</c> is set to a numerical array. Sets
@@ -166,244 +164,193 @@ namespace Plotly.Models.Traces.Sploms
         ///     with <c>sizemin</c> and <c>sizemode</c>.
         /// </summary>
         [JsonPropertyName(@"sizeref")]
-        public JsNumber? SizeRef { get; set;} 
+        public JsNumber? SizeRef { get; set; }
 
         /// <summary>
         ///     Has an effect only if <c>marker.size</c> is set to a numerical array. Sets
         ///     the minimum size (in px) of the rendered marker points.
         /// </summary>
         [JsonPropertyName(@"sizemin")]
-        public JsNumber? SizeMin { get; set;} 
+        public JsNumber? SizeMin { get; set; }
 
         /// <summary>
         ///     Has an effect only if <c>marker.size</c> is set to a numerical array. Sets
         ///     the rule for which the data in <c>size</c> is converted to pixels.
         /// </summary>
         [JsonPropertyName(@"sizemode")]
-        public SizeModeEnum? SizeMode { get; set;} 
+        public SizeModeEnum? SizeMode { get; set; }
 
         /// <summary>
         ///     Sets the marker opacity.
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
         /// <summary>
         ///     Sets the marker opacity.
         /// </summary>
         [JsonPropertyName(@"opacity")]
         [Array]
-        public List<JsNumber?> OpacityArray { get; set;} 
+        public List<JsNumber?>? OpacityArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set;} 
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  symbol .
         /// </summary>
         [JsonPropertyName(@"symbolsrc")]
-        public string SymbolSrc { get; set;} 
+        public string? SymbolSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  size .
         /// </summary>
         [JsonPropertyName(@"sizesrc")]
-        public string SizeSrc { get; set;} 
+        public string? SizeSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  opacity .
         /// </summary>
         [JsonPropertyName(@"opacitysrc")]
-        public string OpacitySrc { get; set;} 
+        public string? OpacitySrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Marker other)) return false;
+            if(!(obj is Marker other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Marker other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Equals(ColorArray, other.ColorArray) ||
-                    ColorArray != null && other.ColorArray != null &&
-                    ColorArray.SequenceEqual(other.ColorArray)
-                ) &&
-                (
-                    CAuto == other.CAuto &&
-                    CAuto != null && other.CAuto != null &&
-                    CAuto.Equals(other.CAuto)
-                ) && 
-                (
-                    CMin == other.CMin &&
-                    CMin != null && other.CMin != null &&
-                    CMin.Equals(other.CMin)
-                ) && 
-                (
-                    CMax == other.CMax &&
-                    CMax != null && other.CMax != null &&
-                    CMax.Equals(other.CMax)
-                ) && 
-                (
-                    CMid == other.CMid &&
-                    CMid != null && other.CMid != null &&
-                    CMid.Equals(other.CMid)
-                ) && 
-                (
-                    ColorScale == other.ColorScale &&
-                    ColorScale != null && other.ColorScale != null &&
-                    ColorScale.Equals(other.ColorScale)
-                ) && 
-                (
-                    AutoColorScale == other.AutoColorScale &&
-                    AutoColorScale != null && other.AutoColorScale != null &&
-                    AutoColorScale.Equals(other.AutoColorScale)
-                ) && 
-                (
-                    ReverseScale == other.ReverseScale &&
-                    ReverseScale != null && other.ReverseScale != null &&
-                    ReverseScale.Equals(other.ReverseScale)
-                ) && 
-                (
-                    ShowScale == other.ShowScale &&
-                    ShowScale != null && other.ShowScale != null &&
-                    ShowScale.Equals(other.ShowScale)
-                ) && 
-                (
-                    ColorBar == other.ColorBar &&
-                    ColorBar != null && other.ColorBar != null &&
-                    ColorBar.Equals(other.ColorBar)
-                ) && 
-                (
-                    ColorAxis == other.ColorAxis &&
-                    ColorAxis != null && other.ColorAxis != null &&
-                    ColorAxis.Equals(other.ColorAxis)
-                ) && 
-                (
-                    Symbol == other.Symbol &&
-                    Symbol != null && other.Symbol != null &&
-                    Symbol.Equals(other.Symbol)
-                ) && 
-                (
-                    Equals(SymbolArray, other.SymbolArray) ||
-                    SymbolArray != null && other.SymbolArray != null &&
-                    SymbolArray.SequenceEqual(other.SymbolArray)
-                ) &&
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                ) && 
-                (
-                    Equals(SizeArray, other.SizeArray) ||
-                    SizeArray != null && other.SizeArray != null &&
-                    SizeArray.SequenceEqual(other.SizeArray)
-                ) &&
-                (
-                    SizeRef == other.SizeRef &&
-                    SizeRef != null && other.SizeRef != null &&
-                    SizeRef.Equals(other.SizeRef)
-                ) && 
-                (
-                    SizeMin == other.SizeMin &&
-                    SizeMin != null && other.SizeMin != null &&
-                    SizeMin.Equals(other.SizeMin)
-                ) && 
-                (
-                    SizeMode == other.SizeMode &&
-                    SizeMode != null && other.SizeMode != null &&
-                    SizeMode.Equals(other.SizeMode)
-                ) && 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                ) && 
-                (
-                    Equals(OpacityArray, other.OpacityArray) ||
-                    OpacityArray != null && other.OpacityArray != null &&
-                    OpacityArray.SequenceEqual(other.OpacityArray)
-                ) &&
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    ColorSrc == other.ColorSrc &&
-                    ColorSrc != null && other.ColorSrc != null &&
-                    ColorSrc.Equals(other.ColorSrc)
-                ) && 
-                (
-                    SymbolSrc == other.SymbolSrc &&
-                    SymbolSrc != null && other.SymbolSrc != null &&
-                    SymbolSrc.Equals(other.SymbolSrc)
-                ) && 
-                (
-                    SizeSrc == other.SizeSrc &&
-                    SizeSrc != null && other.SizeSrc != null &&
-                    SizeSrc.Equals(other.SizeSrc)
-                ) && 
-                (
-                    OpacitySrc == other.OpacitySrc &&
-                    OpacitySrc != null && other.OpacitySrc != null &&
-                    OpacitySrc.Equals(other.OpacitySrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color is not null && other.Color is not null && Color.Equals(other.Color))                                                        &&
+                   (Equals(ColorArray, other.ColorArray) || ColorArray is not null && other.ColorArray is not null && ColorArray.SequenceEqual(other.ColorArray))             &&
+                   (CAuto          == other.CAuto          && CAuto is not null          && other.CAuto is not null          && CAuto.Equals(other.CAuto))                    &&
+                   (CMin           == other.CMin           && CMin is not null           && other.CMin is not null           && CMin.Equals(other.CMin))                      &&
+                   (CMax           == other.CMax           && CMax is not null           && other.CMax is not null           && CMax.Equals(other.CMax))                      &&
+                   (CMid           == other.CMid           && CMid is not null           && other.CMid is not null           && CMid.Equals(other.CMid))                      &&
+                   (ColorScale     == other.ColorScale     && ColorScale is not null     && other.ColorScale is not null     && ColorScale.Equals(other.ColorScale))          &&
+                   (AutoColorScale == other.AutoColorScale && AutoColorScale is not null && other.AutoColorScale is not null && AutoColorScale.Equals(other.AutoColorScale))  &&
+                   (ReverseScale   == other.ReverseScale   && ReverseScale is not null   && other.ReverseScale is not null   && ReverseScale.Equals(other.ReverseScale))      &&
+                   (ShowScale      == other.ShowScale      && ShowScale is not null      && other.ShowScale is not null      && ShowScale.Equals(other.ShowScale))            &&
+                   (ColorBar       == other.ColorBar       && ColorBar is not null       && other.ColorBar is not null       && ColorBar.Equals(other.ColorBar))              &&
+                   (ColorAxis      == other.ColorAxis      && ColorAxis is not null      && other.ColorAxis is not null      && ColorAxis.Equals(other.ColorAxis))            &&
+                   (Symbol         == other.Symbol         && Symbol is not null         && other.Symbol is not null         && Symbol.Equals(other.Symbol))                  &&
+                   (Equals(SymbolArray, other.SymbolArray) || SymbolArray is not null && other.SymbolArray is not null && SymbolArray.SequenceEqual(other.SymbolArray))       &&
+                   (Size == other.Size && Size is not null && other.Size is not null && Size.Equals(other.Size))                                                              &&
+                   (Equals(SizeArray, other.SizeArray) || SizeArray is not null && other.SizeArray is not null && SizeArray.SequenceEqual(other.SizeArray))                   &&
+                   (SizeRef  == other.SizeRef  && SizeRef is not null  && other.SizeRef is not null  && SizeRef.Equals(other.SizeRef))                                        &&
+                   (SizeMin  == other.SizeMin  && SizeMin is not null  && other.SizeMin is not null  && SizeMin.Equals(other.SizeMin))                                        &&
+                   (SizeMode == other.SizeMode && SizeMode is not null && other.SizeMode is not null && SizeMode.Equals(other.SizeMode))                                      &&
+                   (Opacity  == other.Opacity  && Opacity is not null  && other.Opacity is not null  && Opacity.Equals(other.Opacity))                                        &&
+                   (Equals(OpacityArray, other.OpacityArray) || OpacityArray is not null && other.OpacityArray is not null && OpacityArray.SequenceEqual(other.OpacityArray)) &&
+                   (Line       == other.Line       && Line is not null       && other.Line is not null       && Line.Equals(other.Line))                                      &&
+                   (ColorSrc   == other.ColorSrc   && ColorSrc is not null   && other.ColorSrc is not null   && ColorSrc.Equals(other.ColorSrc))                              &&
+                   (SymbolSrc  == other.SymbolSrc  && SymbolSrc is not null  && other.SymbolSrc is not null  && SymbolSrc.Equals(other.SymbolSrc))                            &&
+                   (SizeSrc    == other.SizeSrc    && SizeSrc is not null    && other.SizeSrc is not null    && SizeSrc.Equals(other.SizeSrc))                                &&
+                   (OpacitySrc == other.OpacitySrc && OpacitySrc is not null && other.OpacitySrc is not null && OpacitySrc.Equals(other.OpacitySrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (ColorArray != null) hashCode = hashCode * 59 + ColorArray.GetHashCode();
-                if (CAuto != null) hashCode = hashCode * 59 + CAuto.GetHashCode();
-                if (CMin != null) hashCode = hashCode * 59 + CMin.GetHashCode();
-                if (CMax != null) hashCode = hashCode * 59 + CMax.GetHashCode();
-                if (CMid != null) hashCode = hashCode * 59 + CMid.GetHashCode();
-                if (ColorScale != null) hashCode = hashCode * 59 + ColorScale.GetHashCode();
-                if (AutoColorScale != null) hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
-                if (ReverseScale != null) hashCode = hashCode * 59 + ReverseScale.GetHashCode();
-                if (ShowScale != null) hashCode = hashCode * 59 + ShowScale.GetHashCode();
-                if (ColorBar != null) hashCode = hashCode * 59 + ColorBar.GetHashCode();
-                if (ColorAxis != null) hashCode = hashCode * 59 + ColorAxis.GetHashCode();
-                if (Symbol != null) hashCode = hashCode * 59 + Symbol.GetHashCode();
-                if (SymbolArray != null) hashCode = hashCode * 59 + SymbolArray.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
-                if (SizeArray != null) hashCode = hashCode * 59 + SizeArray.GetHashCode();
-                if (SizeRef != null) hashCode = hashCode * 59 + SizeRef.GetHashCode();
-                if (SizeMin != null) hashCode = hashCode * 59 + SizeMin.GetHashCode();
-                if (SizeMode != null) hashCode = hashCode * 59 + SizeMode.GetHashCode();
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
-                if (OpacityArray != null) hashCode = hashCode * 59 + OpacityArray.GetHashCode();
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (ColorSrc != null) hashCode = hashCode * 59 + ColorSrc.GetHashCode();
-                if (SymbolSrc != null) hashCode = hashCode * 59 + SymbolSrc.GetHashCode();
-                if (SizeSrc != null) hashCode = hashCode * 59 + SizeSrc.GetHashCode();
-                if (OpacitySrc != null) hashCode = hashCode * 59 + OpacitySrc.GetHashCode();
+
+                if(Color is not null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(ColorArray is not null)
+                    hashCode = hashCode * 59 + ColorArray.GetHashCode();
+
+                if(CAuto is not null)
+                    hashCode = hashCode * 59 + CAuto.GetHashCode();
+
+                if(CMin is not null)
+                    hashCode = hashCode * 59 + CMin.GetHashCode();
+
+                if(CMax is not null)
+                    hashCode = hashCode * 59 + CMax.GetHashCode();
+
+                if(CMid is not null)
+                    hashCode = hashCode * 59 + CMid.GetHashCode();
+
+                if(ColorScale is not null)
+                    hashCode = hashCode * 59 + ColorScale.GetHashCode();
+
+                if(AutoColorScale is not null)
+                    hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
+
+                if(ReverseScale is not null)
+                    hashCode = hashCode * 59 + ReverseScale.GetHashCode();
+
+                if(ShowScale is not null)
+                    hashCode = hashCode * 59 + ShowScale.GetHashCode();
+
+                if(ColorBar is not null)
+                    hashCode = hashCode * 59 + ColorBar.GetHashCode();
+
+                if(ColorAxis is not null)
+                    hashCode = hashCode * 59 + ColorAxis.GetHashCode();
+
+                if(Symbol is not null)
+                    hashCode = hashCode * 59 + Symbol.GetHashCode();
+
+                if(SymbolArray is not null)
+                    hashCode = hashCode * 59 + SymbolArray.GetHashCode();
+
+                if(Size is not null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(SizeArray is not null)
+                    hashCode = hashCode * 59 + SizeArray.GetHashCode();
+
+                if(SizeRef is not null)
+                    hashCode = hashCode * 59 + SizeRef.GetHashCode();
+
+                if(SizeMin is not null)
+                    hashCode = hashCode * 59 + SizeMin.GetHashCode();
+
+                if(SizeMode is not null)
+                    hashCode = hashCode * 59 + SizeMode.GetHashCode();
+
+                if(Opacity is not null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(OpacityArray is not null)
+                    hashCode = hashCode * 59 + OpacityArray.GetHashCode();
+
+                if(Line is not null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(ColorSrc is not null)
+                    hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
+                if(SymbolSrc is not null)
+                    hashCode = hashCode * 59 + SymbolSrc.GetHashCode();
+
+                if(SizeSrc is not null)
+                    hashCode = hashCode * 59 + SizeSrc.GetHashCode();
+
+                if(OpacitySrc is not null)
+                    hashCode = hashCode * 59 + OpacitySrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -414,7 +361,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Marker left, Marker right)
+        public static bool operator ==(Marker left,
+                                       Marker right)
         {
             return Equals(left, right);
         }
@@ -425,7 +373,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Marker left, Marker right)
+        public static bool operator !=(Marker left,
+                                       Marker right)
         {
             return !Equals(left, right);
         }
@@ -437,9 +386,10 @@ namespace Plotly.Models.Traces.Sploms
         public Marker DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Marker>(ms).Result;
         }
     }

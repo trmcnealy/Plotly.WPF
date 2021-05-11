@@ -14,7 +14,6 @@ namespace Plotly.Models.Traces.Tables
     /// <summary>
     ///     The Cells class.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class Cells : IEquatable<Cells>
@@ -26,46 +25,46 @@ namespace Plotly.Models.Traces.Tables
         ///     must be a finite number or a string.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set;} 
+        public List<object> Values { get; set; }
 
         /// <summary>
         ///     Sets the cell value formatting rule using d3 formatting mini-language which
         ///     is similar to those of Python. See https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"format")]
-        public List<object> Format { get; set;} 
+        public List<object> Format { get; set; }
 
         /// <summary>
         ///     Prefix for cell values.
         /// </summary>
         [JsonPropertyName(@"prefix")]
-        public string Prefix { get; set;} 
+        public string Prefix { get; set; }
 
         /// <summary>
         ///     Prefix for cell values.
         /// </summary>
         [JsonPropertyName(@"prefix")]
         [Array]
-        public List<string> PrefixArray { get; set;} 
+        public List<string> PrefixArray { get; set; }
 
         /// <summary>
         ///     Suffix for cell values.
         /// </summary>
         [JsonPropertyName(@"suffix")]
-        public string Suffix { get; set;} 
+        public string Suffix { get; set; }
 
         /// <summary>
         ///     Suffix for cell values.
         /// </summary>
         [JsonPropertyName(@"suffix")]
         [Array]
-        public List<string> SuffixArray { get; set;} 
+        public List<string> SuffixArray { get; set; }
 
         /// <summary>
         ///     The height of cells.
         /// </summary>
         [JsonPropertyName(@"height")]
-        public JsNumber? Height { get; set;} 
+        public JsNumber? Height { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the <c>text</c> within the box. Has an
@@ -74,7 +73,7 @@ namespace Plotly.Models.Traces.Tables
         ///     the text width.
         /// </summary>
         [JsonPropertyName(@"align")]
-        public AlignEnum? Align { get; set;} 
+        public AlignEnum? Align { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the <c>text</c> within the box. Has an
@@ -84,181 +83,148 @@ namespace Plotly.Models.Traces.Tables
         /// </summary>
         [JsonPropertyName(@"align")]
         [Array]
-        public List<AlignEnum?> AlignArray { get; set;} 
+        public List<AlignEnum?> AlignArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Gets or sets the Fill.
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public Fill Fill { get; set;} 
+        public Fill Fill { get; set; }
 
         /// <summary>
         ///     Gets or sets the Font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set;} 
+        public Font Font { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set;} 
+        public string ValuesSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  format .
         /// </summary>
         [JsonPropertyName(@"formatsrc")]
-        public string FormatSrc { get; set;} 
+        public string FormatSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  prefix .
         /// </summary>
         [JsonPropertyName(@"prefixsrc")]
-        public string PrefixSrc { get; set;} 
+        public string PrefixSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  suffix .
         /// </summary>
         [JsonPropertyName(@"suffixsrc")]
-        public string SuffixSrc { get; set;} 
+        public string SuffixSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  align .
         /// </summary>
         [JsonPropertyName(@"alignsrc")]
-        public string AlignSrc { get; set;} 
+        public string AlignSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Cells other)) return false;
+            if(!(obj is Cells other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Cells other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Equals(Values, other.Values) ||
-                    Values != null && other.Values != null &&
-                    Values.SequenceEqual(other.Values)
-                ) &&
-                (
-                    Equals(Format, other.Format) ||
-                    Format != null && other.Format != null &&
-                    Format.SequenceEqual(other.Format)
-                ) &&
-                (
-                    Prefix == other.Prefix &&
-                    Prefix != null && other.Prefix != null &&
-                    Prefix.Equals(other.Prefix)
-                ) && 
-                (
-                    Equals(PrefixArray, other.PrefixArray) ||
-                    PrefixArray != null && other.PrefixArray != null &&
-                    PrefixArray.SequenceEqual(other.PrefixArray)
-                ) &&
-                (
-                    Suffix == other.Suffix &&
-                    Suffix != null && other.Suffix != null &&
-                    Suffix.Equals(other.Suffix)
-                ) && 
-                (
-                    Equals(SuffixArray, other.SuffixArray) ||
-                    SuffixArray != null && other.SuffixArray != null &&
-                    SuffixArray.SequenceEqual(other.SuffixArray)
-                ) &&
-                (
-                    Height == other.Height &&
-                    Height != null && other.Height != null &&
-                    Height.Equals(other.Height)
-                ) && 
-                (
-                    Align == other.Align &&
-                    Align != null && other.Align != null &&
-                    Align.Equals(other.Align)
-                ) && 
-                (
-                    Equals(AlignArray, other.AlignArray) ||
-                    AlignArray != null && other.AlignArray != null &&
-                    AlignArray.SequenceEqual(other.AlignArray)
-                ) &&
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    Fill == other.Fill &&
-                    Fill != null && other.Fill != null &&
-                    Fill.Equals(other.Fill)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    ValuesSrc == other.ValuesSrc &&
-                    ValuesSrc != null && other.ValuesSrc != null &&
-                    ValuesSrc.Equals(other.ValuesSrc)
-                ) && 
-                (
-                    FormatSrc == other.FormatSrc &&
-                    FormatSrc != null && other.FormatSrc != null &&
-                    FormatSrc.Equals(other.FormatSrc)
-                ) && 
-                (
-                    PrefixSrc == other.PrefixSrc &&
-                    PrefixSrc != null && other.PrefixSrc != null &&
-                    PrefixSrc.Equals(other.PrefixSrc)
-                ) && 
-                (
-                    SuffixSrc == other.SuffixSrc &&
-                    SuffixSrc != null && other.SuffixSrc != null &&
-                    SuffixSrc.Equals(other.SuffixSrc)
-                ) && 
-                (
-                    AlignSrc == other.AlignSrc &&
-                    AlignSrc != null && other.AlignSrc != null &&
-                    AlignSrc.Equals(other.AlignSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Equals(Values, other.Values) || Values != null && other.Values != null && Values.SequenceEqual(other.Values))                               &&
+                   (Equals(Format, other.Format) || Format != null && other.Format != null && Format.SequenceEqual(other.Format))                               &&
+                   (Prefix == other.Prefix && Prefix != null && other.Prefix != null && Prefix.Equals(other.Prefix))                                            &&
+                   (Equals(PrefixArray, other.PrefixArray) || PrefixArray != null && other.PrefixArray != null && PrefixArray.SequenceEqual(other.PrefixArray)) &&
+                   (Suffix == other.Suffix && Suffix != null && other.Suffix != null && Suffix.Equals(other.Suffix))                                            &&
+                   (Equals(SuffixArray, other.SuffixArray) || SuffixArray != null && other.SuffixArray != null && SuffixArray.SequenceEqual(other.SuffixArray)) &&
+                   (Height == other.Height && Height != null && other.Height != null && Height.Equals(other.Height))                                            &&
+                   (Align  == other.Align  && Align  != null && other.Align  != null && Align.Equals(other.Align))                                              &&
+                   (Equals(AlignArray, other.AlignArray) || AlignArray != null && other.AlignArray != null && AlignArray.SequenceEqual(other.AlignArray))       &&
+                   (Line      == other.Line      && Line      != null && other.Line      != null && Line.Equals(other.Line))                                    &&
+                   (Fill      == other.Fill      && Fill      != null && other.Fill      != null && Fill.Equals(other.Fill))                                    &&
+                   (Font      == other.Font      && Font      != null && other.Font      != null && Font.Equals(other.Font))                                    &&
+                   (ValuesSrc == other.ValuesSrc && ValuesSrc != null && other.ValuesSrc != null && ValuesSrc.Equals(other.ValuesSrc))                          &&
+                   (FormatSrc == other.FormatSrc && FormatSrc != null && other.FormatSrc != null && FormatSrc.Equals(other.FormatSrc))                          &&
+                   (PrefixSrc == other.PrefixSrc && PrefixSrc != null && other.PrefixSrc != null && PrefixSrc.Equals(other.PrefixSrc))                          &&
+                   (SuffixSrc == other.SuffixSrc && SuffixSrc != null && other.SuffixSrc != null && SuffixSrc.Equals(other.SuffixSrc))                          &&
+                   (AlignSrc  == other.AlignSrc  && AlignSrc  != null && other.AlignSrc  != null && AlignSrc.Equals(other.AlignSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Values != null) hashCode = hashCode * 59 + Values.GetHashCode();
-                if (Format != null) hashCode = hashCode * 59 + Format.GetHashCode();
-                if (Prefix != null) hashCode = hashCode * 59 + Prefix.GetHashCode();
-                if (PrefixArray != null) hashCode = hashCode * 59 + PrefixArray.GetHashCode();
-                if (Suffix != null) hashCode = hashCode * 59 + Suffix.GetHashCode();
-                if (SuffixArray != null) hashCode = hashCode * 59 + SuffixArray.GetHashCode();
-                if (Height != null) hashCode = hashCode * 59 + Height.GetHashCode();
-                if (Align != null) hashCode = hashCode * 59 + Align.GetHashCode();
-                if (AlignArray != null) hashCode = hashCode * 59 + AlignArray.GetHashCode();
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (Fill != null) hashCode = hashCode * 59 + Fill.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (ValuesSrc != null) hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
-                if (FormatSrc != null) hashCode = hashCode * 59 + FormatSrc.GetHashCode();
-                if (PrefixSrc != null) hashCode = hashCode * 59 + PrefixSrc.GetHashCode();
-                if (SuffixSrc != null) hashCode = hashCode * 59 + SuffixSrc.GetHashCode();
-                if (AlignSrc != null) hashCode = hashCode * 59 + AlignSrc.GetHashCode();
+
+                if(Values != null)
+                    hashCode = hashCode * 59 + Values.GetHashCode();
+
+                if(Format != null)
+                    hashCode = hashCode * 59 + Format.GetHashCode();
+
+                if(Prefix != null)
+                    hashCode = hashCode * 59 + Prefix.GetHashCode();
+
+                if(PrefixArray != null)
+                    hashCode = hashCode * 59 + PrefixArray.GetHashCode();
+
+                if(Suffix != null)
+                    hashCode = hashCode * 59 + Suffix.GetHashCode();
+
+                if(SuffixArray != null)
+                    hashCode = hashCode * 59 + SuffixArray.GetHashCode();
+
+                if(Height != null)
+                    hashCode = hashCode * 59 + Height.GetHashCode();
+
+                if(Align != null)
+                    hashCode = hashCode * 59 + Align.GetHashCode();
+
+                if(AlignArray != null)
+                    hashCode = hashCode * 59 + AlignArray.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(Fill != null)
+                    hashCode = hashCode * 59 + Fill.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(ValuesSrc != null)
+                    hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
+
+                if(FormatSrc != null)
+                    hashCode = hashCode * 59 + FormatSrc.GetHashCode();
+
+                if(PrefixSrc != null)
+                    hashCode = hashCode * 59 + PrefixSrc.GetHashCode();
+
+                if(SuffixSrc != null)
+                    hashCode = hashCode * 59 + SuffixSrc.GetHashCode();
+
+                if(AlignSrc != null)
+                    hashCode = hashCode * 59 + AlignSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -269,7 +235,8 @@ namespace Plotly.Models.Traces.Tables
         /// <param name="left">Left Cells.</param>
         /// <param name="right">Right Cells.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Cells left, Cells right)
+        public static bool operator ==(Cells left,
+                                       Cells right)
         {
             return Equals(left, right);
         }
@@ -280,7 +247,8 @@ namespace Plotly.Models.Traces.Tables
         /// <param name="left">Left Cells.</param>
         /// <param name="right">Right Cells.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Cells left, Cells right)
+        public static bool operator !=(Cells left,
+                                       Cells right)
         {
             return !Equals(left, right);
         }
@@ -292,9 +260,10 @@ namespace Plotly.Models.Traces.Tables
         public Cells DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Cells>(ms).Result;
         }
     }

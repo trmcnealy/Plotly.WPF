@@ -11,17 +11,19 @@ namespace Plotly.Models.Configs
     ///     the odd double clicks resets the axis ranges to their initial values and
     ///     even double clicks set the axis ranges to their autorange values.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DoubleClickEnum
     {
-        [EnumMember(Value=@"reset+autosize")]
+        [EnumMember(Value = @"reset+autosize")]
         ResetAutoSize = 0,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False,
-        [EnumMember(Value=@"reset")]
+
+        [EnumMember(Value = @"reset")]
         Reset,
-        [EnumMember(Value=@"autosize")]
+
+        [EnumMember(Value = @"autosize")]
         AutoSize
     }
 }

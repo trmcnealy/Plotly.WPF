@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Histograms
     /// <summary>
     ///     The YBins class.
     /// </summary>
-    
     [Serializable]
     public class YBins : IEquatable<YBins>
     {
@@ -28,7 +27,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     necessary) to differ from that one by an integer number of bins.
         /// </summary>
         [JsonPropertyName(@"start")]
-        public object Start { get; set;} 
+        public object Start { get; set; }
 
         /// <summary>
         ///     Sets the end value for the y axis bins. The last bin may not end exactly
@@ -38,7 +37,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     is based on the category serial numbers.
         /// </summary>
         [JsonPropertyName(@"end")]
-        public object End { get; set;} 
+        public object End { get; set; }
 
         /// <summary>
         ///     Sets the size of each y axis bin. Default behavior: If <c>nbinsy</c> is
@@ -53,49 +52,44 @@ namespace Plotly.Models.Traces.Histograms
         ///     to determine <c>size</c> as described above.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public object Size { get; set;} 
+        public object Size { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is YBins other)) return false;
+            if(!(obj is YBins other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] YBins other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Start == other.Start &&
-                    Start != null && other.Start != null &&
-                    Start.Equals(other.Start)
-                ) && 
-                (
-                    End == other.End &&
-                    End != null && other.End != null &&
-                    End.Equals(other.End)
-                ) && 
-                (
-                    Size == other.Size &&
-                    Size != null && other.Size != null &&
-                    Size.Equals(other.Size)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Start == other.Start && Start != null && other.Start != null && Start.Equals(other.Start)) &&
+                   (End   == other.End   && End   != null && other.End   != null && End.Equals(other.End))     &&
+                   (Size  == other.Size  && Size  != null && other.Size  != null && Size.Equals(other.Size));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Start != null) hashCode = hashCode * 59 + Start.GetHashCode();
-                if (End != null) hashCode = hashCode * 59 + End.GetHashCode();
-                if (Size != null) hashCode = hashCode * 59 + Size.GetHashCode();
+
+                if(Start != null)
+                    hashCode = hashCode * 59 + Start.GetHashCode();
+
+                if(End != null)
+                    hashCode = hashCode * 59 + End.GetHashCode();
+
+                if(Size != null)
+                    hashCode = hashCode * 59 + Size.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -106,7 +100,8 @@ namespace Plotly.Models.Traces.Histograms
         /// <param name="left">Left YBins.</param>
         /// <param name="right">Right YBins.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (YBins left, YBins right)
+        public static bool operator ==(YBins left,
+                                       YBins right)
         {
             return Equals(left, right);
         }
@@ -117,7 +112,8 @@ namespace Plotly.Models.Traces.Histograms
         /// <param name="left">Left YBins.</param>
         /// <param name="right">Right YBins.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (YBins left, YBins right)
+        public static bool operator !=(YBins left,
+                                       YBins right)
         {
             return !Equals(left, right);
         }
@@ -129,9 +125,10 @@ namespace Plotly.Models.Traces.Histograms
         public YBins DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<YBins>(ms).Result;
         }
     }

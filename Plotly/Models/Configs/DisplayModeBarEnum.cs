@@ -8,15 +8,16 @@ namespace Plotly.Models.Configs
     ///     visible. If <c>false</c>, the mode bar is always hidden. If <c>hover</c>,
     ///     the mode bar is visible while the mouse cursor is on the graph container.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DisplayModeBarEnum
     {
-        [EnumMember(Value=@"hover")]
+        [EnumMember(Value = @"hover")]
         Hover = 0,
-        [EnumMember(Value=@"True")]
+
+        [EnumMember(Value = @"True")]
         True,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

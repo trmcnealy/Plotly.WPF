@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Indicators
     /// <summary>
     ///     The Title class.
     /// </summary>
-    
     [Serializable]
     public class Title : IEquatable<Title>
     {
@@ -20,62 +19,57 @@ namespace Plotly.Models.Traces.Indicators
         ///     Sets the title of this indicator.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set;} 
+        public string Text { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the title. It defaults to <c>center</c>
         ///     except for bullet charts for which it defaults to right.
         /// </summary>
         [JsonPropertyName(@"align")]
-        public Titles.AlignEnum? Align { get; set;} 
+        public Titles.AlignEnum? Align { get; set; }
 
         /// <summary>
         ///     Set the font used to display the title
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set;} 
+        public Font Font { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Title other)) return false;
+            if(!(obj is Title other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Title other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Text == other.Text &&
-                    Text != null && other.Text != null &&
-                    Text.Equals(other.Text)
-                ) && 
-                (
-                    Align == other.Align &&
-                    Align != null && other.Align != null &&
-                    Align.Equals(other.Align)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Text  == other.Text  && Text  != null && other.Text  != null && Text.Equals(other.Text))   &&
+                   (Align == other.Align && Align != null && other.Align != null && Align.Equals(other.Align)) &&
+                   (Font  == other.Font  && Font  != null && other.Font  != null && Font.Equals(other.Font));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (Align != null) hashCode = hashCode * 59 + Align.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(Align != null)
+                    hashCode = hashCode * 59 + Align.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -86,7 +80,8 @@ namespace Plotly.Models.Traces.Indicators
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Title left, Title right)
+        public static bool operator ==(Title left,
+                                       Title right)
         {
             return Equals(left, right);
         }
@@ -97,7 +92,8 @@ namespace Plotly.Models.Traces.Indicators
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Title left, Title right)
+        public static bool operator !=(Title left,
+                                       Title right)
         {
             return !Equals(left, right);
         }
@@ -109,9 +105,10 @@ namespace Plotly.Models.Traces.Indicators
         public Title DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Title>(ms).Result;
         }
     }

@@ -10,17 +10,19 @@ namespace Plotly.Models.Layouts.UpdateMenus
     ///     the <c>x</c> position to the <c>left</c>, <c>center</c> or <c>right</c>
     ///     of the range selector.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XAnchorEnum
     {
-        [EnumMember(Value=@"right")]
+        [EnumMember(Value = @"right")]
         Right = 0,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center
     }
 }

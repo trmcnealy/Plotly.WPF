@@ -14,13 +14,13 @@ namespace Plotly.Models.Traces.Scatters
     ///     <c>interpolate</c> we linearly interpolate between existing values, and
     ///     extrapolate a constant beyond the existing values.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum StackGapsEnum
     {
-        [EnumMember(Value=@"infer zero")]
+        [EnumMember(Value = @"infer zero")]
         InferZero = 0,
-        [EnumMember(Value=@"interpolate")]
+
+        [EnumMember(Value = @"interpolate")]
         Interpolate
     }
 }

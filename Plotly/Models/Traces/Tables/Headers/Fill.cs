@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Tables.Headers
     /// <summary>
     ///     The Fill class.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class Fill : IEquatable<Fill>
@@ -22,7 +21,7 @@ namespace Plotly.Models.Traces.Tables.Headers
         ///     of colors or a 2D array of colors.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Sets the cell fill color. It accepts either a specific color or an array
@@ -30,55 +29,50 @@ namespace Plotly.Models.Traces.Tables.Headers
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set;} 
+        public List<object> ColorArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set;} 
+        public string ColorSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Fill other)) return false;
+            if(!(obj is Fill other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Fill other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Equals(ColorArray, other.ColorArray) ||
-                    ColorArray != null && other.ColorArray != null &&
-                    ColorArray.SequenceEqual(other.ColorArray)
-                ) &&
-                (
-                    ColorSrc == other.ColorSrc &&
-                    ColorSrc != null && other.ColorSrc != null &&
-                    ColorSrc.Equals(other.ColorSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color))                                            &&
+                   (Equals(ColorArray, other.ColorArray) || ColorArray != null && other.ColorArray != null && ColorArray.SequenceEqual(other.ColorArray)) &&
+                   (ColorSrc == other.ColorSrc && ColorSrc != null && other.ColorSrc != null && ColorSrc.Equals(other.ColorSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (ColorArray != null) hashCode = hashCode * 59 + ColorArray.GetHashCode();
-                if (ColorSrc != null) hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(ColorArray != null)
+                    hashCode = hashCode * 59 + ColorArray.GetHashCode();
+
+                if(ColorSrc != null)
+                    hashCode = hashCode * 59 + ColorSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -89,7 +83,8 @@ namespace Plotly.Models.Traces.Tables.Headers
         /// <param name="left">Left Fill.</param>
         /// <param name="right">Right Fill.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Fill left, Fill right)
+        public static bool operator ==(Fill left,
+                                       Fill right)
         {
             return Equals(left, right);
         }
@@ -100,7 +95,8 @@ namespace Plotly.Models.Traces.Tables.Headers
         /// <param name="left">Left Fill.</param>
         /// <param name="right">Right Fill.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Fill left, Fill right)
+        public static bool operator !=(Fill left,
+                                       Fill right)
         {
             return !Equals(left, right);
         }
@@ -112,9 +108,10 @@ namespace Plotly.Models.Traces.Tables.Headers
         public Fill DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Fill>(ms).Result;
         }
     }

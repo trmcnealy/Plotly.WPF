@@ -10,17 +10,19 @@ namespace Plotly.Models.Traces.Sploms.Dimensions.Axes
     ///     that the axis <c>type</c> values set in layout take precedence over this
     ///     attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"linear")]
+        [EnumMember(Value = @"linear")]
         Linear,
-        [EnumMember(Value=@"log")]
+
+        [EnumMember(Value = @"log")]
         Log,
-        [EnumMember(Value=@"date")]
+
+        [EnumMember(Value = @"date")]
         Date,
-        [EnumMember(Value=@"category")]
+
+        [EnumMember(Value = @"category")]
         Category
     }
 }

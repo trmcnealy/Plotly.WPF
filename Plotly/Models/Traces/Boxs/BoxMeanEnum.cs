@@ -9,15 +9,16 @@ namespace Plotly.Models.Traces.Boxs
     ///     is also drawn. Defaults to <c>true</c> when <c>mean</c> is set. Defaults
     ///     to <c>sd</c> when <c>sd</c> is set Otherwise defaults to <c>false</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BoxMeanEnum
     {
-        [EnumMember(Value=@"True")]
+        [EnumMember(Value = @"True")]
         True,
-        [EnumMember(Value=@"sd")]
+
+        [EnumMember(Value = @"sd")]
         SD,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

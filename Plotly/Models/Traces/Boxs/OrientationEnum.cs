@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.Boxs
     ///     Sets the orientation of the box(es). If <c>v</c> (<c>h</c>), the distribution
     ///     is visualized along the vertical (horizontal).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

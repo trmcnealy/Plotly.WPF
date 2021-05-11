@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.Geos.Projections
     /// <summary>
     ///     The Rotation class.
     /// </summary>
-    
     [Serializable]
     public class Rotation : IEquatable<Rotation>
     {
@@ -19,62 +18,57 @@ namespace Plotly.Models.Layouts.Geos.Projections
         ///     of the <c>lonaxis.range</c> values.
         /// </summary>
         [JsonPropertyName(@"lon")]
-        public JsNumber? Lon { get; set;} 
+        public JsNumber? Lon { get; set; }
 
         /// <summary>
         ///     Rotates the map along meridians (in degrees North).
         /// </summary>
         [JsonPropertyName(@"lat")]
-        public JsNumber? Lat { get; set;} 
+        public JsNumber? Lat { get; set; }
 
         /// <summary>
         ///     Roll the map (in degrees) For example, a roll of <c>180</c> makes the map
         ///     appear upside down.
         /// </summary>
         [JsonPropertyName(@"roll")]
-        public JsNumber? Roll { get; set;} 
+        public JsNumber? Roll { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Rotation other)) return false;
+            if(!(obj is Rotation other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Rotation other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Lon == other.Lon &&
-                    Lon != null && other.Lon != null &&
-                    Lon.Equals(other.Lon)
-                ) && 
-                (
-                    Lat == other.Lat &&
-                    Lat != null && other.Lat != null &&
-                    Lat.Equals(other.Lat)
-                ) && 
-                (
-                    Roll == other.Roll &&
-                    Roll != null && other.Roll != null &&
-                    Roll.Equals(other.Roll)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Lon  == other.Lon  && Lon  != null && other.Lon  != null && Lon.Equals(other.Lon)) &&
+                   (Lat  == other.Lat  && Lat  != null && other.Lat  != null && Lat.Equals(other.Lat)) &&
+                   (Roll == other.Roll && Roll != null && other.Roll != null && Roll.Equals(other.Roll));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Lon != null) hashCode = hashCode * 59 + Lon.GetHashCode();
-                if (Lat != null) hashCode = hashCode * 59 + Lat.GetHashCode();
-                if (Roll != null) hashCode = hashCode * 59 + Roll.GetHashCode();
+
+                if(Lon != null)
+                    hashCode = hashCode * 59 + Lon.GetHashCode();
+
+                if(Lat != null)
+                    hashCode = hashCode * 59 + Lat.GetHashCode();
+
+                if(Roll != null)
+                    hashCode = hashCode * 59 + Roll.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -85,7 +79,8 @@ namespace Plotly.Models.Layouts.Geos.Projections
         /// <param name="left">Left Rotation.</param>
         /// <param name="right">Right Rotation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Rotation left, Rotation right)
+        public static bool operator ==(Rotation left,
+                                       Rotation right)
         {
             return Equals(left, right);
         }
@@ -96,7 +91,8 @@ namespace Plotly.Models.Layouts.Geos.Projections
         /// <param name="left">Left Rotation.</param>
         /// <param name="right">Right Rotation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Rotation left, Rotation right)
+        public static bool operator !=(Rotation left,
+                                       Rotation right)
         {
             return !Equals(left, right);
         }
@@ -108,9 +104,10 @@ namespace Plotly.Models.Layouts.Geos.Projections
         public Rotation DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Rotation>(ms).Result;
         }
     }

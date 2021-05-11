@@ -65,7 +65,6 @@ namespace Plotly.Models
             get { return Single == null && Double == null && Int32 == null && Int64 == null; }
         }
 
-
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator float?(JsNumber from)
         {
@@ -93,7 +92,7 @@ namespace Plotly.Models
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator JsNumber(float to)
         {
-            return new ()
+            return new()
             {
                 Single = to
             };
@@ -102,7 +101,7 @@ namespace Plotly.Models
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator JsNumber(double to)
         {
-            return new ()
+            return new()
             {
                 Double = to
             };
@@ -111,16 +110,16 @@ namespace Plotly.Models
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator JsNumber(int to)
         {
-            return new ()
+            return new()
             {
                 Int32 = to
             };
         }
-        
+
         [MethodImpl(MethodImplOptions.AggressiveInlining | MethodImplOptions.AggressiveOptimization)]
         public static implicit operator JsNumber(long to)
         {
-            return new ()
+            return new()
             {
                 Int64 = to
             };

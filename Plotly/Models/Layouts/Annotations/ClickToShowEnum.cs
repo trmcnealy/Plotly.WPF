@@ -16,15 +16,16 @@ namespace Plotly.Models.Layouts.Annotations
     ///     label markers though, <c>standoff</c> is preferred over <c>xclick</c> and
     ///     <c>yclick</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ClickToShowEnum
     {
-        [EnumMember(Value=@"false")]
+        [EnumMember(Value = @"false")]
         False = 0,
-        [EnumMember(Value=@"onoff")]
+
+        [EnumMember(Value = @"onoff")]
         OnOff,
-        [EnumMember(Value=@"onout")]
+
+        [EnumMember(Value = @"onout")]
         OnOut
     }
 }

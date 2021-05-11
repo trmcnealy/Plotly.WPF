@@ -13,17 +13,19 @@ namespace Plotly.Models.Layouts.Legends
     ///     less than or equal to 1/3 and anchors legends with respect to their center
     ///     otherwise.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XAnchorEnum
     {
-        [EnumMember(Value=@"left")]
+        [EnumMember(Value = @"left")]
         Left = 0,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

@@ -39,7 +39,7 @@ namespace Plotly.Models
         ///     defined it will output as a number rather than a string.
         /// </param>
         public EnumConverter(JsonNamingPolicy? namingPolicy       = null,
-                             bool             allowIntegerValues = true)
+                             bool              allowIntegerValues = true)
         {
             this.namingPolicy       = namingPolicy;
             this.allowIntegerValues = allowIntegerValues;
@@ -51,18 +51,18 @@ namespace Plotly.Models
         }
 
         public override JsonConverter? CreateConverter(Type                  typeToConvert,
-                                                      JsonSerializerOptions options)
+                                                       JsonSerializerOptions options)
         {
             (bool isNullableEnum, Type? underlyingType) = TestNullableEnum(typeToConvert);
 
             return (JsonConverter?)Activator.CreateInstance(typeof(EnumConverter<>).MakeGenericType(typeToConvert),
-                                                           BindingFlags.Instance | BindingFlags.Public,
-                                                           null,
-                                                           new object?[]
-                                                           {
-                                                               namingPolicy, allowIntegerValues, isNullableEnum ? underlyingType! : null
-                                                           },
-                                                           null);
+                                                            BindingFlags.Instance | BindingFlags.Public,
+                                                            null,
+                                                            new object?[]
+                                                            {
+                                                                namingPolicy, allowIntegerValues, isNullableEnum ? underlyingType! : null
+                                                            },
+                                                            null);
         }
 
         private static (bool IsNullableEnum, Type? UnderlyingType) TestNullableEnum(Type typeToConvert)
@@ -94,7 +94,7 @@ namespace Plotly.Models
         }
 
         private readonly bool                         allowIntegerValues;
-        private readonly Type?                         underlyingType;
+        private readonly Type?                        underlyingType;
         private readonly Type                         enumType;
         private readonly TypeCode                     enumTypeCode;
         private readonly bool                         isFlags;
@@ -103,7 +103,7 @@ namespace Plotly.Models
 
         public EnumConverter(JsonNamingPolicy namingPolicy,
                              bool             allowIntegerValues,
-                             Type?             underlyingType)
+                             Type?            underlyingType)
         {
             Debug.Assert(typeof(T).IsEnum && underlyingType == null || Nullable.GetUnderlyingType(typeof(T)) == underlyingType, "Generic type is invalid.");
 
@@ -174,9 +174,7 @@ namespace Plotly.Models
                                 // Case insensitive search attempted second.
                                 bool matched = false;
 
-                                foreach(KeyValuePair<string, EnumInfo> enumItem in transformedToRaw.Where(enumItem => string.Equals(enumItem.Key,
-                                                                                                              flagValue,
-                                                                                                              StringComparison.OrdinalIgnoreCase)))
+                                foreach(KeyValuePair<string, EnumInfo> enumItem in transformedToRaw.Where(enumItem => string.Equals(enumItem.Key, flagValue, StringComparison.OrdinalIgnoreCase)))
                                 {
                                     calculatedValue |= enumItem.Value.RawValue;
                                     matched         =  true;

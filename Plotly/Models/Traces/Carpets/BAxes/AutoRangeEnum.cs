@@ -8,15 +8,16 @@ namespace Plotly.Models.Traces.Carpets.BAxes
     ///     to the input data. See <c>rangemode</c> for more info. If <c>range</c> is
     ///     provided, then <c>autorange</c> is set to <c>false</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AutoRangeEnum
     {
-        [EnumMember(Value=@"true")]
+        [EnumMember(Value = @"true")]
         True = 0,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False,
-        [EnumMember(Value=@"reversed")]
+
+        [EnumMember(Value = @"reversed")]
         Reversed
     }
 }

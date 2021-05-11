@@ -8,13 +8,13 @@ namespace Plotly.Models.Layouts.XAxes
     ///     and <c>scaleratio</c> or those of the other axis), determines how that happens:
     ///     by increasing the <c>range</c> (default), or by decreasing the <c>domain</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ConstrainEnum
     {
-        [EnumMember(Value=@"range")]
+        [EnumMember(Value = @"range")]
         Range = 0,
-        [EnumMember(Value=@"domain")]
+
+        [EnumMember(Value = @"domain")]
         Domain
     }
 }

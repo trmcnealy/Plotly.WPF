@@ -8,17 +8,19 @@ namespace Plotly.Models.Layouts.Ternarys.BAxes
     /// <summary>
     ///     Same as <c>showtickprefix</c> but for tick suffixes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShowTickSuffixEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All = 0,
-        [EnumMember(Value=@"first")]
+
+        [EnumMember(Value = @"first")]
         First,
-        [EnumMember(Value=@"last")]
+
+        [EnumMember(Value = @"last")]
         Last,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

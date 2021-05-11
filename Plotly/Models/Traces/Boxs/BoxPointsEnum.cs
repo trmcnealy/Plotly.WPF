@@ -13,17 +13,19 @@ namespace Plotly.Models.Traces.Boxs
     ///     is set. Defaults to <c>all</c> under the q1/median/q3 signature. Otherwise
     ///     defaults to <c>outliers</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BoxPointsEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All,
-        [EnumMember(Value=@"outliers")]
+
+        [EnumMember(Value = @"outliers")]
         Outliers,
-        [EnumMember(Value=@"suspectedoutliers")]
+
+        [EnumMember(Value = @"suspectedoutliers")]
         SuspectedOutliers,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

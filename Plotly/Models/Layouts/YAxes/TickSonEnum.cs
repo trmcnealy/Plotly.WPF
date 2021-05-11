@@ -11,13 +11,13 @@ namespace Plotly.Models.Layouts.YAxes
     ///     or <c>multicategory</c>. When set to <c>boundaries</c>, ticks and grid lines
     ///     are drawn half a category to the left/bottom of labels.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TickSonEnum
     {
-        [EnumMember(Value=@"labels")]
+        [EnumMember(Value = @"labels")]
         Labels = 0,
-        [EnumMember(Value=@"boundaries")]
+
+        [EnumMember(Value = @"boundaries")]
         Boundaries
     }
 }

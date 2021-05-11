@@ -10,21 +10,25 @@ namespace Plotly.Models.Layouts.XAxes
     ///     (default), and <c>right</c> for x axes, and <c>top</c>, <c>middle</c> (default),
     ///     and <c>bottom</c> for y axes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ConstrainTowardEnum
     {
-        [EnumMember(Value=@"left")]
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

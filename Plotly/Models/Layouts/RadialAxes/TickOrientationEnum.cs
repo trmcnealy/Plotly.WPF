@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.RadialAxes
     ///     Sets the orientation (from the paper perspective) of the radial axis tick
     ///     labels.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TickOrientationEnum
     {
-        [EnumMember(Value=@"horizontal")]
+        [EnumMember(Value = @"horizontal")]
         Horizontal,
-        [EnumMember(Value=@"vertical")]
+
+        [EnumMember(Value = @"vertical")]
         Vertical
     }
 }

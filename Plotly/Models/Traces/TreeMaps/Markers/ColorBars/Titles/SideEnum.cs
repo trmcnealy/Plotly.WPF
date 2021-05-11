@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.TreeMaps.Markers.ColorBars.Titles
     ///     bar. Note that the title&#39;s location used to be set by the now deprecated
     ///     <c>titleside</c> attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SideEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top = 0,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

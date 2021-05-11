@@ -7,13 +7,13 @@ namespace Plotly.Models.Traces.Carpets.BAxes
 {
     /// <summary>
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TickModeEnum
     {
-        [EnumMember(Value=@"array")]
+        [EnumMember(Value = @"array")]
         Array = 0,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear
     }
 }

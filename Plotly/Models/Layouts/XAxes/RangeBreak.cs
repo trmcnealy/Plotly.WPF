@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts.XAxes
     /// <summary>
     ///     The RangeBreak class.
     /// </summary>
-    
     [Serializable]
     public class RangeBreak : IEquatable<RangeBreak>
     {
@@ -23,14 +22,14 @@ namespace Plotly.Models.Layouts.XAxes
         ///     that <c>rangebreaks</c> only work for <c>date</c> axis type.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
         /// <summary>
         ///     Sets the lower and upper bounds of this axis rangebreak. Can be used with
         ///     <c>pattern</c>.
         /// </summary>
         [JsonPropertyName(@"bounds")]
-        public List<object> Bounds { get; set;} 
+        public List<object> Bounds { get; set; }
 
         /// <summary>
         ///     Determines a pattern on the time line that generates breaks. If &#39;day
@@ -44,7 +43,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     5pm to 8am (i.e. skips non-work hours).
         /// </summary>
         [JsonPropertyName(@"pattern")]
-        public PatternEnum? Pattern { get; set;} 
+        public PatternEnum? Pattern { get; set; }
 
         /// <summary>
         ///     Sets the coordinate values corresponding to the rangebreaks. An alternative
@@ -52,13 +51,13 @@ namespace Plotly.Models.Layouts.XAxes
         ///     the axis.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set;} 
+        public List<object> Values { get; set; }
 
         /// <summary>
         ///     Sets the size of each <c>values</c> item. The default is one day in milliseconds.
         /// </summary>
         [JsonPropertyName(@"dvalue")]
-        public JsNumber? DValue { get; set;} 
+        public JsNumber? DValue { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -69,7 +68,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -81,73 +80,60 @@ namespace Plotly.Models.Layouts.XAxes
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is RangeBreak other)) return false;
+            if(!(obj is RangeBreak other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] RangeBreak other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    Equals(Bounds, other.Bounds) ||
-                    Bounds != null && other.Bounds != null &&
-                    Bounds.SequenceEqual(other.Bounds)
-                ) &&
-                (
-                    Pattern == other.Pattern &&
-                    Pattern != null && other.Pattern != null &&
-                    Pattern.Equals(other.Pattern)
-                ) && 
-                (
-                    Equals(Values, other.Values) ||
-                    Values != null && other.Values != null &&
-                    Values.SequenceEqual(other.Values)
-                ) &&
-                (
-                    DValue == other.DValue &&
-                    DValue != null && other.DValue != null &&
-                    DValue.Equals(other.DValue)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Enabled == other.Enabled && Enabled != null && other.Enabled != null && Enabled.Equals(other.Enabled))                                   &&
+                   (Equals(Bounds, other.Bounds) || Bounds != null && other.Bounds != null && Bounds.SequenceEqual(other.Bounds))                            &&
+                   (Pattern == other.Pattern && Pattern != null && other.Pattern != null && Pattern.Equals(other.Pattern))                                   &&
+                   (Equals(Values, other.Values) || Values != null && other.Values != null && Values.SequenceEqual(other.Values))                            &&
+                   (DValue           == other.DValue           && DValue           != null && other.DValue           != null && DValue.Equals(other.DValue)) &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))     &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
-                if (Bounds != null) hashCode = hashCode * 59 + Bounds.GetHashCode();
-                if (Pattern != null) hashCode = hashCode * 59 + Pattern.GetHashCode();
-                if (Values != null) hashCode = hashCode * 59 + Values.GetHashCode();
-                if (DValue != null) hashCode = hashCode * 59 + DValue.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(Bounds != null)
+                    hashCode = hashCode * 59 + Bounds.GetHashCode();
+
+                if(Pattern != null)
+                    hashCode = hashCode * 59 + Pattern.GetHashCode();
+
+                if(Values != null)
+                    hashCode = hashCode * 59 + Values.GetHashCode();
+
+                if(DValue != null)
+                    hashCode = hashCode * 59 + DValue.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -158,7 +144,8 @@ namespace Plotly.Models.Layouts.XAxes
         /// <param name="left">Left RangeBreak.</param>
         /// <param name="right">Right RangeBreak.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (RangeBreak left, RangeBreak right)
+        public static bool operator ==(RangeBreak left,
+                                       RangeBreak right)
         {
             return Equals(left, right);
         }
@@ -169,7 +156,8 @@ namespace Plotly.Models.Layouts.XAxes
         /// <param name="left">Left RangeBreak.</param>
         /// <param name="right">Right RangeBreak.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (RangeBreak left, RangeBreak right)
+        public static bool operator !=(RangeBreak left,
+                                       RangeBreak right)
         {
             return !Equals(left, right);
         }
@@ -181,9 +169,10 @@ namespace Plotly.Models.Layouts.XAxes
         public RangeBreak DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<RangeBreak>(ms).Result;
         }
     }

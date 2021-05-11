@@ -9,15 +9,16 @@ namespace Plotly.Models.Layouts.YAxes
     ///     Determines whether spikelines are stuck to the cursor or to the closest
     ///     datapoints.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SpikeSnapEnum
     {
-        [EnumMember(Value=@"data")]
+        [EnumMember(Value = @"data")]
         Data = 0,
-        [EnumMember(Value=@"cursor")]
+
+        [EnumMember(Value = @"cursor")]
         Cursor,
-        [EnumMember(Value=@"hovered data")]
+
+        [EnumMember(Value = @"hovered data")]
         HoveredData
     }
 }

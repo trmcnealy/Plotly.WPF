@@ -18,15 +18,15 @@ namespace Plotly.Models
         }
 
         public override JsonConverter? CreateConverter(Type                  typeToConvert,
-                                                      JsonSerializerOptions options)
+                                                       JsonSerializerOptions options)
         {
             return (JsonConverter?)Activator.CreateInstance(typeof(PlotlyConverter<>).MakeGenericType(typeToConvert),
-                                                           BindingFlags.Instance | BindingFlags.Public,
-                                                           null,
-                                                           new object[]
-                                                           {
-                                                           },
-                                                           null);
+                                                            BindingFlags.Instance | BindingFlags.Public,
+                                                            null,
+                                                            new object[]
+                                                            {
+                                                            },
+                                                            null);
         }
     }
 

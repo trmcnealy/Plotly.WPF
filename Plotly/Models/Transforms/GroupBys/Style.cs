@@ -10,7 +10,6 @@ namespace Plotly.Models.Transforms.GroupBys
     /// <summary>
     ///     The Style class.
     /// </summary>
-    
     [Serializable]
     public class Style : IEquatable<Style>
     {
@@ -18,7 +17,7 @@ namespace Plotly.Models.Transforms.GroupBys
         ///     The group value which receives these styles.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set;} 
+        public string Target { get; set; }
 
         /// <summary>
         ///     Sets each group styles. For example, with <c>groups</c> set to &#39;[<c>a</c>,
@@ -27,43 +26,40 @@ namespace Plotly.Models.Transforms.GroupBys
         ///     will be drawn in red.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set;} 
+        public object Value { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Style other)) return false;
+            if(!(obj is Style other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Style other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Target == other.Target &&
-                    Target != null && other.Target != null &&
-                    Target.Equals(other.Target)
-                ) && 
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Target == other.Target && Target != null && other.Target != null && Target.Equals(other.Target)) &&
+                   (Value  == other.Value  && Value  != null && other.Value  != null && Value.Equals(other.Value));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Target != null) hashCode = hashCode * 59 + Target.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(Target != null)
+                    hashCode = hashCode * 59 + Target.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -74,7 +70,8 @@ namespace Plotly.Models.Transforms.GroupBys
         /// <param name="left">Left Style.</param>
         /// <param name="right">Right Style.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Style left, Style right)
+        public static bool operator ==(Style left,
+                                       Style right)
         {
             return Equals(left, right);
         }
@@ -85,7 +82,8 @@ namespace Plotly.Models.Transforms.GroupBys
         /// <param name="left">Left Style.</param>
         /// <param name="right">Right Style.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Style left, Style right)
+        public static bool operator !=(Style left,
+                                       Style right)
         {
             return !Equals(left, right);
         }
@@ -97,9 +95,10 @@ namespace Plotly.Models.Transforms.GroupBys
         public Style DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Style>(ms).Result;
         }
     }

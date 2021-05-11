@@ -13,13 +13,13 @@ namespace Plotly.Models.Traces.Funnels
     ///     <c>horizontal</c> funnels, <c>autorange</c> on the <c>y-axis</c> are set
     ///     to <c>reversed</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

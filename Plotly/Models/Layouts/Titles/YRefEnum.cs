@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.Titles
     ///     <c>height</c> of the plot. <c>paper</c> refers to the height of the plotting
     ///     area only.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YRefEnum
     {
-        [EnumMember(Value=@"container")]
+        [EnumMember(Value = @"container")]
         Container = 0,
-        [EnumMember(Value=@"paper")]
+
+        [EnumMember(Value = @"paper")]
         Paper
     }
 }

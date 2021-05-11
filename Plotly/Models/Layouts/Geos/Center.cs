@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.Geos
     /// <summary>
     ///     The Center class.
     /// </summary>
-    
     [Serializable]
     public class Center : IEquatable<Center>
     {
@@ -20,50 +19,46 @@ namespace Plotly.Models.Layouts.Geos
         ///     above <c>projection.rotation.lon</c> otherwise.
         /// </summary>
         [JsonPropertyName(@"lon")]
-        public JsNumber? Lon { get; set;} 
+        public JsNumber? Lon { get; set; }
 
         /// <summary>
         ///     Sets the latitude of the map&#39;s center. For all projection types, the
         ///     map&#39;s latitude center lies at the middle of the latitude range by default.
         /// </summary>
         [JsonPropertyName(@"lat")]
-        public JsNumber? Lat { get; set;} 
+        public JsNumber? Lat { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Center other)) return false;
+            if(!(obj is Center other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Center other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Lon == other.Lon &&
-                    Lon != null && other.Lon != null &&
-                    Lon.Equals(other.Lon)
-                ) && 
-                (
-                    Lat == other.Lat &&
-                    Lat != null && other.Lat != null &&
-                    Lat.Equals(other.Lat)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Lon == other.Lon && Lon != null && other.Lon != null && Lon.Equals(other.Lon)) && (Lat == other.Lat && Lat != null && other.Lat != null && Lat.Equals(other.Lat));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Lon != null) hashCode = hashCode * 59 + Lon.GetHashCode();
-                if (Lat != null) hashCode = hashCode * 59 + Lat.GetHashCode();
+
+                if(Lon != null)
+                    hashCode = hashCode * 59 + Lon.GetHashCode();
+
+                if(Lat != null)
+                    hashCode = hashCode * 59 + Lat.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -74,7 +69,8 @@ namespace Plotly.Models.Layouts.Geos
         /// <param name="left">Left Center.</param>
         /// <param name="right">Right Center.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Center left, Center right)
+        public static bool operator ==(Center left,
+                                       Center right)
         {
             return Equals(left, right);
         }
@@ -85,7 +81,8 @@ namespace Plotly.Models.Layouts.Geos
         /// <param name="left">Left Center.</param>
         /// <param name="right">Right Center.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Center left, Center right)
+        public static bool operator !=(Center left,
+                                       Center right)
         {
             return !Equals(left, right);
         }
@@ -97,9 +94,10 @@ namespace Plotly.Models.Layouts.Geos
         public Center DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Center>(ms).Result;
         }
     }

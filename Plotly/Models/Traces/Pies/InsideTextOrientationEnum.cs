@@ -14,17 +14,19 @@ namespace Plotly.Models.Traces.Pies
     ///     of the sector. The <c>tangential</c> option orients text perpendicular to
     ///     the radius of the sector.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum InsideTextOrientationEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"horizontal")]
+
+        [EnumMember(Value = @"horizontal")]
         Horizontal,
-        [EnumMember(Value=@"radial")]
+
+        [EnumMember(Value = @"radial")]
         Radial,
-        [EnumMember(Value=@"tangential")]
+
+        [EnumMember(Value = @"tangential")]
         Tangential
     }
 }

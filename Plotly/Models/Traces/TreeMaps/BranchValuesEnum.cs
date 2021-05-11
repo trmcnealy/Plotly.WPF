@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.TreeMaps
     ///     and the branches sectors are taken to be the extra part not part of the
     ///     sum of the values at their leaves.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BranchValuesEnum
     {
-        [EnumMember(Value=@"remainder")]
+        [EnumMember(Value = @"remainder")]
         Remainder = 0,
-        [EnumMember(Value=@"total")]
+
+        [EnumMember(Value = @"total")]
         Total
     }
 }

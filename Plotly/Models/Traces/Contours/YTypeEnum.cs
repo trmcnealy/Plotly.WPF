@@ -11,13 +11,13 @@ namespace Plotly.Models.Traces.Contours
     ///     y coordinates are given by <c>y0</c> and <c>dy</c> (the default behavior
     ///     when <c>y</c> is not provided)
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YTypeEnum
     {
-        [EnumMember(Value=@"array")]
+        [EnumMember(Value = @"array")]
         Array,
-        [EnumMember(Value=@"scaled")]
+
+        [EnumMember(Value = @"scaled")]
         Scaled
     }
 }

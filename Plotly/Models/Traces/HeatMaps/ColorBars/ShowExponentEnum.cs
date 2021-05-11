@@ -10,17 +10,19 @@ namespace Plotly.Models.Traces.HeatMaps.ColorBars
     ///     only the exponent of the first tick is shown. If <c>last</c>, only the exponent
     ///     of the last tick is shown. If <c>none</c>, no exponents appear.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShowExponentEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All = 0,
-        [EnumMember(Value=@"first")]
+
+        [EnumMember(Value = @"first")]
         First,
-        [EnumMember(Value=@"last")]
+
+        [EnumMember(Value = @"last")]
         Last,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

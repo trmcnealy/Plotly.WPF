@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.BarPolars.Selecteds
     /// <summary>
     ///     The TextFont class.
     /// </summary>
-    
     [Serializable]
     public class TextFont : IEquatable<TextFont>
     {
@@ -18,37 +17,36 @@ namespace Plotly.Models.Traces.BarPolars.Selecteds
         ///     Sets the text font color of selected points.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is TextFont other)) return false;
+            if(!(obj is TextFont other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] TextFont other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -59,7 +57,8 @@ namespace Plotly.Models.Traces.BarPolars.Selecteds
         /// <param name="left">Left TextFont.</param>
         /// <param name="right">Right TextFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (TextFont left, TextFont right)
+        public static bool operator ==(TextFont left,
+                                       TextFont right)
         {
             return Equals(left, right);
         }
@@ -70,7 +69,8 @@ namespace Plotly.Models.Traces.BarPolars.Selecteds
         /// <param name="left">Left TextFont.</param>
         /// <param name="right">Right TextFont.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (TextFont left, TextFont right)
+        public static bool operator !=(TextFont left,
+                                       TextFont right)
         {
             return !Equals(left, right);
         }
@@ -82,9 +82,10 @@ namespace Plotly.Models.Traces.BarPolars.Selecteds
         public TextFont DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<TextFont>(ms).Result;
         }
     }

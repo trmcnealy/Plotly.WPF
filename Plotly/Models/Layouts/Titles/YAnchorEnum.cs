@@ -12,17 +12,19 @@ namespace Plotly.Models.Layouts.Titles
     ///     midline is at y. <c>auto</c> divides <c>yref</c> by three and calculates
     ///     the <c>yanchor</c> value automatically based on the value of <c>y</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YAnchorEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"middle")]
+
+        [EnumMember(Value = @"middle")]
         Middle,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

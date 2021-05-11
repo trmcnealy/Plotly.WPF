@@ -13,15 +13,16 @@ namespace Plotly.Models.Layouts.UniformTexts
     ///     Please note that if the size defined by <c>minsize</c> is greater than the
     ///     font size defined by trace, then the <c>minsize</c> is used.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ModeEnum
     {
-        [EnumMember(Value=@"false")]
+        [EnumMember(Value = @"false")]
         False = 0,
-        [EnumMember(Value=@"hide")]
+
+        [EnumMember(Value = @"hide")]
         Hide,
-        [EnumMember(Value=@"show")]
+
+        [EnumMember(Value = @"show")]
         Show
     }
 }

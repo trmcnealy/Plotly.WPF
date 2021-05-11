@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
     /// <summary>
     ///     The Title class.
     /// </summary>
-    
     [Serializable]
     public class Title : IEquatable<Title>
     {
@@ -22,14 +21,14 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set;} 
+        public string Text { get; set; }
 
         /// <summary>
         ///     Sets this color bar&#39;s title font. Note that the title&#39;s font used
         ///     to be set by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set;} 
+        public Font Font { get; set; }
 
         /// <summary>
         ///     Determines the location of color bar&#39;s title with respect to the color
@@ -37,49 +36,44 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
         ///     <c>titleside</c> attribute.
         /// </summary>
         [JsonPropertyName(@"side")]
-        public SideEnum? Side { get; set;} 
+        public SideEnum? Side { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Title other)) return false;
+            if(!(obj is Title other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Title other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Text == other.Text &&
-                    Text != null && other.Text != null &&
-                    Text.Equals(other.Text)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    Side == other.Side &&
-                    Side != null && other.Side != null &&
-                    Side.Equals(other.Side)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Text == other.Text && Text != null && other.Text != null && Text.Equals(other.Text)) &&
+                   (Font == other.Font && Font != null && other.Font != null && Font.Equals(other.Font)) &&
+                   (Side == other.Side && Side != null && other.Side != null && Side.Equals(other.Side));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (Side != null) hashCode = hashCode * 59 + Side.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(Side != null)
+                    hashCode = hashCode * 59 + Side.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -90,7 +84,8 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Title left, Title right)
+        public static bool operator ==(Title left,
+                                       Title right)
         {
             return Equals(left, right);
         }
@@ -101,7 +96,8 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Title left, Title right)
+        public static bool operator !=(Title left,
+                                       Title right)
         {
             return !Equals(left, right);
         }
@@ -113,9 +109,10 @@ namespace Plotly.Models.Traces.StreamTubes.ColorBars
         public Title DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Title>(ms).Result;
         }
     }

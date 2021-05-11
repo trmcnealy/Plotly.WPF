@@ -15,19 +15,22 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
     ///     With <c>sourcetype</c> set to <c>raster</c> or <c><c>image</c></c>, only
     ///     the <c>raster</c> value is allowed.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"circle")]
+        [EnumMember(Value = @"circle")]
         Circle = 0,
-        [EnumMember(Value=@"line")]
+
+        [EnumMember(Value = @"line")]
         Line,
-        [EnumMember(Value=@"fill")]
+
+        [EnumMember(Value = @"fill")]
         Fill,
-        [EnumMember(Value=@"symbol")]
+
+        [EnumMember(Value = @"symbol")]
         Symbol,
-        [EnumMember(Value=@"raster")]
+
+        [EnumMember(Value = @"raster")]
         Raster
     }
 }

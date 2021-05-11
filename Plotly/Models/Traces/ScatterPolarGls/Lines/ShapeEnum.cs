@@ -8,19 +8,22 @@ namespace Plotly.Models.Traces.ScatterPolarGls.Lines
     /// <summary>
     ///     Determines the line shape. The values correspond to step-wise line shapes.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShapeEnum
     {
-        [EnumMember(Value=@"linear")]
+        [EnumMember(Value = @"linear")]
         Linear = 0,
-        [EnumMember(Value=@"hv")]
+
+        [EnumMember(Value = @"hv")]
         Hv,
-        [EnumMember(Value=@"vh")]
+
+        [EnumMember(Value = @"vh")]
         Vh,
-        [EnumMember(Value=@"hvh")]
+
+        [EnumMember(Value = @"hvh")]
         Hvh,
-        [EnumMember(Value=@"vhv")]
+
+        [EnumMember(Value = @"vhv")]
         Vhv
     }
 }

@@ -10,17 +10,19 @@ namespace Plotly.Models.Layouts.NewShapes
     ///     the draw to be either horizontal or vertical. <c>horizontal</c> allows horizontal
     ///     extend. <c>vertical</c> allows vertical extend.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DrawDirectionEnum
     {
-        [EnumMember(Value=@"diagonal")]
+        [EnumMember(Value = @"diagonal")]
         Diagonal = 0,
-        [EnumMember(Value=@"ortho")]
+
+        [EnumMember(Value = @"ortho")]
         OrTho,
-        [EnumMember(Value=@"horizontal")]
+
+        [EnumMember(Value = @"horizontal")]
         Horizontal,
-        [EnumMember(Value=@"vertical")]
+
+        [EnumMember(Value = @"vertical")]
         Vertical
     }
 }

@@ -17,15 +17,16 @@ namespace Plotly.Models.Traces.Boxs
     ///     the median in both halves - Q1 is then the median of the lower half and
     ///     Q3 the median of the upper half.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum QuartileMethodEnum
     {
-        [EnumMember(Value=@"linear")]
+        [EnumMember(Value = @"linear")]
         Linear = 0,
-        [EnumMember(Value=@"exclusive")]
+
+        [EnumMember(Value = @"exclusive")]
         Exclusive,
-        [EnumMember(Value=@"inclusive")]
+
+        [EnumMember(Value = @"inclusive")]
         Inclusive
     }
 }

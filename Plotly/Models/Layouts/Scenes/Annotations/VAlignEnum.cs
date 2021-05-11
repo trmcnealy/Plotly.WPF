@@ -9,15 +9,16 @@ namespace Plotly.Models.Layouts.Scenes.Annotations
     ///     Sets the vertical alignment of the <c>text</c> within the box. Has an effect
     ///     only if an explicit height is set to override the text height.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum VAlignEnum
     {
-        [EnumMember(Value=@"middle")]
+        [EnumMember(Value = @"middle")]
         Middle = 0,
-        [EnumMember(Value=@"top")]
+
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

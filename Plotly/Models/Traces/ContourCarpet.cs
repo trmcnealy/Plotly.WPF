@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -19,7 +17,6 @@ namespace Plotly.Models.Traces
     ///     The ContourCarpet class.
     ///     Implements the <see cref="ITrace" />.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class ContourCarpet : ITrace, IEquatable<ContourCarpet>
@@ -34,40 +31,40 @@ namespace Plotly.Models.Traces
         ///     itself is visible).
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public VisibleEnum? Visible { get; set;} 
+        public VisibleEnum? Visible { get; set; }
 
         /// <summary>
         ///     Determines whether or not an item corresponding to this trace is shown in
         ///     the legend.
         /// </summary>
         [JsonPropertyName(@"showlegend")]
-        public bool? ShowLegend { get; set;} 
+        public bool? ShowLegend { get; set; }
 
         /// <summary>
         ///     Sets the legend group for this trace. Traces part of the same legend group
         ///     hide/show at the same time when toggling legend items.
         /// </summary>
         [JsonPropertyName(@"legendgroup")]
-        public string LegendGroup { get; set;} 
+        public string LegendGroup { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the trace.
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
         /// <summary>
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set;} 
+        public string UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -75,7 +72,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set;} 
+        public List<object> Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -83,7 +80,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set;} 
+        public List<object> CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -97,7 +94,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set;} 
+        public object Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -112,13 +109,13 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set;} 
+        public List<object> MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set;} 
+        public Stream Stream { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -135,75 +132,75 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
         /// <summary>
         ///     The <c>carpet</c> of the carpet axes on which this contour trace lies
         /// </summary>
         [JsonPropertyName(@"carpet")]
-        public string Carpet { get; set;} 
+        public string Carpet { get; set; }
 
         /// <summary>
         ///     Sets the z data.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public List<object> Z { get; set;} 
+        public List<object> Z { get; set; }
 
         /// <summary>
         ///     Sets the x coordinates.
         /// </summary>
         [JsonPropertyName(@"a")]
-        public List<object> A { get; set;} 
+        public List<object> A { get; set; }
 
         /// <summary>
         ///     Alternate to <c>x</c>. Builds a linear space of x coordinates. Use with
         ///     <c>dx</c> where <c>x0</c> is the starting coordinate and <c>dx</c> the step.
         /// </summary>
         [JsonPropertyName(@"a0")]
-        public object A0 { get; set;} 
+        public object A0 { get; set; }
 
         /// <summary>
         ///     Sets the x coordinate step. See <c>x0</c> for more info.
         /// </summary>
         [JsonPropertyName(@"da")]
-        public JsNumber? DA { get; set;} 
+        public JsNumber? DA { get; set; }
 
         /// <summary>
         ///     Sets the y coordinates.
         /// </summary>
         [JsonPropertyName(@"b")]
-        public List<object> B { get; set;} 
+        public List<object> B { get; set; }
 
         /// <summary>
         ///     Alternate to <c>y</c>. Builds a linear space of y coordinates. Use with
         ///     <c>dy</c> where <c>y0</c> is the starting coordinate and <c>dy</c> the step.
         /// </summary>
         [JsonPropertyName(@"b0")]
-        public object B0 { get; set;} 
+        public object B0 { get; set; }
 
         /// <summary>
         ///     Sets the y coordinate step. See <c>y0</c> for more info.
         /// </summary>
         [JsonPropertyName(@"db")]
-        public JsNumber? Db { get; set;} 
+        public JsNumber? Db { get; set; }
 
         /// <summary>
         ///     Sets the text elements associated with each z value.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public List<object> Text { get; set;} 
+        public List<object> Text { get; set; }
 
         /// <summary>
         ///     Same as <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public List<object> HoverText { get; set;} 
+        public List<object> HoverText { get; set; }
 
         /// <summary>
         ///     Transposes the z data.
         /// </summary>
         [JsonPropertyName(@"transpose")]
-        public bool? Transpose { get; set;} 
+        public bool? Transpose { get; set; }
 
         /// <summary>
         ///     If <c>array</c>, the heatmap&#39;s x coordinates are given by <c>x</c> (the
@@ -212,7 +209,7 @@ namespace Plotly.Models.Traces
         ///     when <c>x</c> is not provided).
         /// </summary>
         [JsonPropertyName(@"atype")]
-        public ATypeEnum? AType { get; set;} 
+        public ATypeEnum? AType { get; set; }
 
         /// <summary>
         ///     If <c>array</c>, the heatmap&#39;s y coordinates are given by <c>y</c> (the
@@ -221,7 +218,7 @@ namespace Plotly.Models.Traces
         ///     when <c>y</c> is not provided)
         /// </summary>
         [JsonPropertyName(@"btype")]
-        public BTypeEnum? BType { get; set;} 
+        public BTypeEnum? BType { get; set; }
 
         /// <summary>
         ///     Sets the fill color if <c>contours.type</c> is <c>constraint</c>. Defaults
@@ -229,7 +226,7 @@ namespace Plotly.Models.Traces
         ///     line color, whichever is available.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set;} 
+        public object FillColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the contour level attributes are picked by an
@@ -237,7 +234,7 @@ namespace Plotly.Models.Traces
         ///     If <c>false</c>, set the contour level attributes in <c>contours</c>.
         /// </summary>
         [JsonPropertyName(@"autocontour")]
-        public bool? AutoContour { get; set;} 
+        public bool? AutoContour { get; set; }
 
         /// <summary>
         ///     Sets the maximum number of contour levels. The actual number of contours
@@ -246,19 +243,19 @@ namespace Plotly.Models.Traces
         ///     is missing.
         /// </summary>
         [JsonPropertyName(@"ncontours")]
-        public int? NContours { get; set;} 
+        public int? NContours { get; set; }
 
         /// <summary>
         ///     Gets or sets the Contours.
         /// </summary>
         [JsonPropertyName(@"contours")]
-        public ContourCarpets.Contours Contours { get; set;} 
+        public ContourCarpets.Contours Contours { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -267,21 +264,21 @@ namespace Plotly.Models.Traces
         ///     user.
         /// </summary>
         [JsonPropertyName(@"zauto")]
-        public bool? ZAuto { get; set;} 
+        public bool? ZAuto { get; set; }
 
         /// <summary>
         ///     Sets the lower bound of the color domain. Value should have the same units
         ///     as in <c>z</c> and if set, <c>zmax</c> must be set as well.
         /// </summary>
         [JsonPropertyName(@"zmin")]
-        public JsNumber? ZMin { get; set;} 
+        public JsNumber? ZMin { get; set; }
 
         /// <summary>
         ///     Sets the upper bound of the color domain. Value should have the same units
         ///     as in <c>z</c> and if set, <c>zmin</c> must be set as well.
         /// </summary>
         [JsonPropertyName(@"zmax")]
-        public JsNumber? ZMax { get; set;} 
+        public JsNumber? ZMax { get; set; }
 
         /// <summary>
         ///     Sets the mid-point of the color domain by scaling <c>zmin</c> and/or <c>zmax</c>
@@ -289,7 +286,7 @@ namespace Plotly.Models.Traces
         ///     <c>z</c>. Has no effect when <c>zauto</c> is <c>false</c>.
         /// </summary>
         [JsonPropertyName(@"zmid")]
-        public JsNumber? ZMid { get; set;} 
+        public JsNumber? ZMid { get; set; }
 
         /// <summary>
         ///     Sets the colorscale. The colorscale must be an array containing arrays mapping
@@ -301,7 +298,7 @@ namespace Plotly.Models.Traces
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set;} 
+        public object ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -311,7 +308,7 @@ namespace Plotly.Models.Traces
         ///     positive, all negative or mixed.
         /// </summary>
         [JsonPropertyName(@"autocolorscale")]
-        public bool? AutoColorScale { get; set;} 
+        public bool? AutoColorScale { get; set; }
 
         /// <summary>
         ///     Reverses the color mapping if true. If true, <c>zmin</c> will correspond
@@ -319,19 +316,19 @@ namespace Plotly.Models.Traces
         ///     color.
         /// </summary>
         [JsonPropertyName(@"reversescale")]
-        public bool? ReverseScale { get; set;} 
+        public bool? ReverseScale { get; set; }
 
         /// <summary>
         ///     Determines whether or not a colorbar is displayed for this trace.
         /// </summary>
         [JsonPropertyName(@"showscale")]
-        public bool? ShowScale { get; set;} 
+        public bool? ShowScale { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set;} 
+        public ColorBar ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -341,7 +338,7 @@ namespace Plotly.Models.Traces
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set;} 
+        public string ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s x coordinates and a 2D cartesian
@@ -349,7 +346,7 @@ namespace Plotly.Models.Traces
         ///     If <c>x2</c>, the x coordinates refer to <c>layout.xaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"xaxis")]
-        public string XAxis { get; set;} 
+        public string XAxis { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s y coordinates and a 2D cartesian
@@ -357,385 +354,284 @@ namespace Plotly.Models.Traces
         ///     If <c>y2</c>, the y coordinates refer to <c>layout.yaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"yaxis")]
-        public string YAxis { get; set;} 
+        public string YAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set;} 
+        public string IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set;} 
+        public string CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set;} 
+        public string MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  z .
         /// </summary>
         [JsonPropertyName(@"zsrc")]
-        public string ZSrc { get; set;} 
+        public string ZSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  a .
         /// </summary>
         [JsonPropertyName(@"asrc")]
-        public string ASrc { get; set;} 
+        public string ASrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  b .
         /// </summary>
         [JsonPropertyName(@"bsrc")]
-        public string BSrc { get; set;} 
+        public string BSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  text .
         /// </summary>
         [JsonPropertyName(@"textsrc")]
-        public string TextSrc { get; set;} 
+        public string TextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertext .
         /// </summary>
         [JsonPropertyName(@"hovertextsrc")]
-        public string HoverTextSrc { get; set;} 
+        public string HoverTextSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is ContourCarpet other)) return false;
+            if(!(obj is ContourCarpet other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] ContourCarpet other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    ShowLegend == other.ShowLegend &&
-                    ShowLegend != null && other.ShowLegend != null &&
-                    ShowLegend.Equals(other.ShowLegend)
-                ) && 
-                (
-                    LegendGroup == other.LegendGroup &&
-                    LegendGroup != null && other.LegendGroup != null &&
-                    LegendGroup.Equals(other.LegendGroup)
-                ) && 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    UId == other.UId &&
-                    UId != null && other.UId != null &&
-                    UId.Equals(other.UId)
-                ) && 
-                (
-                    Equals(Ids, other.Ids) ||
-                    Ids != null && other.Ids != null &&
-                    Ids.SequenceEqual(other.Ids)
-                ) &&
-                (
-                    Equals(CustomData, other.CustomData) ||
-                    CustomData != null && other.CustomData != null &&
-                    CustomData.SequenceEqual(other.CustomData)
-                ) &&
-                (
-                    Meta == other.Meta &&
-                    Meta != null && other.Meta != null &&
-                    Meta.Equals(other.Meta)
-                ) && 
-                (
-                    Equals(MetaArray, other.MetaArray) ||
-                    MetaArray != null && other.MetaArray != null &&
-                    MetaArray.SequenceEqual(other.MetaArray)
-                ) &&
-                (
-                    Stream == other.Stream &&
-                    Stream != null && other.Stream != null &&
-                    Stream.Equals(other.Stream)
-                ) && 
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                ) && 
-                (
-                    Carpet == other.Carpet &&
-                    Carpet != null && other.Carpet != null &&
-                    Carpet.Equals(other.Carpet)
-                ) && 
-                (
-                    Equals(Z, other.Z) ||
-                    Z != null && other.Z != null &&
-                    Z.SequenceEqual(other.Z)
-                ) &&
-                (
-                    Equals(A, other.A) ||
-                    A != null && other.A != null &&
-                    A.SequenceEqual(other.A)
-                ) &&
-                (
-                    A0 == other.A0 &&
-                    A0 != null && other.A0 != null &&
-                    A0.Equals(other.A0)
-                ) && 
-                (
-                    DA == other.DA &&
-                    DA != null && other.DA != null &&
-                    DA.Equals(other.DA)
-                ) && 
-                (
-                    Equals(B, other.B) ||
-                    B != null && other.B != null &&
-                    B.SequenceEqual(other.B)
-                ) &&
-                (
-                    B0 == other.B0 &&
-                    B0 != null && other.B0 != null &&
-                    B0.Equals(other.B0)
-                ) && 
-                (
-                    Db == other.Db &&
-                    Db != null && other.Db != null &&
-                    Db.Equals(other.Db)
-                ) && 
-                (
-                    Equals(Text, other.Text) ||
-                    Text != null && other.Text != null &&
-                    Text.SequenceEqual(other.Text)
-                ) &&
-                (
-                    Equals(HoverText, other.HoverText) ||
-                    HoverText != null && other.HoverText != null &&
-                    HoverText.SequenceEqual(other.HoverText)
-                ) &&
-                (
-                    Transpose == other.Transpose &&
-                    Transpose != null && other.Transpose != null &&
-                    Transpose.Equals(other.Transpose)
-                ) && 
-                (
-                    AType == other.AType &&
-                    AType != null && other.AType != null &&
-                    AType.Equals(other.AType)
-                ) && 
-                (
-                    BType == other.BType &&
-                    BType != null && other.BType != null &&
-                    BType.Equals(other.BType)
-                ) && 
-                (
-                    FillColor == other.FillColor &&
-                    FillColor != null && other.FillColor != null &&
-                    FillColor.Equals(other.FillColor)
-                ) && 
-                (
-                    AutoContour == other.AutoContour &&
-                    AutoContour != null && other.AutoContour != null &&
-                    AutoContour.Equals(other.AutoContour)
-                ) && 
-                (
-                    NContours == other.NContours &&
-                    NContours != null && other.NContours != null &&
-                    NContours.Equals(other.NContours)
-                ) && 
-                (
-                    Contours == other.Contours &&
-                    Contours != null && other.Contours != null &&
-                    Contours.Equals(other.Contours)
-                ) && 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    ZAuto == other.ZAuto &&
-                    ZAuto != null && other.ZAuto != null &&
-                    ZAuto.Equals(other.ZAuto)
-                ) && 
-                (
-                    ZMin == other.ZMin &&
-                    ZMin != null && other.ZMin != null &&
-                    ZMin.Equals(other.ZMin)
-                ) && 
-                (
-                    ZMax == other.ZMax &&
-                    ZMax != null && other.ZMax != null &&
-                    ZMax.Equals(other.ZMax)
-                ) && 
-                (
-                    ZMid == other.ZMid &&
-                    ZMid != null && other.ZMid != null &&
-                    ZMid.Equals(other.ZMid)
-                ) && 
-                (
-                    ColorScale == other.ColorScale &&
-                    ColorScale != null && other.ColorScale != null &&
-                    ColorScale.Equals(other.ColorScale)
-                ) && 
-                (
-                    AutoColorScale == other.AutoColorScale &&
-                    AutoColorScale != null && other.AutoColorScale != null &&
-                    AutoColorScale.Equals(other.AutoColorScale)
-                ) && 
-                (
-                    ReverseScale == other.ReverseScale &&
-                    ReverseScale != null && other.ReverseScale != null &&
-                    ReverseScale.Equals(other.ReverseScale)
-                ) && 
-                (
-                    ShowScale == other.ShowScale &&
-                    ShowScale != null && other.ShowScale != null &&
-                    ShowScale.Equals(other.ShowScale)
-                ) && 
-                (
-                    ColorBar == other.ColorBar &&
-                    ColorBar != null && other.ColorBar != null &&
-                    ColorBar.Equals(other.ColorBar)
-                ) && 
-                (
-                    ColorAxis == other.ColorAxis &&
-                    ColorAxis != null && other.ColorAxis != null &&
-                    ColorAxis.Equals(other.ColorAxis)
-                ) && 
-                (
-                    XAxis == other.XAxis &&
-                    XAxis != null && other.XAxis != null &&
-                    XAxis.Equals(other.XAxis)
-                ) && 
-                (
-                    YAxis == other.YAxis &&
-                    YAxis != null && other.YAxis != null &&
-                    YAxis.Equals(other.YAxis)
-                ) && 
-                (
-                    IdsSrc == other.IdsSrc &&
-                    IdsSrc != null && other.IdsSrc != null &&
-                    IdsSrc.Equals(other.IdsSrc)
-                ) && 
-                (
-                    CustomDataSrc == other.CustomDataSrc &&
-                    CustomDataSrc != null && other.CustomDataSrc != null &&
-                    CustomDataSrc.Equals(other.CustomDataSrc)
-                ) && 
-                (
-                    MetaSrc == other.MetaSrc &&
-                    MetaSrc != null && other.MetaSrc != null &&
-                    MetaSrc.Equals(other.MetaSrc)
-                ) && 
-                (
-                    ZSrc == other.ZSrc &&
-                    ZSrc != null && other.ZSrc != null &&
-                    ZSrc.Equals(other.ZSrc)
-                ) && 
-                (
-                    ASrc == other.ASrc &&
-                    ASrc != null && other.ASrc != null &&
-                    ASrc.Equals(other.ASrc)
-                ) && 
-                (
-                    BSrc == other.BSrc &&
-                    BSrc != null && other.BSrc != null &&
-                    BSrc.Equals(other.BSrc)
-                ) && 
-                (
-                    TextSrc == other.TextSrc &&
-                    TextSrc != null && other.TextSrc != null &&
-                    TextSrc.Equals(other.TextSrc)
-                ) && 
-                (
-                    HoverTextSrc == other.HoverTextSrc &&
-                    HoverTextSrc != null && other.HoverTextSrc != null &&
-                    HoverTextSrc.Equals(other.HoverTextSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type        == other.Type        && Type        != null && other.Type        != null && Type.Equals(other.Type))                                 &&
+                   (Visible     == other.Visible     && Visible     != null && other.Visible     != null && Visible.Equals(other.Visible))                           &&
+                   (ShowLegend  == other.ShowLegend  && ShowLegend  != null && other.ShowLegend  != null && ShowLegend.Equals(other.ShowLegend))                     &&
+                   (LegendGroup == other.LegendGroup && LegendGroup != null && other.LegendGroup != null && LegendGroup.Equals(other.LegendGroup))                   &&
+                   (Opacity     == other.Opacity     && Opacity     != null && other.Opacity     != null && Opacity.Equals(other.Opacity))                           &&
+                   (Name        == other.Name        && Name        != null && other.Name        != null && Name.Equals(other.Name))                                 &&
+                   (UId         == other.UId         && UId         != null && other.UId         != null && UId.Equals(other.UId))                                   &&
+                   (Equals(Ids,        other.Ids)        || Ids        != null && other.Ids        != null && Ids.SequenceEqual(other.Ids))                          &&
+                   (Equals(CustomData, other.CustomData) || CustomData != null && other.CustomData != null && CustomData.SequenceEqual(other.CustomData))            &&
+                   (Meta == other.Meta && Meta != null && other.Meta != null && Meta.Equals(other.Meta))                                                             &&
+                   (Equals(MetaArray, other.MetaArray) || MetaArray != null && other.MetaArray != null && MetaArray.SequenceEqual(other.MetaArray))                  &&
+                   (Stream     == other.Stream     && Stream     != null && other.Stream     != null && Stream.Equals(other.Stream))                                 &&
+                   (UiRevision == other.UiRevision && UiRevision != null && other.UiRevision != null && UiRevision.Equals(other.UiRevision))                         &&
+                   (Carpet     == other.Carpet     && Carpet     != null && other.Carpet     != null && Carpet.Equals(other.Carpet))                                 &&
+                   (Equals(Z, other.Z) || Z != null && other.Z != null && Z.SequenceEqual(other.Z))                                                                  &&
+                   (Equals(A, other.A) || A != null && other.A != null && A.SequenceEqual(other.A))                                                                  &&
+                   (A0 == other.A0 && A0 != null && other.A0 != null && A0.Equals(other.A0))                                                                         &&
+                   (DA == other.DA && DA != null && other.DA != null && DA.Equals(other.DA))                                                                         &&
+                   (Equals(B, other.B) || B != null && other.B != null && B.SequenceEqual(other.B))                                                                  &&
+                   (B0 == other.B0 && B0 != null && other.B0 != null && B0.Equals(other.B0))                                                                         &&
+                   (Db == other.Db && Db != null && other.Db != null && Db.Equals(other.Db))                                                                         &&
+                   (Equals(Text,      other.Text)      || Text      != null && other.Text      != null && Text.SequenceEqual(other.Text))                            &&
+                   (Equals(HoverText, other.HoverText) || HoverText != null && other.HoverText != null && HoverText.SequenceEqual(other.HoverText))                  &&
+                   (Transpose      == other.Transpose      && Transpose      != null && other.Transpose      != null && Transpose.Equals(other.Transpose))           &&
+                   (AType          == other.AType          && AType          != null && other.AType          != null && AType.Equals(other.AType))                   &&
+                   (BType          == other.BType          && BType          != null && other.BType          != null && BType.Equals(other.BType))                   &&
+                   (FillColor      == other.FillColor      && FillColor      != null && other.FillColor      != null && FillColor.Equals(other.FillColor))           &&
+                   (AutoContour    == other.AutoContour    && AutoContour    != null && other.AutoContour    != null && AutoContour.Equals(other.AutoContour))       &&
+                   (NContours      == other.NContours      && NContours      != null && other.NContours      != null && NContours.Equals(other.NContours))           &&
+                   (Contours       == other.Contours       && Contours       != null && other.Contours       != null && Contours.Equals(other.Contours))             &&
+                   (Line           == other.Line           && Line           != null && other.Line           != null && Line.Equals(other.Line))                     &&
+                   (ZAuto          == other.ZAuto          && ZAuto          != null && other.ZAuto          != null && ZAuto.Equals(other.ZAuto))                   &&
+                   (ZMin           == other.ZMin           && ZMin           != null && other.ZMin           != null && ZMin.Equals(other.ZMin))                     &&
+                   (ZMax           == other.ZMax           && ZMax           != null && other.ZMax           != null && ZMax.Equals(other.ZMax))                     &&
+                   (ZMid           == other.ZMid           && ZMid           != null && other.ZMid           != null && ZMid.Equals(other.ZMid))                     &&
+                   (ColorScale     == other.ColorScale     && ColorScale     != null && other.ColorScale     != null && ColorScale.Equals(other.ColorScale))         &&
+                   (AutoColorScale == other.AutoColorScale && AutoColorScale != null && other.AutoColorScale != null && AutoColorScale.Equals(other.AutoColorScale)) &&
+                   (ReverseScale   == other.ReverseScale   && ReverseScale   != null && other.ReverseScale   != null && ReverseScale.Equals(other.ReverseScale))     &&
+                   (ShowScale      == other.ShowScale      && ShowScale      != null && other.ShowScale      != null && ShowScale.Equals(other.ShowScale))           &&
+                   (ColorBar       == other.ColorBar       && ColorBar       != null && other.ColorBar       != null && ColorBar.Equals(other.ColorBar))             &&
+                   (ColorAxis      == other.ColorAxis      && ColorAxis      != null && other.ColorAxis      != null && ColorAxis.Equals(other.ColorAxis))           &&
+                   (XAxis          == other.XAxis          && XAxis          != null && other.XAxis          != null && XAxis.Equals(other.XAxis))                   &&
+                   (YAxis          == other.YAxis          && YAxis          != null && other.YAxis          != null && YAxis.Equals(other.YAxis))                   &&
+                   (IdsSrc         == other.IdsSrc         && IdsSrc         != null && other.IdsSrc         != null && IdsSrc.Equals(other.IdsSrc))                 &&
+                   (CustomDataSrc  == other.CustomDataSrc  && CustomDataSrc  != null && other.CustomDataSrc  != null && CustomDataSrc.Equals(other.CustomDataSrc))   &&
+                   (MetaSrc        == other.MetaSrc        && MetaSrc        != null && other.MetaSrc        != null && MetaSrc.Equals(other.MetaSrc))               &&
+                   (ZSrc           == other.ZSrc           && ZSrc           != null && other.ZSrc           != null && ZSrc.Equals(other.ZSrc))                     &&
+                   (ASrc           == other.ASrc           && ASrc           != null && other.ASrc           != null && ASrc.Equals(other.ASrc))                     &&
+                   (BSrc           == other.BSrc           && BSrc           != null && other.BSrc           != null && BSrc.Equals(other.BSrc))                     &&
+                   (TextSrc        == other.TextSrc        && TextSrc        != null && other.TextSrc        != null && TextSrc.Equals(other.TextSrc))               &&
+                   (HoverTextSrc   == other.HoverTextSrc   && HoverTextSrc   != null && other.HoverTextSrc   != null && HoverTextSrc.Equals(other.HoverTextSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (ShowLegend != null) hashCode = hashCode * 59 + ShowLegend.GetHashCode();
-                if (LegendGroup != null) hashCode = hashCode * 59 + LegendGroup.GetHashCode();
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (UId != null) hashCode = hashCode * 59 + UId.GetHashCode();
-                if (Ids != null) hashCode = hashCode * 59 + Ids.GetHashCode();
-                if (CustomData != null) hashCode = hashCode * 59 + CustomData.GetHashCode();
-                if (Meta != null) hashCode = hashCode * 59 + Meta.GetHashCode();
-                if (MetaArray != null) hashCode = hashCode * 59 + MetaArray.GetHashCode();
-                if (Stream != null) hashCode = hashCode * 59 + Stream.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
-                if (Carpet != null) hashCode = hashCode * 59 + Carpet.GetHashCode();
-                if (Z != null) hashCode = hashCode * 59 + Z.GetHashCode();
-                if (A != null) hashCode = hashCode * 59 + A.GetHashCode();
-                if (A0 != null) hashCode = hashCode * 59 + A0.GetHashCode();
-                if (DA != null) hashCode = hashCode * 59 + DA.GetHashCode();
-                if (B != null) hashCode = hashCode * 59 + B.GetHashCode();
-                if (B0 != null) hashCode = hashCode * 59 + B0.GetHashCode();
-                if (Db != null) hashCode = hashCode * 59 + Db.GetHashCode();
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (HoverText != null) hashCode = hashCode * 59 + HoverText.GetHashCode();
-                if (Transpose != null) hashCode = hashCode * 59 + Transpose.GetHashCode();
-                if (AType != null) hashCode = hashCode * 59 + AType.GetHashCode();
-                if (BType != null) hashCode = hashCode * 59 + BType.GetHashCode();
-                if (FillColor != null) hashCode = hashCode * 59 + FillColor.GetHashCode();
-                if (AutoContour != null) hashCode = hashCode * 59 + AutoContour.GetHashCode();
-                if (NContours != null) hashCode = hashCode * 59 + NContours.GetHashCode();
-                if (Contours != null) hashCode = hashCode * 59 + Contours.GetHashCode();
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (ZAuto != null) hashCode = hashCode * 59 + ZAuto.GetHashCode();
-                if (ZMin != null) hashCode = hashCode * 59 + ZMin.GetHashCode();
-                if (ZMax != null) hashCode = hashCode * 59 + ZMax.GetHashCode();
-                if (ZMid != null) hashCode = hashCode * 59 + ZMid.GetHashCode();
-                if (ColorScale != null) hashCode = hashCode * 59 + ColorScale.GetHashCode();
-                if (AutoColorScale != null) hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
-                if (ReverseScale != null) hashCode = hashCode * 59 + ReverseScale.GetHashCode();
-                if (ShowScale != null) hashCode = hashCode * 59 + ShowScale.GetHashCode();
-                if (ColorBar != null) hashCode = hashCode * 59 + ColorBar.GetHashCode();
-                if (ColorAxis != null) hashCode = hashCode * 59 + ColorAxis.GetHashCode();
-                if (XAxis != null) hashCode = hashCode * 59 + XAxis.GetHashCode();
-                if (YAxis != null) hashCode = hashCode * 59 + YAxis.GetHashCode();
-                if (IdsSrc != null) hashCode = hashCode * 59 + IdsSrc.GetHashCode();
-                if (CustomDataSrc != null) hashCode = hashCode * 59 + CustomDataSrc.GetHashCode();
-                if (MetaSrc != null) hashCode = hashCode * 59 + MetaSrc.GetHashCode();
-                if (ZSrc != null) hashCode = hashCode * 59 + ZSrc.GetHashCode();
-                if (ASrc != null) hashCode = hashCode * 59 + ASrc.GetHashCode();
-                if (BSrc != null) hashCode = hashCode * 59 + BSrc.GetHashCode();
-                if (TextSrc != null) hashCode = hashCode * 59 + TextSrc.GetHashCode();
-                if (HoverTextSrc != null) hashCode = hashCode * 59 + HoverTextSrc.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(ShowLegend != null)
+                    hashCode = hashCode * 59 + ShowLegend.GetHashCode();
+
+                if(LegendGroup != null)
+                    hashCode = hashCode * 59 + LegendGroup.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(UId != null)
+                    hashCode = hashCode * 59 + UId.GetHashCode();
+
+                if(Ids != null)
+                    hashCode = hashCode * 59 + Ids.GetHashCode();
+
+                if(CustomData != null)
+                    hashCode = hashCode * 59 + CustomData.GetHashCode();
+
+                if(Meta != null)
+                    hashCode = hashCode * 59 + Meta.GetHashCode();
+
+                if(MetaArray != null)
+                    hashCode = hashCode * 59 + MetaArray.GetHashCode();
+
+                if(Stream != null)
+                    hashCode = hashCode * 59 + Stream.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(Carpet != null)
+                    hashCode = hashCode * 59 + Carpet.GetHashCode();
+
+                if(Z != null)
+                    hashCode = hashCode * 59 + Z.GetHashCode();
+
+                if(A != null)
+                    hashCode = hashCode * 59 + A.GetHashCode();
+
+                if(A0 != null)
+                    hashCode = hashCode * 59 + A0.GetHashCode();
+
+                if(DA != null)
+                    hashCode = hashCode * 59 + DA.GetHashCode();
+
+                if(B != null)
+                    hashCode = hashCode * 59 + B.GetHashCode();
+
+                if(B0 != null)
+                    hashCode = hashCode * 59 + B0.GetHashCode();
+
+                if(Db != null)
+                    hashCode = hashCode * 59 + Db.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(HoverText != null)
+                    hashCode = hashCode * 59 + HoverText.GetHashCode();
+
+                if(Transpose != null)
+                    hashCode = hashCode * 59 + Transpose.GetHashCode();
+
+                if(AType != null)
+                    hashCode = hashCode * 59 + AType.GetHashCode();
+
+                if(BType != null)
+                    hashCode = hashCode * 59 + BType.GetHashCode();
+
+                if(FillColor != null)
+                    hashCode = hashCode * 59 + FillColor.GetHashCode();
+
+                if(AutoContour != null)
+                    hashCode = hashCode * 59 + AutoContour.GetHashCode();
+
+                if(NContours != null)
+                    hashCode = hashCode * 59 + NContours.GetHashCode();
+
+                if(Contours != null)
+                    hashCode = hashCode * 59 + Contours.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(ZAuto != null)
+                    hashCode = hashCode * 59 + ZAuto.GetHashCode();
+
+                if(ZMin != null)
+                    hashCode = hashCode * 59 + ZMin.GetHashCode();
+
+                if(ZMax != null)
+                    hashCode = hashCode * 59 + ZMax.GetHashCode();
+
+                if(ZMid != null)
+                    hashCode = hashCode * 59 + ZMid.GetHashCode();
+
+                if(ColorScale != null)
+                    hashCode = hashCode * 59 + ColorScale.GetHashCode();
+
+                if(AutoColorScale != null)
+                    hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
+
+                if(ReverseScale != null)
+                    hashCode = hashCode * 59 + ReverseScale.GetHashCode();
+
+                if(ShowScale != null)
+                    hashCode = hashCode * 59 + ShowScale.GetHashCode();
+
+                if(ColorBar != null)
+                    hashCode = hashCode * 59 + ColorBar.GetHashCode();
+
+                if(ColorAxis != null)
+                    hashCode = hashCode * 59 + ColorAxis.GetHashCode();
+
+                if(XAxis != null)
+                    hashCode = hashCode * 59 + XAxis.GetHashCode();
+
+                if(YAxis != null)
+                    hashCode = hashCode * 59 + YAxis.GetHashCode();
+
+                if(IdsSrc != null)
+                    hashCode = hashCode * 59 + IdsSrc.GetHashCode();
+
+                if(CustomDataSrc != null)
+                    hashCode = hashCode * 59 + CustomDataSrc.GetHashCode();
+
+                if(MetaSrc != null)
+                    hashCode = hashCode * 59 + MetaSrc.GetHashCode();
+
+                if(ZSrc != null)
+                    hashCode = hashCode * 59 + ZSrc.GetHashCode();
+
+                if(ASrc != null)
+                    hashCode = hashCode * 59 + ASrc.GetHashCode();
+
+                if(BSrc != null)
+                    hashCode = hashCode * 59 + BSrc.GetHashCode();
+
+                if(TextSrc != null)
+                    hashCode = hashCode * 59 + TextSrc.GetHashCode();
+
+                if(HoverTextSrc != null)
+                    hashCode = hashCode * 59 + HoverTextSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -746,7 +642,8 @@ namespace Plotly.Models.Traces
         /// <param name="left">Left ContourCarpet.</param>
         /// <param name="right">Right ContourCarpet.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (ContourCarpet left, ContourCarpet right)
+        public static bool operator ==(ContourCarpet left,
+                                       ContourCarpet right)
         {
             return Equals(left, right);
         }
@@ -757,7 +654,8 @@ namespace Plotly.Models.Traces
         /// <param name="left">Left ContourCarpet.</param>
         /// <param name="right">Right ContourCarpet.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (ContourCarpet left, ContourCarpet right)
+        public static bool operator !=(ContourCarpet left,
+                                       ContourCarpet right)
         {
             return !Equals(left, right);
         }
@@ -769,9 +667,10 @@ namespace Plotly.Models.Traces
         public ContourCarpet DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<ContourCarpet>(ms).Result;
         }
     }

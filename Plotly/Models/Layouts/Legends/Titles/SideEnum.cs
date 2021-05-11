@@ -11,15 +11,16 @@ namespace Plotly.Models.Layouts.Legends.Titles
     ///     to <c>left</c> with <c>orientation</c> is <c>v</c>. The &#39;top left&#39;
     ///     options could be used to expand legend area in both x and y sides.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SideEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"top left")]
+
+        [EnumMember(Value = @"top left")]
         TopLeft
     }
 }

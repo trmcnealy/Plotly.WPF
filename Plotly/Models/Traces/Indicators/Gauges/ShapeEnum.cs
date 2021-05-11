@@ -8,13 +8,13 @@ namespace Plotly.Models.Traces.Indicators.Gauges
     /// <summary>
     ///     Set the shape of the gauge
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShapeEnum
     {
-        [EnumMember(Value=@"angular")]
+        [EnumMember(Value = @"angular")]
         Angular = 0,
-        [EnumMember(Value=@"bullet")]
+
+        [EnumMember(Value = @"bullet")]
         Bullet
     }
 }

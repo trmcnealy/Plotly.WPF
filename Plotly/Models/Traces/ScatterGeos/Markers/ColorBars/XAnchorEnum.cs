@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.ScatterGeos.Markers.ColorBars
     ///     the <c>x</c> position to the <c>left</c>, <c>center</c> or <c>right</c>
     ///     of the color bar.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XAnchorEnum
     {
-        [EnumMember(Value=@"left")]
+        [EnumMember(Value = @"left")]
         Left = 0,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

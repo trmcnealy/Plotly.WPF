@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Transition class.
     /// </summary>
-    
     [Serializable]
     public class Transition : IEquatable<Transition>
     {
@@ -21,62 +20,57 @@ namespace Plotly.Models.Layouts
         ///     are synchronous.
         /// </summary>
         [JsonPropertyName(@"duration")]
-        public JsNumber? Duration { get; set;} 
+        public JsNumber? Duration { get; set; }
 
         /// <summary>
         ///     The easing function used for the transition
         /// </summary>
         [JsonPropertyName(@"easing")]
-        public EasingEnum? Easing { get; set;} 
+        public EasingEnum? Easing { get; set; }
 
         /// <summary>
         ///     Determines whether the figure&#39;s layout or traces smoothly transitions
         ///     during updates that make both traces and layout change.
         /// </summary>
         [JsonPropertyName(@"ordering")]
-        public OrderingEnum? Ordering { get; set;} 
+        public OrderingEnum? Ordering { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Transition other)) return false;
+            if(!(obj is Transition other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Transition other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Duration == other.Duration &&
-                    Duration != null && other.Duration != null &&
-                    Duration.Equals(other.Duration)
-                ) && 
-                (
-                    Easing == other.Easing &&
-                    Easing != null && other.Easing != null &&
-                    Easing.Equals(other.Easing)
-                ) && 
-                (
-                    Ordering == other.Ordering &&
-                    Ordering != null && other.Ordering != null &&
-                    Ordering.Equals(other.Ordering)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Duration == other.Duration && Duration != null && other.Duration != null && Duration.Equals(other.Duration)) &&
+                   (Easing   == other.Easing   && Easing   != null && other.Easing   != null && Easing.Equals(other.Easing))     &&
+                   (Ordering == other.Ordering && Ordering != null && other.Ordering != null && Ordering.Equals(other.Ordering));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Duration != null) hashCode = hashCode * 59 + Duration.GetHashCode();
-                if (Easing != null) hashCode = hashCode * 59 + Easing.GetHashCode();
-                if (Ordering != null) hashCode = hashCode * 59 + Ordering.GetHashCode();
+
+                if(Duration != null)
+                    hashCode = hashCode * 59 + Duration.GetHashCode();
+
+                if(Easing != null)
+                    hashCode = hashCode * 59 + Easing.GetHashCode();
+
+                if(Ordering != null)
+                    hashCode = hashCode * 59 + Ordering.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -87,7 +81,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Transition.</param>
         /// <param name="right">Right Transition.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Transition left, Transition right)
+        public static bool operator ==(Transition left,
+                                       Transition right)
         {
             return Equals(left, right);
         }
@@ -98,7 +93,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Transition.</param>
         /// <param name="right">Right Transition.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Transition left, Transition right)
+        public static bool operator !=(Transition left,
+                                       Transition right)
         {
             return !Equals(left, right);
         }
@@ -110,9 +106,10 @@ namespace Plotly.Models.Layouts
         public Transition DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Transition>(ms).Result;
         }
     }

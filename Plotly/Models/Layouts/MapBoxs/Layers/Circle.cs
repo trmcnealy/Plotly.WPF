@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
     /// <summary>
     ///     The Circle class.
     /// </summary>
-    
     [Serializable]
     public class Circle : IEquatable<Circle>
     {
@@ -19,37 +18,36 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     only when <c>type</c> is set to <c>circle</c>.
         /// </summary>
         [JsonPropertyName(@"radius")]
-        public JsNumber? Radius { get; set;} 
+        public JsNumber? Radius { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Circle other)) return false;
+            if(!(obj is Circle other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Circle other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Radius == other.Radius &&
-                    Radius != null && other.Radius != null &&
-                    Radius.Equals(other.Radius)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Radius == other.Radius && Radius != null && other.Radius != null && Radius.Equals(other.Radius));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Radius != null) hashCode = hashCode * 59 + Radius.GetHashCode();
+
+                if(Radius != null)
+                    hashCode = hashCode * 59 + Radius.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -60,7 +58,8 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         /// <param name="left">Left Circle.</param>
         /// <param name="right">Right Circle.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Circle left, Circle right)
+        public static bool operator ==(Circle left,
+                                       Circle right)
         {
             return Equals(left, right);
         }
@@ -71,7 +70,8 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         /// <param name="left">Left Circle.</param>
         /// <param name="right">Right Circle.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Circle left, Circle right)
+        public static bool operator !=(Circle left,
+                                       Circle right)
         {
             return !Equals(left, right);
         }
@@ -83,9 +83,10 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         public Circle DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Circle>(ms).Result;
         }
     }

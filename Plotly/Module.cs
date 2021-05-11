@@ -13,7 +13,7 @@ namespace Plotly
         [ModuleInitializer]
         internal static void Initialize()
         {
-            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly"); 
+            string Plotly_folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plotly");
 
             if(!Directory.Exists(Plotly_folder))
             {
@@ -25,23 +25,22 @@ namespace Plotly
                 Directory.CreateDirectory(Plotly_folder);
             }
 
-            //string Plotly_html_file = Path.Combine(Plotly_folder, "Plotly.html");
+            InitializeJavascriptFile(Plotly_folder, "plotly.min.js",       Resources.plotly_js);
+            InitializeJavascriptFile(Plotly_folder, "PlotlyApp.min.js",    Resources.PlotlyApp_js);
+            InitializeJavascriptFile(Plotly_folder, "PlotlyWorker.min.js", Resources.PlotlyWorker_js);
+        }
 
-            //if(!File.Exists(Plotly_html_file))
-            //{
-            //    using(StreamWriter sw = new StreamWriter(Plotly_html_file))
-            //    {
-            //        sw.Write(Resources.Plotly_html);
-            //    }
-            //}
-            
-            string Plotly_js_file = Path.Combine(Plotly_folder, "Plotly.js");
+        internal static void InitializeJavascriptFile(string output_folder,
+                                                      string js_file_html_name,
+                                                      string js_file_content)
+        {
+            string js_file = Path.Combine(output_folder, js_file_html_name);
 
-            if(!File.Exists(Plotly_js_file))
+            if(!File.Exists(js_file))
             {
-                using(StreamWriter sw = new StreamWriter(Plotly_js_file))
+                using(StreamWriter sw = new StreamWriter(js_file))
                 {
-                    sw.Write(Resources.Plotly_js);
+                    sw.Write(js_file_content);
                 }
             }
         }

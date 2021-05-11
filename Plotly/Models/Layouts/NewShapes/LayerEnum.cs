@@ -8,13 +8,13 @@ namespace Plotly.Models.Layouts.NewShapes
     /// <summary>
     ///     Specifies whether new shapes are drawn below or above traces.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum LayerEnum
     {
-        [EnumMember(Value=@"above")]
+        [EnumMember(Value = @"above")]
         Above = 0,
-        [EnumMember(Value=@"below")]
+
+        [EnumMember(Value = @"below")]
         Below
     }
 }

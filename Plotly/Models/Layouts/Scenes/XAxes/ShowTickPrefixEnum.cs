@@ -11,17 +11,19 @@ namespace Plotly.Models.Layouts.Scenes.XAxes
     ///     last tick is displayed with a suffix. If <c>none</c>, tick prefixes are
     ///     hidden.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShowTickPrefixEnum
     {
-        [EnumMember(Value=@"all")]
+        [EnumMember(Value = @"all")]
         All = 0,
-        [EnumMember(Value=@"first")]
+
+        [EnumMember(Value = @"first")]
         First,
-        [EnumMember(Value=@"last")]
+
+        [EnumMember(Value = @"last")]
         Last,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

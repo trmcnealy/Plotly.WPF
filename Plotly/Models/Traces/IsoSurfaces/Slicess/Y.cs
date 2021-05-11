@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
     /// <summary>
     ///     The Y class.
     /// </summary>
-    
     [Serializable]
     public class Y : IEquatable<Y>
     {
@@ -20,14 +19,14 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         ///     Determines whether or not slice planes about the y dimension are drawn.
         /// </summary>
         [JsonPropertyName(@"show")]
-        public bool? Show { get; set;} 
+        public bool? Show { get; set; }
 
         /// <summary>
         ///     Specifies the location(s) of slices on the axis. When not specified slices
         ///     would be created for all points of the axis y except start and end.
         /// </summary>
         [JsonPropertyName(@"locations")]
-        public List<object> Locations { get; set;} 
+        public List<object> Locations { get; set; }
 
         /// <summary>
         ///     Sets the fill ratio of the <c>slices</c>. The default fill value of the
@@ -36,61 +35,54 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         ///     parallel to the edges.
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public JsNumber? Fill { get; set;} 
+        public JsNumber? Fill { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  locations .
         /// </summary>
         [JsonPropertyName(@"locationssrc")]
-        public string LocationsSrc { get; set;} 
+        public string LocationsSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Y other)) return false;
+            if(!(obj is Y other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Y other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Show == other.Show &&
-                    Show != null && other.Show != null &&
-                    Show.Equals(other.Show)
-                ) && 
-                (
-                    Equals(Locations, other.Locations) ||
-                    Locations != null && other.Locations != null &&
-                    Locations.SequenceEqual(other.Locations)
-                ) &&
-                (
-                    Fill == other.Fill &&
-                    Fill != null && other.Fill != null &&
-                    Fill.Equals(other.Fill)
-                ) && 
-                (
-                    LocationsSrc == other.LocationsSrc &&
-                    LocationsSrc != null && other.LocationsSrc != null &&
-                    LocationsSrc.Equals(other.LocationsSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Show == other.Show && Show != null && other.Show != null && Show.Equals(other.Show))                                            &&
+                   (Equals(Locations, other.Locations) || Locations != null && other.Locations != null && Locations.SequenceEqual(other.Locations)) &&
+                   (Fill         == other.Fill         && Fill         != null && other.Fill         != null && Fill.Equals(other.Fill))            &&
+                   (LocationsSrc == other.LocationsSrc && LocationsSrc != null && other.LocationsSrc != null && LocationsSrc.Equals(other.LocationsSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Show != null) hashCode = hashCode * 59 + Show.GetHashCode();
-                if (Locations != null) hashCode = hashCode * 59 + Locations.GetHashCode();
-                if (Fill != null) hashCode = hashCode * 59 + Fill.GetHashCode();
-                if (LocationsSrc != null) hashCode = hashCode * 59 + LocationsSrc.GetHashCode();
+
+                if(Show != null)
+                    hashCode = hashCode * 59 + Show.GetHashCode();
+
+                if(Locations != null)
+                    hashCode = hashCode * 59 + Locations.GetHashCode();
+
+                if(Fill != null)
+                    hashCode = hashCode * 59 + Fill.GetHashCode();
+
+                if(LocationsSrc != null)
+                    hashCode = hashCode * 59 + LocationsSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -101,7 +93,8 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         /// <param name="left">Left Y.</param>
         /// <param name="right">Right Y.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Y left, Y right)
+        public static bool operator ==(Y left,
+                                       Y right)
         {
             return Equals(left, right);
         }
@@ -112,7 +105,8 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         /// <param name="left">Left Y.</param>
         /// <param name="right">Right Y.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Y left, Y right)
+        public static bool operator !=(Y left,
+                                       Y right)
         {
             return !Equals(left, right);
         }
@@ -124,9 +118,10 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         public Y DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Y>(ms).Result;
         }
     }

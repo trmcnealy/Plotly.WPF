@@ -11,34 +11,44 @@ namespace Plotly.Models.Traces.Cones
     ///     are set, no information is displayed upon hovering. But, if <c>none</c>
     ///     is set, click and hover events are still fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"x")]
+
+        [EnumMember(Value = @"x")]
         X = 2,
-        [EnumMember(Value=@"y")]
+
+        [EnumMember(Value = @"y")]
         Y = 4,
-        [EnumMember(Value=@"z")]
+
+        [EnumMember(Value = @"z")]
         Z = 8,
-        [EnumMember(Value=@"u")]
+
+        [EnumMember(Value = @"u")]
         U = 16,
-        [EnumMember(Value=@"v")]
+
+        [EnumMember(Value = @"v")]
         V = 32,
-        [EnumMember(Value=@"w")]
+
+        [EnumMember(Value = @"w")]
         W = 64,
-        [EnumMember(Value=@"norm")]
+
+        [EnumMember(Value = @"norm")]
         Norm = 128,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 256,
-        [EnumMember(Value=@"name")]
+
+        [EnumMember(Value = @"name")]
         Name = 512,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = X | Y | Z | U | V | W | Norm | Text | Name
     }
 }

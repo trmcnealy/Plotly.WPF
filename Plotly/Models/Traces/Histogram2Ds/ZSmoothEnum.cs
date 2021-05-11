@@ -8,15 +8,16 @@ namespace Plotly.Models.Traces.Histogram2Ds
     /// <summary>
     ///     Picks a smoothing algorithm use to smooth <c>z</c> data.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ZSmoothEnum
     {
-        [EnumMember(Value=@"false")]
+        [EnumMember(Value = @"false")]
         False = 0,
-        [EnumMember(Value=@"fast")]
+
+        [EnumMember(Value = @"fast")]
         Fast,
-        [EnumMember(Value=@"best")]
+
+        [EnumMember(Value = @"best")]
         Best
     }
 }

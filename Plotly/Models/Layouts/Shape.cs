@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Shape class.
     /// </summary>
-    
     [Serializable]
     public class Shape : IEquatable<Shape>
     {
@@ -20,7 +19,7 @@ namespace Plotly.Models.Layouts
         ///     Determines whether or not this shape is visible.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Specifies the shape type to be drawn. If <c>line</c>, a line is drawn from
@@ -34,13 +33,13 @@ namespace Plotly.Models.Layouts
         ///     SVG path using <c>path</c>. with respect to the axes&#39; sizing mode.
         /// </summary>
         [JsonPropertyName(@"type")]
-        public TypeEnum? Type { get; set;} 
+        public TypeEnum? Type { get; set; }
 
         /// <summary>
         ///     Specifies whether shapes are drawn below or above traces.
         /// </summary>
         [JsonPropertyName(@"layer")]
-        public LayerEnum? Layer { get; set;} 
+        public LayerEnum? Layer { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s x coordinate axis. If set to an x axis id (e.g. <c>x</c>
@@ -52,7 +51,7 @@ namespace Plotly.Models.Layouts
         ///     is <c>date</c>, then you must convert the date to unix time in milliseconds.
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public string XRef { get; set;} 
+        public string XRef { get; set; }
 
         /// <summary>
         ///     Sets the shapes&#39;s sizing mode along the x axis. If set to <c>scaled</c>,
@@ -65,7 +64,7 @@ namespace Plotly.Models.Layouts
         ///     relative to data or plot fraction.
         /// </summary>
         [JsonPropertyName(@"xsizemode")]
-        public XSizeModeEnum? XSizeMode { get; set;} 
+        public XSizeModeEnum? XSizeMode { get; set; }
 
         /// <summary>
         ///     Only relevant in conjunction with <c>xsizemode</c> set to <c>pixel</c>.
@@ -75,21 +74,21 @@ namespace Plotly.Models.Layouts
         ///     not set to <c>pixel</c>.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public object XAnchor { get; set;} 
+        public object XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s starting x position. See <c>type</c> and <c>xsizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"x0")]
-        public object X0 { get; set;} 
+        public object X0 { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s end x position. See <c>type</c> and <c>xsizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"x1")]
-        public object X1 { get; set;} 
+        public object X1 { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y coordinate axis. If set to an y axis id (e.g.
@@ -99,7 +98,7 @@ namespace Plotly.Models.Layouts
         ///     (<c>1</c>) corresponds to the bottom (top).
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public string YRef { get; set;} 
+        public string YRef { get; set; }
 
         /// <summary>
         ///     Sets the shapes&#39;s sizing mode along the y axis. If set to <c>scaled</c>,
@@ -112,7 +111,7 @@ namespace Plotly.Models.Layouts
         ///     relative to data or plot fraction.
         /// </summary>
         [JsonPropertyName(@"ysizemode")]
-        public YSizeModeEnum? YSizeMode { get; set;} 
+        public YSizeModeEnum? YSizeMode { get; set; }
 
         /// <summary>
         ///     Only relevant in conjunction with <c>ysizemode</c> set to <c>pixel</c>.
@@ -122,21 +121,21 @@ namespace Plotly.Models.Layouts
         ///     not set to <c>pixel</c>.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public object YAnchor { get; set;} 
+        public object YAnchor { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s starting y position. See <c>type</c> and <c>ysizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"y0")]
-        public object Y0 { get; set;} 
+        public object Y0 { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s end y position. See <c>type</c> and <c>ysizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"y1")]
-        public object Y1 { get; set;} 
+        public object Y1 { get; set; }
 
         /// <summary>
         ///     For <c>type</c> <c>path</c> - a valid SVG path with the pixel values replaced
@@ -157,33 +156,33 @@ namespace Plotly.Models.Layouts
         ///     use underscore for this purpose: 2015-02-21_13:45:56.789
         /// </summary>
         [JsonPropertyName(@"path")]
-        public string Path { get; set;} 
+        public string Path { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the shape.
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Sets the color filling the shape&#39;s interior. Only applies to closed
         ///     shapes.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set;} 
+        public object FillColor { get; set; }
 
         /// <summary>
         ///     Determines which regions of complex paths constitute the interior. For more
         ///     info please visit https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule
         /// </summary>
         [JsonPropertyName(@"fillrule")]
-        public FillRuleEnum? FillRule { get; set;} 
+        public FillRuleEnum? FillRule { get; set; }
 
         /// <summary>
         ///     Determines whether the shape could be activated for edit or not. Has no
@@ -191,7 +190,7 @@ namespace Plotly.Models.Layouts
         ///     or <c>config.edits.shapePosition</c>.
         /// </summary>
         [JsonPropertyName(@"editable")]
-        public bool? Editable { get; set;} 
+        public bool? Editable { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -202,7 +201,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -214,157 +213,116 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Shape other)) return false;
+            if(!(obj is Shape other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Shape other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Layer == other.Layer &&
-                    Layer != null && other.Layer != null &&
-                    Layer.Equals(other.Layer)
-                ) && 
-                (
-                    XRef == other.XRef &&
-                    XRef != null && other.XRef != null &&
-                    XRef.Equals(other.XRef)
-                ) && 
-                (
-                    XSizeMode == other.XSizeMode &&
-                    XSizeMode != null && other.XSizeMode != null &&
-                    XSizeMode.Equals(other.XSizeMode)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    X0 == other.X0 &&
-                    X0 != null && other.X0 != null &&
-                    X0.Equals(other.X0)
-                ) && 
-                (
-                    X1 == other.X1 &&
-                    X1 != null && other.X1 != null &&
-                    X1.Equals(other.X1)
-                ) && 
-                (
-                    YRef == other.YRef &&
-                    YRef != null && other.YRef != null &&
-                    YRef.Equals(other.YRef)
-                ) && 
-                (
-                    YSizeMode == other.YSizeMode &&
-                    YSizeMode != null && other.YSizeMode != null &&
-                    YSizeMode.Equals(other.YSizeMode)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    Y0 == other.Y0 &&
-                    Y0 != null && other.Y0 != null &&
-                    Y0.Equals(other.Y0)
-                ) && 
-                (
-                    Y1 == other.Y1 &&
-                    Y1 != null && other.Y1 != null &&
-                    Y1.Equals(other.Y1)
-                ) && 
-                (
-                    Path == other.Path &&
-                    Path != null && other.Path != null &&
-                    Path.Equals(other.Path)
-                ) && 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                ) && 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    FillColor == other.FillColor &&
-                    FillColor != null && other.FillColor != null &&
-                    FillColor.Equals(other.FillColor)
-                ) && 
-                (
-                    FillRule == other.FillRule &&
-                    FillRule != null && other.FillRule != null &&
-                    FillRule.Equals(other.FillRule)
-                ) && 
-                (
-                    Editable == other.Editable &&
-                    Editable != null && other.Editable != null &&
-                    Editable.Equals(other.Editable)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible          == other.Visible          && Visible          != null && other.Visible          != null && Visible.Equals(other.Visible))     &&
+                   (Type             == other.Type             && Type             != null && other.Type             != null && Type.Equals(other.Type))           &&
+                   (Layer            == other.Layer            && Layer            != null && other.Layer            != null && Layer.Equals(other.Layer))         &&
+                   (XRef             == other.XRef             && XRef             != null && other.XRef             != null && XRef.Equals(other.XRef))           &&
+                   (XSizeMode        == other.XSizeMode        && XSizeMode        != null && other.XSizeMode        != null && XSizeMode.Equals(other.XSizeMode)) &&
+                   (XAnchor          == other.XAnchor          && XAnchor          != null && other.XAnchor          != null && XAnchor.Equals(other.XAnchor))     &&
+                   (X0               == other.X0               && X0               != null && other.X0               != null && X0.Equals(other.X0))               &&
+                   (X1               == other.X1               && X1               != null && other.X1               != null && X1.Equals(other.X1))               &&
+                   (YRef             == other.YRef             && YRef             != null && other.YRef             != null && YRef.Equals(other.YRef))           &&
+                   (YSizeMode        == other.YSizeMode        && YSizeMode        != null && other.YSizeMode        != null && YSizeMode.Equals(other.YSizeMode)) &&
+                   (YAnchor          == other.YAnchor          && YAnchor          != null && other.YAnchor          != null && YAnchor.Equals(other.YAnchor))     &&
+                   (Y0               == other.Y0               && Y0               != null && other.Y0               != null && Y0.Equals(other.Y0))               &&
+                   (Y1               == other.Y1               && Y1               != null && other.Y1               != null && Y1.Equals(other.Y1))               &&
+                   (Path             == other.Path             && Path             != null && other.Path             != null && Path.Equals(other.Path))           &&
+                   (Opacity          == other.Opacity          && Opacity          != null && other.Opacity          != null && Opacity.Equals(other.Opacity))     &&
+                   (Line             == other.Line             && Line             != null && other.Line             != null && Line.Equals(other.Line))           &&
+                   (FillColor        == other.FillColor        && FillColor        != null && other.FillColor        != null && FillColor.Equals(other.FillColor)) &&
+                   (FillRule         == other.FillRule         && FillRule         != null && other.FillRule         != null && FillRule.Equals(other.FillRule))   &&
+                   (Editable         == other.Editable         && Editable         != null && other.Editable         != null && Editable.Equals(other.Editable))   &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))           &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Layer != null) hashCode = hashCode * 59 + Layer.GetHashCode();
-                if (XRef != null) hashCode = hashCode * 59 + XRef.GetHashCode();
-                if (XSizeMode != null) hashCode = hashCode * 59 + XSizeMode.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (X0 != null) hashCode = hashCode * 59 + X0.GetHashCode();
-                if (X1 != null) hashCode = hashCode * 59 + X1.GetHashCode();
-                if (YRef != null) hashCode = hashCode * 59 + YRef.GetHashCode();
-                if (YSizeMode != null) hashCode = hashCode * 59 + YSizeMode.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (Y0 != null) hashCode = hashCode * 59 + Y0.GetHashCode();
-                if (Y1 != null) hashCode = hashCode * 59 + Y1.GetHashCode();
-                if (Path != null) hashCode = hashCode * 59 + Path.GetHashCode();
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (FillColor != null) hashCode = hashCode * 59 + FillColor.GetHashCode();
-                if (FillRule != null) hashCode = hashCode * 59 + FillRule.GetHashCode();
-                if (Editable != null) hashCode = hashCode * 59 + Editable.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Layer != null)
+                    hashCode = hashCode * 59 + Layer.GetHashCode();
+
+                if(XRef != null)
+                    hashCode = hashCode * 59 + XRef.GetHashCode();
+
+                if(XSizeMode != null)
+                    hashCode = hashCode * 59 + XSizeMode.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(X0 != null)
+                    hashCode = hashCode * 59 + X0.GetHashCode();
+
+                if(X1 != null)
+                    hashCode = hashCode * 59 + X1.GetHashCode();
+
+                if(YRef != null)
+                    hashCode = hashCode * 59 + YRef.GetHashCode();
+
+                if(YSizeMode != null)
+                    hashCode = hashCode * 59 + YSizeMode.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(Y0 != null)
+                    hashCode = hashCode * 59 + Y0.GetHashCode();
+
+                if(Y1 != null)
+                    hashCode = hashCode * 59 + Y1.GetHashCode();
+
+                if(Path != null)
+                    hashCode = hashCode * 59 + Path.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(FillColor != null)
+                    hashCode = hashCode * 59 + FillColor.GetHashCode();
+
+                if(FillRule != null)
+                    hashCode = hashCode * 59 + FillRule.GetHashCode();
+
+                if(Editable != null)
+                    hashCode = hashCode * 59 + Editable.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -375,7 +333,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Shape.</param>
         /// <param name="right">Right Shape.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Shape left, Shape right)
+        public static bool operator ==(Shape left,
+                                       Shape right)
         {
             return Equals(left, right);
         }
@@ -386,7 +345,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Shape.</param>
         /// <param name="right">Right Shape.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Shape left, Shape right)
+        public static bool operator !=(Shape left,
+                                       Shape right)
         {
             return !Equals(left, right);
         }
@@ -398,9 +358,10 @@ namespace Plotly.Models.Layouts
         public Shape DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Shape>(ms).Result;
         }
     }

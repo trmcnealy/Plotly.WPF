@@ -66,22 +66,22 @@ namespace Plotly {
         ///&lt;head&gt;
         ///    &lt;meta charset=&quot;UTF-8&quot;/&gt;
         ///    &lt;style&gt;
-        ///        html,
-        ///        body,
-        ///        #root {
+        ///        html, body, #root {
         ///            padding: 0;
         ///            margin: 0;
         ///            width: 100%;
-        ///            height: 100%;
+        ///            height: 100%
         ///        }
         ///    &lt;/style&gt;
-        ///    &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.js&quot;&gt;&lt;/script&gt;
-        ///    &lt;!--&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;--&gt;
-        ///    &lt;script src=&quot;Plotly.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;!--&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;--&gt;
+        ///    &lt;script src=&quot;plotly.min.js&quot;&gt;&lt;/script&gt;
         ///&lt;/head&gt;
         ///&lt;body&gt;
         ///&lt;div id=&quot;root&quot;&gt;
-        ///    &lt;div id=&quot;%ID%&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/d [rest of string was truncated]&quot;;.
+        ///    &lt;div id=&quot;%ID%&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/div&gt;
+        ///&lt;/div&gt;
+        ///&lt;s [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_html {
             get {
@@ -90,32 +90,42 @@ namespace Plotly {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to //&quot;use strict&quot;;
+        ///   Looks up a localized string similar to /*
+        /// The buffer module from node.js, for the browser.
         ///
-        ///window.addEventListener(&quot;dragover&quot;, function(e) {
-        ///  e.preventDefault();
-        ///}, false);
+        /// @author   Feross Aboukhadijeh &lt;feross@feross.org&gt; &lt;http://feross.org&gt;
+        /// @license  MIT
+        /// The buffer module from node.js, for the browser.
         ///
-        ///window.addEventListener(&quot;drop&quot;, function(e) {
-        ///  e.preventDefault();
-        ///}, false);
-        ///
-        /////window.addEventListener(&quot;contextmenu&quot;, window =&gt; {
-        /////  window.preventDefault();
-        /////});
-        ///
-        ///let PlotlyApp = {
-        ///  listenToAutosizeEvent: (div_container) =&gt; {
-        ///    div_container.on(&quot;plotly_autosize&quot;, function() {
-        ///      window.chrome.webview.postMessage({ &quot;event&quot;: &quot;PlotlyAutosize&quot; });
-        ///    });
-        ///    return div_container;
-        ///  },
-        ///  listenToEven [rest of string was truncated]&quot;;.
+        /// @author   Feross Aboukhadijeh &lt;https://feross.org&gt;
+        /// @license  MIT
+        /// @overview es6-promise - a tiny implementation of Promises/A+.
+        /// @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+        /// @license   Licensed under MIT license
+        ///            See https://r [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Plotly_js {
+        internal static string plotly_js {
             get {
-                return ResourceManager.GetString("Plotly_js", resourceCulture);
+                return ResourceManager.GetString("plotly_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.ISOLATE_POLYFILLS=!1;$jscomp.FORCE_POLYFILL_PROMISE=!1;$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION=!1;
+        ///$jscomp.defineProperty=$jscomp.ASSUME_ES5||&quot;function&quot;==typeof Object.defineProperties?Obje [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PlotlyApp_js {
+            get {
+                return ResourceManager.GetString("PlotlyApp_js", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PlotlyWorker_js {
+            get {
+                return ResourceManager.GetString("PlotlyWorker_js", resourceCulture);
             }
         }
     }

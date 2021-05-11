@@ -7,17 +7,19 @@ namespace Plotly.Models.Traces.Images
     ///     Color model used to map the numerical color components described in <c>z</c>
     ///     into colors.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ColorModelEnum
     {
-        [EnumMember(Value=@"rgb")]
+        [EnumMember(Value = @"rgb")]
         Rgb = 0,
-        [EnumMember(Value=@"rgba")]
+
+        [EnumMember(Value = @"rgba")]
         Rgba,
-        [EnumMember(Value=@"hsl")]
+
+        [EnumMember(Value = @"hsl")]
         Hsl,
-        [EnumMember(Value=@"hsla")]
+
+        [EnumMember(Value = @"hsla")]
         Hsla
     }
 }

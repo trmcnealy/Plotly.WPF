@@ -8,17 +8,19 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
     /// <summary>
     ///     Sets the source type for this layer, that is the type of the layer data.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SourceTypeEnum
     {
-        [EnumMember(Value=@"geojson")]
+        [EnumMember(Value = @"geojson")]
         GeoJson = 0,
-        [EnumMember(Value=@"vector")]
+
+        [EnumMember(Value = @"vector")]
         Vector,
-        [EnumMember(Value=@"raster")]
+
+        [EnumMember(Value = @"raster")]
         Raster,
-        [EnumMember(Value=@"image")]
+
+        [EnumMember(Value = @"image")]
         Image
     }
 }

@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Volumes
     /// <summary>
     ///     The Contour class.
     /// </summary>
-    
     [Serializable]
     public class Contour : IEquatable<Contour>
     {
@@ -18,61 +17,56 @@ namespace Plotly.Models.Traces.Volumes
         ///     Sets whether or not dynamic contours are shown on hover
         /// </summary>
         [JsonPropertyName(@"show")]
-        public bool? Show { get; set;} 
+        public bool? Show { get; set; }
 
         /// <summary>
         ///     Sets the color of the contour lines.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Sets the width of the contour lines.
         /// </summary>
         [JsonPropertyName(@"width")]
-        public JsNumber? Width { get; set;} 
+        public JsNumber? Width { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Contour other)) return false;
+            if(!(obj is Contour other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Contour other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Show == other.Show &&
-                    Show != null && other.Show != null &&
-                    Show.Equals(other.Show)
-                ) && 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    Width == other.Width &&
-                    Width != null && other.Width != null &&
-                    Width.Equals(other.Width)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Show  == other.Show  && Show  != null && other.Show  != null && Show.Equals(other.Show))   &&
+                   (Color == other.Color && Color != null && other.Color != null && Color.Equals(other.Color)) &&
+                   (Width == other.Width && Width != null && other.Width != null && Width.Equals(other.Width));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Show != null) hashCode = hashCode * 59 + Show.GetHashCode();
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (Width != null) hashCode = hashCode * 59 + Width.GetHashCode();
+
+                if(Show != null)
+                    hashCode = hashCode * 59 + Show.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(Width != null)
+                    hashCode = hashCode * 59 + Width.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -83,7 +77,8 @@ namespace Plotly.Models.Traces.Volumes
         /// <param name="left">Left Contour.</param>
         /// <param name="right">Right Contour.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Contour left, Contour right)
+        public static bool operator ==(Contour left,
+                                       Contour right)
         {
             return Equals(left, right);
         }
@@ -94,7 +89,8 @@ namespace Plotly.Models.Traces.Volumes
         /// <param name="left">Left Contour.</param>
         /// <param name="right">Right Contour.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Contour left, Contour right)
+        public static bool operator !=(Contour left,
+                                       Contour right)
         {
             return !Equals(left, right);
         }
@@ -106,9 +102,10 @@ namespace Plotly.Models.Traces.Volumes
         public Contour DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Contour>(ms).Result;
         }
     }

@@ -9,20 +9,23 @@ namespace Plotly.Models.Traces.Pies
     /// <summary>
     ///     Determines which trace information appear on the graph.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum TextInfoFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"label")]
+
+        [EnumMember(Value = @"label")]
         Label = 1,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 2,
-        [EnumMember(Value=@"value")]
+
+        [EnumMember(Value = @"value")]
         Value = 4,
-        [EnumMember(Value=@"percent")]
+
+        [EnumMember(Value = @"percent")]
         Percent = 8
     }
 }

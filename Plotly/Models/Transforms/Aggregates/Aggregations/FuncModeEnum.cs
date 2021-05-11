@@ -9,13 +9,13 @@ namespace Plotly.Models.Transforms.Aggregates.Aggregations
     ///     <c>stddev</c> supports two formula variants: <c>sample</c> (normalize by
     ///     N-1) and <c>population</c> (normalize by N).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FuncModeEnum
     {
-        [EnumMember(Value=@"sample")]
+        [EnumMember(Value = @"sample")]
         Sample = 0,
-        [EnumMember(Value=@"population")]
+
+        [EnumMember(Value = @"population")]
         Population
     }
 }

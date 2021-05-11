@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts.XAxes
     /// <summary>
     ///     The RangeSelector class.
     /// </summary>
-    
     [Serializable]
     public class RangeSelector : IEquatable<RangeSelector>
     {
@@ -24,19 +23,19 @@ namespace Plotly.Models.Layouts.XAxes
         ///     to <c>date</c>.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Gets or sets the Buttons.
         /// </summary>
         [JsonPropertyName(@"buttons")]
-        public List<Button> Buttons { get; set;} 
+        public List<Button> Buttons { get; set; }
 
         /// <summary>
         ///     Sets the x position (in normalized coordinates) of the range selector.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public JsNumber? X { get; set;} 
+        public JsNumber? X { get; set; }
 
         /// <summary>
         ///     Sets the range selector&#39;s horizontal position anchor. This anchor binds
@@ -44,13 +43,13 @@ namespace Plotly.Models.Layouts.XAxes
         ///     of the range selector.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public XAnchorEnum? XAnchor { get; set;} 
+        public XAnchorEnum? XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the y position (in normalized coordinates) of the range selector.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public JsNumber? Y { get; set;} 
+        public JsNumber? Y { get; set; }
 
         /// <summary>
         ///     Sets the range selector&#39;s vertical position anchor This anchor binds
@@ -58,127 +57,106 @@ namespace Plotly.Models.Layouts.XAxes
         ///     of the range selector.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public YAnchorEnum? YAnchor { get; set;} 
+        public YAnchorEnum? YAnchor { get; set; }
 
         /// <summary>
         ///     Sets the font of the range selector button text.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public RangeSelectors.Font Font { get; set;} 
+        public RangeSelectors.Font Font { get; set; }
 
         /// <summary>
         ///     Sets the background color of the range selector buttons.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set;} 
+        public object BgColor { get; set; }
 
         /// <summary>
         ///     Sets the background color of the active range selector button.
         /// </summary>
         [JsonPropertyName(@"activecolor")]
-        public object ActiveColor { get; set;} 
+        public object ActiveColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the range selector.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set;} 
+        public object BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the range selector.
         /// </summary>
         [JsonPropertyName(@"borderwidth")]
-        public JsNumber? BorderWidth { get; set;} 
+        public JsNumber? BorderWidth { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is RangeSelector other)) return false;
+            if(!(obj is RangeSelector other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] RangeSelector other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    Equals(Buttons, other.Buttons) ||
-                    Buttons != null && other.Buttons != null &&
-                    Buttons.SequenceEqual(other.Buttons)
-                ) &&
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    BgColor == other.BgColor &&
-                    BgColor != null && other.BgColor != null &&
-                    BgColor.Equals(other.BgColor)
-                ) && 
-                (
-                    ActiveColor == other.ActiveColor &&
-                    ActiveColor != null && other.ActiveColor != null &&
-                    ActiveColor.Equals(other.ActiveColor)
-                ) && 
-                (
-                    BorderColor == other.BorderColor &&
-                    BorderColor != null && other.BorderColor != null &&
-                    BorderColor.Equals(other.BorderColor)
-                ) && 
-                (
-                    BorderWidth == other.BorderWidth &&
-                    BorderWidth != null && other.BorderWidth != null &&
-                    BorderWidth.Equals(other.BorderWidth)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible == other.Visible && Visible != null && other.Visible != null && Visible.Equals(other.Visible))                         &&
+                   (Equals(Buttons, other.Buttons) || Buttons != null && other.Buttons != null && Buttons.SequenceEqual(other.Buttons))            &&
+                   (X           == other.X           && X           != null && other.X           != null && X.Equals(other.X))                     &&
+                   (XAnchor     == other.XAnchor     && XAnchor     != null && other.XAnchor     != null && XAnchor.Equals(other.XAnchor))         &&
+                   (Y           == other.Y           && Y           != null && other.Y           != null && Y.Equals(other.Y))                     &&
+                   (YAnchor     == other.YAnchor     && YAnchor     != null && other.YAnchor     != null && YAnchor.Equals(other.YAnchor))         &&
+                   (Font        == other.Font        && Font        != null && other.Font        != null && Font.Equals(other.Font))               &&
+                   (BgColor     == other.BgColor     && BgColor     != null && other.BgColor     != null && BgColor.Equals(other.BgColor))         &&
+                   (ActiveColor == other.ActiveColor && ActiveColor != null && other.ActiveColor != null && ActiveColor.Equals(other.ActiveColor)) &&
+                   (BorderColor == other.BorderColor && BorderColor != null && other.BorderColor != null && BorderColor.Equals(other.BorderColor)) &&
+                   (BorderWidth == other.BorderWidth && BorderWidth != null && other.BorderWidth != null && BorderWidth.Equals(other.BorderWidth));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (Buttons != null) hashCode = hashCode * 59 + Buttons.GetHashCode();
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (BgColor != null) hashCode = hashCode * 59 + BgColor.GetHashCode();
-                if (ActiveColor != null) hashCode = hashCode * 59 + ActiveColor.GetHashCode();
-                if (BorderColor != null) hashCode = hashCode * 59 + BorderColor.GetHashCode();
-                if (BorderWidth != null) hashCode = hashCode * 59 + BorderWidth.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Buttons != null)
+                    hashCode = hashCode * 59 + Buttons.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(BgColor != null)
+                    hashCode = hashCode * 59 + BgColor.GetHashCode();
+
+                if(ActiveColor != null)
+                    hashCode = hashCode * 59 + ActiveColor.GetHashCode();
+
+                if(BorderColor != null)
+                    hashCode = hashCode * 59 + BorderColor.GetHashCode();
+
+                if(BorderWidth != null)
+                    hashCode = hashCode * 59 + BorderWidth.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -189,7 +167,8 @@ namespace Plotly.Models.Layouts.XAxes
         /// <param name="left">Left RangeSelector.</param>
         /// <param name="right">Right RangeSelector.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (RangeSelector left, RangeSelector right)
+        public static bool operator ==(RangeSelector left,
+                                       RangeSelector right)
         {
             return Equals(left, right);
         }
@@ -200,7 +179,8 @@ namespace Plotly.Models.Layouts.XAxes
         /// <param name="left">Left RangeSelector.</param>
         /// <param name="right">Right RangeSelector.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (RangeSelector left, RangeSelector right)
+        public static bool operator !=(RangeSelector left,
+                                       RangeSelector right)
         {
             return !Equals(left, right);
         }
@@ -212,9 +192,10 @@ namespace Plotly.Models.Layouts.XAxes
         public RangeSelector DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<RangeSelector>(ms).Result;
         }
     }

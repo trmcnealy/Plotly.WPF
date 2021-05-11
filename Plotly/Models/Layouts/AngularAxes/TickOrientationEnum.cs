@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.AngularAxes
     ///     Sets the orientation (from the paper perspective) of the angular axis tick
     ///     labels.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TickOrientationEnum
     {
-        [EnumMember(Value=@"horizontal")]
+        [EnumMember(Value = @"horizontal")]
         Horizontal,
-        [EnumMember(Value=@"vertical")]
+
+        [EnumMember(Value = @"vertical")]
         Vertical
     }
 }

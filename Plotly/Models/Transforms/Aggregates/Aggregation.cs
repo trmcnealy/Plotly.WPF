@@ -12,7 +12,6 @@ namespace Plotly.Models.Transforms.Aggregates
     /// <summary>
     ///     The Aggregation class.
     /// </summary>
-    
     [Serializable]
     public class Aggregation : IEquatable<Aggregation>
     {
@@ -24,7 +23,7 @@ namespace Plotly.Models.Transforms.Aggregates
         ///     may only be referenced once.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set;} 
+        public string Target { get; set; }
 
         /// <summary>
         ///     Sets the aggregation function. All values from the linked <c>target</c>,
@@ -43,68 +42,61 @@ namespace Plotly.Models.Transforms.Aggregates
         ///     between the min and max linked values.
         /// </summary>
         [JsonPropertyName(@"func")]
-        public FuncEnum? Func { get; set;} 
+        public FuncEnum? Func { get; set; }
 
         /// <summary>
         ///     <c>stddev</c> supports two formula variants: <c>sample</c> (normalize by
         ///     N-1) and <c>population</c> (normalize by N).
         /// </summary>
         [JsonPropertyName(@"funcmode")]
-        public FuncModeEnum? FuncMode { get; set;} 
+        public FuncModeEnum? FuncMode { get; set; }
 
         /// <summary>
         ///     Determines whether this aggregation function is enabled or disabled.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Aggregation other)) return false;
+            if(!(obj is Aggregation other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Aggregation other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Target == other.Target &&
-                    Target != null && other.Target != null &&
-                    Target.Equals(other.Target)
-                ) && 
-                (
-                    Func == other.Func &&
-                    Func != null && other.Func != null &&
-                    Func.Equals(other.Func)
-                ) && 
-                (
-                    FuncMode == other.FuncMode &&
-                    FuncMode != null && other.FuncMode != null &&
-                    FuncMode.Equals(other.FuncMode)
-                ) && 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Target   == other.Target   && Target   != null && other.Target   != null && Target.Equals(other.Target))     &&
+                   (Func     == other.Func     && Func     != null && other.Func     != null && Func.Equals(other.Func))         &&
+                   (FuncMode == other.FuncMode && FuncMode != null && other.FuncMode != null && FuncMode.Equals(other.FuncMode)) &&
+                   (Enabled  == other.Enabled  && Enabled  != null && other.Enabled  != null && Enabled.Equals(other.Enabled));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Target != null) hashCode = hashCode * 59 + Target.GetHashCode();
-                if (Func != null) hashCode = hashCode * 59 + Func.GetHashCode();
-                if (FuncMode != null) hashCode = hashCode * 59 + FuncMode.GetHashCode();
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(Target != null)
+                    hashCode = hashCode * 59 + Target.GetHashCode();
+
+                if(Func != null)
+                    hashCode = hashCode * 59 + Func.GetHashCode();
+
+                if(FuncMode != null)
+                    hashCode = hashCode * 59 + FuncMode.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -115,7 +107,8 @@ namespace Plotly.Models.Transforms.Aggregates
         /// <param name="left">Left Aggregation.</param>
         /// <param name="right">Right Aggregation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Aggregation left, Aggregation right)
+        public static bool operator ==(Aggregation left,
+                                       Aggregation right)
         {
             return Equals(left, right);
         }
@@ -126,7 +119,8 @@ namespace Plotly.Models.Transforms.Aggregates
         /// <param name="left">Left Aggregation.</param>
         /// <param name="right">Right Aggregation.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Aggregation left, Aggregation right)
+        public static bool operator !=(Aggregation left,
+                                       Aggregation right)
         {
             return !Equals(left, right);
         }
@@ -138,9 +132,10 @@ namespace Plotly.Models.Transforms.Aggregates
         public Aggregation DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Aggregation>(ms).Result;
         }
     }

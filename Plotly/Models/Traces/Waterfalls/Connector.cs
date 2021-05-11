@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Waterfalls
     /// <summary>
     ///     The Connector class.
     /// </summary>
-    
     [Serializable]
     public class Connector : IEquatable<Connector>
     {
@@ -20,61 +19,56 @@ namespace Plotly.Models.Traces.Waterfalls
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set;} 
+        public Line Line { get; set; }
 
         /// <summary>
         ///     Sets the shape of connector lines.
         /// </summary>
         [JsonPropertyName(@"mode")]
-        public ModeEnum? Mode { get; set;} 
+        public ModeEnum? Mode { get; set; }
 
         /// <summary>
         ///     Determines if connector lines are drawn. 
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Connector other)) return false;
+            if(!(obj is Connector other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Connector other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Line == other.Line &&
-                    Line != null && other.Line != null &&
-                    Line.Equals(other.Line)
-                ) && 
-                (
-                    Mode == other.Mode &&
-                    Mode != null && other.Mode != null &&
-                    Mode.Equals(other.Mode)
-                ) && 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Line    == other.Line    && Line    != null && other.Line    != null && Line.Equals(other.Line)) &&
+                   (Mode    == other.Mode    && Mode    != null && other.Mode    != null && Mode.Equals(other.Mode)) &&
+                   (Visible == other.Visible && Visible != null && other.Visible != null && Visible.Equals(other.Visible));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Line != null) hashCode = hashCode * 59 + Line.GetHashCode();
-                if (Mode != null) hashCode = hashCode * 59 + Mode.GetHashCode();
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Line != null)
+                    hashCode = hashCode * 59 + Line.GetHashCode();
+
+                if(Mode != null)
+                    hashCode = hashCode * 59 + Mode.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -85,7 +79,8 @@ namespace Plotly.Models.Traces.Waterfalls
         /// <param name="left">Left Connector.</param>
         /// <param name="right">Right Connector.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Connector left, Connector right)
+        public static bool operator ==(Connector left,
+                                       Connector right)
         {
             return Equals(left, right);
         }
@@ -96,7 +91,8 @@ namespace Plotly.Models.Traces.Waterfalls
         /// <param name="left">Left Connector.</param>
         /// <param name="right">Right Connector.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Connector left, Connector right)
+        public static bool operator !=(Connector left,
+                                       Connector right)
         {
             return !Equals(left, right);
         }
@@ -108,9 +104,10 @@ namespace Plotly.Models.Traces.Waterfalls
         public Connector DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Connector>(ms).Result;
         }
     }

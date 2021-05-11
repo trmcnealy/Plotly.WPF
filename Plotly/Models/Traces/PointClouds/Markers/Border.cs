@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.PointClouds.Markers
     /// <summary>
     ///     The Border class.
     /// </summary>
-    
     [Serializable]
     public class Border : IEquatable<Border>
     {
@@ -20,49 +19,46 @@ namespace Plotly.Models.Traces.PointClouds.Markers
         ///     slower zooming and panning.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Specifies what fraction of the marker area is covered with the border.
         /// </summary>
         [JsonPropertyName(@"arearatio")]
-        public JsNumber? AreaRatio { get; set;} 
+        public JsNumber? AreaRatio { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Border other)) return false;
+            if(!(obj is Border other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Border other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    AreaRatio == other.AreaRatio &&
-                    AreaRatio != null && other.AreaRatio != null &&
-                    AreaRatio.Equals(other.AreaRatio)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Color     == other.Color     && Color     != null && other.Color     != null && Color.Equals(other.Color)) &&
+                   (AreaRatio == other.AreaRatio && AreaRatio != null && other.AreaRatio != null && AreaRatio.Equals(other.AreaRatio));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (AreaRatio != null) hashCode = hashCode * 59 + AreaRatio.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(AreaRatio != null)
+                    hashCode = hashCode * 59 + AreaRatio.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -73,7 +69,8 @@ namespace Plotly.Models.Traces.PointClouds.Markers
         /// <param name="left">Left Border.</param>
         /// <param name="right">Right Border.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Border left, Border right)
+        public static bool operator ==(Border left,
+                                       Border right)
         {
             return Equals(left, right);
         }
@@ -84,7 +81,8 @@ namespace Plotly.Models.Traces.PointClouds.Markers
         /// <param name="left">Left Border.</param>
         /// <param name="right">Right Border.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Border left, Border right)
+        public static bool operator !=(Border left,
+                                       Border right)
         {
             return !Equals(left, right);
         }
@@ -96,9 +94,10 @@ namespace Plotly.Models.Traces.PointClouds.Markers
         public Border DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Border>(ms).Result;
         }
     }

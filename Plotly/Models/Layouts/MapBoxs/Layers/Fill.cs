@@ -10,7 +10,6 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
     /// <summary>
     ///     The Fill class.
     /// </summary>
-    
     [Serializable]
     public class Fill : IEquatable<Fill>
     {
@@ -19,37 +18,36 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     an effect only when <c>type</c> is set to <c>fill</c>.
         /// </summary>
         [JsonPropertyName(@"outlinecolor")]
-        public object OutlineColor { get; set;} 
+        public object OutlineColor { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Fill other)) return false;
+            if(!(obj is Fill other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Fill other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    OutlineColor == other.OutlineColor &&
-                    OutlineColor != null && other.OutlineColor != null &&
-                    OutlineColor.Equals(other.OutlineColor)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (OutlineColor == other.OutlineColor && OutlineColor != null && other.OutlineColor != null && OutlineColor.Equals(other.OutlineColor));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (OutlineColor != null) hashCode = hashCode * 59 + OutlineColor.GetHashCode();
+
+                if(OutlineColor != null)
+                    hashCode = hashCode * 59 + OutlineColor.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -60,7 +58,8 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         /// <param name="left">Left Fill.</param>
         /// <param name="right">Right Fill.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Fill left, Fill right)
+        public static bool operator ==(Fill left,
+                                       Fill right)
         {
             return Equals(left, right);
         }
@@ -71,7 +70,8 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         /// <param name="left">Left Fill.</param>
         /// <param name="right">Right Fill.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Fill left, Fill right)
+        public static bool operator !=(Fill left,
+                                       Fill right)
         {
             return !Equals(left, right);
         }
@@ -83,9 +83,10 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         public Fill DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Fill>(ms).Result;
         }
     }

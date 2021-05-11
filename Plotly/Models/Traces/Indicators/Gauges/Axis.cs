@@ -14,7 +14,6 @@ namespace Plotly.Models.Traces.Indicators.Gauges
     /// <summary>
     ///     The Axis class.
     /// </summary>
-    
     [Serializable]
     public class Axis : IEquatable<Axis>
     {
@@ -22,14 +21,14 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     Sets the range of this axis.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set;} 
+        public List<object> Range { get; set; }
 
         /// <summary>
         ///     A single toggle to hide the axis while preserving interaction like dragging.
         ///     Default is true when a cheater plot is present on the axis, otherwise false
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Sets the tick mode for this axis. If <c>auto</c>, the number of ticks is
@@ -41,7 +40,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     <c>tickvals</c> is provided).
         /// </summary>
         [JsonPropertyName(@"tickmode")]
-        public TickModeEnum? TickMode { get; set;} 
+        public TickModeEnum? TickMode { get; set; }
 
         /// <summary>
         ///     Specifies the maximum number of ticks for the particular axis. The actual
@@ -49,7 +48,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     <c>nticks</c>. Has an effect only if <c>tickmode</c> is set to <c>auto</c>.
         /// </summary>
         [JsonPropertyName(@"nticks")]
-        public int? NTicks { get; set;} 
+        public int? NTicks { get; set; }
 
         /// <summary>
         ///     Sets the placement of the first tick on this axis. Use with <c>dtick</c>.
@@ -62,7 +61,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"tick0")]
-        public object Tick0 { get; set;} 
+        public object Tick0 { get; set; }
 
         /// <summary>
         ///     Sets the step in-between ticks on this axis. Use with <c>tick0</c>. Must
@@ -86,21 +85,21 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     to <c>M48</c>
         /// </summary>
         [JsonPropertyName(@"dtick")]
-        public object DTick { get; set;} 
+        public object DTick { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear. Only has an effect if
         ///     <c>tickmode</c> is set to <c>array</c>. Used with <c>ticktext</c>.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set;} 
+        public List<object> TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>. Only
         ///     has an effect if <c>tickmode</c> is set to <c>array</c>. Used with <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set;} 
+        public List<object> TickText { get; set; }
 
         /// <summary>
         ///     Determines whether ticks are drawn or not. If **, this axis&#39; ticks are
@@ -108,44 +107,44 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     (inside) the axis lines.
         /// </summary>
         [JsonPropertyName(@"ticks")]
-        public TicksEnum? Ticks { get; set;} 
+        public TicksEnum? Ticks { get; set; }
 
         /// <summary>
         ///     Sets the tick length (in px).
         /// </summary>
         [JsonPropertyName(@"ticklen")]
-        public JsNumber? TickleN { get; set;} 
+        public JsNumber? TickleN { get; set; }
 
         /// <summary>
         ///     Sets the tick width (in px).
         /// </summary>
         [JsonPropertyName(@"tickwidth")]
-        public JsNumber? TickWidth { get; set;} 
+        public JsNumber? TickWidth { get; set; }
 
         /// <summary>
         ///     Sets the tick color.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set;} 
+        public object TickColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the tick labels are drawn.
         /// </summary>
         [JsonPropertyName(@"showticklabels")]
-        public bool? ShowTickLabels { get; set;} 
+        public bool? ShowTickLabels { get; set; }
 
         /// <summary>
         ///     Sets the color bar&#39;s tick label font
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set;} 
+        public TickFont TickFont { get; set; }
 
         /// <summary>
         ///     Sets the angle of the tick labels with respect to the horizontal. For example,
         ///     a <c>tickangle</c> of -90 draws the tick labels vertically.
         /// </summary>
         [JsonPropertyName(@"tickangle")]
-        public JsNumber? TickAngle { get; set;} 
+        public JsNumber? TickAngle { get; set; }
 
         /// <summary>
         ///     Sets the tick label formatting rule using d3 formatting mini-languages which
@@ -156,19 +155,19 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set;} 
+        public string TickFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the TickFormatStops.
         /// </summary>
         [JsonPropertyName(@"tickformatstops")]
-        public List<TickFormatStop> TickFormatStops { get; set;} 
+        public List<TickFormatStop> TickFormatStops { get; set; }
 
         /// <summary>
         ///     Sets a tick label prefix.
         /// </summary>
         [JsonPropertyName(@"tickprefix")]
-        public string TickPrefix { get; set;} 
+        public string TickPrefix { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all tick labels are displayed with a prefix. If <c>first</c>,
@@ -177,25 +176,25 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     hidden.
         /// </summary>
         [JsonPropertyName(@"showtickprefix")]
-        public ShowTickPrefixEnum? ShowTickPrefix { get; set;} 
+        public ShowTickPrefixEnum? ShowTickPrefix { get; set; }
 
         /// <summary>
         ///     Sets a tick label suffix.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set;} 
+        public string TickSuffix { get; set; }
 
         /// <summary>
         ///     Same as <c>showtickprefix</c> but for tick suffixes.
         /// </summary>
         [JsonPropertyName(@"showticksuffix")]
-        public ShowTickSuffixEnum? ShowTickSuffix { get; set;} 
+        public ShowTickSuffixEnum? ShowTickSuffix { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, even 4-digit integers are separated
         /// </summary>
         [JsonPropertyName(@"separatethousands")]
-        public bool? SeparateThousands { get; set;} 
+        public bool? SeparateThousands { get; set; }
 
         /// <summary>
         ///     Determines a formatting rule for the tick exponents. For example, consider
@@ -204,7 +203,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     super script). If <c>SI</c>, 1G. If <c>B</c>, 1B.
         /// </summary>
         [JsonPropertyName(@"exponentformat")]
-        public ExponentFormatEnum? ExponentFormat { get; set;} 
+        public ExponentFormatEnum? ExponentFormat { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all exponents are shown besides their significands. If <c>first</c>,
@@ -212,199 +211,148 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     of the last tick is shown. If <c>none</c>, no exponents appear.
         /// </summary>
         [JsonPropertyName(@"showexponent")]
-        public ShowExponentEnum? ShowExponent { get; set;} 
+        public ShowExponentEnum? ShowExponent { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set;} 
+        public string TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set;} 
+        public string TickTextSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Axis other)) return false;
+            if(!(obj is Axis other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Axis other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Equals(Range, other.Range) ||
-                    Range != null && other.Range != null &&
-                    Range.SequenceEqual(other.Range)
-                ) &&
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    TickMode == other.TickMode &&
-                    TickMode != null && other.TickMode != null &&
-                    TickMode.Equals(other.TickMode)
-                ) && 
-                (
-                    NTicks == other.NTicks &&
-                    NTicks != null && other.NTicks != null &&
-                    NTicks.Equals(other.NTicks)
-                ) && 
-                (
-                    Tick0 == other.Tick0 &&
-                    Tick0 != null && other.Tick0 != null &&
-                    Tick0.Equals(other.Tick0)
-                ) && 
-                (
-                    DTick == other.DTick &&
-                    DTick != null && other.DTick != null &&
-                    DTick.Equals(other.DTick)
-                ) && 
-                (
-                    Equals(TickVals, other.TickVals) ||
-                    TickVals != null && other.TickVals != null &&
-                    TickVals.SequenceEqual(other.TickVals)
-                ) &&
-                (
-                    Equals(TickText, other.TickText) ||
-                    TickText != null && other.TickText != null &&
-                    TickText.SequenceEqual(other.TickText)
-                ) &&
-                (
-                    Ticks == other.Ticks &&
-                    Ticks != null && other.Ticks != null &&
-                    Ticks.Equals(other.Ticks)
-                ) && 
-                (
-                    TickleN == other.TickleN &&
-                    TickleN != null && other.TickleN != null &&
-                    TickleN.Equals(other.TickleN)
-                ) && 
-                (
-                    TickWidth == other.TickWidth &&
-                    TickWidth != null && other.TickWidth != null &&
-                    TickWidth.Equals(other.TickWidth)
-                ) && 
-                (
-                    TickColor == other.TickColor &&
-                    TickColor != null && other.TickColor != null &&
-                    TickColor.Equals(other.TickColor)
-                ) && 
-                (
-                    ShowTickLabels == other.ShowTickLabels &&
-                    ShowTickLabels != null && other.ShowTickLabels != null &&
-                    ShowTickLabels.Equals(other.ShowTickLabels)
-                ) && 
-                (
-                    TickFont == other.TickFont &&
-                    TickFont != null && other.TickFont != null &&
-                    TickFont.Equals(other.TickFont)
-                ) && 
-                (
-                    TickAngle == other.TickAngle &&
-                    TickAngle != null && other.TickAngle != null &&
-                    TickAngle.Equals(other.TickAngle)
-                ) && 
-                (
-                    TickFormat == other.TickFormat &&
-                    TickFormat != null && other.TickFormat != null &&
-                    TickFormat.Equals(other.TickFormat)
-                ) && 
-                (
-                    Equals(TickFormatStops, other.TickFormatStops) ||
-                    TickFormatStops != null && other.TickFormatStops != null &&
-                    TickFormatStops.SequenceEqual(other.TickFormatStops)
-                ) &&
-                (
-                    TickPrefix == other.TickPrefix &&
-                    TickPrefix != null && other.TickPrefix != null &&
-                    TickPrefix.Equals(other.TickPrefix)
-                ) && 
-                (
-                    ShowTickPrefix == other.ShowTickPrefix &&
-                    ShowTickPrefix != null && other.ShowTickPrefix != null &&
-                    ShowTickPrefix.Equals(other.ShowTickPrefix)
-                ) && 
-                (
-                    TickSuffix == other.TickSuffix &&
-                    TickSuffix != null && other.TickSuffix != null &&
-                    TickSuffix.Equals(other.TickSuffix)
-                ) && 
-                (
-                    ShowTickSuffix == other.ShowTickSuffix &&
-                    ShowTickSuffix != null && other.ShowTickSuffix != null &&
-                    ShowTickSuffix.Equals(other.ShowTickSuffix)
-                ) && 
-                (
-                    SeparateThousands == other.SeparateThousands &&
-                    SeparateThousands != null && other.SeparateThousands != null &&
-                    SeparateThousands.Equals(other.SeparateThousands)
-                ) && 
-                (
-                    ExponentFormat == other.ExponentFormat &&
-                    ExponentFormat != null && other.ExponentFormat != null &&
-                    ExponentFormat.Equals(other.ExponentFormat)
-                ) && 
-                (
-                    ShowExponent == other.ShowExponent &&
-                    ShowExponent != null && other.ShowExponent != null &&
-                    ShowExponent.Equals(other.ShowExponent)
-                ) && 
-                (
-                    TickValsSrc == other.TickValsSrc &&
-                    TickValsSrc != null && other.TickValsSrc != null &&
-                    TickValsSrc.Equals(other.TickValsSrc)
-                ) && 
-                (
-                    TickTextSrc == other.TickTextSrc &&
-                    TickTextSrc != null && other.TickTextSrc != null &&
-                    TickTextSrc.Equals(other.TickTextSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Equals(Range, other.Range) || Range != null && other.Range != null && Range.SequenceEqual(other.Range))                                                             &&
+                   (Visible  == other.Visible  && Visible  != null && other.Visible  != null && Visible.Equals(other.Visible))                                                          &&
+                   (TickMode == other.TickMode && TickMode != null && other.TickMode != null && TickMode.Equals(other.TickMode))                                                        &&
+                   (NTicks   == other.NTicks   && NTicks   != null && other.NTicks   != null && NTicks.Equals(other.NTicks))                                                            &&
+                   (Tick0    == other.Tick0    && Tick0    != null && other.Tick0    != null && Tick0.Equals(other.Tick0))                                                              &&
+                   (DTick    == other.DTick    && DTick    != null && other.DTick    != null && DTick.Equals(other.DTick))                                                              &&
+                   (Equals(TickVals, other.TickVals) || TickVals != null && other.TickVals != null && TickVals.SequenceEqual(other.TickVals))                                           &&
+                   (Equals(TickText, other.TickText) || TickText != null && other.TickText != null && TickText.SequenceEqual(other.TickText))                                           &&
+                   (Ticks          == other.Ticks          && Ticks          != null && other.Ticks          != null && Ticks.Equals(other.Ticks))                                      &&
+                   (TickleN        == other.TickleN        && TickleN        != null && other.TickleN        != null && TickleN.Equals(other.TickleN))                                  &&
+                   (TickWidth      == other.TickWidth      && TickWidth      != null && other.TickWidth      != null && TickWidth.Equals(other.TickWidth))                              &&
+                   (TickColor      == other.TickColor      && TickColor      != null && other.TickColor      != null && TickColor.Equals(other.TickColor))                              &&
+                   (ShowTickLabels == other.ShowTickLabels && ShowTickLabels != null && other.ShowTickLabels != null && ShowTickLabels.Equals(other.ShowTickLabels))                    &&
+                   (TickFont       == other.TickFont       && TickFont       != null && other.TickFont       != null && TickFont.Equals(other.TickFont))                                &&
+                   (TickAngle      == other.TickAngle      && TickAngle      != null && other.TickAngle      != null && TickAngle.Equals(other.TickAngle))                              &&
+                   (TickFormat     == other.TickFormat     && TickFormat     != null && other.TickFormat     != null && TickFormat.Equals(other.TickFormat))                            &&
+                   (Equals(TickFormatStops, other.TickFormatStops) || TickFormatStops != null && other.TickFormatStops != null && TickFormatStops.SequenceEqual(other.TickFormatStops)) &&
+                   (TickPrefix        == other.TickPrefix        && TickPrefix        != null && other.TickPrefix        != null && TickPrefix.Equals(other.TickPrefix))                &&
+                   (ShowTickPrefix    == other.ShowTickPrefix    && ShowTickPrefix    != null && other.ShowTickPrefix    != null && ShowTickPrefix.Equals(other.ShowTickPrefix))        &&
+                   (TickSuffix        == other.TickSuffix        && TickSuffix        != null && other.TickSuffix        != null && TickSuffix.Equals(other.TickSuffix))                &&
+                   (ShowTickSuffix    == other.ShowTickSuffix    && ShowTickSuffix    != null && other.ShowTickSuffix    != null && ShowTickSuffix.Equals(other.ShowTickSuffix))        &&
+                   (SeparateThousands == other.SeparateThousands && SeparateThousands != null && other.SeparateThousands != null && SeparateThousands.Equals(other.SeparateThousands))  &&
+                   (ExponentFormat    == other.ExponentFormat    && ExponentFormat    != null && other.ExponentFormat    != null && ExponentFormat.Equals(other.ExponentFormat))        &&
+                   (ShowExponent      == other.ShowExponent      && ShowExponent      != null && other.ShowExponent      != null && ShowExponent.Equals(other.ShowExponent))            &&
+                   (TickValsSrc       == other.TickValsSrc       && TickValsSrc       != null && other.TickValsSrc       != null && TickValsSrc.Equals(other.TickValsSrc))              &&
+                   (TickTextSrc       == other.TickTextSrc       && TickTextSrc       != null && other.TickTextSrc       != null && TickTextSrc.Equals(other.TickTextSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Range != null) hashCode = hashCode * 59 + Range.GetHashCode();
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (TickMode != null) hashCode = hashCode * 59 + TickMode.GetHashCode();
-                if (NTicks != null) hashCode = hashCode * 59 + NTicks.GetHashCode();
-                if (Tick0 != null) hashCode = hashCode * 59 + Tick0.GetHashCode();
-                if (DTick != null) hashCode = hashCode * 59 + DTick.GetHashCode();
-                if (TickVals != null) hashCode = hashCode * 59 + TickVals.GetHashCode();
-                if (TickText != null) hashCode = hashCode * 59 + TickText.GetHashCode();
-                if (Ticks != null) hashCode = hashCode * 59 + Ticks.GetHashCode();
-                if (TickleN != null) hashCode = hashCode * 59 + TickleN.GetHashCode();
-                if (TickWidth != null) hashCode = hashCode * 59 + TickWidth.GetHashCode();
-                if (TickColor != null) hashCode = hashCode * 59 + TickColor.GetHashCode();
-                if (ShowTickLabels != null) hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
-                if (TickFont != null) hashCode = hashCode * 59 + TickFont.GetHashCode();
-                if (TickAngle != null) hashCode = hashCode * 59 + TickAngle.GetHashCode();
-                if (TickFormat != null) hashCode = hashCode * 59 + TickFormat.GetHashCode();
-                if (TickFormatStops != null) hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
-                if (TickPrefix != null) hashCode = hashCode * 59 + TickPrefix.GetHashCode();
-                if (ShowTickPrefix != null) hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
-                if (TickSuffix != null) hashCode = hashCode * 59 + TickSuffix.GetHashCode();
-                if (ShowTickSuffix != null) hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
-                if (SeparateThousands != null) hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
-                if (ExponentFormat != null) hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
-                if (ShowExponent != null) hashCode = hashCode * 59 + ShowExponent.GetHashCode();
-                if (TickValsSrc != null) hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
-                if (TickTextSrc != null) hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
+                if(Range != null)
+                    hashCode = hashCode * 59 + Range.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(TickMode != null)
+                    hashCode = hashCode * 59 + TickMode.GetHashCode();
+
+                if(NTicks != null)
+                    hashCode = hashCode * 59 + NTicks.GetHashCode();
+
+                if(Tick0 != null)
+                    hashCode = hashCode * 59 + Tick0.GetHashCode();
+
+                if(DTick != null)
+                    hashCode = hashCode * 59 + DTick.GetHashCode();
+
+                if(TickVals != null)
+                    hashCode = hashCode * 59 + TickVals.GetHashCode();
+
+                if(TickText != null)
+                    hashCode = hashCode * 59 + TickText.GetHashCode();
+
+                if(Ticks != null)
+                    hashCode = hashCode * 59 + Ticks.GetHashCode();
+
+                if(TickleN != null)
+                    hashCode = hashCode * 59 + TickleN.GetHashCode();
+
+                if(TickWidth != null)
+                    hashCode = hashCode * 59 + TickWidth.GetHashCode();
+
+                if(TickColor != null)
+                    hashCode = hashCode * 59 + TickColor.GetHashCode();
+
+                if(ShowTickLabels != null)
+                    hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
+
+                if(TickFont != null)
+                    hashCode = hashCode * 59 + TickFont.GetHashCode();
+
+                if(TickAngle != null)
+                    hashCode = hashCode * 59 + TickAngle.GetHashCode();
+
+                if(TickFormat != null)
+                    hashCode = hashCode * 59 + TickFormat.GetHashCode();
+
+                if(TickFormatStops != null)
+                    hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
+
+                if(TickPrefix != null)
+                    hashCode = hashCode * 59 + TickPrefix.GetHashCode();
+
+                if(ShowTickPrefix != null)
+                    hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
+
+                if(TickSuffix != null)
+                    hashCode = hashCode * 59 + TickSuffix.GetHashCode();
+
+                if(ShowTickSuffix != null)
+                    hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
+
+                if(SeparateThousands != null)
+                    hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
+
+                if(ExponentFormat != null)
+                    hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
+
+                if(ShowExponent != null)
+                    hashCode = hashCode * 59 + ShowExponent.GetHashCode();
+
+                if(TickValsSrc != null)
+                    hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
+
+                if(TickTextSrc != null)
+                    hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -415,7 +363,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Axis.</param>
         /// <param name="right">Right Axis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Axis left, Axis right)
+        public static bool operator ==(Axis left,
+                                       Axis right)
         {
             return Equals(left, right);
         }
@@ -426,7 +375,8 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         /// <param name="left">Left Axis.</param>
         /// <param name="right">Right Axis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Axis left, Axis right)
+        public static bool operator !=(Axis left,
+                                       Axis right)
         {
             return !Equals(left, right);
         }
@@ -438,9 +388,10 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         public Axis DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Axis>(ms).Result;
         }
     }

@@ -6,21 +6,25 @@ namespace Plotly.Models.Traces.ScatterPolarGls.Lines
     /// <summary>
     ///     Sets the style of the lines.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DashEnum
     {
-        [EnumMember(Value=@"solid")]
+        [EnumMember(Value = @"solid")]
         Solid = 0,
-        [EnumMember(Value=@"dot")]
+
+        [EnumMember(Value = @"dot")]
         Dot,
-        [EnumMember(Value=@"dash")]
+
+        [EnumMember(Value = @"dash")]
         Dash,
-        [EnumMember(Value=@"longdash")]
+
+        [EnumMember(Value = @"longdash")]
         LongDash,
-        [EnumMember(Value=@"dashdot")]
+
+        [EnumMember(Value = @"dashdot")]
         DashDot,
-        [EnumMember(Value=@"longdashdot")]
+
+        [EnumMember(Value = @"longdashdot")]
         LongDashDot
     }
 }

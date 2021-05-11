@@ -8,23 +8,28 @@ namespace Plotly.Models.Layouts.Geos
     /// <summary>
     ///     Set the scope of the map.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ScopeEnum
     {
-        [EnumMember(Value=@"world")]
+        [EnumMember(Value = @"world")]
         World = 0,
-        [EnumMember(Value=@"usa")]
+
+        [EnumMember(Value = @"usa")]
         USA,
-        [EnumMember(Value=@"europe")]
+
+        [EnumMember(Value = @"europe")]
         Europe,
-        [EnumMember(Value=@"asia")]
+
+        [EnumMember(Value = @"asia")]
         Asia,
-        [EnumMember(Value=@"africa")]
+
+        [EnumMember(Value = @"africa")]
         Africa,
-        [EnumMember(Value=@"north america")]
+
+        [EnumMember(Value = @"north america")]
         NorthAmerica,
-        [EnumMember(Value=@"south america")]
+
+        [EnumMember(Value = @"south america")]
         SouthAmerica
     }
 }

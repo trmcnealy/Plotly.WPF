@@ -11,30 +11,38 @@ namespace Plotly.Models.Traces.Waterfalls
     ///     are set, no information is displayed upon hovering. But, if <c>none</c>
     ///     is set, click and hover events are still fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverInfoFlag
     {
-        [EnumMember(Value=@"skip")]
+        [EnumMember(Value = @"skip")]
         Skip = 0,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None = 1,
-        [EnumMember(Value=@"name")]
+
+        [EnumMember(Value = @"name")]
         Name = 2,
-        [EnumMember(Value=@"x")]
+
+        [EnumMember(Value = @"x")]
         X = 4,
-        [EnumMember(Value=@"y")]
+
+        [EnumMember(Value = @"y")]
         Y = 8,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 16,
-        [EnumMember(Value=@"initial")]
+
+        [EnumMember(Value = @"initial")]
         Initial = 32,
-        [EnumMember(Value=@"delta")]
+
+        [EnumMember(Value = @"delta")]
         Delta = 64,
-        [EnumMember(Value=@"final")]
+
+        [EnumMember(Value = @"final")]
         Final = 128,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All = Name | X | Y | Text | Initial | Delta | Final
     }
 }

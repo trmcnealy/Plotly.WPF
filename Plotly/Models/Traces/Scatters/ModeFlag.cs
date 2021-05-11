@@ -15,7 +15,6 @@ namespace Plotly.Models.Traces
         ///     20 points and the trace is not stacked then the default is <c>lines+markers</c>.
         ///     Otherwise, <c>lines</c>.
         /// </summary>
-
         [Flags]
         [JsonConverter(typeof(EnumConverter))]
         public enum ModeFlag

@@ -12,19 +12,22 @@ namespace Plotly.Models.Layouts.XAxes
     ///     If <c>all</c>, axis lines are mirrored on all shared-axes subplots. If <c>allticks</c>,
     ///     axis lines and ticks are mirrored on all shared-axes subplots.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum MirrorEnum
     {
-        [EnumMember(Value=@"false")]
+        [EnumMember(Value = @"false")]
         False = 0,
-        [EnumMember(Value=@"True")]
+
+        [EnumMember(Value = @"True")]
         True,
-        [EnumMember(Value=@"ticks")]
+
+        [EnumMember(Value = @"ticks")]
         Ticks,
-        [EnumMember(Value=@"all")]
+
+        [EnumMember(Value = @"all")]
         All,
-        [EnumMember(Value=@"allticks")]
+
+        [EnumMember(Value = @"allticks")]
         AllTicks
     }
 }

@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
     /// <summary>
     ///     The Y class.
     /// </summary>
-    
     [Serializable]
     public class Y : IEquatable<Y>
     {
@@ -21,7 +20,7 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
         ///     of openings parallel to the edges.
         /// </summary>
         [JsonPropertyName(@"show")]
-        public bool? Show { get; set;} 
+        public bool? Show { get; set; }
 
         /// <summary>
         ///     Sets the fill ratio of the <c>caps</c>. The default fill value of the <c>caps</c>
@@ -30,43 +29,39 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
         ///     to the edges.
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public JsNumber? Fill { get; set;} 
+        public JsNumber? Fill { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Y other)) return false;
+            if(!(obj is Y other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Y other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Show == other.Show &&
-                    Show != null && other.Show != null &&
-                    Show.Equals(other.Show)
-                ) && 
-                (
-                    Fill == other.Fill &&
-                    Fill != null && other.Fill != null &&
-                    Fill.Equals(other.Fill)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Show == other.Show && Show != null && other.Show != null && Show.Equals(other.Show)) && (Fill == other.Fill && Fill != null && other.Fill != null && Fill.Equals(other.Fill));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Show != null) hashCode = hashCode * 59 + Show.GetHashCode();
-                if (Fill != null) hashCode = hashCode * 59 + Fill.GetHashCode();
+
+                if(Show != null)
+                    hashCode = hashCode * 59 + Show.GetHashCode();
+
+                if(Fill != null)
+                    hashCode = hashCode * 59 + Fill.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -77,7 +72,8 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
         /// <param name="left">Left Y.</param>
         /// <param name="right">Right Y.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Y left, Y right)
+        public static bool operator ==(Y left,
+                                       Y right)
         {
             return Equals(left, right);
         }
@@ -88,7 +84,8 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
         /// <param name="left">Left Y.</param>
         /// <param name="right">Right Y.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Y left, Y right)
+        public static bool operator !=(Y left,
+                                       Y right)
         {
             return !Equals(left, right);
         }
@@ -100,9 +97,10 @@ namespace Plotly.Models.Traces.IsoSurfaces.Capss
         public Y DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Y>(ms).Result;
         }
     }

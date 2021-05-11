@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.Scatter3Ds
     ///     <c>1</c>, <c>2</c>, the scatter points are filled with a Delaunay surface
     ///     about the x, y, z respectively.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SurfaceAxisEnum
     {
-        [EnumMember(Value=@"-1")]
+        [EnumMember(Value = @"-1")]
         _1 = 0,
-        [EnumMember(Value=@"0")]
+
+        [EnumMember(Value = @"0")]
         _0,
-        [EnumMember(Value=@"2")]
+
+        [EnumMember(Value = @"2")]
         _2
     }
 }

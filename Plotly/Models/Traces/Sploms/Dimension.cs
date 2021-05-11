@@ -14,7 +14,6 @@ namespace Plotly.Models.Traces.Sploms
     /// <summary>
     ///     The Dimension class.
     /// </summary>
-    
     [Serializable]
     public class Dimension : IEquatable<Dimension>
     {
@@ -24,25 +23,25 @@ namespace Plotly.Models.Traces.Sploms
         ///     this splom trace.
         /// </summary>
         [JsonPropertyName(@"visible")]
-        public bool? Visible { get; set;} 
+        public bool? Visible { get; set; }
 
         /// <summary>
         ///     Sets the label corresponding to this splom dimension.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set;} 
+        public string Label { get; set; }
 
         /// <summary>
         ///     Sets the dimension values to be plotted.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set;} 
+        public List<object> Values { get; set; }
 
         /// <summary>
         ///     Gets or sets the Axis.
         /// </summary>
         [JsonPropertyName(@"axis")]
-        public Axis Axis { get; set;} 
+        public Axis Axis { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -53,7 +52,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -65,79 +64,66 @@ namespace Plotly.Models.Traces.Sploms
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set;} 
+        public string ValuesSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Dimension other)) return false;
+            if(!(obj is Dimension other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Dimension other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Visible == other.Visible &&
-                    Visible != null && other.Visible != null &&
-                    Visible.Equals(other.Visible)
-                ) && 
-                (
-                    Label == other.Label &&
-                    Label != null && other.Label != null &&
-                    Label.Equals(other.Label)
-                ) && 
-                (
-                    Equals(Values, other.Values) ||
-                    Values != null && other.Values != null &&
-                    Values.SequenceEqual(other.Values)
-                ) &&
-                (
-                    Axis == other.Axis &&
-                    Axis != null && other.Axis != null &&
-                    Axis.Equals(other.Axis)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                ) && 
-                (
-                    ValuesSrc == other.ValuesSrc &&
-                    ValuesSrc != null && other.ValuesSrc != null &&
-                    ValuesSrc.Equals(other.ValuesSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Visible == other.Visible && Visible != null && other.Visible != null && Visible.Equals(other.Visible))                                                       &&
+                   (Label   == other.Label   && Label   != null && other.Label   != null && Label.Equals(other.Label))                                                           &&
+                   (Equals(Values, other.Values) || Values != null && other.Values != null && Values.SequenceEqual(other.Values))                                                &&
+                   (Axis             == other.Axis             && Axis             != null && other.Axis             != null && Axis.Equals(other.Axis))                         &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))                         &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName)) &&
+                   (ValuesSrc        == other.ValuesSrc        && ValuesSrc        != null && other.ValuesSrc        != null && ValuesSrc.Equals(other.ValuesSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Visible != null) hashCode = hashCode * 59 + Visible.GetHashCode();
-                if (Label != null) hashCode = hashCode * 59 + Label.GetHashCode();
-                if (Values != null) hashCode = hashCode * 59 + Values.GetHashCode();
-                if (Axis != null) hashCode = hashCode * 59 + Axis.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
-                if (ValuesSrc != null) hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
+
+                if(Visible != null)
+                    hashCode = hashCode * 59 + Visible.GetHashCode();
+
+                if(Label != null)
+                    hashCode = hashCode * 59 + Label.GetHashCode();
+
+                if(Values != null)
+                    hashCode = hashCode * 59 + Values.GetHashCode();
+
+                if(Axis != null)
+                    hashCode = hashCode * 59 + Axis.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(ValuesSrc != null)
+                    hashCode = hashCode * 59 + ValuesSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -148,7 +134,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Dimension.</param>
         /// <param name="right">Right Dimension.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Dimension left, Dimension right)
+        public static bool operator ==(Dimension left,
+                                       Dimension right)
         {
             return Equals(left, right);
         }
@@ -159,7 +146,8 @@ namespace Plotly.Models.Traces.Sploms
         /// <param name="left">Left Dimension.</param>
         /// <param name="right">Right Dimension.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Dimension left, Dimension right)
+        public static bool operator !=(Dimension left,
+                                       Dimension right)
         {
             return !Equals(left, right);
         }
@@ -171,9 +159,10 @@ namespace Plotly.Models.Traces.Sploms
         public Dimension DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Dimension>(ms).Result;
         }
     }

@@ -13,13 +13,13 @@ namespace Plotly.Models.Layouts.Polars
     ///     when <c>gridshape</c> is <c>circular</c> (so that radial axis scale is the
     ///     same as the data scale).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum GridShapeEnum
     {
-        [EnumMember(Value=@"circular")]
+        [EnumMember(Value = @"circular")]
         Circular = 0,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear
     }
 }

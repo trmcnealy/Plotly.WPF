@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The MapBox class.
     /// </summary>
-    
     [Serializable]
     public class MapBox : IEquatable<MapBox>
     {
@@ -22,7 +21,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set;} 
+        public Domain Domain { get; set; }
 
         /// <summary>
         ///     Sets the mapbox access token to be used for this mapbox map. Alternatively,
@@ -32,7 +31,7 @@ namespace Plotly.Models.Layouts
         ///     and/or a layout layer references the Mapbox server.
         /// </summary>
         [JsonPropertyName(@"accesstoken")]
-        public string AccessToken { get; set;} 
+        public string AccessToken { get; set; }
 
         /// <summary>
         ///     Defines the map layers that are rendered by default below the trace layers
@@ -53,124 +52,107 @@ namespace Plotly.Models.Layouts
         ///      Mapbox style URLs are of the form: mapbox://mapbox.mapbox-&lt;name&gt;-&lt;version&gt;
         /// </summary>
         [JsonPropertyName(@"style")]
-        public object Style { get; set;} 
+        public object Style { get; set; }
 
         /// <summary>
         ///     Gets or sets the Center.
         /// </summary>
         [JsonPropertyName(@"center")]
-        public Center Center { get; set;} 
+        public Center Center { get; set; }
 
         /// <summary>
         ///     Sets the zoom level of the map (mapbox.zoom).
         /// </summary>
         [JsonPropertyName(@"zoom")]
-        public JsNumber? Zoom { get; set;} 
+        public JsNumber? Zoom { get; set; }
 
         /// <summary>
         ///     Sets the bearing angle of the map in degrees counter-clockwise from North
         ///     (mapbox.bearing).
         /// </summary>
         [JsonPropertyName(@"bearing")]
-        public JsNumber? Bearing { get; set;} 
+        public JsNumber? Bearing { get; set; }
 
         /// <summary>
         ///     Sets the pitch angle of the map (in degrees, where <c>0</c> means perpendicular
         ///     to the surface of the map) (mapbox.pitch).
         /// </summary>
         [JsonPropertyName(@"pitch")]
-        public JsNumber? Pitch { get; set;} 
+        public JsNumber? Pitch { get; set; }
 
         /// <summary>
         ///     Gets or sets the Layers.
         /// </summary>
         [JsonPropertyName(@"layers")]
-        public List<Layer> Layers { get; set;} 
+        public List<Layer> Layers { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in the view: <c>center</c>,
         ///     <c>zoom</c>, <c>bearing</c>, <c>pitch</c>. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is MapBox other)) return false;
+            if(!(obj is MapBox other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] MapBox other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Domain == other.Domain &&
-                    Domain != null && other.Domain != null &&
-                    Domain.Equals(other.Domain)
-                ) && 
-                (
-                    AccessToken == other.AccessToken &&
-                    AccessToken != null && other.AccessToken != null &&
-                    AccessToken.Equals(other.AccessToken)
-                ) && 
-                (
-                    Style == other.Style &&
-                    Style != null && other.Style != null &&
-                    Style.Equals(other.Style)
-                ) && 
-                (
-                    Center == other.Center &&
-                    Center != null && other.Center != null &&
-                    Center.Equals(other.Center)
-                ) && 
-                (
-                    Zoom == other.Zoom &&
-                    Zoom != null && other.Zoom != null &&
-                    Zoom.Equals(other.Zoom)
-                ) && 
-                (
-                    Bearing == other.Bearing &&
-                    Bearing != null && other.Bearing != null &&
-                    Bearing.Equals(other.Bearing)
-                ) && 
-                (
-                    Pitch == other.Pitch &&
-                    Pitch != null && other.Pitch != null &&
-                    Pitch.Equals(other.Pitch)
-                ) && 
-                (
-                    Equals(Layers, other.Layers) ||
-                    Layers != null && other.Layers != null &&
-                    Layers.SequenceEqual(other.Layers)
-                ) &&
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Domain      == other.Domain      && Domain      != null && other.Domain      != null && Domain.Equals(other.Domain))           &&
+                   (AccessToken == other.AccessToken && AccessToken != null && other.AccessToken != null && AccessToken.Equals(other.AccessToken)) &&
+                   (Style       == other.Style       && Style       != null && other.Style       != null && Style.Equals(other.Style))             &&
+                   (Center      == other.Center      && Center      != null && other.Center      != null && Center.Equals(other.Center))           &&
+                   (Zoom        == other.Zoom        && Zoom        != null && other.Zoom        != null && Zoom.Equals(other.Zoom))               &&
+                   (Bearing     == other.Bearing     && Bearing     != null && other.Bearing     != null && Bearing.Equals(other.Bearing))         &&
+                   (Pitch       == other.Pitch       && Pitch       != null && other.Pitch       != null && Pitch.Equals(other.Pitch))             &&
+                   (Equals(Layers, other.Layers) || Layers != null && other.Layers != null && Layers.SequenceEqual(other.Layers))                  &&
+                   (UiRevision == other.UiRevision && UiRevision != null && other.UiRevision != null && UiRevision.Equals(other.UiRevision));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Domain != null) hashCode = hashCode * 59 + Domain.GetHashCode();
-                if (AccessToken != null) hashCode = hashCode * 59 + AccessToken.GetHashCode();
-                if (Style != null) hashCode = hashCode * 59 + Style.GetHashCode();
-                if (Center != null) hashCode = hashCode * 59 + Center.GetHashCode();
-                if (Zoom != null) hashCode = hashCode * 59 + Zoom.GetHashCode();
-                if (Bearing != null) hashCode = hashCode * 59 + Bearing.GetHashCode();
-                if (Pitch != null) hashCode = hashCode * 59 + Pitch.GetHashCode();
-                if (Layers != null) hashCode = hashCode * 59 + Layers.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(Domain != null)
+                    hashCode = hashCode * 59 + Domain.GetHashCode();
+
+                if(AccessToken != null)
+                    hashCode = hashCode * 59 + AccessToken.GetHashCode();
+
+                if(Style != null)
+                    hashCode = hashCode * 59 + Style.GetHashCode();
+
+                if(Center != null)
+                    hashCode = hashCode * 59 + Center.GetHashCode();
+
+                if(Zoom != null)
+                    hashCode = hashCode * 59 + Zoom.GetHashCode();
+
+                if(Bearing != null)
+                    hashCode = hashCode * 59 + Bearing.GetHashCode();
+
+                if(Pitch != null)
+                    hashCode = hashCode * 59 + Pitch.GetHashCode();
+
+                if(Layers != null)
+                    hashCode = hashCode * 59 + Layers.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -181,7 +163,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left MapBox.</param>
         /// <param name="right">Right MapBox.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (MapBox left, MapBox right)
+        public static bool operator ==(MapBox left,
+                                       MapBox right)
         {
             return Equals(left, right);
         }
@@ -192,7 +175,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left MapBox.</param>
         /// <param name="right">Right MapBox.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (MapBox left, MapBox right)
+        public static bool operator !=(MapBox left,
+                                       MapBox right)
         {
             return !Equals(left, right);
         }
@@ -204,9 +188,10 @@ namespace Plotly.Models.Layouts
         public MapBox DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<MapBox>(ms).Result;
         }
     }

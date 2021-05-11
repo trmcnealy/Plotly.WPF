@@ -46,7 +46,7 @@ namespace Plotly.Models
             // Handle all kind of complex objects
             return JsonSerializer.Deserialize<JsonElement>(JsonSerializer.Serialize<object>(obj, serializerOptions)).PrepareJsonElement();
         }
-        
+
         private static object PrepareJsonElement(this JsonElement obj)
         {
             switch(obj.ValueKind)

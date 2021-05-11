@@ -54,14 +54,14 @@ namespace Plotly.Models
             }
         }
 
-        public static readonly JsonSerializerOptions SerializerOptions = new ()
+        public static readonly JsonSerializerOptions SerializerOptions = new()
         {
             Encoder                     = DefaultJavaScriptEncoderBasicLatin.s_singleton,
             PropertyNameCaseInsensitive = false,
             IgnoreNullValues            = true,
             WriteIndented               = true,
             //PropertyNamingPolicy        = JsonNamingPolicy.CamelCase,
-            Converters = 
+            Converters =
             {
                 PolymorphicConverter<ITrace>.Singleton,
                 PolymorphicConverter<ITransform>.Singleton,

@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -9,7 +8,8 @@ using System.Text.Json;
 using Plotly.Models;
 using Plotly.Models.Configs;
 
-[assembly:ComVisible(true)]
+[assembly: ComVisible(true)]
+
 namespace Plotly
 {
     [ComVisible(true)]
@@ -30,6 +30,8 @@ namespace Plotly
 
         string GetFrames();
 
+        int Length(object[] array);
+
         [IndexerName("DataItems")]
         object[] this[string variable] { get; }
     }
@@ -38,6 +40,7 @@ namespace Plotly
     public sealed class CsPlotlyPlot : ICsPlotlyPlot
     {
         #region Internal Properties
+
         [ComVisible(       false)]
         [field: ComVisible(false)]
         internal Dictionary<string, (string type, object[] array)> DataSource { get; set; }
@@ -51,13 +54,14 @@ namespace Plotly
             get { return _plotData; }
             set
             {
-                if (_plotData != value)
+                if(_plotData != value)
                 {
                     _plotData = value;
 
                     _data = JsonSerializer.Serialize(_plotData, Converter.SerializerOptions);
 
-                    if (_enableLogging) {
+                    if(_enableLogging)
+                    {
                         Trace.WriteLine(_data);
                     }
                 }
@@ -73,13 +77,14 @@ namespace Plotly
             get { return _plotLayout; }
             set
             {
-                if (_plotLayout != value)
+                if(_plotLayout != value)
                 {
                     _plotLayout = value;
 
                     _layout = JsonSerializer.Serialize(_plotLayout, Converter.SerializerOptions);
-                    
-                    if (_enableLogging) {
+
+                    if(_enableLogging)
+                    {
                         Trace.WriteLine(_layout);
                     }
                 }
@@ -95,13 +100,14 @@ namespace Plotly
             get { return _plotConfig; }
             set
             {
-                if (_plotConfig != value)
+                if(_plotConfig != value)
                 {
                     _plotConfig = value;
 
                     _config = JsonSerializer.Serialize(_plotConfig, Converter.SerializerOptions);
-                    
-                    if (_enableLogging) {
+
+                    if(_enableLogging)
+                    {
                         Trace.WriteLine(_config);
                     }
                 }
@@ -117,13 +123,14 @@ namespace Plotly
             get { return _plotFrames; }
             set
             {
-                if (_plotFrames != value)
+                if(_plotFrames != value)
                 {
                     _plotFrames = value;
 
                     _frames = JsonSerializer.Serialize(_plotFrames, Converter.SerializerOptions);
-                    
-                    if (_enableLogging) {
+
+                    if(_enableLogging)
+                    {
                         Trace.WriteLine(_frames);
                     }
                 }
@@ -158,16 +165,17 @@ namespace Plotly
                 },
                 ToImageButtonOptions = new ImageButtonOptions
                 {
-                    Format = "svg",
+                    Format   = "svg",
                     Filename = "custom_image",
-                    Scale = 1
+                    Scale    = 1
                 },
-                Logging = 1,
+                Logging         = 1,
                 NotifyOnLogging = 2
             };
 
             return config;
-        } 
+        }
+
         #endregion
 
         [ComVisible(false)]
@@ -175,15 +183,16 @@ namespace Plotly
 
         [ComVisible(false)]
         private string _data;
-        
+
         [ComVisible(false)]
         private string _layout;
-        
+
         [ComVisible(false)]
         private string _config;
-        
+
         [ComVisible(false)]
         private string _frames;
+
         public CsPlotlyPlot()
         {
             _enableLogging = false;
@@ -200,27 +209,27 @@ namespace Plotly
         {
             _enableLogging = enableLogging;
 
-            DataSource     = new Dictionary<string, (string type, object[] array)>();
-            PlotData       = new List<ITrace>();
-            PlotLayout     = new Layout();
-            PlotConfig     = DefaultConfig();
-            PlotFrames     = new List<Frames>();
-            SelectedData   = new List<List<JsNumber>>();
+            DataSource   = new Dictionary<string, (string type, object[] array)>();
+            PlotData     = new List<ITrace>();
+            PlotLayout   = new Layout();
+            PlotConfig   = DefaultConfig();
+            PlotFrames   = new List<Frames>();
+            SelectedData = new List<List<JsNumber>>();
         }
 
-        public CsPlotlyPlot(bool enableLogging,
+        public CsPlotlyPlot(bool                                              enableLogging,
                             Dictionary<string, (string type, object[] array)> dataSource,
                             List<ITrace>                                      data,
                             Layout                                            layout)
         {
             _enableLogging = enableLogging;
 
-            DataSource     = dataSource;
-            PlotData       = data;
-            PlotLayout     = layout;
-            PlotConfig     = DefaultConfig();
-            PlotFrames     = new List<Frames>();
-            SelectedData   = new List<List<JsNumber>>();
+            DataSource   = dataSource;
+            PlotData     = data;
+            PlotLayout   = layout;
+            PlotConfig   = DefaultConfig();
+            PlotFrames   = new List<Frames>();
+            SelectedData = new List<List<JsNumber>>();
         }
 
         public CsPlotlyPlot(bool                                              enableLogging,
@@ -231,12 +240,12 @@ namespace Plotly
         {
             _enableLogging = enableLogging;
 
-            DataSource    = dataSource;
-            PlotData      = data;
-            PlotLayout    = layout;
-            PlotConfig = config;
-            PlotFrames    = new List<Frames>();
-            SelectedData  = new List<List<JsNumber>>();
+            DataSource   = dataSource;
+            PlotData     = data;
+            PlotLayout   = layout;
+            PlotConfig   = config;
+            PlotFrames   = new List<Frames>();
+            SelectedData = new List<List<JsNumber>>();
         }
 
         public CsPlotlyPlot(bool                                              enableLogging,
@@ -247,12 +256,12 @@ namespace Plotly
         {
             _enableLogging = enableLogging;
 
-            DataSource    = dataSource;
-            PlotData      = data;
-            PlotLayout    = layout;
-            PlotConfig = DefaultConfig();
-            PlotFrames    = frames;
-            SelectedData  = new List<List<JsNumber>>();
+            DataSource   = dataSource;
+            PlotData     = data;
+            PlotLayout   = layout;
+            PlotConfig   = DefaultConfig();
+            PlotFrames   = frames;
+            SelectedData = new List<List<JsNumber>>();
         }
 
         public CsPlotlyPlot(bool                                              enableLogging,
@@ -264,19 +273,20 @@ namespace Plotly
         {
             _enableLogging = enableLogging;
 
-            DataSource    = dataSource;
-            PlotData      = data;
-            PlotLayout    = layout;
-            PlotConfig = config;
-            PlotFrames    = frames;
-            SelectedData  = new List<List<JsNumber>>();
+            DataSource   = dataSource;
+            PlotData     = data;
+            PlotLayout   = layout;
+            PlotConfig   = config;
+            PlotFrames   = frames;
+            SelectedData = new List<List<JsNumber>>();
         }
 
         public string GetDataSource()
         {
             string data = JsonSerializer.Serialize(DataSource, Converter.SerializerOptions);
 
-            if (_enableLogging) {
+            if(_enableLogging)
+            {
                 Trace.WriteLine(data);
             }
 
@@ -302,22 +312,27 @@ namespace Plotly
         {
             return _data;
         }
-        
+
         public string GetLayout()
         {
             return _layout;
         }
-        
+
         public string GetConfig()
         {
             return _config;
         }
-        
+
         public string GetFrames()
         {
             return _frames;
         }
-        
+
+        public int Length(object[] array)
+        {
+            return array.Length;
+        }
+
         [IndexerName("DataItems")]
         public object[] this[string variable]
         {

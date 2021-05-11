@@ -9,19 +9,22 @@ namespace Plotly.Models.Layouts.Scenes.XAxes
     ///     Sets the axis type. By default, plotly attempts to determined the axis type
     ///     by looking into the data of the traces that referenced the axis in question.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"-")]
+        [EnumMember(Value = @"-")]
         Minus = 0,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear,
-        [EnumMember(Value=@"log")]
+
+        [EnumMember(Value = @"log")]
         Log,
-        [EnumMember(Value=@"date")]
+
+        [EnumMember(Value = @"date")]
         Date,
-        [EnumMember(Value=@"category")]
+
+        [EnumMember(Value = @"category")]
         Category
     }
 }

@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The Title class.
     /// </summary>
-    
     [Serializable]
     public class Title : IEquatable<Title>
     {
@@ -22,14 +21,14 @@ namespace Plotly.Models.Layouts
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set;} 
+        public string Text { get; set; }
 
         /// <summary>
         ///     Sets the title font. Note that the title&#39;s font used to be customized
         ///     by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Titles.Font Font { get; set;} 
+        public Titles.Font Font { get; set; }
 
         /// <summary>
         ///     Sets the container <c>x</c> refers to. <c>container</c> spans the entire
@@ -37,7 +36,7 @@ namespace Plotly.Models.Layouts
         ///     area only.
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public XRefEnum? XRef { get; set;} 
+        public XRefEnum? XRef { get; set; }
 
         /// <summary>
         ///     Sets the container <c>y</c> refers to. <c>container</c> spans the entire
@@ -45,14 +44,14 @@ namespace Plotly.Models.Layouts
         ///     area only.
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public YRefEnum? YRef { get; set;} 
+        public YRefEnum? YRef { get; set; }
 
         /// <summary>
         ///     Sets the x position with respect to <c>xref</c> in normalized coordinates
         ///     from <c>0</c> (left) to <c>1</c> (right).
         /// </summary>
         [JsonPropertyName(@"x")]
-        public JsNumber? X { get; set;} 
+        public JsNumber? X { get; set; }
 
         /// <summary>
         ///     Sets the y position with respect to <c>yref</c> in normalized coordinates
@@ -60,7 +59,7 @@ namespace Plotly.Models.Layouts
         ///     of the title onto the vertical center of the top margin.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public JsNumber? Y { get; set;} 
+        public JsNumber? Y { get; set; }
 
         /// <summary>
         ///     Sets the title&#39;s horizontal alignment with respect to its x position.
@@ -70,7 +69,7 @@ namespace Plotly.Models.Layouts
         ///     value automatically based on the value of <c>x</c>.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public XAnchorEnum? XAnchor { get; set;} 
+        public XAnchorEnum? XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the title&#39;s vertical alignment with respect to its y position.
@@ -80,7 +79,7 @@ namespace Plotly.Models.Layouts
         ///     the <c>yanchor</c> value automatically based on the value of <c>y</c>.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public YAnchorEnum? YAnchor { get; set;} 
+        public YAnchorEnum? YAnchor { get; set; }
 
         /// <summary>
         ///     Sets the padding of the title. Each padding value only applies when the
@@ -90,85 +89,68 @@ namespace Plotly.Models.Layouts
         ///     Padding is muted if the respective anchor value is <c>middle</c>/<c>center</c>.
         /// </summary>
         [JsonPropertyName(@"pad")]
-        public Pad Pad { get; set;} 
+        public Pad Pad { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Title other)) return false;
+            if(!(obj is Title other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Title other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Text == other.Text &&
-                    Text != null && other.Text != null &&
-                    Text.Equals(other.Text)
-                ) && 
-                (
-                    Font == other.Font &&
-                    Font != null && other.Font != null &&
-                    Font.Equals(other.Font)
-                ) && 
-                (
-                    XRef == other.XRef &&
-                    XRef != null && other.XRef != null &&
-                    XRef.Equals(other.XRef)
-                ) && 
-                (
-                    YRef == other.YRef &&
-                    YRef != null && other.YRef != null &&
-                    YRef.Equals(other.YRef)
-                ) && 
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    XAnchor == other.XAnchor &&
-                    XAnchor != null && other.XAnchor != null &&
-                    XAnchor.Equals(other.XAnchor)
-                ) && 
-                (
-                    YAnchor == other.YAnchor &&
-                    YAnchor != null && other.YAnchor != null &&
-                    YAnchor.Equals(other.YAnchor)
-                ) && 
-                (
-                    Pad == other.Pad &&
-                    Pad != null && other.Pad != null &&
-                    Pad.Equals(other.Pad)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Text    == other.Text    && Text    != null && other.Text    != null && Text.Equals(other.Text))       &&
+                   (Font    == other.Font    && Font    != null && other.Font    != null && Font.Equals(other.Font))       &&
+                   (XRef    == other.XRef    && XRef    != null && other.XRef    != null && XRef.Equals(other.XRef))       &&
+                   (YRef    == other.YRef    && YRef    != null && other.YRef    != null && YRef.Equals(other.YRef))       &&
+                   (X       == other.X       && X       != null && other.X       != null && X.Equals(other.X))             &&
+                   (Y       == other.Y       && Y       != null && other.Y       != null && Y.Equals(other.Y))             &&
+                   (XAnchor == other.XAnchor && XAnchor != null && other.XAnchor != null && XAnchor.Equals(other.XAnchor)) &&
+                   (YAnchor == other.YAnchor && YAnchor != null && other.YAnchor != null && YAnchor.Equals(other.YAnchor)) &&
+                   (Pad     == other.Pad     && Pad     != null && other.Pad     != null && Pad.Equals(other.Pad));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Text != null) hashCode = hashCode * 59 + Text.GetHashCode();
-                if (Font != null) hashCode = hashCode * 59 + Font.GetHashCode();
-                if (XRef != null) hashCode = hashCode * 59 + XRef.GetHashCode();
-                if (YRef != null) hashCode = hashCode * 59 + YRef.GetHashCode();
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (XAnchor != null) hashCode = hashCode * 59 + XAnchor.GetHashCode();
-                if (YAnchor != null) hashCode = hashCode * 59 + YAnchor.GetHashCode();
-                if (Pad != null) hashCode = hashCode * 59 + Pad.GetHashCode();
+
+                if(Text != null)
+                    hashCode = hashCode * 59 + Text.GetHashCode();
+
+                if(Font != null)
+                    hashCode = hashCode * 59 + Font.GetHashCode();
+
+                if(XRef != null)
+                    hashCode = hashCode * 59 + XRef.GetHashCode();
+
+                if(YRef != null)
+                    hashCode = hashCode * 59 + YRef.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(XAnchor != null)
+                    hashCode = hashCode * 59 + XAnchor.GetHashCode();
+
+                if(YAnchor != null)
+                    hashCode = hashCode * 59 + YAnchor.GetHashCode();
+
+                if(Pad != null)
+                    hashCode = hashCode * 59 + Pad.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -179,7 +161,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Title left, Title right)
+        public static bool operator ==(Title left,
+                                       Title right)
         {
             return Equals(left, right);
         }
@@ -190,7 +173,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left Title.</param>
         /// <param name="right">Right Title.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Title left, Title right)
+        public static bool operator !=(Title left,
+                                       Title right)
         {
             return !Equals(left, right);
         }
@@ -202,9 +186,10 @@ namespace Plotly.Models.Layouts
         public Title DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Title>(ms).Result;
         }
     }

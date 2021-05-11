@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Sunbursts
     /// <summary>
     ///     The Leaf class.
     /// </summary>
-    
     [Serializable]
     public class Leaf : IEquatable<Leaf>
     {
@@ -19,37 +18,36 @@ namespace Plotly.Models.Traces.Sunbursts
         ///     it is defaulted to 0.7
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Leaf other)) return false;
+            if(!(obj is Leaf other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Leaf other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Opacity == other.Opacity && Opacity != null && other.Opacity != null && Opacity.Equals(other.Opacity));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -60,7 +58,8 @@ namespace Plotly.Models.Traces.Sunbursts
         /// <param name="left">Left Leaf.</param>
         /// <param name="right">Right Leaf.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Leaf left, Leaf right)
+        public static bool operator ==(Leaf left,
+                                       Leaf right)
         {
             return Equals(left, right);
         }
@@ -71,7 +70,8 @@ namespace Plotly.Models.Traces.Sunbursts
         /// <param name="left">Left Leaf.</param>
         /// <param name="right">Right Leaf.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Leaf left, Leaf right)
+        public static bool operator !=(Leaf left,
+                                       Leaf right)
         {
             return !Equals(left, right);
         }
@@ -83,9 +83,10 @@ namespace Plotly.Models.Traces.Sunbursts
         public Leaf DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Leaf>(ms).Result;
         }
     }

@@ -12,15 +12,16 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers.Symbols
     ///     the line of the geometry If <c>placement</c> is <c>line-center</c>, the
     ///     label is placed on the center of the geometry
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PlacementEnum
     {
-        [EnumMember(Value=@"point")]
+        [EnumMember(Value = @"point")]
         Point = 0,
-        [EnumMember(Value=@"line")]
+
+        [EnumMember(Value = @"line")]
         Line,
-        [EnumMember(Value=@"line-center")]
+
+        [EnumMember(Value = @"line-center")]
         LineCenter
     }
 }

@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.Selecteds
     /// <summary>
     ///     The Marker class.
     /// </summary>
-    
     [Serializable]
     public class Marker : IEquatable<Marker>
     {
@@ -18,37 +17,36 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.Selecteds
         ///     Sets the marker opacity of selected points.
         /// </summary>
         [JsonPropertyName(@"opacity")]
-        public JsNumber? Opacity { get; set;} 
+        public JsNumber? Opacity { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Marker other)) return false;
+            if(!(obj is Marker other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Marker other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Opacity == other.Opacity &&
-                    Opacity != null && other.Opacity != null &&
-                    Opacity.Equals(other.Opacity)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Opacity == other.Opacity && Opacity != null && other.Opacity != null && Opacity.Equals(other.Opacity));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Opacity != null) hashCode = hashCode * 59 + Opacity.GetHashCode();
+
+                if(Opacity != null)
+                    hashCode = hashCode * 59 + Opacity.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -59,7 +57,8 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.Selecteds
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Marker left, Marker right)
+        public static bool operator ==(Marker left,
+                                       Marker right)
         {
             return Equals(left, right);
         }
@@ -70,7 +69,8 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.Selecteds
         /// <param name="left">Left Marker.</param>
         /// <param name="right">Right Marker.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Marker left, Marker right)
+        public static bool operator !=(Marker left,
+                                       Marker right)
         {
             return !Equals(left, right);
         }
@@ -82,9 +82,10 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.Selecteds
         public Marker DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Marker>(ms).Result;
         }
     }

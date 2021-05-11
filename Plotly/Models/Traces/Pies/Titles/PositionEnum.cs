@@ -9,23 +9,28 @@ namespace Plotly.Models.Traces.Pies.Titles
     ///     Specifies the location of the <c>title</c>. Note that the title&#39;s position
     ///     used to be set by the now deprecated <c>titleposition</c> attribute.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum PositionEnum
     {
-        [EnumMember(Value=@"top left")]
+        [EnumMember(Value = @"top left")]
         TopLeft,
-        [EnumMember(Value=@"top center")]
+
+        [EnumMember(Value = @"top center")]
         TopCenter,
-        [EnumMember(Value=@"top right")]
+
+        [EnumMember(Value = @"top right")]
         TopRight,
-        [EnumMember(Value=@"middle center")]
+
+        [EnumMember(Value = @"middle center")]
         MiddleCenter,
-        [EnumMember(Value=@"bottom left")]
+
+        [EnumMember(Value = @"bottom left")]
         BottomLeft,
-        [EnumMember(Value=@"bottom center")]
+
+        [EnumMember(Value = @"bottom center")]
         BottomCenter,
-        [EnumMember(Value=@"bottom right")]
+
+        [EnumMember(Value = @"bottom right")]
         BottomRight
     }
 }

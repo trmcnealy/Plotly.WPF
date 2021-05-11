@@ -8,13 +8,13 @@ namespace Plotly.Models.Transforms.Sorts
     /// <summary>
     ///     Sets the sort transform order.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrderEnum
     {
-        [EnumMember(Value=@"ascending")]
+        [EnumMember(Value = @"ascending")]
         Ascending = 0,
-        [EnumMember(Value=@"descending")]
+
+        [EnumMember(Value = @"descending")]
         Descending
     }
 }

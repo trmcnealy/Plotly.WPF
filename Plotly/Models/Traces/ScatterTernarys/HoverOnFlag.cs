@@ -12,14 +12,14 @@ namespace Plotly.Models.Traces.ScatterTernarys
     ///     and there are no markers or text, then the default is <c>fills</c>, otherwise
     ///     it is <c>points</c>.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverOnFlag
     {
-        [EnumMember(Value=@"points")]
+        [EnumMember(Value = @"points")]
         Points = 0,
-        [EnumMember(Value=@"fills")]
+
+        [EnumMember(Value = @"fills")]
         Fills = 1
     }
 }

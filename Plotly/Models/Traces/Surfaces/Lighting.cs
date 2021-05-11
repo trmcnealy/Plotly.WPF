@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Surfaces
     /// <summary>
     ///     The Lighting class.
     /// </summary>
-    
     [Serializable]
     public class Lighting : IEquatable<Lighting>
     {
@@ -18,27 +17,27 @@ namespace Plotly.Models.Traces.Surfaces
         ///     Ambient light increases overall color visibility but can wash out the image.
         /// </summary>
         [JsonPropertyName(@"ambient")]
-        public JsNumber? Ambient { get; set;} 
+        public JsNumber? Ambient { get; set; }
 
         /// <summary>
         ///     Represents the extent that incident rays are reflected in a range of angles.
         /// </summary>
         [JsonPropertyName(@"diffuse")]
-        public JsNumber? Diffuse { get; set;} 
+        public JsNumber? Diffuse { get; set; }
 
         /// <summary>
         ///     Represents the level that incident rays are reflected in a single direction,
         ///     causing shine.
         /// </summary>
         [JsonPropertyName(@"specular")]
-        public JsNumber? Specular { get; set;} 
+        public JsNumber? Specular { get; set; }
 
         /// <summary>
         ///     Alters specular reflection; the rougher the surface, the wider and less
         ///     contrasty the shine.
         /// </summary>
         [JsonPropertyName(@"roughness")]
-        public JsNumber? Roughness { get; set;} 
+        public JsNumber? Roughness { get; set; }
 
         /// <summary>
         ///     Represents the reflectance as a dependency of the viewing angle; e.g. paper
@@ -46,61 +45,52 @@ namespace Plotly.Models.Traces.Surfaces
         ///     causing shine.
         /// </summary>
         [JsonPropertyName(@"fresnel")]
-        public JsNumber? Fresnel { get; set;} 
+        public JsNumber? Fresnel { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Lighting other)) return false;
+            if(!(obj is Lighting other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Lighting other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Ambient == other.Ambient &&
-                    Ambient != null && other.Ambient != null &&
-                    Ambient.Equals(other.Ambient)
-                ) && 
-                (
-                    Diffuse == other.Diffuse &&
-                    Diffuse != null && other.Diffuse != null &&
-                    Diffuse.Equals(other.Diffuse)
-                ) && 
-                (
-                    Specular == other.Specular &&
-                    Specular != null && other.Specular != null &&
-                    Specular.Equals(other.Specular)
-                ) && 
-                (
-                    Roughness == other.Roughness &&
-                    Roughness != null && other.Roughness != null &&
-                    Roughness.Equals(other.Roughness)
-                ) && 
-                (
-                    Fresnel == other.Fresnel &&
-                    Fresnel != null && other.Fresnel != null &&
-                    Fresnel.Equals(other.Fresnel)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Ambient   == other.Ambient   && Ambient   != null && other.Ambient   != null && Ambient.Equals(other.Ambient))     &&
+                   (Diffuse   == other.Diffuse   && Diffuse   != null && other.Diffuse   != null && Diffuse.Equals(other.Diffuse))     &&
+                   (Specular  == other.Specular  && Specular  != null && other.Specular  != null && Specular.Equals(other.Specular))   &&
+                   (Roughness == other.Roughness && Roughness != null && other.Roughness != null && Roughness.Equals(other.Roughness)) &&
+                   (Fresnel   == other.Fresnel   && Fresnel   != null && other.Fresnel   != null && Fresnel.Equals(other.Fresnel));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Ambient != null) hashCode = hashCode * 59 + Ambient.GetHashCode();
-                if (Diffuse != null) hashCode = hashCode * 59 + Diffuse.GetHashCode();
-                if (Specular != null) hashCode = hashCode * 59 + Specular.GetHashCode();
-                if (Roughness != null) hashCode = hashCode * 59 + Roughness.GetHashCode();
-                if (Fresnel != null) hashCode = hashCode * 59 + Fresnel.GetHashCode();
+
+                if(Ambient != null)
+                    hashCode = hashCode * 59 + Ambient.GetHashCode();
+
+                if(Diffuse != null)
+                    hashCode = hashCode * 59 + Diffuse.GetHashCode();
+
+                if(Specular != null)
+                    hashCode = hashCode * 59 + Specular.GetHashCode();
+
+                if(Roughness != null)
+                    hashCode = hashCode * 59 + Roughness.GetHashCode();
+
+                if(Fresnel != null)
+                    hashCode = hashCode * 59 + Fresnel.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -111,7 +101,8 @@ namespace Plotly.Models.Traces.Surfaces
         /// <param name="left">Left Lighting.</param>
         /// <param name="right">Right Lighting.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Lighting left, Lighting right)
+        public static bool operator ==(Lighting left,
+                                       Lighting right)
         {
             return Equals(left, right);
         }
@@ -122,7 +113,8 @@ namespace Plotly.Models.Traces.Surfaces
         /// <param name="left">Left Lighting.</param>
         /// <param name="right">Right Lighting.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Lighting left, Lighting right)
+        public static bool operator !=(Lighting left,
+                                       Lighting right)
         {
             return !Equals(left, right);
         }
@@ -134,9 +126,10 @@ namespace Plotly.Models.Traces.Surfaces
         public Lighting DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Lighting>(ms).Result;
         }
     }

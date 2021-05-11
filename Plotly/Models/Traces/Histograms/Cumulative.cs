@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Histograms
     /// <summary>
     ///     The Cumulative class.
     /// </summary>
-    
     [Serializable]
     public class Cumulative : IEquatable<Cumulative>
     {
@@ -25,7 +24,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     and &#39;probability density* both rise to the number of sample points.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
         /// <summary>
         ///     Only applies if cumulative is enabled. If <c>increasing</c> (default) we
@@ -33,7 +32,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     we sum later bins so the result decreases from left to right.
         /// </summary>
         [JsonPropertyName(@"direction")]
-        public DirectionEnum? Direction { get; set;} 
+        public DirectionEnum? Direction { get; set; }
 
         /// <summary>
         ///     Only applies if cumulative is enabled. Sets whether the current bin is included,
@@ -43,49 +42,44 @@ namespace Plotly.Models.Traces.Histograms
         ///     the opposite half-bin bias, and <c>half</c> removes it.
         /// </summary>
         [JsonPropertyName(@"currentbin")]
-        public CurrentBinEnum? CurrentBin { get; set;} 
+        public CurrentBinEnum? CurrentBin { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Cumulative other)) return false;
+            if(!(obj is Cumulative other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Cumulative other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    Direction == other.Direction &&
-                    Direction != null && other.Direction != null &&
-                    Direction.Equals(other.Direction)
-                ) && 
-                (
-                    CurrentBin == other.CurrentBin &&
-                    CurrentBin != null && other.CurrentBin != null &&
-                    CurrentBin.Equals(other.CurrentBin)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Enabled    == other.Enabled    && Enabled    != null && other.Enabled    != null && Enabled.Equals(other.Enabled))     &&
+                   (Direction  == other.Direction  && Direction  != null && other.Direction  != null && Direction.Equals(other.Direction)) &&
+                   (CurrentBin == other.CurrentBin && CurrentBin != null && other.CurrentBin != null && CurrentBin.Equals(other.CurrentBin));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
-                if (Direction != null) hashCode = hashCode * 59 + Direction.GetHashCode();
-                if (CurrentBin != null) hashCode = hashCode * 59 + CurrentBin.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(Direction != null)
+                    hashCode = hashCode * 59 + Direction.GetHashCode();
+
+                if(CurrentBin != null)
+                    hashCode = hashCode * 59 + CurrentBin.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -96,7 +90,8 @@ namespace Plotly.Models.Traces.Histograms
         /// <param name="left">Left Cumulative.</param>
         /// <param name="right">Right Cumulative.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Cumulative left, Cumulative right)
+        public static bool operator ==(Cumulative left,
+                                       Cumulative right)
         {
             return Equals(left, right);
         }
@@ -107,7 +102,8 @@ namespace Plotly.Models.Traces.Histograms
         /// <param name="left">Left Cumulative.</param>
         /// <param name="right">Right Cumulative.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Cumulative left, Cumulative right)
+        public static bool operator !=(Cumulative left,
+                                       Cumulative right)
         {
             return !Equals(left, right);
         }
@@ -119,9 +115,10 @@ namespace Plotly.Models.Traces.Histograms
         public Cumulative DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Cumulative>(ms).Result;
         }
     }

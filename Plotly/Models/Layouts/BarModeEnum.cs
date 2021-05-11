@@ -12,17 +12,19 @@ namespace Plotly.Models.Layouts
     ///     <c>overlay</c>, the bars are plotted over one another, you might need to
     ///     an <c>opacity</c> to see multiple bars.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BarModeEnum
     {
-        [EnumMember(Value=@"group")]
+        [EnumMember(Value = @"group")]
         Group = 0,
-        [EnumMember(Value=@"stack")]
+
+        [EnumMember(Value = @"stack")]
         Stack,
-        [EnumMember(Value=@"overlay")]
+
+        [EnumMember(Value = @"overlay")]
         Overlay,
-        [EnumMember(Value=@"relative")]
+
+        [EnumMember(Value = @"relative")]
         Relative
     }
 }

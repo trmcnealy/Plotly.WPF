@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.Violins
     ///     Sets the orientation of the violin(s). If <c>v</c> (<c>h</c>), the distribution
     ///     is visualized along the vertical (horizontal).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OrientationEnum
     {
-        [EnumMember(Value=@"v")]
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H
     }
 }

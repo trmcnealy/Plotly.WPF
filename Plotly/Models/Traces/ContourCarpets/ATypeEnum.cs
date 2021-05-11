@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.ContourCarpets
     ///     x coordinates are given by <c>x0</c> and <c>dx</c> (the default behavior
     ///     when <c>x</c> is not provided).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ATypeEnum
     {
-        [EnumMember(Value=@"array")]
+        [EnumMember(Value = @"array")]
         Array,
-        [EnumMember(Value=@"scaled")]
+
+        [EnumMember(Value = @"scaled")]
         Scaled
     }
 }

@@ -15,13 +15,13 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors.Buttons
     ///     year. Month and year <c>todate</c> are currently available only for the
     ///     built-in (Gregorian) calendar.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum StepModeEnum
     {
-        [EnumMember(Value=@"backward")]
+        [EnumMember(Value = @"backward")]
         Backward = 0,
-        [EnumMember(Value=@"todate")]
+
+        [EnumMember(Value = @"todate")]
         ToDate
     }
 }

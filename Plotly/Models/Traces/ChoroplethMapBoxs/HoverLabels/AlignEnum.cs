@@ -7,15 +7,16 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.HoverLabels
     ///     Sets the horizontal alignment of the text content within hover label box.
     ///     Has an effect only if the hover label text spans more two or more lines
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AlignEnum
     {
-        [EnumMember(Value=@"auto")]
+        [EnumMember(Value = @"auto")]
         Auto = 0,
-        [EnumMember(Value=@"left")]
+
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

@@ -9,26 +9,32 @@ namespace Plotly.Models.Traces.TreeMaps
     /// <summary>
     ///     Determines which trace information appear on the graph.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum TextInfoFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"label")]
+
+        [EnumMember(Value = @"label")]
         Label = 1,
-        [EnumMember(Value=@"text")]
+
+        [EnumMember(Value = @"text")]
         Text = 2,
-        [EnumMember(Value=@"value")]
+
+        [EnumMember(Value = @"value")]
         Value = 4,
-        [EnumMember(Value=@"current path")]
+
+        [EnumMember(Value = @"current path")]
         CurrentPath = 8,
-        [EnumMember(Value=@"percent root")]
+
+        [EnumMember(Value = @"percent root")]
         PercentRoot = 16,
-        [EnumMember(Value=@"percent entry")]
+
+        [EnumMember(Value = @"percent entry")]
         PercentEntry = 32,
-        [EnumMember(Value=@"percent parent")]
+
+        [EnumMember(Value = @"percent parent")]
         PercentParent = 64
     }
 }

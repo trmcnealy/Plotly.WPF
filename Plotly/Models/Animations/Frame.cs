@@ -10,7 +10,6 @@ namespace Plotly.Models.Animations
     /// <summary>
     ///     The Frame class.
     /// </summary>
-    
     [Serializable]
     public class Frame : IEquatable<Frame>
     {
@@ -19,7 +18,7 @@ namespace Plotly.Models.Animations
         ///     it will be limited to the frame duration.
         /// </summary>
         [JsonPropertyName(@"duration")]
-        public JsNumber? Duration { get; set;} 
+        public JsNumber? Duration { get; set; }
 
         /// <summary>
         ///     Redraw the plot at completion of the transition. This is desirable for transitions
@@ -27,43 +26,40 @@ namespace Plotly.Models.Animations
         ///     slow down updates that do not require a full redraw of the plot
         /// </summary>
         [JsonPropertyName(@"redraw")]
-        public bool? Redraw { get; set;} 
+        public bool? Redraw { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Frame other)) return false;
+            if(!(obj is Frame other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Frame other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Duration == other.Duration &&
-                    Duration != null && other.Duration != null &&
-                    Duration.Equals(other.Duration)
-                ) && 
-                (
-                    Redraw == other.Redraw &&
-                    Redraw != null && other.Redraw != null &&
-                    Redraw.Equals(other.Redraw)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Duration == other.Duration && Duration != null && other.Duration != null && Duration.Equals(other.Duration)) &&
+                   (Redraw   == other.Redraw   && Redraw   != null && other.Redraw   != null && Redraw.Equals(other.Redraw));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Duration != null) hashCode = hashCode * 59 + Duration.GetHashCode();
-                if (Redraw != null) hashCode = hashCode * 59 + Redraw.GetHashCode();
+
+                if(Duration != null)
+                    hashCode = hashCode * 59 + Duration.GetHashCode();
+
+                if(Redraw != null)
+                    hashCode = hashCode * 59 + Redraw.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -74,7 +70,8 @@ namespace Plotly.Models.Animations
         /// <param name="left">Left Frame.</param>
         /// <param name="right">Right Frame.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Frame left, Frame right)
+        public static bool operator ==(Frame left,
+                                       Frame right)
         {
             return Equals(left, right);
         }
@@ -85,7 +82,8 @@ namespace Plotly.Models.Animations
         /// <param name="left">Left Frame.</param>
         /// <param name="right">Right Frame.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Frame left, Frame right)
+        public static bool operator !=(Frame left,
+                                       Frame right)
         {
             return !Equals(left, right);
         }
@@ -97,9 +95,10 @@ namespace Plotly.Models.Animations
         public Frame DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Frame>(ms).Result;
         }
     }

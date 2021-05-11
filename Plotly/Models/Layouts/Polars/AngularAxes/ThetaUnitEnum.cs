@@ -9,13 +9,13 @@ namespace Plotly.Models.Layouts.Polars.AngularAxes
     ///     Sets the format unit of the formatted <c>theta</c> values. Has an effect
     ///     only when <c>angularaxis.type</c> is <c>linear</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ThetaUnitEnum
     {
-        [EnumMember(Value=@"degrees")]
+        [EnumMember(Value = @"degrees")]
         Degrees = 0,
-        [EnumMember(Value=@"radians")]
+
+        [EnumMember(Value = @"radians")]
         Radians
     }
 }

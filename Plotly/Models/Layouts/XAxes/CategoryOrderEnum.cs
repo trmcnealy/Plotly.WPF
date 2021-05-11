@@ -17,41 +17,55 @@ namespace Plotly.Models.Layouts.XAxes
     ///     be determined by the numerical order of the values. Similarly, the order
     ///     can be determined by the min, max, sum, mean or median of all the values.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum CategoryOrderEnum
     {
-        [EnumMember(Value=@"trace")]
+        [EnumMember(Value = @"trace")]
         Trace = 0,
-        [EnumMember(Value=@"category ascending")]
+
+        [EnumMember(Value = @"category ascending")]
         CategoryAscending,
-        [EnumMember(Value=@"category descending")]
+
+        [EnumMember(Value = @"category descending")]
         CategoryDescending,
-        [EnumMember(Value=@"array")]
+
+        [EnumMember(Value = @"array")]
         Array,
-        [EnumMember(Value=@"total ascending")]
+
+        [EnumMember(Value = @"total ascending")]
         TotalAscending,
-        [EnumMember(Value=@"total descending")]
+
+        [EnumMember(Value = @"total descending")]
         TotalDescending,
-        [EnumMember(Value=@"min ascending")]
+
+        [EnumMember(Value = @"min ascending")]
         MinAscending,
-        [EnumMember(Value=@"min descending")]
+
+        [EnumMember(Value = @"min descending")]
         MinDescending,
-        [EnumMember(Value=@"max ascending")]
+
+        [EnumMember(Value = @"max ascending")]
         MaxAscending,
-        [EnumMember(Value=@"max descending")]
+
+        [EnumMember(Value = @"max descending")]
         MaxDescending,
-        [EnumMember(Value=@"sum ascending")]
+
+        [EnumMember(Value = @"sum ascending")]
         SumAscending,
-        [EnumMember(Value=@"sum descending")]
+
+        [EnumMember(Value = @"sum descending")]
         SumDescending,
-        [EnumMember(Value=@"mean ascending")]
+
+        [EnumMember(Value = @"mean ascending")]
         MeanAscending,
-        [EnumMember(Value=@"mean descending")]
+
+        [EnumMember(Value = @"mean descending")]
         MeanDescending,
-        [EnumMember(Value=@"median ascending")]
+
+        [EnumMember(Value = @"median ascending")]
         MedianAscending,
-        [EnumMember(Value=@"median descending")]
+
+        [EnumMember(Value = @"median descending")]
         MedianDescending
     }
 }

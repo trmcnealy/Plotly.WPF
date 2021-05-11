@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.Scatters.Markers.ColorBars
     ///     constant color direction) is set in units of plot <c>fraction</c> or in
     ///     <c>pixels</c>. Use <c>thickness</c> to set the value.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ThicknessModeEnum
     {
-        [EnumMember(Value=@"pixels")]
+        [EnumMember(Value = @"pixels")]
         Pixels = 0,
-        [EnumMember(Value=@"fraction")]
+
+        [EnumMember(Value = @"fraction")]
         Fraction
     }
 }

@@ -12,7 +12,6 @@ namespace Plotly.Models.Traces.Volumes
     /// <summary>
     ///     The Surface class.
     /// </summary>
-    
     [Serializable]
     public class Surface : IEquatable<Surface>
     {
@@ -20,7 +19,7 @@ namespace Plotly.Models.Traces.Volumes
         ///     Hides/displays surfaces between minimum and maximum iso-values.
         /// </summary>
         [JsonPropertyName(@"show")]
-        public bool? Show { get; set;} 
+        public bool? Show { get; set; }
 
         /// <summary>
         ///     Sets the number of iso-surfaces between minimum and maximum iso-values.
@@ -28,7 +27,7 @@ namespace Plotly.Models.Traces.Volumes
         ///     would be drawn.
         /// </summary>
         [JsonPropertyName(@"count")]
-        public int? Count { get; set;} 
+        public int? Count { get; set; }
 
         /// <summary>
         ///     Sets the fill ratio of the iso-surface. The default fill value of the surface
@@ -37,7 +36,7 @@ namespace Plotly.Models.Traces.Volumes
         ///     to the edges.
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public JsNumber? Fill { get; set;} 
+        public JsNumber? Fill { get; set; }
 
         /// <summary>
         ///     Sets the surface pattern of the iso-surface 3-D sections. The default pattern
@@ -48,55 +47,48 @@ namespace Plotly.Models.Traces.Volumes
         ///     number of triangles on the iso-surfaces and creating other patterns of interest.
         /// </summary>
         [JsonPropertyName(@"pattern")]
-        public PatternFlag? Pattern { get; set;} 
+        public PatternFlag? Pattern { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Surface other)) return false;
+            if(!(obj is Surface other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Surface other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Show == other.Show &&
-                    Show != null && other.Show != null &&
-                    Show.Equals(other.Show)
-                ) && 
-                (
-                    Count == other.Count &&
-                    Count != null && other.Count != null &&
-                    Count.Equals(other.Count)
-                ) && 
-                (
-                    Fill == other.Fill &&
-                    Fill != null && other.Fill != null &&
-                    Fill.Equals(other.Fill)
-                ) && 
-                (
-                    Pattern == other.Pattern &&
-                    Pattern != null && other.Pattern != null &&
-                    Pattern.Equals(other.Pattern)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Show    == other.Show    && Show    != null && other.Show    != null && Show.Equals(other.Show))   &&
+                   (Count   == other.Count   && Count   != null && other.Count   != null && Count.Equals(other.Count)) &&
+                   (Fill    == other.Fill    && Fill    != null && other.Fill    != null && Fill.Equals(other.Fill))   &&
+                   (Pattern == other.Pattern && Pattern != null && other.Pattern != null && Pattern.Equals(other.Pattern));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Show != null) hashCode = hashCode * 59 + Show.GetHashCode();
-                if (Count != null) hashCode = hashCode * 59 + Count.GetHashCode();
-                if (Fill != null) hashCode = hashCode * 59 + Fill.GetHashCode();
-                if (Pattern != null) hashCode = hashCode * 59 + Pattern.GetHashCode();
+
+                if(Show != null)
+                    hashCode = hashCode * 59 + Show.GetHashCode();
+
+                if(Count != null)
+                    hashCode = hashCode * 59 + Count.GetHashCode();
+
+                if(Fill != null)
+                    hashCode = hashCode * 59 + Fill.GetHashCode();
+
+                if(Pattern != null)
+                    hashCode = hashCode * 59 + Pattern.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -107,7 +99,8 @@ namespace Plotly.Models.Traces.Volumes
         /// <param name="left">Left Surface.</param>
         /// <param name="right">Right Surface.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Surface left, Surface right)
+        public static bool operator ==(Surface left,
+                                       Surface right)
         {
             return Equals(left, right);
         }
@@ -118,7 +111,8 @@ namespace Plotly.Models.Traces.Volumes
         /// <param name="left">Left Surface.</param>
         /// <param name="right">Right Surface.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Surface left, Surface right)
+        public static bool operator !=(Surface left,
+                                       Surface right)
         {
             return !Equals(left, right);
         }
@@ -130,9 +124,10 @@ namespace Plotly.Models.Traces.Volumes
         public Surface DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Surface>(ms).Result;
         }
     }

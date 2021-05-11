@@ -12,15 +12,16 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders.YAxes
     ///     <c>match</c>, the current range of the corresponding y-axis on the main
     ///     subplot is used.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum RangeModeEnum
     {
-        [EnumMember(Value=@"match")]
+        [EnumMember(Value = @"match")]
         Match = 0,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto,
-        [EnumMember(Value=@"fixed")]
+
+        [EnumMember(Value = @"fixed")]
         Fixed
     }
 }

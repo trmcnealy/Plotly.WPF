@@ -8,17 +8,19 @@ namespace Plotly.Models.Traces.ScatterCarpets.Markers.Gradients
     /// <summary>
     ///     Sets the type of gradient used to fill the markers
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"radial")]
+
+        [EnumMember(Value = @"radial")]
         Radial,
-        [EnumMember(Value=@"horizontal")]
+
+        [EnumMember(Value = @"horizontal")]
         Horizontal,
-        [EnumMember(Value=@"vertical")]
+
+        [EnumMember(Value = @"vertical")]
         Vertical
     }
 }

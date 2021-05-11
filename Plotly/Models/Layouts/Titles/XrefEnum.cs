@@ -10,13 +10,13 @@ namespace Plotly.Models.Layouts.Titles
     ///     <c>width</c> of the plot. <c>paper</c> refers to the width of the plotting
     ///     area only.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum XRefEnum
     {
-        [EnumMember(Value=@"container")]
+        [EnumMember(Value = @"container")]
         Container = 0,
-        [EnumMember(Value=@"paper")]
+
+        [EnumMember(Value = @"paper")]
         Paper
     }
 }

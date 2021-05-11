@@ -11,13 +11,13 @@ namespace Plotly.Models.Traces.ParCoordss
     ///     Tilted labels with <c>labelangle</c> may be positioned better inside margins
     ///     when <c>labelposition</c> is set to <c>bottom</c>.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum LabelSideEnum
     {
-        [EnumMember(Value=@"top")]
+        [EnumMember(Value = @"top")]
         Top = 0,
-        [EnumMember(Value=@"bottom")]
+
+        [EnumMember(Value = @"bottom")]
         Bottom
     }
 }

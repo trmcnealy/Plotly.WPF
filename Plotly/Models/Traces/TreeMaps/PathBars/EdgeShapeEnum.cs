@@ -6,19 +6,22 @@ namespace Plotly.Models.Traces.TreeMaps.PathBars
     /// <summary>
     ///     Determines which shape is used for edges between <c>barpath</c> labels.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum EdgeShapeEnum
     {
-        [EnumMember(Value=@">")]
+        [EnumMember(Value = @">")]
         GreaterThan = 0,
-        [EnumMember(Value=@"<")]
+
+        [EnumMember(Value = @"<")]
         LessThan,
-        [EnumMember(Value=@"|")]
+
+        [EnumMember(Value = @"|")]
         VerticalBar,
-        [EnumMember(Value=@"/")]
+
+        [EnumMember(Value = @"/")]
         Slash,
-        [EnumMember(Value=@"\")]
+
+        [EnumMember(Value = @"\")]
         Backslash
     }
 }

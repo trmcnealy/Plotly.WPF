@@ -8,15 +8,16 @@ namespace Plotly.Models.Layouts
     ///     the value of each bar is divided by the sum of all values at that location
     ///     coordinate. <c>percent</c> is the same but multiplied by 100 to show percentages.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum BarNormEnum
     {
-        [EnumMember(Value=@"")]
+        [EnumMember(Value = @"")]
         Empty = 0,
-        [EnumMember(Value=@"fraction")]
+
+        [EnumMember(Value = @"fraction")]
         Fraction,
-        [EnumMember(Value=@"percent")]
+
+        [EnumMember(Value = @"percent")]
         Percent
     }
 }

@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -16,7 +15,6 @@ namespace Plotly.Models.Transforms
     ///     The Filter class.
     ///     Implements the <see cref="ITransform" />.
     /// </summary>
-    
     [JsonConverter(typeof(PlotlyConverter))]
     [Serializable]
     public class Filter : ITransform, IEquatable<Filter>
@@ -29,7 +27,7 @@ namespace Plotly.Models.Transforms
         ///     Determines whether this filter transform is enabled or disabled.
         /// </summary>
         [JsonPropertyName(@"enabled")]
-        public bool? Enabled { get; set;} 
+        public bool? Enabled { get; set; }
 
         /// <summary>
         ///     Sets the filter target by which the filter is applied. If a string, <c>target</c>
@@ -40,7 +38,7 @@ namespace Plotly.Models.Transforms
         ///     is applied.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set;} 
+        public string Target { get; set; }
 
         /// <summary>
         ///     Sets the filter target by which the filter is applied. If a string, <c>target</c>
@@ -52,7 +50,7 @@ namespace Plotly.Models.Transforms
         /// </summary>
         [JsonPropertyName(@"target")]
         [Array]
-        public List<string> TargetArray { get; set;} 
+        public List<string> TargetArray { get; set; }
 
         /// <summary>
         ///     Sets the filter operation. <c>=</c> keeps items equal to <c>value</c> <c>!=</c>
@@ -73,7 +71,7 @@ namespace Plotly.Models.Transforms
         ///     present in a set of values
         /// </summary>
         [JsonPropertyName(@"operation")]
-        public OperationEnum? Operation { get; set;} 
+        public OperationEnum? Operation { get; set; }
 
         /// <summary>
         ///     Sets the value or values by which to filter. Values are expected to be in
@@ -87,7 +85,7 @@ namespace Plotly.Models.Transforms
         ///     as the desired set elements.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set;} 
+        public object Value { get; set; }
 
         /// <summary>
         ///     Determines whether or not gaps in data arrays produced by the filter operation
@@ -95,13 +93,13 @@ namespace Plotly.Models.Transforms
         ///     a line chart with <c>connectgaps</c> set to <c>false</c>.
         /// </summary>
         [JsonPropertyName(@"preservegaps")]
-        public bool? PreserveGaps { get; set;} 
+        public bool? PreserveGaps { get; set; }
 
         /// <summary>
         ///     Sets the calendar system to use for <c>value</c>, if it is a date.
         /// </summary>
         [JsonPropertyName(@"valuecalendar")]
-        public ValueCalendarEnum? ValueCalendar { get; set;} 
+        public ValueCalendarEnum? ValueCalendar { get; set; }
 
         /// <summary>
         ///     Sets the calendar system to use for <c>target</c>, if it is an array of
@@ -110,97 +108,78 @@ namespace Plotly.Models.Transforms
         ///     is provided.
         /// </summary>
         [JsonPropertyName(@"targetcalendar")]
-        public TargetCalendarEnum? TargetCalendar { get; set;} 
+        public TargetCalendarEnum? TargetCalendar { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  target .
         /// </summary>
         [JsonPropertyName(@"targetsrc")]
-        public string TargetSrc { get; set;} 
+        public string TargetSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Filter other)) return false;
+            if(!(obj is Filter other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Filter other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                ) && 
-                (
-                    Enabled == other.Enabled &&
-                    Enabled != null && other.Enabled != null &&
-                    Enabled.Equals(other.Enabled)
-                ) && 
-                (
-                    Target == other.Target &&
-                    Target != null && other.Target != null &&
-                    Target.Equals(other.Target)
-                ) && 
-                (
-                    Equals(TargetArray, other.TargetArray) ||
-                    TargetArray != null && other.TargetArray != null &&
-                    TargetArray.SequenceEqual(other.TargetArray)
-                ) &&
-                (
-                    Operation == other.Operation &&
-                    Operation != null && other.Operation != null &&
-                    Operation.Equals(other.Operation)
-                ) && 
-                (
-                    Value == other.Value &&
-                    Value != null && other.Value != null &&
-                    Value.Equals(other.Value)
-                ) && 
-                (
-                    PreserveGaps == other.PreserveGaps &&
-                    PreserveGaps != null && other.PreserveGaps != null &&
-                    PreserveGaps.Equals(other.PreserveGaps)
-                ) && 
-                (
-                    ValueCalendar == other.ValueCalendar &&
-                    ValueCalendar != null && other.ValueCalendar != null &&
-                    ValueCalendar.Equals(other.ValueCalendar)
-                ) && 
-                (
-                    TargetCalendar == other.TargetCalendar &&
-                    TargetCalendar != null && other.TargetCalendar != null &&
-                    TargetCalendar.Equals(other.TargetCalendar)
-                ) && 
-                (
-                    TargetSrc == other.TargetSrc &&
-                    TargetSrc != null && other.TargetSrc != null &&
-                    TargetSrc.Equals(other.TargetSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type    == other.Type    && Type    != null && other.Type    != null && Type.Equals(other.Type))                                                 &&
+                   (Enabled == other.Enabled && Enabled != null && other.Enabled != null && Enabled.Equals(other.Enabled))                                           &&
+                   (Target  == other.Target  && Target  != null && other.Target  != null && Target.Equals(other.Target))                                             &&
+                   (Equals(TargetArray, other.TargetArray) || TargetArray != null && other.TargetArray != null && TargetArray.SequenceEqual(other.TargetArray))      &&
+                   (Operation      == other.Operation      && Operation      != null && other.Operation      != null && Operation.Equals(other.Operation))           &&
+                   (Value          == other.Value          && Value          != null && other.Value          != null && Value.Equals(other.Value))                   &&
+                   (PreserveGaps   == other.PreserveGaps   && PreserveGaps   != null && other.PreserveGaps   != null && PreserveGaps.Equals(other.PreserveGaps))     &&
+                   (ValueCalendar  == other.ValueCalendar  && ValueCalendar  != null && other.ValueCalendar  != null && ValueCalendar.Equals(other.ValueCalendar))   &&
+                   (TargetCalendar == other.TargetCalendar && TargetCalendar != null && other.TargetCalendar != null && TargetCalendar.Equals(other.TargetCalendar)) &&
+                   (TargetSrc      == other.TargetSrc      && TargetSrc      != null && other.TargetSrc      != null && TargetSrc.Equals(other.TargetSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
-                if (Enabled != null) hashCode = hashCode * 59 + Enabled.GetHashCode();
-                if (Target != null) hashCode = hashCode * 59 + Target.GetHashCode();
-                if (TargetArray != null) hashCode = hashCode * 59 + TargetArray.GetHashCode();
-                if (Operation != null) hashCode = hashCode * 59 + Operation.GetHashCode();
-                if (Value != null) hashCode = hashCode * 59 + Value.GetHashCode();
-                if (PreserveGaps != null) hashCode = hashCode * 59 + PreserveGaps.GetHashCode();
-                if (ValueCalendar != null) hashCode = hashCode * 59 + ValueCalendar.GetHashCode();
-                if (TargetCalendar != null) hashCode = hashCode * 59 + TargetCalendar.GetHashCode();
-                if (TargetSrc != null) hashCode = hashCode * 59 + TargetSrc.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Enabled != null)
+                    hashCode = hashCode * 59 + Enabled.GetHashCode();
+
+                if(Target != null)
+                    hashCode = hashCode * 59 + Target.GetHashCode();
+
+                if(TargetArray != null)
+                    hashCode = hashCode * 59 + TargetArray.GetHashCode();
+
+                if(Operation != null)
+                    hashCode = hashCode * 59 + Operation.GetHashCode();
+
+                if(Value != null)
+                    hashCode = hashCode * 59 + Value.GetHashCode();
+
+                if(PreserveGaps != null)
+                    hashCode = hashCode * 59 + PreserveGaps.GetHashCode();
+
+                if(ValueCalendar != null)
+                    hashCode = hashCode * 59 + ValueCalendar.GetHashCode();
+
+                if(TargetCalendar != null)
+                    hashCode = hashCode * 59 + TargetCalendar.GetHashCode();
+
+                if(TargetSrc != null)
+                    hashCode = hashCode * 59 + TargetSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -211,7 +190,8 @@ namespace Plotly.Models.Transforms
         /// <param name="left">Left Filter.</param>
         /// <param name="right">Right Filter.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Filter left, Filter right)
+        public static bool operator ==(Filter left,
+                                       Filter right)
         {
             return Equals(left, right);
         }
@@ -222,7 +202,8 @@ namespace Plotly.Models.Transforms
         /// <param name="left">Left Filter.</param>
         /// <param name="right">Right Filter.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Filter left, Filter right)
+        public static bool operator !=(Filter left,
+                                       Filter right)
         {
             return !Equals(left, right);
         }
@@ -234,9 +215,10 @@ namespace Plotly.Models.Transforms
         public Filter DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Filter>(ms).Result;
         }
     }

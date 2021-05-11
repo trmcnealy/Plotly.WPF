@@ -10,15 +10,16 @@ namespace Plotly.Models.Layouts.Polars.AngularAxes
     ///     the unit in which axis value are shown. If *category, use <c>period</c>
     ///     to set the number of integer coordinates around polar axis.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"-")]
+        [EnumMember(Value = @"-")]
         Minus = 0,
-        [EnumMember(Value=@"linear")]
+
+        [EnumMember(Value = @"linear")]
         Linear,
-        [EnumMember(Value=@"category")]
+
+        [EnumMember(Value = @"category")]
         Category
     }
 }

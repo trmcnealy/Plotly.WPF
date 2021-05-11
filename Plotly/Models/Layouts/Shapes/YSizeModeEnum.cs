@@ -15,13 +15,13 @@ namespace Plotly.Models.Layouts.Shapes
     ///     This way, the shape can have a fixed height while maintaining a position
     ///     relative to data or plot fraction.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YSizeModeEnum
     {
-        [EnumMember(Value=@"scaled")]
+        [EnumMember(Value = @"scaled")]
         Scaled = 0,
-        [EnumMember(Value=@"pixel")]
+
+        [EnumMember(Value = @"pixel")]
         Pixel
     }
 }

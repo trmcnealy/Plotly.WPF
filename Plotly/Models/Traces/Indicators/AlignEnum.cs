@@ -8,15 +8,16 @@ namespace Plotly.Models.Traces.Indicators
     ///     this attribute has no effect if an angular gauge is displayed: in this case,
     ///     it is always centered
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum AlignEnum
     {
-        [EnumMember(Value=@"left")]
+        [EnumMember(Value = @"left")]
         Left,
-        [EnumMember(Value=@"center")]
+
+        [EnumMember(Value = @"center")]
         Center,
-        [EnumMember(Value=@"right")]
+
+        [EnumMember(Value = @"right")]
         Right
     }
 }

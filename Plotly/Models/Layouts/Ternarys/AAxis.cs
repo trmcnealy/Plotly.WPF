@@ -14,7 +14,6 @@ namespace Plotly.Models.Layouts.Ternarys
     /// <summary>
     ///     The AAxis class.
     /// </summary>
-    
     [Serializable]
     public class AAxis : IEquatable<AAxis>
     {
@@ -22,7 +21,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public AAxes.Title Title { get; set;} 
+        public AAxes.Title Title { get; set; }
 
         /// <summary>
         ///     Sets default for all colors associated with this axis all at once: line,
@@ -30,7 +29,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     the plot background Individual pieces can override this.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set;} 
+        public object Color { get; set; }
 
         /// <summary>
         ///     Sets the tick mode for this axis. If <c>auto</c>, the number of ticks is
@@ -42,7 +41,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     <c>tickvals</c> is provided).
         /// </summary>
         [JsonPropertyName(@"tickmode")]
-        public TickModeEnum? TickMode { get; set;} 
+        public TickModeEnum? TickMode { get; set; }
 
         /// <summary>
         ///     Specifies the maximum number of ticks for the particular axis. The actual
@@ -50,7 +49,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     <c>nticks</c>. Has an effect only if <c>tickmode</c> is set to <c>auto</c>.
         /// </summary>
         [JsonPropertyName(@"nticks")]
-        public int? NTicks { get; set;} 
+        public int? NTicks { get; set; }
 
         /// <summary>
         ///     Sets the placement of the first tick on this axis. Use with <c>dtick</c>.
@@ -63,7 +62,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"tick0")]
-        public object Tick0 { get; set;} 
+        public object Tick0 { get; set; }
 
         /// <summary>
         ///     Sets the step in-between ticks on this axis. Use with <c>tick0</c>. Must
@@ -87,21 +86,21 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     to <c>M48</c>
         /// </summary>
         [JsonPropertyName(@"dtick")]
-        public object DTick { get; set;} 
+        public object DTick { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear. Only has an effect if
         ///     <c>tickmode</c> is set to <c>array</c>. Used with <c>ticktext</c>.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set;} 
+        public List<object> TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>. Only
         ///     has an effect if <c>tickmode</c> is set to <c>array</c>. Used with <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set;} 
+        public List<object> TickText { get; set; }
 
         /// <summary>
         ///     Determines whether ticks are drawn or not. If **, this axis&#39; ticks are
@@ -109,31 +108,31 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     (inside) the axis lines.
         /// </summary>
         [JsonPropertyName(@"ticks")]
-        public TicksEnum? Ticks { get; set;} 
+        public TicksEnum? Ticks { get; set; }
 
         /// <summary>
         ///     Sets the tick length (in px).
         /// </summary>
         [JsonPropertyName(@"ticklen")]
-        public JsNumber? TickleN { get; set;} 
+        public JsNumber? TickleN { get; set; }
 
         /// <summary>
         ///     Sets the tick width (in px).
         /// </summary>
         [JsonPropertyName(@"tickwidth")]
-        public JsNumber? TickWidth { get; set;} 
+        public JsNumber? TickWidth { get; set; }
 
         /// <summary>
         ///     Sets the tick color.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set;} 
+        public object TickColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the tick labels are drawn.
         /// </summary>
         [JsonPropertyName(@"showticklabels")]
-        public bool? ShowTickLabels { get; set;} 
+        public bool? ShowTickLabels { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all tick labels are displayed with a prefix. If <c>first</c>,
@@ -142,25 +141,25 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     hidden.
         /// </summary>
         [JsonPropertyName(@"showtickprefix")]
-        public ShowTickPrefixEnum? ShowTickPrefix { get; set;} 
+        public ShowTickPrefixEnum? ShowTickPrefix { get; set; }
 
         /// <summary>
         ///     Sets a tick label prefix.
         /// </summary>
         [JsonPropertyName(@"tickprefix")]
-        public string TickPrefix { get; set;} 
+        public string TickPrefix { get; set; }
 
         /// <summary>
         ///     Same as <c>showtickprefix</c> but for tick suffixes.
         /// </summary>
         [JsonPropertyName(@"showticksuffix")]
-        public ShowTickSuffixEnum? ShowTickSuffix { get; set;} 
+        public ShowTickSuffixEnum? ShowTickSuffix { get; set; }
 
         /// <summary>
         ///     Sets a tick label suffix.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set;} 
+        public string TickSuffix { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all exponents are shown besides their significands. If <c>first</c>,
@@ -168,7 +167,7 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     of the last tick is shown. If <c>none</c>, no exponents appear.
         /// </summary>
         [JsonPropertyName(@"showexponent")]
-        public ShowExponentEnum? ShowExponent { get; set;} 
+        public ShowExponentEnum? ShowExponent { get; set; }
 
         /// <summary>
         ///     Determines a formatting rule for the tick exponents. For example, consider
@@ -177,26 +176,26 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     super script). If <c>SI</c>, 1G. If <c>B</c>, 1B.
         /// </summary>
         [JsonPropertyName(@"exponentformat")]
-        public ExponentFormatEnum? ExponentFormat { get; set;} 
+        public ExponentFormatEnum? ExponentFormat { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, even 4-digit integers are separated
         /// </summary>
         [JsonPropertyName(@"separatethousands")]
-        public bool? SeparateThousands { get; set;} 
+        public bool? SeparateThousands { get; set; }
 
         /// <summary>
         ///     Sets the tick font.
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set;} 
+        public TickFont TickFont { get; set; }
 
         /// <summary>
         ///     Sets the angle of the tick labels with respect to the horizontal. For example,
         ///     a <c>tickangle</c> of -90 draws the tick labels vertically.
         /// </summary>
         [JsonPropertyName(@"tickangle")]
-        public JsNumber? TickAngle { get; set;} 
+        public JsNumber? TickAngle { get; set; }
 
         /// <summary>
         ///     Sets the tick label formatting rule using d3 formatting mini-languages which
@@ -207,13 +206,13 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set;} 
+        public string TickFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the TickFormatStops.
         /// </summary>
         [JsonPropertyName(@"tickformatstops")]
-        public List<TickFormatStop> TickFormatStops { get; set;} 
+        public List<TickFormatStop> TickFormatStops { get; set; }
 
         /// <summary>
         ///     Sets the hover text formatting rule using d3 formatting mini-languages which
@@ -224,44 +223,44 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"hoverformat")]
-        public string HoverFormat { get; set;} 
+        public string HoverFormat { get; set; }
 
         /// <summary>
         ///     Determines whether or not a line bounding this axis is drawn.
         /// </summary>
         [JsonPropertyName(@"showline")]
-        public bool? ShowLine { get; set;} 
+        public bool? ShowLine { get; set; }
 
         /// <summary>
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"linecolor")]
-        public object LineColor { get; set;} 
+        public object LineColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the axis line.
         /// </summary>
         [JsonPropertyName(@"linewidth")]
-        public JsNumber? LineWidth { get; set;} 
+        public JsNumber? LineWidth { get; set; }
 
         /// <summary>
         ///     Determines whether or not grid lines are drawn. If <c>true</c>, the grid
         ///     lines are drawn at every tick mark.
         /// </summary>
         [JsonPropertyName(@"showgrid")]
-        public bool? ShowGrid { get; set;} 
+        public bool? ShowGrid { get; set; }
 
         /// <summary>
         ///     Sets the color of the grid lines.
         /// </summary>
         [JsonPropertyName(@"gridcolor")]
-        public object GridColor { get; set;} 
+        public object GridColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the grid lines.
         /// </summary>
         [JsonPropertyName(@"gridwidth")]
-        public JsNumber? GridWidth { get; set;} 
+        public JsNumber? GridWidth { get; set; }
 
         /// <summary>
         ///     Sets the layer on which this axis is displayed. If &#39;above traces&#39;,
@@ -272,260 +271,191 @@ namespace Plotly.Models.Layouts.Ternarys
         ///     above this axis.
         /// </summary>
         [JsonPropertyName(@"layer")]
-        public LayerEnum? Layer { get; set;} 
+        public LayerEnum? Layer { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in axis <c>min</c>, and <c>title</c>
         ///     if in &#39;editable: true&#39; configuration. Defaults to <c>ternary&lt;N&gt;.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set;} 
+        public object UiRevision { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set;} 
+        public string TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set;} 
+        public string TickTextSrc { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is AAxis other)) return false;
+            if(!(obj is AAxis other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] AAxis other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Title == other.Title &&
-                    Title != null && other.Title != null &&
-                    Title.Equals(other.Title)
-                ) && 
-                (
-                    Color == other.Color &&
-                    Color != null && other.Color != null &&
-                    Color.Equals(other.Color)
-                ) && 
-                (
-                    TickMode == other.TickMode &&
-                    TickMode != null && other.TickMode != null &&
-                    TickMode.Equals(other.TickMode)
-                ) && 
-                (
-                    NTicks == other.NTicks &&
-                    NTicks != null && other.NTicks != null &&
-                    NTicks.Equals(other.NTicks)
-                ) && 
-                (
-                    Tick0 == other.Tick0 &&
-                    Tick0 != null && other.Tick0 != null &&
-                    Tick0.Equals(other.Tick0)
-                ) && 
-                (
-                    DTick == other.DTick &&
-                    DTick != null && other.DTick != null &&
-                    DTick.Equals(other.DTick)
-                ) && 
-                (
-                    Equals(TickVals, other.TickVals) ||
-                    TickVals != null && other.TickVals != null &&
-                    TickVals.SequenceEqual(other.TickVals)
-                ) &&
-                (
-                    Equals(TickText, other.TickText) ||
-                    TickText != null && other.TickText != null &&
-                    TickText.SequenceEqual(other.TickText)
-                ) &&
-                (
-                    Ticks == other.Ticks &&
-                    Ticks != null && other.Ticks != null &&
-                    Ticks.Equals(other.Ticks)
-                ) && 
-                (
-                    TickleN == other.TickleN &&
-                    TickleN != null && other.TickleN != null &&
-                    TickleN.Equals(other.TickleN)
-                ) && 
-                (
-                    TickWidth == other.TickWidth &&
-                    TickWidth != null && other.TickWidth != null &&
-                    TickWidth.Equals(other.TickWidth)
-                ) && 
-                (
-                    TickColor == other.TickColor &&
-                    TickColor != null && other.TickColor != null &&
-                    TickColor.Equals(other.TickColor)
-                ) && 
-                (
-                    ShowTickLabels == other.ShowTickLabels &&
-                    ShowTickLabels != null && other.ShowTickLabels != null &&
-                    ShowTickLabels.Equals(other.ShowTickLabels)
-                ) && 
-                (
-                    ShowTickPrefix == other.ShowTickPrefix &&
-                    ShowTickPrefix != null && other.ShowTickPrefix != null &&
-                    ShowTickPrefix.Equals(other.ShowTickPrefix)
-                ) && 
-                (
-                    TickPrefix == other.TickPrefix &&
-                    TickPrefix != null && other.TickPrefix != null &&
-                    TickPrefix.Equals(other.TickPrefix)
-                ) && 
-                (
-                    ShowTickSuffix == other.ShowTickSuffix &&
-                    ShowTickSuffix != null && other.ShowTickSuffix != null &&
-                    ShowTickSuffix.Equals(other.ShowTickSuffix)
-                ) && 
-                (
-                    TickSuffix == other.TickSuffix &&
-                    TickSuffix != null && other.TickSuffix != null &&
-                    TickSuffix.Equals(other.TickSuffix)
-                ) && 
-                (
-                    ShowExponent == other.ShowExponent &&
-                    ShowExponent != null && other.ShowExponent != null &&
-                    ShowExponent.Equals(other.ShowExponent)
-                ) && 
-                (
-                    ExponentFormat == other.ExponentFormat &&
-                    ExponentFormat != null && other.ExponentFormat != null &&
-                    ExponentFormat.Equals(other.ExponentFormat)
-                ) && 
-                (
-                    SeparateThousands == other.SeparateThousands &&
-                    SeparateThousands != null && other.SeparateThousands != null &&
-                    SeparateThousands.Equals(other.SeparateThousands)
-                ) && 
-                (
-                    TickFont == other.TickFont &&
-                    TickFont != null && other.TickFont != null &&
-                    TickFont.Equals(other.TickFont)
-                ) && 
-                (
-                    TickAngle == other.TickAngle &&
-                    TickAngle != null && other.TickAngle != null &&
-                    TickAngle.Equals(other.TickAngle)
-                ) && 
-                (
-                    TickFormat == other.TickFormat &&
-                    TickFormat != null && other.TickFormat != null &&
-                    TickFormat.Equals(other.TickFormat)
-                ) && 
-                (
-                    Equals(TickFormatStops, other.TickFormatStops) ||
-                    TickFormatStops != null && other.TickFormatStops != null &&
-                    TickFormatStops.SequenceEqual(other.TickFormatStops)
-                ) &&
-                (
-                    HoverFormat == other.HoverFormat &&
-                    HoverFormat != null && other.HoverFormat != null &&
-                    HoverFormat.Equals(other.HoverFormat)
-                ) && 
-                (
-                    ShowLine == other.ShowLine &&
-                    ShowLine != null && other.ShowLine != null &&
-                    ShowLine.Equals(other.ShowLine)
-                ) && 
-                (
-                    LineColor == other.LineColor &&
-                    LineColor != null && other.LineColor != null &&
-                    LineColor.Equals(other.LineColor)
-                ) && 
-                (
-                    LineWidth == other.LineWidth &&
-                    LineWidth != null && other.LineWidth != null &&
-                    LineWidth.Equals(other.LineWidth)
-                ) && 
-                (
-                    ShowGrid == other.ShowGrid &&
-                    ShowGrid != null && other.ShowGrid != null &&
-                    ShowGrid.Equals(other.ShowGrid)
-                ) && 
-                (
-                    GridColor == other.GridColor &&
-                    GridColor != null && other.GridColor != null &&
-                    GridColor.Equals(other.GridColor)
-                ) && 
-                (
-                    GridWidth == other.GridWidth &&
-                    GridWidth != null && other.GridWidth != null &&
-                    GridWidth.Equals(other.GridWidth)
-                ) && 
-                (
-                    Layer == other.Layer &&
-                    Layer != null && other.Layer != null &&
-                    Layer.Equals(other.Layer)
-                ) && 
-                (
-                    UiRevision == other.UiRevision &&
-                    UiRevision != null && other.UiRevision != null &&
-                    UiRevision.Equals(other.UiRevision)
-                ) && 
-                (
-                    TickValsSrc == other.TickValsSrc &&
-                    TickValsSrc != null && other.TickValsSrc != null &&
-                    TickValsSrc.Equals(other.TickValsSrc)
-                ) && 
-                (
-                    TickTextSrc == other.TickTextSrc &&
-                    TickTextSrc != null && other.TickTextSrc != null &&
-                    TickTextSrc.Equals(other.TickTextSrc)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Title    == other.Title    && Title    != null && other.Title    != null && Title.Equals(other.Title))                                                              &&
+                   (Color    == other.Color    && Color    != null && other.Color    != null && Color.Equals(other.Color))                                                              &&
+                   (TickMode == other.TickMode && TickMode != null && other.TickMode != null && TickMode.Equals(other.TickMode))                                                        &&
+                   (NTicks   == other.NTicks   && NTicks   != null && other.NTicks   != null && NTicks.Equals(other.NTicks))                                                            &&
+                   (Tick0    == other.Tick0    && Tick0    != null && other.Tick0    != null && Tick0.Equals(other.Tick0))                                                              &&
+                   (DTick    == other.DTick    && DTick    != null && other.DTick    != null && DTick.Equals(other.DTick))                                                              &&
+                   (Equals(TickVals, other.TickVals) || TickVals != null && other.TickVals != null && TickVals.SequenceEqual(other.TickVals))                                           &&
+                   (Equals(TickText, other.TickText) || TickText != null && other.TickText != null && TickText.SequenceEqual(other.TickText))                                           &&
+                   (Ticks             == other.Ticks             && Ticks             != null && other.Ticks             != null && Ticks.Equals(other.Ticks))                          &&
+                   (TickleN           == other.TickleN           && TickleN           != null && other.TickleN           != null && TickleN.Equals(other.TickleN))                      &&
+                   (TickWidth         == other.TickWidth         && TickWidth         != null && other.TickWidth         != null && TickWidth.Equals(other.TickWidth))                  &&
+                   (TickColor         == other.TickColor         && TickColor         != null && other.TickColor         != null && TickColor.Equals(other.TickColor))                  &&
+                   (ShowTickLabels    == other.ShowTickLabels    && ShowTickLabels    != null && other.ShowTickLabels    != null && ShowTickLabels.Equals(other.ShowTickLabels))        &&
+                   (ShowTickPrefix    == other.ShowTickPrefix    && ShowTickPrefix    != null && other.ShowTickPrefix    != null && ShowTickPrefix.Equals(other.ShowTickPrefix))        &&
+                   (TickPrefix        == other.TickPrefix        && TickPrefix        != null && other.TickPrefix        != null && TickPrefix.Equals(other.TickPrefix))                &&
+                   (ShowTickSuffix    == other.ShowTickSuffix    && ShowTickSuffix    != null && other.ShowTickSuffix    != null && ShowTickSuffix.Equals(other.ShowTickSuffix))        &&
+                   (TickSuffix        == other.TickSuffix        && TickSuffix        != null && other.TickSuffix        != null && TickSuffix.Equals(other.TickSuffix))                &&
+                   (ShowExponent      == other.ShowExponent      && ShowExponent      != null && other.ShowExponent      != null && ShowExponent.Equals(other.ShowExponent))            &&
+                   (ExponentFormat    == other.ExponentFormat    && ExponentFormat    != null && other.ExponentFormat    != null && ExponentFormat.Equals(other.ExponentFormat))        &&
+                   (SeparateThousands == other.SeparateThousands && SeparateThousands != null && other.SeparateThousands != null && SeparateThousands.Equals(other.SeparateThousands))  &&
+                   (TickFont          == other.TickFont          && TickFont          != null && other.TickFont          != null && TickFont.Equals(other.TickFont))                    &&
+                   (TickAngle         == other.TickAngle         && TickAngle         != null && other.TickAngle         != null && TickAngle.Equals(other.TickAngle))                  &&
+                   (TickFormat        == other.TickFormat        && TickFormat        != null && other.TickFormat        != null && TickFormat.Equals(other.TickFormat))                &&
+                   (Equals(TickFormatStops, other.TickFormatStops) || TickFormatStops != null && other.TickFormatStops != null && TickFormatStops.SequenceEqual(other.TickFormatStops)) &&
+                   (HoverFormat == other.HoverFormat && HoverFormat != null && other.HoverFormat != null && HoverFormat.Equals(other.HoverFormat))                                      &&
+                   (ShowLine    == other.ShowLine    && ShowLine    != null && other.ShowLine    != null && ShowLine.Equals(other.ShowLine))                                            &&
+                   (LineColor   == other.LineColor   && LineColor   != null && other.LineColor   != null && LineColor.Equals(other.LineColor))                                          &&
+                   (LineWidth   == other.LineWidth   && LineWidth   != null && other.LineWidth   != null && LineWidth.Equals(other.LineWidth))                                          &&
+                   (ShowGrid    == other.ShowGrid    && ShowGrid    != null && other.ShowGrid    != null && ShowGrid.Equals(other.ShowGrid))                                            &&
+                   (GridColor   == other.GridColor   && GridColor   != null && other.GridColor   != null && GridColor.Equals(other.GridColor))                                          &&
+                   (GridWidth   == other.GridWidth   && GridWidth   != null && other.GridWidth   != null && GridWidth.Equals(other.GridWidth))                                          &&
+                   (Layer       == other.Layer       && Layer       != null && other.Layer       != null && Layer.Equals(other.Layer))                                                  &&
+                   (UiRevision  == other.UiRevision  && UiRevision  != null && other.UiRevision  != null && UiRevision.Equals(other.UiRevision))                                        &&
+                   (TickValsSrc == other.TickValsSrc && TickValsSrc != null && other.TickValsSrc != null && TickValsSrc.Equals(other.TickValsSrc))                                      &&
+                   (TickTextSrc == other.TickTextSrc && TickTextSrc != null && other.TickTextSrc != null && TickTextSrc.Equals(other.TickTextSrc));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Title != null) hashCode = hashCode * 59 + Title.GetHashCode();
-                if (Color != null) hashCode = hashCode * 59 + Color.GetHashCode();
-                if (TickMode != null) hashCode = hashCode * 59 + TickMode.GetHashCode();
-                if (NTicks != null) hashCode = hashCode * 59 + NTicks.GetHashCode();
-                if (Tick0 != null) hashCode = hashCode * 59 + Tick0.GetHashCode();
-                if (DTick != null) hashCode = hashCode * 59 + DTick.GetHashCode();
-                if (TickVals != null) hashCode = hashCode * 59 + TickVals.GetHashCode();
-                if (TickText != null) hashCode = hashCode * 59 + TickText.GetHashCode();
-                if (Ticks != null) hashCode = hashCode * 59 + Ticks.GetHashCode();
-                if (TickleN != null) hashCode = hashCode * 59 + TickleN.GetHashCode();
-                if (TickWidth != null) hashCode = hashCode * 59 + TickWidth.GetHashCode();
-                if (TickColor != null) hashCode = hashCode * 59 + TickColor.GetHashCode();
-                if (ShowTickLabels != null) hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
-                if (ShowTickPrefix != null) hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
-                if (TickPrefix != null) hashCode = hashCode * 59 + TickPrefix.GetHashCode();
-                if (ShowTickSuffix != null) hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
-                if (TickSuffix != null) hashCode = hashCode * 59 + TickSuffix.GetHashCode();
-                if (ShowExponent != null) hashCode = hashCode * 59 + ShowExponent.GetHashCode();
-                if (ExponentFormat != null) hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
-                if (SeparateThousands != null) hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
-                if (TickFont != null) hashCode = hashCode * 59 + TickFont.GetHashCode();
-                if (TickAngle != null) hashCode = hashCode * 59 + TickAngle.GetHashCode();
-                if (TickFormat != null) hashCode = hashCode * 59 + TickFormat.GetHashCode();
-                if (TickFormatStops != null) hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
-                if (HoverFormat != null) hashCode = hashCode * 59 + HoverFormat.GetHashCode();
-                if (ShowLine != null) hashCode = hashCode * 59 + ShowLine.GetHashCode();
-                if (LineColor != null) hashCode = hashCode * 59 + LineColor.GetHashCode();
-                if (LineWidth != null) hashCode = hashCode * 59 + LineWidth.GetHashCode();
-                if (ShowGrid != null) hashCode = hashCode * 59 + ShowGrid.GetHashCode();
-                if (GridColor != null) hashCode = hashCode * 59 + GridColor.GetHashCode();
-                if (GridWidth != null) hashCode = hashCode * 59 + GridWidth.GetHashCode();
-                if (Layer != null) hashCode = hashCode * 59 + Layer.GetHashCode();
-                if (UiRevision != null) hashCode = hashCode * 59 + UiRevision.GetHashCode();
-                if (TickValsSrc != null) hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
-                if (TickTextSrc != null) hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
+                if(Title != null)
+                    hashCode = hashCode * 59 + Title.GetHashCode();
+
+                if(Color != null)
+                    hashCode = hashCode * 59 + Color.GetHashCode();
+
+                if(TickMode != null)
+                    hashCode = hashCode * 59 + TickMode.GetHashCode();
+
+                if(NTicks != null)
+                    hashCode = hashCode * 59 + NTicks.GetHashCode();
+
+                if(Tick0 != null)
+                    hashCode = hashCode * 59 + Tick0.GetHashCode();
+
+                if(DTick != null)
+                    hashCode = hashCode * 59 + DTick.GetHashCode();
+
+                if(TickVals != null)
+                    hashCode = hashCode * 59 + TickVals.GetHashCode();
+
+                if(TickText != null)
+                    hashCode = hashCode * 59 + TickText.GetHashCode();
+
+                if(Ticks != null)
+                    hashCode = hashCode * 59 + Ticks.GetHashCode();
+
+                if(TickleN != null)
+                    hashCode = hashCode * 59 + TickleN.GetHashCode();
+
+                if(TickWidth != null)
+                    hashCode = hashCode * 59 + TickWidth.GetHashCode();
+
+                if(TickColor != null)
+                    hashCode = hashCode * 59 + TickColor.GetHashCode();
+
+                if(ShowTickLabels != null)
+                    hashCode = hashCode * 59 + ShowTickLabels.GetHashCode();
+
+                if(ShowTickPrefix != null)
+                    hashCode = hashCode * 59 + ShowTickPrefix.GetHashCode();
+
+                if(TickPrefix != null)
+                    hashCode = hashCode * 59 + TickPrefix.GetHashCode();
+
+                if(ShowTickSuffix != null)
+                    hashCode = hashCode * 59 + ShowTickSuffix.GetHashCode();
+
+                if(TickSuffix != null)
+                    hashCode = hashCode * 59 + TickSuffix.GetHashCode();
+
+                if(ShowExponent != null)
+                    hashCode = hashCode * 59 + ShowExponent.GetHashCode();
+
+                if(ExponentFormat != null)
+                    hashCode = hashCode * 59 + ExponentFormat.GetHashCode();
+
+                if(SeparateThousands != null)
+                    hashCode = hashCode * 59 + SeparateThousands.GetHashCode();
+
+                if(TickFont != null)
+                    hashCode = hashCode * 59 + TickFont.GetHashCode();
+
+                if(TickAngle != null)
+                    hashCode = hashCode * 59 + TickAngle.GetHashCode();
+
+                if(TickFormat != null)
+                    hashCode = hashCode * 59 + TickFormat.GetHashCode();
+
+                if(TickFormatStops != null)
+                    hashCode = hashCode * 59 + TickFormatStops.GetHashCode();
+
+                if(HoverFormat != null)
+                    hashCode = hashCode * 59 + HoverFormat.GetHashCode();
+
+                if(ShowLine != null)
+                    hashCode = hashCode * 59 + ShowLine.GetHashCode();
+
+                if(LineColor != null)
+                    hashCode = hashCode * 59 + LineColor.GetHashCode();
+
+                if(LineWidth != null)
+                    hashCode = hashCode * 59 + LineWidth.GetHashCode();
+
+                if(ShowGrid != null)
+                    hashCode = hashCode * 59 + ShowGrid.GetHashCode();
+
+                if(GridColor != null)
+                    hashCode = hashCode * 59 + GridColor.GetHashCode();
+
+                if(GridWidth != null)
+                    hashCode = hashCode * 59 + GridWidth.GetHashCode();
+
+                if(Layer != null)
+                    hashCode = hashCode * 59 + Layer.GetHashCode();
+
+                if(UiRevision != null)
+                    hashCode = hashCode * 59 + UiRevision.GetHashCode();
+
+                if(TickValsSrc != null)
+                    hashCode = hashCode * 59 + TickValsSrc.GetHashCode();
+
+                if(TickTextSrc != null)
+                    hashCode = hashCode * 59 + TickTextSrc.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -536,7 +466,8 @@ namespace Plotly.Models.Layouts.Ternarys
         /// <param name="left">Left AAxis.</param>
         /// <param name="right">Right AAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (AAxis left, AAxis right)
+        public static bool operator ==(AAxis left,
+                                       AAxis right)
         {
             return Equals(left, right);
         }
@@ -547,7 +478,8 @@ namespace Plotly.Models.Layouts.Ternarys
         /// <param name="left">Left AAxis.</param>
         /// <param name="right">Right AAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (AAxis left, AAxis right)
+        public static bool operator !=(AAxis left,
+                                       AAxis right)
         {
             return !Equals(left, right);
         }
@@ -559,9 +491,10 @@ namespace Plotly.Models.Layouts.Ternarys
         public AAxis DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<AAxis>(ms).Result;
         }
     }

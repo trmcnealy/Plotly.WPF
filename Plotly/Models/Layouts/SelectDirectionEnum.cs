@@ -11,17 +11,19 @@ namespace Plotly.Models.Layouts
     ///     selection, <c>v</c> only vertical, <c>d</c> only diagonal and <c>any</c>
     ///     sets no limit.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SelectDirectionEnum
     {
-        [EnumMember(Value=@"any")]
+        [EnumMember(Value = @"any")]
         Any = 0,
-        [EnumMember(Value=@"h")]
+
+        [EnumMember(Value = @"h")]
         H,
-        [EnumMember(Value=@"v")]
+
+        [EnumMember(Value = @"v")]
         V,
-        [EnumMember(Value=@"d")]
+
+        [EnumMember(Value = @"d")]
         D
     }
 }

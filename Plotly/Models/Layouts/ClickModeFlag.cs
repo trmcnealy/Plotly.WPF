@@ -18,16 +18,17 @@ namespace Plotly.Models.Layouts
     ///     is missing, <c>plotly_click</c> and <c>plotly_selected</c> events are not
     ///     fired.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum ClickModeFlag
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"event")]
+
+        [EnumMember(Value = @"event")]
         Event = 1,
-        [EnumMember(Value=@"select")]
+
+        [EnumMember(Value = @"select")]
         Select = 2
     }
 }

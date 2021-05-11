@@ -7,13 +7,13 @@ namespace Plotly.Models.Layouts
     ///     Legacy polar charts are deprecated! Please switch to <c>polar</c> subplots.
     ///     Sets the direction corresponding to positive angles in legacy polar charts.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DirectionEnum
     {
-        [EnumMember(Value=@"clockwise")]
+        [EnumMember(Value = @"clockwise")]
         Clockwise,
-        [EnumMember(Value=@"counterclockwise")]
+
+        [EnumMember(Value = @"counterclockwise")]
         Counterclockwise
     }
 }

@@ -6,19 +6,22 @@ namespace Plotly.Models.Layouts.Scenes
     /// <summary>
     ///     Determines the mode of drag interactions for this scene.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum DragModeEnum
     {
-        [EnumMember(Value=@"orbit")]
+        [EnumMember(Value = @"orbit")]
         Orbit,
-        [EnumMember(Value=@"turntable")]
+
+        [EnumMember(Value = @"turntable")]
         Turntable,
-        [EnumMember(Value=@"zoom")]
+
+        [EnumMember(Value = @"zoom")]
         Zoom,
-        [EnumMember(Value=@"pan")]
+
+        [EnumMember(Value = @"pan")]
         Pan,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

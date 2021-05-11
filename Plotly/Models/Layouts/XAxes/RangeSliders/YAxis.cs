@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
     /// <summary>
     ///     The YAxis class.
     /// </summary>
-    
     [Serializable]
     public class YAxis : IEquatable<YAxis>
     {
@@ -24,49 +23,46 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
         ///     subplot is used.
         /// </summary>
         [JsonPropertyName(@"rangemode")]
-        public YAxes.RangeModeEnum? RangeMode { get; set;} 
+        public YAxes.RangeModeEnum? RangeMode { get; set; }
 
         /// <summary>
         ///     Sets the range of this axis for the rangeslider.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set;} 
+        public List<object> Range { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is YAxis other)) return false;
+            if(!(obj is YAxis other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] YAxis other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    RangeMode == other.RangeMode &&
-                    RangeMode != null && other.RangeMode != null &&
-                    RangeMode.Equals(other.RangeMode)
-                ) && 
-                (
-                    Equals(Range, other.Range) ||
-                    Range != null && other.Range != null &&
-                    Range.SequenceEqual(other.Range)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (RangeMode == other.RangeMode && RangeMode != null && other.RangeMode != null && RangeMode.Equals(other.RangeMode)) &&
+                   (Equals(Range, other.Range) || Range != null && other.Range != null && Range.SequenceEqual(other.Range));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (RangeMode != null) hashCode = hashCode * 59 + RangeMode.GetHashCode();
-                if (Range != null) hashCode = hashCode * 59 + Range.GetHashCode();
+
+                if(RangeMode != null)
+                    hashCode = hashCode * 59 + RangeMode.GetHashCode();
+
+                if(Range != null)
+                    hashCode = hashCode * 59 + Range.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -77,7 +73,8 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
         /// <param name="left">Left YAxis.</param>
         /// <param name="right">Right YAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (YAxis left, YAxis right)
+        public static bool operator ==(YAxis left,
+                                       YAxis right)
         {
             return Equals(left, right);
         }
@@ -88,7 +85,8 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
         /// <param name="left">Left YAxis.</param>
         /// <param name="right">Right YAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (YAxis left, YAxis right)
+        public static bool operator !=(YAxis left,
+                                       YAxis right)
         {
             return !Equals(left, right);
         }
@@ -100,9 +98,10 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
         public YAxis DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<YAxis>(ms).Result;
         }
     }

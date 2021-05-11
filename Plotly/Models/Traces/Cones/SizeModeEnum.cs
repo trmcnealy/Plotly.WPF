@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.Cones
     ///     scalar (normalized by the max u/v/w norm in the vector field) or as <c>absolute</c>
     ///     value (in the same units as the vector field).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SizeModeEnum
     {
-        [EnumMember(Value=@"scaled")]
+        [EnumMember(Value = @"scaled")]
         Scaled = 0,
-        [EnumMember(Value=@"absolute")]
+
+        [EnumMember(Value = @"absolute")]
         Absolute
     }
 }

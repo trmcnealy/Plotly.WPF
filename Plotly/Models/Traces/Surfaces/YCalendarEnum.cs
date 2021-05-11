@@ -8,41 +8,55 @@ namespace Plotly.Models.Traces.Surfaces
     /// <summary>
     ///     Sets the calendar system to use with <c>y</c> date data.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum YCalendarEnum
     {
-        [EnumMember(Value=@"gregorian")]
+        [EnumMember(Value = @"gregorian")]
         Gregorian = 0,
-        [EnumMember(Value=@"chinese")]
+
+        [EnumMember(Value = @"chinese")]
         Chinese,
-        [EnumMember(Value=@"coptic")]
+
+        [EnumMember(Value = @"coptic")]
         Coptic,
-        [EnumMember(Value=@"discworld")]
+
+        [EnumMember(Value = @"discworld")]
         DiscWorld,
-        [EnumMember(Value=@"ethiopian")]
+
+        [EnumMember(Value = @"ethiopian")]
         Ethiopian,
-        [EnumMember(Value=@"hebrew")]
+
+        [EnumMember(Value = @"hebrew")]
         Hebrew,
-        [EnumMember(Value=@"islamic")]
+
+        [EnumMember(Value = @"islamic")]
         Islamic,
-        [EnumMember(Value=@"julian")]
+
+        [EnumMember(Value = @"julian")]
         Julian,
-        [EnumMember(Value=@"mayan")]
+
+        [EnumMember(Value = @"mayan")]
         Mayan,
-        [EnumMember(Value=@"nanakshahi")]
+
+        [EnumMember(Value = @"nanakshahi")]
         Nanakshahi,
-        [EnumMember(Value=@"nepali")]
+
+        [EnumMember(Value = @"nepali")]
         Nepali,
-        [EnumMember(Value=@"persian")]
+
+        [EnumMember(Value = @"persian")]
         Persian,
-        [EnumMember(Value=@"jalali")]
+
+        [EnumMember(Value = @"jalali")]
         Jalali,
-        [EnumMember(Value=@"taiwan")]
+
+        [EnumMember(Value = @"taiwan")]
         Taiwan,
-        [EnumMember(Value=@"thai")]
+
+        [EnumMember(Value = @"thai")]
         Thai,
-        [EnumMember(Value=@"ummalqura")]
+
+        [EnumMember(Value = @"ummalqura")]
         Ummalqura
     }
 }

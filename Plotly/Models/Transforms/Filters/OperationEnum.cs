@@ -23,41 +23,55 @@ namespace Plotly.Models.Transforms.Filters
     ///     <c>{}</c> keeps items present in a set of values <c>}{</c> keeps items not
     ///     present in a set of values
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum OperationEnum
     {
-        [EnumMember(Value=@"=")]
+        [EnumMember(Value = @"=")]
         Equal = 0,
-        [EnumMember(Value=@"!=")]
+
+        [EnumMember(Value = @"!=")]
         NotEqual,
-        [EnumMember(Value=@"<")]
+
+        [EnumMember(Value = @"<")]
         LessThan,
-        [EnumMember(Value=@">=")]
+
+        [EnumMember(Value = @">=")]
         GreaterThanOrEqual,
-        [EnumMember(Value=@">")]
+
+        [EnumMember(Value = @">")]
         GreaterThan,
-        [EnumMember(Value=@"<=")]
+
+        [EnumMember(Value = @"<=")]
         LessThanOrEqual,
-        [EnumMember(Value=@"[]")]
+
+        [EnumMember(Value = @"[]")]
         OpeningSquareBracketClosingSquareBracket,
-        [EnumMember(Value=@"()")]
+
+        [EnumMember(Value = @"()")]
         OpeningRoundBracketClosingRoundBracket,
-        [EnumMember(Value=@"[)")]
+
+        [EnumMember(Value = @"[)")]
         OpeningSquareBracketClosingRoundBracket,
-        [EnumMember(Value=@"(]")]
+
+        [EnumMember(Value = @"(]")]
         OpeningRoundBracketClosingSquareBracket,
-        [EnumMember(Value=@"][")]
+
+        [EnumMember(Value = @"][")]
         ClosingSquareBracketOpeningSquareBracket,
-        [EnumMember(Value=@")(")]
+
+        [EnumMember(Value = @")(")]
         ClosingRoundBracketOpeningRoundBracket,
-        [EnumMember(Value=@"](")]
+
+        [EnumMember(Value = @"](")]
         ClosingSquareBracketOpeningRoundBracket,
-        [EnumMember(Value=@")[")]
+
+        [EnumMember(Value = @")[")]
         ClosingRoundBracketOpeningSquareBracket,
-        [EnumMember(Value=@"{}")]
+
+        [EnumMember(Value = @"{}")]
         OpeningCurlyBracketClosingCurlyBracket,
-        [EnumMember(Value=@"}{")]
+
+        [EnumMember(Value = @"}{")]
         ClosingCurlyBracketOpeningCurlyBracket
     }
 }

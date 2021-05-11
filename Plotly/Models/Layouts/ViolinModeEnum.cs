@@ -12,13 +12,13 @@ namespace Plotly.Models.Layouts
     ///     plotted over one another, you might need to set <c>opacity</c> to see them
     ///     multiple violins. Has no effect on traces that have <c>width</c> set.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ViolinModeEnum
     {
-        [EnumMember(Value=@"overlay")]
+        [EnumMember(Value = @"overlay")]
         Overlay = 0,
-        [EnumMember(Value=@"group")]
+
+        [EnumMember(Value = @"group")]
         Group
     }
 }

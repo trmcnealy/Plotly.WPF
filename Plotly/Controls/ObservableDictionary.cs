@@ -33,7 +33,7 @@ namespace Plotly
         }
 
         #endregion Constructors
-        
+
         #region Public Events
 
         /// <summary>
@@ -44,13 +44,14 @@ namespace Plotly
         public event PropertyChangedEventHandler? PropertyChanged;
 
         #endregion Public Events
-        
+
         #region Private Methods
 
         /// <summary>
         ///     Notify the owner this ContentLocatorPart has changed.
         /// </summary>
-        private void FireDictionaryChanged(NotifyCollectionChangedAction action, object? changedItem)
+        private void FireDictionaryChanged(NotifyCollectionChangedAction action,
+                                           object?                       changedItem)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(null));
             CollectionChanged?.Invoke(this, new NotifyCollectionChangedEventArgs(action, changedItem));
@@ -216,7 +217,7 @@ namespace Plotly
         }
 
         #endregion Public Methods
-        
+
         #region Public Properties
 
         /// <summary>
@@ -259,7 +260,7 @@ namespace Plotly
                 {
                     throw new ArgumentNullException(nameof(value));
                 }
-                
+
                 _nameValues.TryGetValue(key, out TValue oldValue);
 
                 // If the new value is actually different, then we add it and fire

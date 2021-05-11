@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.IsoSurfaces
     /// <summary>
     ///     The SpaceFrame class.
     /// </summary>
-    
     [Serializable]
     public class SpaceFrame : IEquatable<SpaceFrame>
     {
@@ -20,7 +19,7 @@ namespace Plotly.Models.Traces.IsoSurfaces
         ///     less than 1.
         /// </summary>
         [JsonPropertyName(@"show")]
-        public bool? Show { get; set;} 
+        public bool? Show { get; set; }
 
         /// <summary>
         ///     Sets the fill ratio of the <c>spaceframe</c> elements. The default fill
@@ -30,43 +29,39 @@ namespace Plotly.Models.Traces.IsoSurfaces
         ///     case of using 1).
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public JsNumber? Fill { get; set;} 
+        public JsNumber? Fill { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is SpaceFrame other)) return false;
+            if(!(obj is SpaceFrame other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] SpaceFrame other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Show == other.Show &&
-                    Show != null && other.Show != null &&
-                    Show.Equals(other.Show)
-                ) && 
-                (
-                    Fill == other.Fill &&
-                    Fill != null && other.Fill != null &&
-                    Fill.Equals(other.Fill)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Show == other.Show && Show != null && other.Show != null && Show.Equals(other.Show)) && (Fill == other.Fill && Fill != null && other.Fill != null && Fill.Equals(other.Fill));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Show != null) hashCode = hashCode * 59 + Show.GetHashCode();
-                if (Fill != null) hashCode = hashCode * 59 + Fill.GetHashCode();
+
+                if(Show != null)
+                    hashCode = hashCode * 59 + Show.GetHashCode();
+
+                if(Fill != null)
+                    hashCode = hashCode * 59 + Fill.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -77,7 +72,8 @@ namespace Plotly.Models.Traces.IsoSurfaces
         /// <param name="left">Left SpaceFrame.</param>
         /// <param name="right">Right SpaceFrame.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (SpaceFrame left, SpaceFrame right)
+        public static bool operator ==(SpaceFrame left,
+                                       SpaceFrame right)
         {
             return Equals(left, right);
         }
@@ -88,7 +84,8 @@ namespace Plotly.Models.Traces.IsoSurfaces
         /// <param name="left">Left SpaceFrame.</param>
         /// <param name="right">Right SpaceFrame.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (SpaceFrame left, SpaceFrame right)
+        public static bool operator !=(SpaceFrame left,
+                                       SpaceFrame right)
         {
             return !Equals(left, right);
         }
@@ -100,9 +97,10 @@ namespace Plotly.Models.Traces.IsoSurfaces
         public SpaceFrame DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<SpaceFrame>(ms).Result;
         }
     }

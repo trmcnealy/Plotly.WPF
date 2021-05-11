@@ -9,13 +9,13 @@ namespace Plotly.Models.Traces.ScatterCarpets.Markers
     ///     Has an effect only if <c>marker.size</c> is set to a numerical array. Sets
     ///     the rule for which the data in <c>size</c> is converted to pixels.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SizeModeEnum
     {
-        [EnumMember(Value=@"diameter")]
+        [EnumMember(Value = @"diameter")]
         Diameter = 0,
-        [EnumMember(Value=@"area")]
+
+        [EnumMember(Value = @"area")]
         Area
     }
 }

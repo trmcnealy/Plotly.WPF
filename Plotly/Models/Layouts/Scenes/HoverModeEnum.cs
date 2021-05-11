@@ -8,13 +8,13 @@ namespace Plotly.Models.Layouts.Scenes
     /// <summary>
     ///     Determines the mode of hover interactions for this scene.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum HoverModeEnum
     {
-        [EnumMember(Value=@"closest")]
+        [EnumMember(Value = @"closest")]
         Closest = 0,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False
     }
 }

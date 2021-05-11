@@ -15,15 +15,16 @@ namespace Plotly.Models.Traces.Scatters
     ///     percentages. If there are multiple subplots, or multiple <c>stackgroup</c>s
     ///     on one subplot, each will be normalized within its own set.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum GroupNormEnum
     {
-        [EnumMember(Value=@"")]
+        [EnumMember(Value = @"")]
         Empty = 0,
-        [EnumMember(Value=@"fraction")]
+
+        [EnumMember(Value = @"fraction")]
         Fraction,
-        [EnumMember(Value=@"percent")]
+
+        [EnumMember(Value = @"percent")]
         Percent
     }
 }

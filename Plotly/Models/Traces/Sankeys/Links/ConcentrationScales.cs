@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Sankeys.Links
     /// <summary>
     ///     The ConcentrationScales class.
     /// </summary>
-    
     [Serializable]
     public class ConcentrationScales : IEquatable<ConcentrationScales>
     {
@@ -18,19 +17,19 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     The label of the links to color based on their concentration within a flow.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set;} 
+        public string Label { get; set; }
 
         /// <summary>
         ///     Sets the upper bound of the color domain.
         /// </summary>
         [JsonPropertyName(@"cmax")]
-        public JsNumber? CMax { get; set;} 
+        public JsNumber? CMax { get; set; }
 
         /// <summary>
         ///     Sets the lower bound of the color domain.
         /// </summary>
         [JsonPropertyName(@"cmin")]
-        public JsNumber? CMin { get; set;} 
+        public JsNumber? CMin { get; set; }
 
         /// <summary>
         ///     Sets the colorscale. The colorscale must be an array containing arrays mapping
@@ -42,7 +41,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set;} 
+        public object ColorScale { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -53,7 +52,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set;} 
+        public string Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -65,67 +64,56 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set;} 
+        public string TemplateItemName { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is ConcentrationScales other)) return false;
+            if(!(obj is ConcentrationScales other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] ConcentrationScales other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Label == other.Label &&
-                    Label != null && other.Label != null &&
-                    Label.Equals(other.Label)
-                ) && 
-                (
-                    CMax == other.CMax &&
-                    CMax != null && other.CMax != null &&
-                    CMax.Equals(other.CMax)
-                ) && 
-                (
-                    CMin == other.CMin &&
-                    CMin != null && other.CMin != null &&
-                    CMin.Equals(other.CMin)
-                ) && 
-                (
-                    ColorScale == other.ColorScale &&
-                    ColorScale != null && other.ColorScale != null &&
-                    ColorScale.Equals(other.ColorScale)
-                ) && 
-                (
-                    Name == other.Name &&
-                    Name != null && other.Name != null &&
-                    Name.Equals(other.Name)
-                ) && 
-                (
-                    TemplateItemName == other.TemplateItemName &&
-                    TemplateItemName != null && other.TemplateItemName != null &&
-                    TemplateItemName.Equals(other.TemplateItemName)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Label            == other.Label            && Label            != null && other.Label            != null && Label.Equals(other.Label))           &&
+                   (CMax             == other.CMax             && CMax             != null && other.CMax             != null && CMax.Equals(other.CMax))             &&
+                   (CMin             == other.CMin             && CMin             != null && other.CMin             != null && CMin.Equals(other.CMin))             &&
+                   (ColorScale       == other.ColorScale       && ColorScale       != null && other.ColorScale       != null && ColorScale.Equals(other.ColorScale)) &&
+                   (Name             == other.Name             && Name             != null && other.Name             != null && Name.Equals(other.Name))             &&
+                   (TemplateItemName == other.TemplateItemName && TemplateItemName != null && other.TemplateItemName != null && TemplateItemName.Equals(other.TemplateItemName));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Label != null) hashCode = hashCode * 59 + Label.GetHashCode();
-                if (CMax != null) hashCode = hashCode * 59 + CMax.GetHashCode();
-                if (CMin != null) hashCode = hashCode * 59 + CMin.GetHashCode();
-                if (ColorScale != null) hashCode = hashCode * 59 + ColorScale.GetHashCode();
-                if (Name != null) hashCode = hashCode * 59 + Name.GetHashCode();
-                if (TemplateItemName != null) hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
+                if(Label != null)
+                    hashCode = hashCode * 59 + Label.GetHashCode();
+
+                if(CMax != null)
+                    hashCode = hashCode * 59 + CMax.GetHashCode();
+
+                if(CMin != null)
+                    hashCode = hashCode * 59 + CMin.GetHashCode();
+
+                if(ColorScale != null)
+                    hashCode = hashCode * 59 + ColorScale.GetHashCode();
+
+                if(Name != null)
+                    hashCode = hashCode * 59 + Name.GetHashCode();
+
+                if(TemplateItemName != null)
+                    hashCode = hashCode * 59 + TemplateItemName.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -136,7 +124,8 @@ namespace Plotly.Models.Traces.Sankeys.Links
         /// <param name="left">Left ConcentrationScales.</param>
         /// <param name="right">Right ConcentrationScales.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (ConcentrationScales left, ConcentrationScales right)
+        public static bool operator ==(ConcentrationScales left,
+                                       ConcentrationScales right)
         {
             return Equals(left, right);
         }
@@ -147,7 +136,8 @@ namespace Plotly.Models.Traces.Sankeys.Links
         /// <param name="left">Left ConcentrationScales.</param>
         /// <param name="right">Right ConcentrationScales.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (ConcentrationScales left, ConcentrationScales right)
+        public static bool operator !=(ConcentrationScales left,
+                                       ConcentrationScales right)
         {
             return !Equals(left, right);
         }
@@ -159,9 +149,10 @@ namespace Plotly.Models.Traces.Sankeys.Links
         public ConcentrationScales DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<ConcentrationScales>(ms).Result;
         }
     }

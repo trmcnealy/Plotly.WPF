@@ -13,17 +13,19 @@ namespace Plotly.Models.Traces.Waterfalls
     ///     <c>auto</c> tries to position <c>text</c> inside the bar, but if the bar
     ///     is too small and no bar is stacked on this one the text is moved outside.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TextPositionEnum
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"inside")]
+
+        [EnumMember(Value = @"inside")]
         Inside,
-        [EnumMember(Value=@"outside")]
+
+        [EnumMember(Value = @"outside")]
         Outside,
-        [EnumMember(Value=@"auto")]
+
+        [EnumMember(Value = @"auto")]
         Auto
     }
 }

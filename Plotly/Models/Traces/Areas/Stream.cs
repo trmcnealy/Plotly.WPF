@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Areas
     /// <summary>
     ///     The Stream class.
     /// </summary>
-    
     [Serializable]
     public class Stream : IEquatable<Stream>
     {
@@ -19,7 +18,7 @@ namespace Plotly.Models.Traces.Areas
         ///     for more details.
         /// </summary>
         [JsonPropertyName(@"token")]
-        public string Token { get; set;} 
+        public string Token { get; set; }
 
         /// <summary>
         ///     Sets the maximum number of points to keep on the plots from an incoming
@@ -27,43 +26,40 @@ namespace Plotly.Models.Traces.Areas
         ///     will be displayed on the plot.
         /// </summary>
         [JsonPropertyName(@"maxpoints")]
-        public JsNumber? MaxPoints { get; set;} 
+        public JsNumber? MaxPoints { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Stream other)) return false;
+            if(!(obj is Stream other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Stream other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Token == other.Token &&
-                    Token != null && other.Token != null &&
-                    Token.Equals(other.Token)
-                ) && 
-                (
-                    MaxPoints == other.MaxPoints &&
-                    MaxPoints != null && other.MaxPoints != null &&
-                    MaxPoints.Equals(other.MaxPoints)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Token     == other.Token     && Token     != null && other.Token     != null && Token.Equals(other.Token)) &&
+                   (MaxPoints == other.MaxPoints && MaxPoints != null && other.MaxPoints != null && MaxPoints.Equals(other.MaxPoints));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Token != null) hashCode = hashCode * 59 + Token.GetHashCode();
-                if (MaxPoints != null) hashCode = hashCode * 59 + MaxPoints.GetHashCode();
+
+                if(Token != null)
+                    hashCode = hashCode * 59 + Token.GetHashCode();
+
+                if(MaxPoints != null)
+                    hashCode = hashCode * 59 + MaxPoints.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -74,7 +70,8 @@ namespace Plotly.Models.Traces.Areas
         /// <param name="left">Left Stream.</param>
         /// <param name="right">Right Stream.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Stream left, Stream right)
+        public static bool operator ==(Stream left,
+                                       Stream right)
         {
             return Equals(left, right);
         }
@@ -85,7 +82,8 @@ namespace Plotly.Models.Traces.Areas
         /// <param name="left">Left Stream.</param>
         /// <param name="right">Right Stream.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Stream left, Stream right)
+        public static bool operator !=(Stream left,
+                                       Stream right)
         {
             return !Equals(left, right);
         }
@@ -97,9 +95,10 @@ namespace Plotly.Models.Traces.Areas
         public Stream DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Stream>(ms).Result;
         }
     }

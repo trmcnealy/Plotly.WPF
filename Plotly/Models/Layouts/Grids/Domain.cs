@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.Grids
     /// <summary>
     ///     The Domain class.
     /// </summary>
-    
     [Serializable]
     public class Domain : IEquatable<Domain>
     {
@@ -22,7 +21,7 @@ namespace Plotly.Models.Layouts.Grids
         ///     the edges.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set;} 
+        public List<object> X { get; set; }
 
         /// <summary>
         ///     Sets the vertical domain of this grid subplot (in plot fraction). The first
@@ -30,43 +29,39 @@ namespace Plotly.Models.Layouts.Grids
         ///     edges.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set;} 
+        public List<object> Y { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Domain other)) return false;
+            if(!(obj is Domain other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Domain other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Equals(X, other.X) ||
-                    X != null && other.X != null &&
-                    X.SequenceEqual(other.X)
-                ) &&
-                (
-                    Equals(Y, other.Y) ||
-                    Y != null && other.Y != null &&
-                    Y.SequenceEqual(other.Y)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Equals(X, other.X) || X != null && other.X != null && X.SequenceEqual(other.X)) && (Equals(Y, other.Y) || Y != null && other.Y != null && Y.SequenceEqual(other.Y));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -77,7 +72,8 @@ namespace Plotly.Models.Layouts.Grids
         /// <param name="left">Left Domain.</param>
         /// <param name="right">Right Domain.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Domain left, Domain right)
+        public static bool operator ==(Domain left,
+                                       Domain right)
         {
             return Equals(left, right);
         }
@@ -88,7 +84,8 @@ namespace Plotly.Models.Layouts.Grids
         /// <param name="left">Left Domain.</param>
         /// <param name="right">Right Domain.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Domain left, Domain right)
+        public static bool operator !=(Domain left,
+                                       Domain right)
         {
             return !Equals(left, right);
         }
@@ -100,9 +97,10 @@ namespace Plotly.Models.Layouts.Grids
         public Domain DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Domain>(ms).Result;
         }
     }

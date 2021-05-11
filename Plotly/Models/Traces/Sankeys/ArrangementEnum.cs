@@ -11,17 +11,19 @@ namespace Plotly.Models.Traces.Sankeys
     ///     the nodes can freely move on the plane. If value is <c>fixed</c>, the nodes
     ///     are stationary.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ArrangementEnum
     {
-        [EnumMember(Value=@"snap")]
+        [EnumMember(Value = @"snap")]
         Snap = 0,
-        [EnumMember(Value=@"perpendicular")]
+
+        [EnumMember(Value = @"perpendicular")]
         Perpendicular,
-        [EnumMember(Value=@"freeform")]
+
+        [EnumMember(Value = @"freeform")]
         FreeForm,
-        [EnumMember(Value=@"fixed")]
+
+        [EnumMember(Value = @"fixed")]
         Fixed
     }
 }

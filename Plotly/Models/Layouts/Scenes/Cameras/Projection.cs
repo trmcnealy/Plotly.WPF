@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.Scenes.Cameras
     /// <summary>
     ///     The Projection class.
     /// </summary>
-    
     [Serializable]
     public class Projection : IEquatable<Projection>
     {
@@ -21,37 +20,36 @@ namespace Plotly.Models.Layouts.Scenes.Cameras
         ///     or <c>orthographic</c>. The default is <c>perspective</c>.
         /// </summary>
         [JsonPropertyName(@"type")]
-        public TypeEnum? Type { get; set;} 
+        public TypeEnum? Type { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Projection other)) return false;
+            if(!(obj is Projection other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Projection other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Type == other.Type &&
-                    Type != null && other.Type != null &&
-                    Type.Equals(other.Type)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Type == other.Type && Type != null && other.Type != null && Type.Equals(other.Type));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Type != null) hashCode = hashCode * 59 + Type.GetHashCode();
+
+                if(Type != null)
+                    hashCode = hashCode * 59 + Type.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -62,7 +60,8 @@ namespace Plotly.Models.Layouts.Scenes.Cameras
         /// <param name="left">Left Projection.</param>
         /// <param name="right">Right Projection.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Projection left, Projection right)
+        public static bool operator ==(Projection left,
+                                       Projection right)
         {
             return Equals(left, right);
         }
@@ -73,7 +72,8 @@ namespace Plotly.Models.Layouts.Scenes.Cameras
         /// <param name="left">Left Projection.</param>
         /// <param name="right">Right Projection.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Projection left, Projection right)
+        public static bool operator !=(Projection left,
+                                       Projection right)
         {
             return !Equals(left, right);
         }
@@ -85,9 +85,10 @@ namespace Plotly.Models.Layouts.Scenes.Cameras
         public Projection DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Projection>(ms).Result;
         }
     }

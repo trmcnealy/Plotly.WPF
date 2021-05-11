@@ -12,22 +12,26 @@ namespace Plotly.Models.Configs
     ///     do not have zoombox via pan), but turned off by default for cartesian subplots.
     ///     Set <c>scrollZoom</c> to <c>false</c> to disable scrolling for all subplots.
     /// </summary>
-    
     [Flags]
     [JsonConverter(typeof(EnumConverter))]
     public enum ScrollZoomFlag
     {
-        [EnumMember(Value=@"True")]
+        [EnumMember(Value = @"True")]
         True = 0,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False = 1,
-        [EnumMember(Value=@"cartesian")]
+
+        [EnumMember(Value = @"cartesian")]
         Cartesian = 2,
-        [EnumMember(Value=@"gl3d")]
+
+        [EnumMember(Value = @"gl3d")]
         Gl3D = 4,
-        [EnumMember(Value=@"geo")]
+
+        [EnumMember(Value = @"geo")]
         Geo = 8,
-        [EnumMember(Value=@"mapbox")]
+
+        [EnumMember(Value = @"mapbox")]
         MapBox = 16
     }
 }

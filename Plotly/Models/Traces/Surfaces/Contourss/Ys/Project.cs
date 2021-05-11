@@ -10,7 +10,6 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
     /// <summary>
     ///     The Project class.
     /// </summary>
-    
     [Serializable]
     public class Project : IEquatable<Project>
     {
@@ -21,7 +20,7 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         ///     lines are shown in permanence.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public bool? X { get; set;} 
+        public bool? X { get; set; }
 
         /// <summary>
         ///     Determines whether or not these contour lines are projected on the y plane.
@@ -30,7 +29,7 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         ///     lines are shown in permanence.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public bool? Y { get; set;} 
+        public bool? Y { get; set; }
 
         /// <summary>
         ///     Determines whether or not these contour lines are projected on the z plane.
@@ -39,49 +38,44 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         ///     lines are shown in permanence.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public bool? Z { get; set;} 
+        public bool? Z { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Project other)) return false;
+            if(!(obj is Project other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Project other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    X == other.X &&
-                    X != null && other.X != null &&
-                    X.Equals(other.X)
-                ) && 
-                (
-                    Y == other.Y &&
-                    Y != null && other.Y != null &&
-                    Y.Equals(other.Y)
-                ) && 
-                (
-                    Z == other.Z &&
-                    Z != null && other.Z != null &&
-                    Z.Equals(other.Z)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (X == other.X && X != null && other.X != null && X.Equals(other.X)) &&
+                   (Y == other.Y && Y != null && other.Y != null && Y.Equals(other.Y)) &&
+                   (Z == other.Z && Z != null && other.Z != null && Z.Equals(other.Z));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (X != null) hashCode = hashCode * 59 + X.GetHashCode();
-                if (Y != null) hashCode = hashCode * 59 + Y.GetHashCode();
-                if (Z != null) hashCode = hashCode * 59 + Z.GetHashCode();
+
+                if(X != null)
+                    hashCode = hashCode * 59 + X.GetHashCode();
+
+                if(Y != null)
+                    hashCode = hashCode * 59 + Y.GetHashCode();
+
+                if(Z != null)
+                    hashCode = hashCode * 59 + Z.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -92,7 +86,8 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         /// <param name="left">Left Project.</param>
         /// <param name="right">Right Project.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Project left, Project right)
+        public static bool operator ==(Project left,
+                                       Project right)
         {
             return Equals(left, right);
         }
@@ -103,7 +98,8 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         /// <param name="left">Left Project.</param>
         /// <param name="right">Right Project.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Project left, Project right)
+        public static bool operator !=(Project left,
+                                       Project right)
         {
             return !Equals(left, right);
         }
@@ -115,9 +111,10 @@ namespace Plotly.Models.Traces.Surfaces.Contourss.Ys
         public Project DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Project>(ms).Result;
         }
     }

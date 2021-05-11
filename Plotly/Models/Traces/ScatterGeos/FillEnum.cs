@@ -10,13 +10,13 @@ namespace Plotly.Models.Traces.ScatterGeos
     ///     <c>none</c>. <c>toself</c> connects the endpoints of the trace (or each
     ///     segment of the trace if it has gaps) into a closed shape.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FillEnum
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"toself")]
+
+        [EnumMember(Value = @"toself")]
         ToSelf
     }
 }

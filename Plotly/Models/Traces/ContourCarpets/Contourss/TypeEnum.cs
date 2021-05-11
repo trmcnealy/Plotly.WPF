@@ -11,13 +11,13 @@ namespace Plotly.Models.Traces.ContourCarpets.Contourss
     ///     with the invalid region shaded as specified by the <c>operation</c> and
     ///     <c>value</c> parameters.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum TypeEnum
     {
-        [EnumMember(Value=@"levels")]
+        [EnumMember(Value = @"levels")]
         Levels = 0,
-        [EnumMember(Value=@"constraint")]
+
+        [EnumMember(Value = @"constraint")]
         Constraint
     }
 }

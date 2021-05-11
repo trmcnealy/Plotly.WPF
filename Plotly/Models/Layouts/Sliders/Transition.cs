@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts.Sliders
     /// <summary>
     ///     The Transition class.
     /// </summary>
-    
     [Serializable]
     public class Transition : IEquatable<Transition>
     {
@@ -20,49 +19,46 @@ namespace Plotly.Models.Layouts.Sliders
         ///     Sets the duration of the slider transition
         /// </summary>
         [JsonPropertyName(@"duration")]
-        public JsNumber? Duration { get; set;} 
+        public JsNumber? Duration { get; set; }
 
         /// <summary>
         ///     Sets the easing function of the slider transition
         /// </summary>
         [JsonPropertyName(@"easing")]
-        public EasingEnum? Easing { get; set;} 
+        public EasingEnum? Easing { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is Transition other)) return false;
+            if(!(obj is Transition other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] Transition other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    Duration == other.Duration &&
-                    Duration != null && other.Duration != null &&
-                    Duration.Equals(other.Duration)
-                ) && 
-                (
-                    Easing == other.Easing &&
-                    Easing != null && other.Easing != null &&
-                    Easing.Equals(other.Easing)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (Duration == other.Duration && Duration != null && other.Duration != null && Duration.Equals(other.Duration)) &&
+                   (Easing   == other.Easing   && Easing   != null && other.Easing   != null && Easing.Equals(other.Easing));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (Duration != null) hashCode = hashCode * 59 + Duration.GetHashCode();
-                if (Easing != null) hashCode = hashCode * 59 + Easing.GetHashCode();
+
+                if(Duration != null)
+                    hashCode = hashCode * 59 + Duration.GetHashCode();
+
+                if(Easing != null)
+                    hashCode = hashCode * 59 + Easing.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -73,7 +69,8 @@ namespace Plotly.Models.Layouts.Sliders
         /// <param name="left">Left Transition.</param>
         /// <param name="right">Right Transition.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (Transition left, Transition right)
+        public static bool operator ==(Transition left,
+                                       Transition right)
         {
             return Equals(left, right);
         }
@@ -84,7 +81,8 @@ namespace Plotly.Models.Layouts.Sliders
         /// <param name="left">Left Transition.</param>
         /// <param name="right">Right Transition.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (Transition left, Transition right)
+        public static bool operator !=(Transition left,
+                                       Transition right)
         {
             return !Equals(left, right);
         }
@@ -96,9 +94,10 @@ namespace Plotly.Models.Layouts.Sliders
         public Transition DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<Transition>(ms).Result;
         }
     }

@@ -14,15 +14,16 @@ namespace Plotly.Models.Traces.ScatterCarpets
     ///     contour lines), and behaves like <c>toself</c> if there is no trace before
     ///     it. <c>tonext</c> should not be used if one trace does not enclose the other.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum FillEnum
     {
-        [EnumMember(Value=@"none")]
+        [EnumMember(Value = @"none")]
         None = 0,
-        [EnumMember(Value=@"toself")]
+
+        [EnumMember(Value = @"toself")]
         ToSelf,
-        [EnumMember(Value=@"tonext")]
+
+        [EnumMember(Value = @"tonext")]
         ToNext
     }
 }

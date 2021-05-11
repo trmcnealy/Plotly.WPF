@@ -12,7 +12,6 @@ namespace Plotly.Models.Layouts
     /// <summary>
     ///     The ColorAxis class.
     /// </summary>
-    
     [Serializable]
     public class ColorAxis : IEquatable<ColorAxis>
     {
@@ -23,7 +22,7 @@ namespace Plotly.Models.Layouts
         ///     <c>cmax</c> are set by the user.
         /// </summary>
         [JsonPropertyName(@"cauto")]
-        public bool? CAuto { get; set;} 
+        public bool? CAuto { get; set; }
 
         /// <summary>
         ///     Sets the lower bound of the color domain. Value should have the same units
@@ -31,7 +30,7 @@ namespace Plotly.Models.Layouts
         ///     as well.
         /// </summary>
         [JsonPropertyName(@"cmin")]
-        public JsNumber? CMin { get; set;} 
+        public JsNumber? CMin { get; set; }
 
         /// <summary>
         ///     Sets the upper bound of the color domain. Value should have the same units
@@ -39,7 +38,7 @@ namespace Plotly.Models.Layouts
         ///     as well.
         /// </summary>
         [JsonPropertyName(@"cmax")]
-        public JsNumber? CMax { get; set;} 
+        public JsNumber? CMax { get; set; }
 
         /// <summary>
         ///     Sets the mid-point of the color domain by scaling <c>cmin</c> and/or <c>cmax</c>
@@ -47,7 +46,7 @@ namespace Plotly.Models.Layouts
         ///     trace color array(s). Has no effect when <c>cauto</c> is <c>false</c>.
         /// </summary>
         [JsonPropertyName(@"cmid")]
-        public JsNumber? CMid { get; set;} 
+        public JsNumber? CMid { get; set; }
 
         /// <summary>
         ///     Sets the colorscale. The colorscale must be an array containing arrays mapping
@@ -59,7 +58,7 @@ namespace Plotly.Models.Layouts
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set;} 
+        public object ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -69,7 +68,7 @@ namespace Plotly.Models.Layouts
         ///     positive, all negative or mixed.
         /// </summary>
         [JsonPropertyName(@"autocolorscale")]
-        public bool? AutoColorScale { get; set;} 
+        public bool? AutoColorScale { get; set; }
 
         /// <summary>
         ///     Reverses the color mapping if true. If true, <c>cmin</c> will correspond
@@ -77,97 +76,80 @@ namespace Plotly.Models.Layouts
         ///     color.
         /// </summary>
         [JsonPropertyName(@"reversescale")]
-        public bool? ReverseScale { get; set;} 
+        public bool? ReverseScale { get; set; }
 
         /// <summary>
         ///     Determines whether or not a colorbar is displayed for this trace.
         /// </summary>
         [JsonPropertyName(@"showscale")]
-        public bool? ShowScale { get; set;} 
+        public bool? ShowScale { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set;} 
+        public ColorBar ColorBar { get; set; }
 
-        
         public override bool Equals(object obj)
         {
-            if (!(obj is ColorAxis other)) return false;
+            if(!(obj is ColorAxis other))
+                return false;
 
             return ReferenceEquals(this, obj) || Equals(other);
         }
 
-        
         public bool Equals([AllowNull] ColorAxis other)
         {
-            if (other == null) return false;
-            if (ReferenceEquals(this, other)) return true;
+            if(other == null)
+                return false;
 
-            return 
-                (
-                    CAuto == other.CAuto &&
-                    CAuto != null && other.CAuto != null &&
-                    CAuto.Equals(other.CAuto)
-                ) && 
-                (
-                    CMin == other.CMin &&
-                    CMin != null && other.CMin != null &&
-                    CMin.Equals(other.CMin)
-                ) && 
-                (
-                    CMax == other.CMax &&
-                    CMax != null && other.CMax != null &&
-                    CMax.Equals(other.CMax)
-                ) && 
-                (
-                    CMid == other.CMid &&
-                    CMid != null && other.CMid != null &&
-                    CMid.Equals(other.CMid)
-                ) && 
-                (
-                    ColorScale == other.ColorScale &&
-                    ColorScale != null && other.ColorScale != null &&
-                    ColorScale.Equals(other.ColorScale)
-                ) && 
-                (
-                    AutoColorScale == other.AutoColorScale &&
-                    AutoColorScale != null && other.AutoColorScale != null &&
-                    AutoColorScale.Equals(other.AutoColorScale)
-                ) && 
-                (
-                    ReverseScale == other.ReverseScale &&
-                    ReverseScale != null && other.ReverseScale != null &&
-                    ReverseScale.Equals(other.ReverseScale)
-                ) && 
-                (
-                    ShowScale == other.ShowScale &&
-                    ShowScale != null && other.ShowScale != null &&
-                    ShowScale.Equals(other.ShowScale)
-                ) && 
-                (
-                    ColorBar == other.ColorBar &&
-                    ColorBar != null && other.ColorBar != null &&
-                    ColorBar.Equals(other.ColorBar)
-                );
+            if(ReferenceEquals(this, other))
+                return true;
+
+            return (CAuto          == other.CAuto          && CAuto          != null && other.CAuto          != null && CAuto.Equals(other.CAuto))                   &&
+                   (CMin           == other.CMin           && CMin           != null && other.CMin           != null && CMin.Equals(other.CMin))                     &&
+                   (CMax           == other.CMax           && CMax           != null && other.CMax           != null && CMax.Equals(other.CMax))                     &&
+                   (CMid           == other.CMid           && CMid           != null && other.CMid           != null && CMid.Equals(other.CMid))                     &&
+                   (ColorScale     == other.ColorScale     && ColorScale     != null && other.ColorScale     != null && ColorScale.Equals(other.ColorScale))         &&
+                   (AutoColorScale == other.AutoColorScale && AutoColorScale != null && other.AutoColorScale != null && AutoColorScale.Equals(other.AutoColorScale)) &&
+                   (ReverseScale   == other.ReverseScale   && ReverseScale   != null && other.ReverseScale   != null && ReverseScale.Equals(other.ReverseScale))     &&
+                   (ShowScale      == other.ShowScale      && ShowScale      != null && other.ShowScale      != null && ShowScale.Equals(other.ShowScale))           &&
+                   (ColorBar       == other.ColorBar       && ColorBar       != null && other.ColorBar       != null && ColorBar.Equals(other.ColorBar));
         }
 
-        
         public override int GetHashCode()
         {
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (CAuto != null) hashCode = hashCode * 59 + CAuto.GetHashCode();
-                if (CMin != null) hashCode = hashCode * 59 + CMin.GetHashCode();
-                if (CMax != null) hashCode = hashCode * 59 + CMax.GetHashCode();
-                if (CMid != null) hashCode = hashCode * 59 + CMid.GetHashCode();
-                if (ColorScale != null) hashCode = hashCode * 59 + ColorScale.GetHashCode();
-                if (AutoColorScale != null) hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
-                if (ReverseScale != null) hashCode = hashCode * 59 + ReverseScale.GetHashCode();
-                if (ShowScale != null) hashCode = hashCode * 59 + ShowScale.GetHashCode();
-                if (ColorBar != null) hashCode = hashCode * 59 + ColorBar.GetHashCode();
+
+                if(CAuto != null)
+                    hashCode = hashCode * 59 + CAuto.GetHashCode();
+
+                if(CMin != null)
+                    hashCode = hashCode * 59 + CMin.GetHashCode();
+
+                if(CMax != null)
+                    hashCode = hashCode * 59 + CMax.GetHashCode();
+
+                if(CMid != null)
+                    hashCode = hashCode * 59 + CMid.GetHashCode();
+
+                if(ColorScale != null)
+                    hashCode = hashCode * 59 + ColorScale.GetHashCode();
+
+                if(AutoColorScale != null)
+                    hashCode = hashCode * 59 + AutoColorScale.GetHashCode();
+
+                if(ReverseScale != null)
+                    hashCode = hashCode * 59 + ReverseScale.GetHashCode();
+
+                if(ShowScale != null)
+                    hashCode = hashCode * 59 + ShowScale.GetHashCode();
+
+                if(ColorBar != null)
+                    hashCode = hashCode * 59 + ColorBar.GetHashCode();
+
                 return hashCode;
             }
         }
@@ -178,7 +160,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left ColorAxis.</param>
         /// <param name="right">Right ColorAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator == (ColorAxis left, ColorAxis right)
+        public static bool operator ==(ColorAxis left,
+                                       ColorAxis right)
         {
             return Equals(left, right);
         }
@@ -189,7 +172,8 @@ namespace Plotly.Models.Layouts
         /// <param name="left">Left ColorAxis.</param>
         /// <param name="right">Right ColorAxis.</param>
         /// <returns>Boolean</returns>
-        public static bool operator != (ColorAxis left, ColorAxis right)
+        public static bool operator !=(ColorAxis left,
+                                       ColorAxis right)
         {
             return !Equals(left, right);
         }
@@ -201,9 +185,10 @@ namespace Plotly.Models.Layouts
         public ColorAxis DeepClone()
         {
             using MemoryStream ms = new();
-            
+
             JsonSerializer.SerializeAsync(ms, this);
             ms.Position = 0;
+
             return JsonSerializer.DeserializeAsync<ColorAxis>(ms).Result;
         }
     }

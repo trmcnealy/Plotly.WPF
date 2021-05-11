@@ -8,25 +8,31 @@ namespace Plotly.Models.Traces.Scatter3Ds.Markers
     /// <summary>
     ///     Sets the marker symbol type.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum SymbolEnum
     {
-        [EnumMember(Value=@"circle")]
+        [EnumMember(Value = @"circle")]
         Circle = 0,
-        [EnumMember(Value=@"circle-open")]
+
+        [EnumMember(Value = @"circle-open")]
         CircleOpen,
-        [EnumMember(Value=@"square")]
+
+        [EnumMember(Value = @"square")]
         Square,
-        [EnumMember(Value=@"square-open")]
+
+        [EnumMember(Value = @"square-open")]
         SquareOpen,
-        [EnumMember(Value=@"diamond")]
+
+        [EnumMember(Value = @"diamond")]
         Diamond,
-        [EnumMember(Value=@"diamond-open")]
+
+        [EnumMember(Value = @"diamond-open")]
         DiamondOpen,
-        [EnumMember(Value=@"cross")]
+
+        [EnumMember(Value = @"cross")]
         Cross,
-        [EnumMember(Value=@"x")]
+
+        [EnumMember(Value = @"x")]
         X
     }
 }

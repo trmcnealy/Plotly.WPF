@@ -9,17 +9,19 @@ namespace Plotly.Models.Traces.Carpets.BAxes
     ///     Determines whether axis labels are drawn on the low side, the high side,
     ///     both, or neither side of the axis.
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum ShowTickLabelsEnum
     {
-        [EnumMember(Value=@"start")]
+        [EnumMember(Value = @"start")]
         Start = 0,
-        [EnumMember(Value=@"end")]
+
+        [EnumMember(Value = @"end")]
         End,
-        [EnumMember(Value=@"both")]
+
+        [EnumMember(Value = @"both")]
         Both,
-        [EnumMember(Value=@"none")]
+
+        [EnumMember(Value = @"none")]
         None
     }
 }

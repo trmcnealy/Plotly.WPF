@@ -10,15 +10,16 @@ namespace Plotly.Models.Traces.Pies
     ///     trace is not drawn, but can appear as a legend item (provided that the legend
     ///     itself is visible).
     /// </summary>
-    
     [JsonConverter(typeof(EnumConverter))]
     public enum VisibleEnum
     {
-        [EnumMember(Value=@"true")]
+        [EnumMember(Value = @"true")]
         True = 0,
-        [EnumMember(Value=@"False")]
+
+        [EnumMember(Value = @"False")]
         False,
-        [EnumMember(Value=@"legendonly")]
+
+        [EnumMember(Value = @"legendonly")]
         LegendOnly
     }
 }

@@ -622,10 +622,10 @@ namespace Plotly
         {
             if(Color.Alpha != 255)
             {
-                return $"{Value}, \"rgba({Color.Red}, {Color.Green}, {Color.Blue}, {((float)Color.Alpha) / 255.0f})\"";
+                return $"{Value}, rgba({Color.Red}, {Color.Green}, {Color.Blue}, {((float)Color.Alpha) / 255.0f})";
             }
 
-            return $"{Value}, \"rgb({Color.Red}, {Color.Green}, {Color.Blue})\"";
+            return $"{Value}, rgb({Color.Red}, {Color.Green}, {Color.Blue})";
         }
     }
 }

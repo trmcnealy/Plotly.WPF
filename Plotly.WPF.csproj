@@ -64,6 +64,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="System.Utf8String.Experimental" Version="5.0.0-preview.7.20364.11" />
         <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.31" />
         <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.774.44" />
 
@@ -78,7 +79,7 @@
     </Target>
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-      <Exec Command="dotnet restore &amp;&#xD;&#xA;jsc.cmd E:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.js E:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.min.js" />
+      <Exec Command="dotnet restore &amp;&#xD;&#xA;jsc.cmd D:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.js D:\TFS_Sources\EngineeringTools\Utilities\Plotly.WPF\Plotly\PlotlyApp.min.js" />
     </Target>
 
 </Project>

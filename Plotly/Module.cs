@@ -24,7 +24,7 @@ namespace Plotly
                 Directory.Delete(Plotly_folder, true);
                 Directory.CreateDirectory(Plotly_folder);
             }
-
+            
             InitializeJavascriptFile(Plotly_folder, "plotly.min.js",       Resources.plotly_js);
             InitializeJavascriptFile(Plotly_folder, "PlotlyApp.min.js",    Resources.PlotlyApp_js);
             InitializeJavascriptFile(Plotly_folder, "PlotlyWorker.min.js", Resources.PlotlyWorker_js);

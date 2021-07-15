@@ -31,25 +31,25 @@
         </frameworkReferences>
     </metadata>
     <files>
-        <file src="E:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png"
+        <file src="D:\TFS_Sources\EngineeringTools\Web\trmcnealy.github.io\Assets\nindra.png"
               target=""/>
 
-        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.dll"
+        <file src="D:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.dll"
               target="lib\net5.0-windows7"/>
 
-        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.pdb"
+        <file src="D:\TFS_Sources\EngineeringTools\bin\Release\AnyCPU\net5.0-windows7\Plotly.WPF.pdb"
               target="lib\net5.0-windows7"/>
 
-        <!--<file src="E:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.dll"
+        <!--<file src="D:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.dll"
               target="lib\net5.0-windows\x86"/>
 
-        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.pdb"
+        <file src="D:\TFS_Sources\EngineeringTools\bin\Release\x86\net5.0-windows\Plotly.WPF.pdb"
               target="lib\net5.0-windows\x86"/>
 
-        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.dll"
+        <file src="D:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.dll"
               target="lib\net5.0-windows\x64"/>
 
-        <file src="E:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.pdb"
+        <file src="D:\TFS_Sources\EngineeringTools\bin\Release\x64\net5.0-windows\Plotly.WPF.pdb"
               target="lib\net5.0-windows\x64"/>-->
 
     </files>

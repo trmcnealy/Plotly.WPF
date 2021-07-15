@@ -64,7 +64,7 @@ namespace Plotly {
         ///   Looks up a localized string similar to &lt;!DOCTYPE HTML&gt;
         ///&lt;html lang=&quot;en&quot;&gt;
         ///&lt;head&gt;
-        ///    &lt;meta charset=&quot;UTF-8&quot;/&gt;
+        ///    &lt;meta charset=&quot;UTF-8&quot; /&gt;
         ///    &lt;style&gt;
         ///        html, body, #root {
         ///            padding: 0;
@@ -75,13 +75,8 @@ namespace Plotly {
         ///    &lt;/style&gt;
         ///    &lt;!--&lt;script src=&quot;https://cdn.plot.ly/plotly-latest.js&quot;&gt;&lt;/script&gt;
         ///    &lt;script src=&quot;https://cdn.plot.ly/plotly-latest.min.js&quot;&gt;&lt;/script&gt;--&gt;
-        ///    &lt;script src=&quot;plotly.min.js&quot;&gt;&lt;/script&gt;
-        ///&lt;/head&gt;
-        ///&lt;body&gt;
-        ///&lt;div id=&quot;root&quot;&gt;
-        ///    &lt;div id=&quot;%ID%&quot; style=&quot;width: 100%; height: 100%;&quot;&gt;&lt;/div&gt;
-        ///&lt;/div&gt;
-        ///&lt;s [rest of string was truncated]&quot;;.
+        ///    &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML&quot;&gt;&lt;/script&gt;
+        ///    &lt;script src=&quot;plotly.mi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Plotly_html {
             get {

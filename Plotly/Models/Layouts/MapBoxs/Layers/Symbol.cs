@@ -20,7 +20,7 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     https://www.mapbox.com/maki-icons/
         /// </summary>
         [JsonPropertyName(@"icon")]
-        public string Icon { get; set; }
+        public string? Icon { get; set; }
 
         /// <summary>
         ///     Sets the symbol icon size (mapbox.layer.layout.icon-size). Has an effect
@@ -33,7 +33,7 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     Sets the symbol text (mapbox.layer.layout.text-field).
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the symbol and/or text placement (mapbox.layer.layout.symbol-placement).
@@ -50,7 +50,7 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     Has an effect only when <c>type</c> is set to <c>symbol</c>.
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public TextFont TextFont { get; set; }
+        public TextFont? TextFont { get; set; }
 
         /// <summary>
         ///     Sets the positions of the <c>text</c> elements with respects to the (x,y)

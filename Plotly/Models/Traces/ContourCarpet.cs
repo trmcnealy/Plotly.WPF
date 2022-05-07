@@ -45,7 +45,7 @@ namespace Plotly.Models.Traces
         ///     hide/show at the same time when toggling legend items.
         /// </summary>
         [JsonPropertyName(@"legendgroup")]
-        public string LegendGroup { get; set; }
+        public string? LegendGroup { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the trace.
@@ -57,14 +57,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -72,7 +72,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set; }
+        public List<object>? Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -80,7 +80,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -94,7 +94,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -109,13 +109,13 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -132,32 +132,32 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     The <c>carpet</c> of the carpet axes on which this contour trace lies
         /// </summary>
         [JsonPropertyName(@"carpet")]
-        public string Carpet { get; set; }
+        public string? Carpet { get; set; }
 
         /// <summary>
         ///     Sets the z data.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public List<object> Z { get; set; }
+        public List<object>? Z { get; set; }
 
         /// <summary>
         ///     Sets the x coordinates.
         /// </summary>
         [JsonPropertyName(@"a")]
-        public List<object> A { get; set; }
+        public List<object>? A { get; set; }
 
         /// <summary>
         ///     Alternate to <c>x</c>. Builds a linear space of x coordinates. Use with
         ///     <c>dx</c> where <c>x0</c> is the starting coordinate and <c>dx</c> the step.
         /// </summary>
         [JsonPropertyName(@"a0")]
-        public object A0 { get; set; }
+        public object? A0 { get; set; }
 
         /// <summary>
         ///     Sets the x coordinate step. See <c>x0</c> for more info.
@@ -169,14 +169,14 @@ namespace Plotly.Models.Traces
         ///     Sets the y coordinates.
         /// </summary>
         [JsonPropertyName(@"b")]
-        public List<object> B { get; set; }
+        public List<object>? B { get; set; }
 
         /// <summary>
         ///     Alternate to <c>y</c>. Builds a linear space of y coordinates. Use with
         ///     <c>dy</c> where <c>y0</c> is the starting coordinate and <c>dy</c> the step.
         /// </summary>
         [JsonPropertyName(@"b0")]
-        public object B0 { get; set; }
+        public object? B0 { get; set; }
 
         /// <summary>
         ///     Sets the y coordinate step. See <c>y0</c> for more info.
@@ -188,13 +188,13 @@ namespace Plotly.Models.Traces
         ///     Sets the text elements associated with each z value.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public List<object> Text { get; set; }
+        public List<object>? Text { get; set; }
 
         /// <summary>
         ///     Same as <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public List<object> HoverText { get; set; }
+        public List<object>? HoverText { get; set; }
 
         /// <summary>
         ///     Transposes the z data.
@@ -226,7 +226,7 @@ namespace Plotly.Models.Traces
         ///     line color, whichever is available.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the contour level attributes are picked by an
@@ -249,13 +249,13 @@ namespace Plotly.Models.Traces
         ///     Gets or sets the Contours.
         /// </summary>
         [JsonPropertyName(@"contours")]
-        public ContourCarpets.Contours Contours { get; set; }
+        public ContourCarpets.Contours? Contours { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -298,7 +298,7 @@ namespace Plotly.Models.Traces
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -328,7 +328,7 @@ namespace Plotly.Models.Traces
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set; }
+        public ColorBar? ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -338,7 +338,7 @@ namespace Plotly.Models.Traces
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set; }
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s x coordinates and a 2D cartesian
@@ -346,7 +346,7 @@ namespace Plotly.Models.Traces
         ///     If <c>x2</c>, the x coordinates refer to <c>layout.xaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"xaxis")]
-        public string XAxis { get; set; }
+        public string? XAxis { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s y coordinates and a 2D cartesian
@@ -354,55 +354,55 @@ namespace Plotly.Models.Traces
         ///     If <c>y2</c>, the y coordinates refer to <c>layout.yaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"yaxis")]
-        public string YAxis { get; set; }
+        public string? YAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set; }
+        public string? IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  z .
         /// </summary>
         [JsonPropertyName(@"zsrc")]
-        public string ZSrc { get; set; }
+        public string? ZSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  a .
         /// </summary>
         [JsonPropertyName(@"asrc")]
-        public string ASrc { get; set; }
+        public string? ASrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  b .
         /// </summary>
         [JsonPropertyName(@"bsrc")]
-        public string BSrc { get; set; }
+        public string? BSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  text .
         /// </summary>
         [JsonPropertyName(@"textsrc")]
-        public string TextSrc { get; set; }
+        public string? TextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertext .
         /// </summary>
         [JsonPropertyName(@"hovertextsrc")]
-        public string HoverTextSrc { get; set; }
+        public string? HoverTextSrc { get; set; }
 
         public override bool Equals(object obj)
         {

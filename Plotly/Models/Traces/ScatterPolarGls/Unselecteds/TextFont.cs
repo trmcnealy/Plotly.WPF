@@ -18,7 +18,7 @@ namespace Plotly.Models.Traces.ScatterPolarGls.Unselecteds
         ///     exists.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -27,14 +27,14 @@ namespace Plotly.Models.Layouts.Geos
         ///     Gets or sets the Rotation.
         /// </summary>
         [JsonPropertyName(@"rotation")]
-        public Rotation Rotation { get; set; }
+        public Rotation? Rotation { get; set; }
 
         /// <summary>
         ///     For conic projection types only. Sets the parallels (tangent, secant) where
         ///     the cone intersects the sphere.
         /// </summary>
         [JsonPropertyName(@"parallels")]
-        public List<object> Parallels { get; set; }
+        public List<object>? Parallels { get; set; }
 
         /// <summary>
         ///     Zooms in or out on the map view. A scale of <c>1</c> corresponds to the

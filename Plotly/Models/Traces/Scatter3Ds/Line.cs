@@ -36,7 +36,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     the array or relative to <c>line.cmin</c> and <c>line.cmax</c> if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets thelinecolor. It accepts either a specific color or an array of numbers
@@ -45,7 +45,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -93,7 +93,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     name string of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -126,7 +126,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set; }
+        public ColorBar? ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -136,13 +136,13 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set; }
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

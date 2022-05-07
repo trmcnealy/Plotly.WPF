@@ -27,19 +27,19 @@ namespace Plotly.Models.Traces.Indicators
         ///     Set the appearance of the gauge&#39;s value
         /// </summary>
         [JsonPropertyName(@"bar")]
-        public Gauges.Bar Bar { get; set; }
+        public Gauges.Bar? Bar { get; set; }
 
         /// <summary>
         ///     Sets the gauge background color.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the gauge.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the gauge.
@@ -51,19 +51,19 @@ namespace Plotly.Models.Traces.Indicators
         ///     Gets or sets the Axis.
         /// </summary>
         [JsonPropertyName(@"axis")]
-        public Axis Axis { get; set; }
+        public Axis? Axis { get; set; }
 
         /// <summary>
         ///     Gets or sets the Steps.
         /// </summary>
         [JsonPropertyName(@"steps")]
-        public List<Step> Steps { get; set; }
+        public List<Step>? Steps { get; set; }
 
         /// <summary>
         ///     Gets or sets the Threshold.
         /// </summary>
         [JsonPropertyName(@"threshold")]
-        public Threshold Threshold { get; set; }
+        public Threshold? Threshold { get; set; }
 
         public override bool Equals(object obj)
         {

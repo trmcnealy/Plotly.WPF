@@ -40,7 +40,7 @@ namespace Plotly.Models.Transforms
         ///     by which we aggregate.
         /// </summary>
         [JsonPropertyName(@"groups")]
-        public string Groups { get; set; }
+        public string? Groups { get; set; }
 
         /// <summary>
         ///     Sets the grouping target to which the aggregation is applied. Data points
@@ -54,19 +54,19 @@ namespace Plotly.Models.Transforms
         /// </summary>
         [JsonPropertyName(@"groups")]
         [Array]
-        public List<string> GroupsArray { get; set; }
+        public List<string>? GroupsArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Aggregations.
         /// </summary>
         [JsonPropertyName(@"aggregations")]
-        public List<Aggregation> Aggregations { get; set; }
+        public List<Aggregation>? Aggregations { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  groups .
         /// </summary>
         [JsonPropertyName(@"groupssrc")]
-        public string GroupsSrc { get; set; }
+        public string? GroupsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

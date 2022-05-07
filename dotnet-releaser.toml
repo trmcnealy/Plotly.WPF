@@ -1,0 +1,10 @@
+# configuration file for dotnet-releaser
+[msbuild]
+project = "Plotly.WPF.csproj"
+[github]
+user = "trmcnealy"
+repo = "https://github.com/trmcnealy/Plotly.WPF"
+
+
+#dotnet-releaser build --force dotnet-releaser.toml
+#dotnet-releaser publish --force --github-token %GIT_API_PLOTLY% --nuget-token %NUGET_API%  dotnet-releaser.toml

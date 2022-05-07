@@ -36,19 +36,19 @@ namespace Plotly.Models.Layouts.Sliders
         ///     When currentvalue.visible is true, this sets the prefix of the label.
         /// </summary>
         [JsonPropertyName(@"prefix")]
-        public string Prefix { get; set; }
+        public string? Prefix { get; set; }
 
         /// <summary>
         ///     When currentvalue.visible is true, this sets the suffix of the label.
         /// </summary>
         [JsonPropertyName(@"suffix")]
-        public string Suffix { get; set; }
+        public string? Suffix { get; set; }
 
         /// <summary>
         ///     Sets the font of the current value label text.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public CurrentValues.Font Font { get; set; }
+        public CurrentValues.Font? Font { get; set; }
 
         public override bool Equals(object obj)
         {

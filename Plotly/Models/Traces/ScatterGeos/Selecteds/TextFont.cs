@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.ScatterGeos.Selecteds
         ///     Sets the text font color of selected points.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         public override bool Equals(object obj)
         {

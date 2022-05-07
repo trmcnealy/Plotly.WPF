@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges.Steps
         ///     Sets the color of the line enclosing each sector.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the line enclosing each sector.

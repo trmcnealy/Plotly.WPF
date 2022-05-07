@@ -37,14 +37,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -52,7 +52,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set; }
+        public List<object>? Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -60,7 +60,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -74,7 +74,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -89,19 +89,19 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transforms.
         /// </summary>
         [JsonPropertyName(@"transforms")]
-        public List<ITransform> Transforms { get; set; }
+        public List<ITransform>? Transforms { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -118,7 +118,7 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Determines how the value is displayed on the graph. <c>number</c> displays
@@ -147,49 +147,49 @@ namespace Plotly.Models.Traces
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Title Title { get; set; }
+        public Title? Title { get; set; }
 
         /// <summary>
         ///     Gets or sets the Number.
         /// </summary>
         [JsonPropertyName(@"number")]
-        public Number Number { get; set; }
+        public Number? Number { get; set; }
 
         /// <summary>
         ///     Gets or sets the Delta.
         /// </summary>
         [JsonPropertyName(@"delta")]
-        public Delta Delta { get; set; }
+        public Delta? Delta { get; set; }
 
         /// <summary>
         ///     The gauge of the Indicator plot.
         /// </summary>
         [JsonPropertyName(@"gauge")]
-        public Gauge Gauge { get; set; }
+        public Gauge? Gauge { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set; }
+        public string? IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         public override bool Equals(object obj)
         {

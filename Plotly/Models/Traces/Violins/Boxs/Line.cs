@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Violins.Boxs
         ///     Sets the inner box plot bounding line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the inner box plot bounding line width.

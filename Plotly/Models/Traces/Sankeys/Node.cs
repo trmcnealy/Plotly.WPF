@@ -22,26 +22,26 @@ namespace Plotly.Models.Traces.Sankeys
         ///     The shown name of the node.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public List<object> Label { get; set; }
+        public List<object>? Label { get; set; }
 
         /// <summary>
         ///     Groups of nodes. Each group is defined by an array with the indices of the
         ///     nodes it contains. Multiple groups can be specified.
         /// </summary>
         [JsonPropertyName(@"groups")]
-        public List<object> Groups { get; set; }
+        public List<object>? Groups { get; set; }
 
         /// <summary>
         ///     The normalized horizontal position of the node.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set; }
+        public List<object>? X { get; set; }
 
         /// <summary>
         ///     The normalized vertical position of the node.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set; }
+        public List<object>? Y { get; set; }
 
         /// <summary>
         ///     Sets the <c>node</c> color. It can be a single value, or an array for specifying
@@ -51,7 +51,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     what is beneath the node.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the <c>node</c> color. It can be a single value, or an array for specifying
@@ -62,19 +62,19 @@ namespace Plotly.Models.Traces.Sankeys
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Assigns extra data to each node.
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the padding (in px) between the <c>nodes</c>.
@@ -100,7 +100,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public Nodes.HoverLabel HoverLabel { get; set; }
+        public Nodes.HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -120,7 +120,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     To hide the secondary box completely, use an empty tag <c>&lt;extra&gt;&lt;/extra&gt;</c>.
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
-        public string HoverTemplate { get; set; }
+        public string? HoverTemplate { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -141,43 +141,43 @@ namespace Plotly.Models.Traces.Sankeys
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
         [Array]
-        public List<string> HoverTemplateArray { get; set; }
+        public List<string>? HoverTemplateArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  label .
         /// </summary>
         [JsonPropertyName(@"labelsrc")]
-        public string LabelSrc { get; set; }
+        public string? LabelSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  x .
         /// </summary>
         [JsonPropertyName(@"xsrc")]
-        public string XSrc { get; set; }
+        public string? XSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  y .
         /// </summary>
         [JsonPropertyName(@"ysrc")]
-        public string YSrc { get; set; }
+        public string? YSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertemplate .
         /// </summary>
         [JsonPropertyName(@"hovertemplatesrc")]
-        public string HoverTemplateSrc { get; set; }
+        public string? HoverTemplateSrc { get; set; }
 
         public override bool Equals(object obj)
         {

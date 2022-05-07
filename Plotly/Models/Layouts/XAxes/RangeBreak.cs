@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     <c>pattern</c>.
         /// </summary>
         [JsonPropertyName(@"bounds")]
-        public List<object> Bounds { get; set; }
+        public List<object>? Bounds { get; set; }
 
         /// <summary>
         ///     Determines a pattern on the time line that generates breaks. If &#39;day
@@ -51,7 +51,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     the axis.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set; }
+        public List<object>? Values { get; set; }
 
         /// <summary>
         ///     Sets the size of each <c>values</c> item. The default is one day in milliseconds.
@@ -68,7 +68,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -80,7 +80,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

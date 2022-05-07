@@ -26,7 +26,7 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         ///     would be created for all points of the axis y except start and end.
         /// </summary>
         [JsonPropertyName(@"locations")]
-        public List<object> Locations { get; set; }
+        public List<object>? Locations { get; set; }
 
         /// <summary>
         ///     Sets the fill ratio of the <c>slices</c>. The default fill value of the
@@ -41,7 +41,7 @@ namespace Plotly.Models.Traces.IsoSurfaces.Slicess
         ///     Sets the source reference on Chart Studio Cloud for  locations .
         /// </summary>
         [JsonPropertyName(@"locationssrc")]
-        public string LocationsSrc { get; set; }
+        public string? LocationsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

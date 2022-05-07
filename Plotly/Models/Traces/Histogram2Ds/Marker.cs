@@ -19,13 +19,13 @@ namespace Plotly.Models.Traces.Histogram2Ds
         ///     Sets the aggregation data.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public List<object> Color { get; set; }
+        public List<object>? Color { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

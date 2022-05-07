@@ -27,13 +27,13 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     Has an effect only when <c>type</c> is set to <c>line</c>.
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public List<object> Dash { get; set; }
+        public List<object>? Dash { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  dash .
         /// </summary>
         [JsonPropertyName(@"dashsrc")]
-        public string DashSrc { get; set; }
+        public string? DashSrc { get; set; }
 
         public override bool Equals(object obj)
         {

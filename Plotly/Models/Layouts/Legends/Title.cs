@@ -19,13 +19,13 @@ namespace Plotly.Models.Layouts.Legends
         ///     Sets the title of the legend.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets this legend&#39;s title font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Titles.Font Font { get; set; }
+        public Titles.Font? Font { get; set; }
 
         /// <summary>
         ///     Determines the location of legend&#39;s title with respect to the legend
@@ -104,7 +104,7 @@ namespace Plotly.Models.Layouts.Legends
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

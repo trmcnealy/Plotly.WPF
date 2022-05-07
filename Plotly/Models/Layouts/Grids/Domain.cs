@@ -21,7 +21,7 @@ namespace Plotly.Models.Layouts.Grids
         ///     the edges.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set; }
+        public List<object>? X { get; set; }
 
         /// <summary>
         ///     Sets the vertical domain of this grid subplot (in plot fraction). The first
@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts.Grids
         ///     edges.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set; }
+        public List<object>? Y { get; set; }
 
         public override bool Equals(object obj)
         {

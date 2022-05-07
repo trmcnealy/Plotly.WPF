@@ -29,14 +29,14 @@ namespace Plotly.Models.Traces.ScatterPolars.Markers
         /// </summary>
         [JsonPropertyName(@"type")]
         [Array]
-        public List<TypeEnum?> TypeArray { get; set; }
+        public List<TypeEnum?>? TypeArray { get; set; }
 
         /// <summary>
         ///     Sets the final color of the gradient fill: the center color for radial,
         ///     the right for horizontal, or the bottom for vertical.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the final color of the gradient fill: the center color for radial,
@@ -44,19 +44,19 @@ namespace Plotly.Models.Traces.ScatterPolars.Markers
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  type .
         /// </summary>
         [JsonPropertyName(@"typesrc")]
-        public string TypeSrc { get; set; }
+        public string? TypeSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

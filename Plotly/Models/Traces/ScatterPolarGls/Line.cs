@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.ScatterPolarGls
         ///     Sets the line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).

@@ -58,7 +58,8 @@ namespace Plotly.Models
         {
             Encoder                     = DefaultJavaScriptEncoderBasicLatin.s_singleton,
             PropertyNameCaseInsensitive = false,
-            IgnoreNullValues            = true,
+            DefaultIgnoreCondition      = JsonIgnoreCondition.WhenWritingNull,
+            //IgnoreNullValues            = true,
             WriteIndented               = true,
             //PropertyNamingPolicy        = JsonNamingPolicy.CamelCase,
             Converters =
@@ -75,10 +76,10 @@ namespace Plotly.Models
     public sealed class Plot
     {
         [JsonPropertyName("id")]
-        public string Id { get; }
+        public string? Id { get; }
 
         [JsonPropertyName("data")]
-        public List<ITrace> Data { get; }
+        public List<ITrace>? Data { get; }
 
         [JsonPropertyName("layout")]
         public Layout? Layout { get; }
@@ -107,12 +108,12 @@ namespace Plotly.Models
             return JsonSerializer.Deserialize<Plot>(json, Converter.SerializerOptions);
         }
 
-        public string ToJson()
+        public string? ToJson()
         {
             return JsonSerializer.Serialize(this, Converter.SerializerOptions);
         }
 
-        public string NewPlot()
+        public string? NewPlot()
         {
             //StringBuilder sb   = new StringBuilder();
 

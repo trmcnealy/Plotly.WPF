@@ -35,7 +35,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         /// </summary>
         [JsonPropertyName(@"symbol")]
         [Array]
-        public List<SymbolEnum?> SymbolArray { get; set; }
+        public List<SymbolEnum?>? SymbolArray { get; set; }
 
         /// <summary>
         ///     Sets the marker opacity.
@@ -48,7 +48,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         /// </summary>
         [JsonPropertyName(@"opacity")]
         [Array]
-        public List<JsNumber?> OpacityArray { get; set; }
+        public List<JsNumber?>? OpacityArray { get; set; }
 
         /// <summary>
         ///     Sets a maximum number of points to be drawn on the graph. <c>0</c> corresponds
@@ -68,7 +68,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         /// </summary>
         [JsonPropertyName(@"size")]
         [Array]
-        public List<JsNumber?> SizeArray { get; set; }
+        public List<JsNumber?>? SizeArray { get; set; }
 
         /// <summary>
         ///     Has an effect only if <c>marker.size</c> is set to a numerical array. Sets
@@ -96,13 +96,13 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Markers.Line Line { get; set; }
+        public Markers.Line? Line { get; set; }
 
         /// <summary>
         ///     Gets or sets the Gradient.
         /// </summary>
         [JsonPropertyName(@"gradient")]
-        public Gradient Gradient { get; set; }
+        public Gradient? Gradient { get; set; }
 
         /// <summary>
         ///     Sets themarkercolor. It accepts either a specific color or an array of numbers
@@ -110,7 +110,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     the array or relative to <c>marker.cmin</c> and <c>marker.cmax</c> if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets themarkercolor. It accepts either a specific color or an array of numbers
@@ -119,7 +119,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -168,7 +168,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     name string of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -201,7 +201,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set; }
+        public ColorBar? ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -211,31 +211,31 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set; }
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  symbol .
         /// </summary>
         [JsonPropertyName(@"symbolsrc")]
-        public string SymbolSrc { get; set; }
+        public string? SymbolSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  opacity .
         /// </summary>
         [JsonPropertyName(@"opacitysrc")]
-        public string OpacitySrc { get; set; }
+        public string? OpacitySrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  size .
         /// </summary>
         [JsonPropertyName(@"sizesrc")]
-        public string SizeSrc { get; set; }
+        public string? SizeSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -28,7 +28,7 @@ namespace Plotly.Models.Layouts
         ///     Tags &lt;em&gt;, &lt;sup&gt;, &lt;sub&gt; &lt;span&gt; are also supported.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the angle at which the <c>text</c> is drawn with respect to the horizontal.
@@ -40,7 +40,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the annotation text font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Annotations.Font Font { get; set; }
+        public Annotations.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets an explicit width for the text box. null (default) lets the text set
@@ -83,13 +83,13 @@ namespace Plotly.Models.Layouts
         ///     Sets the background color of the annotation.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the annotation <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the padding (in px) between the <c>text</c> and the enclosing border.
@@ -115,7 +115,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color of the annotation arrow.
         /// </summary>
         [JsonPropertyName(@"arrowcolor")]
-        public object ArrowColor { get; set; }
+        public object? ArrowColor { get; set; }
 
         /// <summary>
         ///     Sets the end annotation arrow head style.
@@ -182,7 +182,7 @@ namespace Plotly.Models.Layouts
         ///     this is an absolute value on that axis, like <c>x</c>, NOT a relative value.
         /// </summary>
         [JsonPropertyName(@"ax")]
-        public object Ax { get; set; }
+        public object? Ax { get; set; }
 
         /// <summary>
         ///     Sets the y component of the arrow tail about the arrow head. If <c>ayref</c>
@@ -191,7 +191,7 @@ namespace Plotly.Models.Layouts
         ///     this is an absolute value on that axis, like <c>y</c>, NOT a relative value.
         /// </summary>
         [JsonPropertyName(@"ay")]
-        public object Ay { get; set; }
+        public object? Ay { get; set; }
 
         /// <summary>
         ///     Indicates in what terms the tail of the annotation (ax,ay)  is specified.
@@ -201,7 +201,7 @@ namespace Plotly.Models.Layouts
         ///     which should continue to indicate  the correct trend when zoomed.
         /// </summary>
         [JsonPropertyName(@"axref")]
-        public string AXref { get; set; }
+        public string? AXref { get; set; }
 
         /// <summary>
         ///     Indicates in what terms the tail of the annotation (ax,ay)  is specified.
@@ -211,7 +211,7 @@ namespace Plotly.Models.Layouts
         ///     which should continue to indicate  the correct trend when zoomed.
         /// </summary>
         [JsonPropertyName(@"ayref")]
-        public string AyRef { get; set; }
+        public string? AyRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s x coordinate axis. If set to an x axis id (e.g.
@@ -221,7 +221,7 @@ namespace Plotly.Models.Layouts
         ///     corresponds to the left (right) side.
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public string XRef { get; set; }
+        public string? XRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s x position. If the axis <c>type</c> is <c>log</c>,
@@ -233,7 +233,7 @@ namespace Plotly.Models.Layouts
         ///     appears.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public object X { get; set; }
+        public object? X { get; set; }
 
         /// <summary>
         ///     Sets the text box&#39;s horizontal position anchor This anchor binds the
@@ -263,7 +263,7 @@ namespace Plotly.Models.Layouts
         ///     to the bottom (top).
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public string YRef { get; set; }
+        public string? YRef { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y position. If the axis <c>type</c> is <c>log</c>,
@@ -275,7 +275,7 @@ namespace Plotly.Models.Layouts
         ///     appears.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public object Y { get; set; }
+        public object? Y { get; set; }
 
         /// <summary>
         ///     Sets the text box&#39;s vertical position anchor This anchor binds the <c>y</c>
@@ -318,27 +318,27 @@ namespace Plotly.Models.Layouts
         ///     <c>xclick</c> rather than the annotation&#39;s <c>x</c> value.
         /// </summary>
         [JsonPropertyName(@"xclick")]
-        public object XClick { get; set; }
+        public object? XClick { get; set; }
 
         /// <summary>
         ///     Toggle this annotation when clicking a data point whose <c>y</c> value is
         ///     <c>yclick</c> rather than the annotation&#39;s <c>y</c> value.
         /// </summary>
         [JsonPropertyName(@"yclick")]
-        public object YClick { get; set; }
+        public object? YClick { get; set; }
 
         /// <summary>
         ///     Sets text to appear when hovering over this annotation. If omitted or blank,
         ///     no hover label will appear.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public string HoverText { get; set; }
+        public string? HoverText { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public Annotations.HoverLabel HoverLabel { get; set; }
+        public Annotations.HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Determines whether the annotation text box captures mouse move and click
@@ -359,7 +359,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -371,7 +371,7 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

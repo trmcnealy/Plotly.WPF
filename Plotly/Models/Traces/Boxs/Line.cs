@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Boxs
         ///     Sets the color of line bounding the box(es).
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of line bounding the box(es).

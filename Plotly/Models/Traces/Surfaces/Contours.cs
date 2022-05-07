@@ -19,19 +19,19 @@ namespace Plotly.Models.Traces.Surfaces
         ///     Gets or sets the X.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public X X { get; set; }
+        public X? X { get; set; }
 
         /// <summary>
         ///     Gets or sets the Y.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public Y Y { get; set; }
+        public Y? Y { get; set; }
 
         /// <summary>
         ///     Gets or sets the Z.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public Z Z { get; set; }
+        public Z? Z { get; set; }
 
         public override bool Equals(object obj)
         {

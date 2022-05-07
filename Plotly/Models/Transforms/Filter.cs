@@ -38,7 +38,7 @@ namespace Plotly.Models.Transforms
         ///     is applied.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         /// <summary>
         ///     Sets the filter target by which the filter is applied. If a string, <c>target</c>
@@ -50,7 +50,7 @@ namespace Plotly.Models.Transforms
         /// </summary>
         [JsonPropertyName(@"target")]
         [Array]
-        public List<string> TargetArray { get; set; }
+        public List<string>? TargetArray { get; set; }
 
         /// <summary>
         ///     Sets the filter operation. <c>=</c> keeps items equal to <c>value</c> <c>!=</c>
@@ -85,7 +85,7 @@ namespace Plotly.Models.Transforms
         ///     as the desired set elements.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         /// <summary>
         ///     Determines whether or not gaps in data arrays produced by the filter operation
@@ -114,7 +114,7 @@ namespace Plotly.Models.Transforms
         ///     Sets the source reference on Chart Studio Cloud for  target .
         /// </summary>
         [JsonPropertyName(@"targetsrc")]
-        public string TargetSrc { get; set; }
+        public string? TargetSrc { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -35,7 +35,7 @@ namespace Plotly.Models.Transforms
         ///     one trace with <c>x</c> [1, 3] and one trace with <c>x</c> [2, 4].
         /// </summary>
         [JsonPropertyName(@"groups")]
-        public List<object> Groups { get; set; }
+        public List<object>? Groups { get; set; }
 
         /// <summary>
         ///     Pattern by which grouped traces are named. If only one trace is present,
@@ -47,19 +47,19 @@ namespace Plotly.Models.Transforms
         ///     &quot;%{group} (%{trace})&quot; would return &quot;Monaco (GDP per capita)&quot;.
         /// </summary>
         [JsonPropertyName(@"nameformat")]
-        public string NameFormat { get; set; }
+        public string? NameFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the Styles.
         /// </summary>
         [JsonPropertyName(@"styles")]
-        public List<Style> Styles { get; set; }
+        public List<Style>? Styles { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  groups .
         /// </summary>
         [JsonPropertyName(@"groupssrc")]
-        public string GroupsSrc { get; set; }
+        public string? GroupsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

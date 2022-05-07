@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Scatters
         ///     Sets the line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).
@@ -49,7 +49,7 @@ namespace Plotly.Models.Traces.Scatters
         ///     a dash length list in px (eg <c>5px,10px,2px,2px</c>).
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set; }
+        public string? Dash { get; set; }
 
         /// <summary>
         ///     Simplifies lines by removing nearly-collinear points. When transitioning

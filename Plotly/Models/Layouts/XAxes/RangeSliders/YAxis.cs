@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts.XAxes.RangeSliders
         ///     Sets the range of this axis for the rangeslider.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set; }
+        public List<object>? Range { get; set; }
 
         public override bool Equals(object obj)
         {

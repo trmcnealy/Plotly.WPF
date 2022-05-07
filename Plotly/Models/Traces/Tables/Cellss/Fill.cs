@@ -21,7 +21,7 @@ namespace Plotly.Models.Traces.Tables.Cellss
         ///     of colors or a 2D array of colors.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the cell fill color. It accepts either a specific color or an array
@@ -29,13 +29,13 @@ namespace Plotly.Models.Traces.Tables.Cellss
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

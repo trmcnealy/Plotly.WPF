@@ -19,7 +19,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Determines if this subplot&#39;s view settings are auto-computed to fit
@@ -55,13 +55,13 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Projection.
         /// </summary>
         [JsonPropertyName(@"projection")]
-        public Projection Projection { get; set; }
+        public Projection? Projection { get; set; }
 
         /// <summary>
         ///     Gets or sets the Center.
         /// </summary>
         [JsonPropertyName(@"center")]
-        public Center Center { get; set; }
+        public Center? Center { get; set; }
 
         /// <summary>
         ///     Sets the default visibility of the base layers.
@@ -79,7 +79,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the coastline color.
         /// </summary>
         [JsonPropertyName(@"coastlinecolor")]
-        public object CoastlineColor { get; set; }
+        public object? CoastlineColor { get; set; }
 
         /// <summary>
         ///     Sets the coastline stroke width (in px).
@@ -97,7 +97,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the land mass color.
         /// </summary>
         [JsonPropertyName(@"landcolor")]
-        public object LandColor { get; set; }
+        public object? LandColor { get; set; }
 
         /// <summary>
         ///     Sets whether or not oceans are filled in color.
@@ -109,7 +109,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the ocean color
         /// </summary>
         [JsonPropertyName(@"oceancolor")]
-        public object OceanColor { get; set; }
+        public object? OceanColor { get; set; }
 
         /// <summary>
         ///     Sets whether or not lakes are drawn.
@@ -121,7 +121,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color of the lakes.
         /// </summary>
         [JsonPropertyName(@"lakecolor")]
-        public object LakeColor { get; set; }
+        public object? LakeColor { get; set; }
 
         /// <summary>
         ///     Sets whether or not rivers are drawn.
@@ -133,7 +133,7 @@ namespace Plotly.Models.Layouts
         ///     Sets color of the rivers.
         /// </summary>
         [JsonPropertyName(@"rivercolor")]
-        public object RiverColor { get; set; }
+        public object? RiverColor { get; set; }
 
         /// <summary>
         ///     Sets the stroke width (in px) of the rivers.
@@ -151,7 +151,7 @@ namespace Plotly.Models.Layouts
         ///     Sets line color of the country boundaries.
         /// </summary>
         [JsonPropertyName(@"countrycolor")]
-        public object CountryColor { get; set; }
+        public object? CountryColor { get; set; }
 
         /// <summary>
         ///     Sets line width (in px) of the country boundaries.
@@ -170,7 +170,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color of the subunits boundaries.
         /// </summary>
         [JsonPropertyName(@"subunitcolor")]
-        public object SubUnitColor { get; set; }
+        public object? SubUnitColor { get; set; }
 
         /// <summary>
         ///     Sets the stroke width (in px) of the subunits boundaries.
@@ -188,7 +188,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color the frame.
         /// </summary>
         [JsonPropertyName(@"framecolor")]
-        public object FrameColor { get; set; }
+        public object? FrameColor { get; set; }
 
         /// <summary>
         ///     Sets the stroke width (in px) of the frame.
@@ -200,26 +200,26 @@ namespace Plotly.Models.Layouts
         ///     Set the background color of the map
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Gets or sets the LonAxis.
         /// </summary>
         [JsonPropertyName(@"lonaxis")]
-        public LonAxis LonAxis { get; set; }
+        public LonAxis? LonAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the LaTaxis.
         /// </summary>
         [JsonPropertyName(@"lataxis")]
-        public LaTaxis LaTaxis { get; set; }
+        public LaTaxis? LaTaxis { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in the view (projection and
         ///     center). Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Violins
         ///     Sets the color of line bounding the violin(s).
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of line bounding the violin(s).

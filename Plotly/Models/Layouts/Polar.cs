@@ -21,7 +21,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Sets angular span of this polar subplot with two angles (in degrees). Sector
@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts
         ///     corresponding to rightmost limit of the polar subplot.
         /// </summary>
         [JsonPropertyName(@"sector")]
-        public List<object> Sector { get; set; }
+        public List<object>? Sector { get; set; }
 
         /// <summary>
         ///     Sets the fraction of the radius to cut out of the polar subplot.
@@ -41,19 +41,19 @@ namespace Plotly.Models.Layouts
         ///     Set the background color of the subplot
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Gets or sets the RadialAxis.
         /// </summary>
         [JsonPropertyName(@"radialaxis")]
-        public Polars.RadialAxis RadialAxis { get; set; }
+        public Polars.RadialAxis? RadialAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the AngularAxis.
         /// </summary>
         [JsonPropertyName(@"angularaxis")]
-        public Polars.AngularAxis AngularAxis { get; set; }
+        public Polars.AngularAxis? AngularAxis { get; set; }
 
         /// <summary>
         ///     Determines if the radial axis grid lines and angular axis line are drawn
@@ -71,7 +71,7 @@ namespace Plotly.Models.Layouts
         ///     in the individual axes. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         public override bool Equals(object obj)
         {

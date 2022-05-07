@@ -18,7 +18,7 @@ namespace Plotly.Models.Layouts.NewShapes
         ///     contrast with background color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).
@@ -32,7 +32,7 @@ namespace Plotly.Models.Layouts.NewShapes
         ///     a dash length list in px (eg <c>5px,10px,2px,2px</c>).
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set; }
+        public string? Dash { get; set; }
 
         public override bool Equals(object obj)
         {

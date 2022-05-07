@@ -19,13 +19,13 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     Sets the background color of the arc.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the thickness of the bar as a fraction of the total thickness of the

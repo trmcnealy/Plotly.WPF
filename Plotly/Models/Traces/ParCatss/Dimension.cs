@@ -21,7 +21,7 @@ namespace Plotly.Models.Traces.ParCatss
         ///     The shown name of the dimension.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     Specifies the ordering logic for the categories in the dimension. By default,
@@ -42,7 +42,7 @@ namespace Plotly.Models.Traces.ParCatss
         ///     effect if <c>categoryorder</c> is set to <c>array</c>. Used with <c>categoryorder</c>.
         /// </summary>
         [JsonPropertyName(@"categoryarray")]
-        public List<object> CategoryArray { get; set; }
+        public List<object>? CategoryArray { get; set; }
 
         /// <summary>
         ///     Sets alternative tick labels for the categories in this dimension. Only
@@ -50,7 +50,7 @@ namespace Plotly.Models.Traces.ParCatss
         ///     an array the same length as <c>categoryarray</c> Used with <c>categoryorder</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set; }
+        public List<object>? TickText { get; set; }
 
         /// <summary>
         ///     Dimension values. <c>values[n]</c> represents the category value of the
@@ -58,7 +58,7 @@ namespace Plotly.Models.Traces.ParCatss
         ///     all dimensions must be the same (longer vectors will be truncated).
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set; }
+        public List<object>? Values { get; set; }
 
         /// <summary>
         ///     The display index of dimension, from left to right, zero indexed, defaults
@@ -78,19 +78,19 @@ namespace Plotly.Models.Traces.ParCatss
         ///     Sets the source reference on Chart Studio Cloud for  categoryarray .
         /// </summary>
         [JsonPropertyName(@"categoryarraysrc")]
-        public string CategoryArraySrc { get; set; }
+        public string? CategoryArraySrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set; }
+        public string? TickTextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set; }
+        public string? ValuesSrc { get; set; }
 
         public override bool Equals(object obj)
         {

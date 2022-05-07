@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.ScatterMapBoxs
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Unselecteds.Marker Marker { get; set; }
+        public Unselecteds.Marker? Marker { get; set; }
 
         public override bool Equals(object obj)
         {

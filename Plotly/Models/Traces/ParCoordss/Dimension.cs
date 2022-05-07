@@ -19,19 +19,19 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     The shown name of the dimension.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set; }
+        public List<object>? TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set; }
+        public List<object>? TickText { get; set; }
 
         /// <summary>
         ///     Sets the tick label formatting rule using d3 formatting mini-languages which
@@ -42,7 +42,7 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set; }
+        public string? TickFormat { get; set; }
 
         /// <summary>
         ///     Shows the dimension when set to <c>true</c> (the default). Hides the dimension
@@ -57,7 +57,7 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     with finite numbers as elements.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set; }
+        public List<object>? Range { get; set; }
 
         /// <summary>
         ///     The domain range to which the filter on the dimension is constrained. Must
@@ -66,7 +66,7 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     array of arrays, where each inner array is &#39;[fromValue, toValue]&#39;.
         /// </summary>
         [JsonPropertyName(@"constraintrange")]
-        public List<object> ConstraintRange { get; set; }
+        public List<object>? ConstraintRange { get; set; }
 
         /// <summary>
         ///     Do we allow multiple selection ranges or just a single range?
@@ -81,7 +81,7 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     a finite number.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set; }
+        public List<object>? Values { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -92,7 +92,7 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -104,25 +104,25 @@ namespace Plotly.Models.Traces.ParCoordss
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set; }
+        public string? TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set; }
+        public string? TickTextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set; }
+        public string? ValuesSrc { get; set; }
 
         public override bool Equals(object obj)
         {

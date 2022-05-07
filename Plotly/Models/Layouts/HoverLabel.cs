@@ -19,19 +19,19 @@ namespace Plotly.Models.Layouts
         ///     Sets the background color of all hover labels on graph
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the border color of all hover labels on graph.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the default hover label font used by all traces on the graph.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public HoverLabels.Font Font { get; set; }
+        public HoverLabels.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the text content within hover label box.

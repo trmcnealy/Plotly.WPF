@@ -17,7 +17,7 @@ namespace Plotly.Models.Transforms.GroupBys
         ///     The group value which receives these styles.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         /// <summary>
         ///     Sets each group styles. For example, with <c>groups</c> set to &#39;[<c>a</c>,
@@ -26,7 +26,7 @@ namespace Plotly.Models.Transforms.GroupBys
         ///     will be drawn in red.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         public override bool Equals(object obj)
         {

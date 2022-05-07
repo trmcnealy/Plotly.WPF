@@ -25,19 +25,19 @@ namespace Plotly.Models.Layouts
         ///     Sets the background color of the modebar.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the icons in the modebar.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the color of the active or hovered on icons in the modebar.
         /// </summary>
         [JsonPropertyName(@"activecolor")]
-        public object ActiveColor { get; set; }
+        public object? ActiveColor { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes related to the modebar, including
@@ -45,7 +45,7 @@ namespace Plotly.Models.Layouts
         ///     level and inside subplots. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -516,12 +516,19 @@ const PlotlyApp = {
 window.PlotlyApp = PlotlyApp;
 
 function PlotlySelectedHandler(eventData) {
+
   if(IsNotNull(eventData) && IsNotNull(eventData.points)) {
     var selectedData = new Array(eventData.points.length);
-    let i = 0;
+    var i = 0;
 
     eventData.points.forEach(function (pt) {
-      selectedData[i] = { curveNumber: pt.curveNumber, pointIndex: pt.pointIndex, pointNumber: pt.pointNumber, x: pt.x, y: pt.y };
+      selectedData[i] = {
+        curveNumber: pt.curveNumber,
+        pointIndex: pt.pointIndex,
+        pointNumber: pt.pointNumber,
+        x: pt.x,
+        y: pt.y
+      };
       ++i;
     });
 
@@ -529,6 +536,8 @@ function PlotlySelectedHandler(eventData) {
   }
   return null;
 }
+
+window.PlotlySelectedHandler = PlotlySelectedHandler;
 
 async function GetWasmExportsAsync(callback, wasmUrl, imports) {
   const wasmBrowserInstantiate = async (wasmModuleUrl, importObject) => {
@@ -574,8 +583,6 @@ function GetWasmExports(wasmUrl) {
     return instance.exports;
   });
 }
-
-window.PlotlySelectedHandler = PlotlySelectedHandler;
 
 window.GetWasmExportsAsync = GetWasmExportsAsync;
 

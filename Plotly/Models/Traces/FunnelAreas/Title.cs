@@ -22,14 +22,14 @@ namespace Plotly.Models.Traces.FunnelAreas
         ///     been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the font used for <c>title</c>. Note that the title&#39;s font used
         ///     to be set by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         /// <summary>
         ///     Specifies the location of the <c>title</c>. Note that the title&#39;s position
@@ -106,7 +106,7 @@ namespace Plotly.Models.Traces.FunnelAreas
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

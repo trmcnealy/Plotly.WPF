@@ -19,37 +19,37 @@ namespace Plotly.Models.Traces.StreamTubes
         ///     Sets the x components of the starting position of the streamtubes
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set; }
+        public List<object>? X { get; set; }
 
         /// <summary>
         ///     Sets the y components of the starting position of the streamtubes
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set; }
+        public List<object>? Y { get; set; }
 
         /// <summary>
         ///     Sets the z components of the starting position of the streamtubes
         /// </summary>
         [JsonPropertyName(@"z")]
-        public List<object> Z { get; set; }
+        public List<object>? Z { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  x .
         /// </summary>
         [JsonPropertyName(@"xsrc")]
-        public string XSrc { get; set; }
+        public string? XSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  y .
         /// </summary>
         [JsonPropertyName(@"ysrc")]
-        public string YSrc { get; set; }
+        public string? YSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  z .
         /// </summary>
         [JsonPropertyName(@"zsrc")]
-        public string ZSrc { get; set; }
+        public string? ZSrc { get; set; }
 
         public override bool Equals(object obj)
         {

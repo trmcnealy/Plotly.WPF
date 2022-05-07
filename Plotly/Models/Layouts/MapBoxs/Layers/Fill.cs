@@ -18,7 +18,7 @@ namespace Plotly.Models.Layouts.MapBoxs.Layers
         ///     an effect only when <c>type</c> is set to <c>fill</c>.
         /// </summary>
         [JsonPropertyName(@"outlinecolor")]
-        public object OutlineColor { get; set; }
+        public object? OutlineColor { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -18,21 +18,21 @@ namespace Plotly.Models.Layouts
         ///     must be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"sequential")]
-        public object Sequential { get; set; }
+        public object? Sequential { get; set; }
 
         /// <summary>
         ///     Sets the default sequential colorscale for negative values. Note that <c>autocolorscale</c>
         ///     must be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"sequentialminus")]
-        public object SequentialMinus { get; set; }
+        public object? SequentialMinus { get; set; }
 
         /// <summary>
         ///     Sets the default diverging colorscale. Note that <c>autocolorscale</c> must
         ///     be true for this attribute to work.
         /// </summary>
         [JsonPropertyName(@"diverging")]
-        public object Diverging { get; set; }
+        public object? Diverging { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     The label of the links to color based on their concentration within a flow.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     Sets the upper bound of the color domain.
@@ -41,7 +41,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -52,7 +52,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -64,7 +64,7 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

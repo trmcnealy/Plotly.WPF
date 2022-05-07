@@ -26,7 +26,7 @@ namespace Plotly.Models.Layouts
         ///     the domain where the plot code is run, and can be either relative or absolute.
         /// </summary>
         [JsonPropertyName(@"source")]
-        public string Source { get; set; }
+        public string? Source { get; set; }
 
         /// <summary>
         ///     Specifies whether images are drawn below or above traces. When <c>xref</c>
@@ -69,14 +69,14 @@ namespace Plotly.Models.Layouts
         ///     units are sized relative to the plot height. See <c>xref</c> for more info
         /// </summary>
         [JsonPropertyName(@"x")]
-        public object X { get; set; }
+        public object? X { get; set; }
 
         /// <summary>
         ///     Sets the image&#39;s y position. When <c>yref</c> is set to <c>paper</c>,
         ///     units are sized relative to the plot height. See <c>yref</c> for more info
         /// </summary>
         [JsonPropertyName(@"y")]
-        public object Y { get; set; }
+        public object? Y { get; set; }
 
         /// <summary>
         ///     Sets the anchor for the x position
@@ -98,7 +98,7 @@ namespace Plotly.Models.Layouts
         ///     to the left (right).
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public string XRef { get; set; }
+        public string? XRef { get; set; }
 
         /// <summary>
         ///     Sets the images&#39;s y coordinate axis. If set to a y axis id (e.g. <c>y</c>
@@ -108,7 +108,7 @@ namespace Plotly.Models.Layouts
         ///     to the bottom (top).
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public string YRef { get; set; }
+        public string? YRef { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -119,7 +119,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -131,7 +131,7 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

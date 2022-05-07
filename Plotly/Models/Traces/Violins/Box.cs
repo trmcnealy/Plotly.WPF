@@ -30,13 +30,13 @@ namespace Plotly.Models.Traces.Violins
         ///     Sets the inner box plot fill color.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Boxs.Line Line { get; set; }
+        public Boxs.Line? Line { get; set; }
 
         public override bool Equals(object obj)
         {

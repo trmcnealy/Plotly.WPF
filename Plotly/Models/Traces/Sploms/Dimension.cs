@@ -29,19 +29,19 @@ namespace Plotly.Models.Traces.Sploms
         ///     Sets the label corresponding to this splom dimension.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     Sets the dimension values to be plotted.
         /// </summary>
         [JsonPropertyName(@"values")]
-        public List<object> Values { get; set; }
+        public List<object>? Values { get; set; }
 
         /// <summary>
         ///     Gets or sets the Axis.
         /// </summary>
         [JsonPropertyName(@"axis")]
-        public Axis Axis { get; set; }
+        public Axis? Axis { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -52,7 +52,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -64,13 +64,13 @@ namespace Plotly.Models.Traces.Sploms
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  values .
         /// </summary>
         [JsonPropertyName(@"valuessrc")]
-        public string ValuesSrc { get; set; }
+        public string? ValuesSrc { get; set; }
 
         public override bool Equals(object obj)
         {

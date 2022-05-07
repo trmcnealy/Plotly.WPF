@@ -33,7 +33,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Steps.
         /// </summary>
         [JsonPropertyName(@"steps")]
-        public List<Step> Steps { get; set; }
+        public List<Step>? Steps { get; set; }
 
         /// <summary>
         ///     Determines whether this slider length is set in units of plot <c>fraction</c>
@@ -60,7 +60,7 @@ namespace Plotly.Models.Layouts
         ///     Set the padding of the slider component along each side.
         /// </summary>
         [JsonPropertyName(@"pad")]
-        public Pad Pad { get; set; }
+        public Pad? Pad { get; set; }
 
         /// <summary>
         ///     Sets the slider&#39;s horizontal position anchor. This anchor binds the
@@ -88,37 +88,37 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Transition.
         /// </summary>
         [JsonPropertyName(@"transition")]
-        public Sliders.Transition Transition { get; set; }
+        public Sliders.Transition? Transition { get; set; }
 
         /// <summary>
         ///     Gets or sets the CurrentValue.
         /// </summary>
         [JsonPropertyName(@"currentvalue")]
-        public CurrentValue CurrentValue { get; set; }
+        public CurrentValue? CurrentValue { get; set; }
 
         /// <summary>
         ///     Sets the font of the slider step labels.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Sliders.Font Font { get; set; }
+        public Sliders.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the background color of the slider grip while dragging.
         /// </summary>
         [JsonPropertyName(@"activebgcolor")]
-        public object ActiveBgColor { get; set; }
+        public object? ActiveBgColor { get; set; }
 
         /// <summary>
         ///     Sets the background color of the slider.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the slider.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the slider.
@@ -136,7 +136,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color of the border enclosing the slider.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set; }
+        public object? TickColor { get; set; }
 
         /// <summary>
         ///     Sets the tick width (in px).
@@ -159,7 +159,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -171,7 +171,7 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

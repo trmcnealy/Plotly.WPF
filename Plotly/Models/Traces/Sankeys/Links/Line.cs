@@ -20,14 +20,14 @@ namespace Plotly.Models.Traces.Sankeys.Links
         ///     Sets the color of the <c>line</c> around each <c>link</c>.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the color of the <c>line</c> around each <c>link</c>.
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the <c>line</c> around each <c>link</c>.
@@ -40,19 +40,19 @@ namespace Plotly.Models.Traces.Sankeys.Links
         /// </summary>
         [JsonPropertyName(@"width")]
         [Array]
-        public List<JsNumber?> WidthArray { get; set; }
+        public List<JsNumber?>? WidthArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  width .
         /// </summary>
         [JsonPropertyName(@"widthsrc")]
-        public string WidthSrc { get; set; }
+        public string? WidthSrc { get; set; }
 
         public override bool Equals(object obj)
         {

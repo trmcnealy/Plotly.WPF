@@ -22,7 +22,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     up.
         /// </summary>
         [JsonPropertyName(@"up")]
-        public Up Up { get; set; }
+        public Up? Up { get; set; }
 
         /// <summary>
         ///     Sets the (x,y,z) components of the <c>center</c> camera vector This vector
@@ -30,20 +30,20 @@ namespace Plotly.Models.Layouts.Scenes
         ///     By default, there is no such translation.
         /// </summary>
         [JsonPropertyName(@"center")]
-        public Center Center { get; set; }
+        public Center? Center { get; set; }
 
         /// <summary>
         ///     Sets the (x,y,z) components of the <c>eye</c> camera vector. This vector
         ///     determines the view point about the origin of this scene.
         /// </summary>
         [JsonPropertyName(@"eye")]
-        public Eye Eye { get; set; }
+        public Eye? Eye { get; set; }
 
         /// <summary>
         ///     Gets or sets the Projection.
         /// </summary>
         [JsonPropertyName(@"projection")]
-        public Projection Projection { get; set; }
+        public Projection? Projection { get; set; }
 
         public override bool Equals(object obj)
         {

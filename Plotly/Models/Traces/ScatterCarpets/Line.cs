@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     Sets the line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width (in px).
@@ -33,7 +33,7 @@ namespace Plotly.Models.Traces.ScatterCarpets
         ///     a dash length list in px (eg <c>5px,10px,2px,2px</c>).
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set; }
+        public string? Dash { get; set; }
 
         /// <summary>
         ///     Determines the line shape. With <c>spline</c> the lines are drawn using

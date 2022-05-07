@@ -45,7 +45,7 @@ namespace Plotly.Models.Traces
         ///     hide/show at the same time when toggling legend items.
         /// </summary>
         [JsonPropertyName(@"legendgroup")]
-        public string LegendGroup { get; set; }
+        public string? LegendGroup { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the trace.
@@ -57,14 +57,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -72,7 +72,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set; }
+        public List<object>? Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -80,7 +80,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -94,7 +94,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -109,7 +109,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -126,25 +126,25 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hoverinfo")]
         [Array]
-        public List<HoverInfoFlag?> HoverInfoArray { get; set; }
+        public List<HoverInfoFlag?>? HoverInfoArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public HoverLabel HoverLabel { get; set; }
+        public HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transforms.
         /// </summary>
         [JsonPropertyName(@"transforms")]
-        public List<ITransform> Transforms { get; set; }
+        public List<ITransform>? Transforms { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -161,63 +161,63 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
         ///     Sets the radial coordinates for legacy polar chart only.
         /// </summary>
         [JsonPropertyName(@"r")]
-        public List<object> R { get; set; }
+        public List<object>? R { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
         ///     Sets the angular coordinates for legacy polar chart only.
         /// </summary>
         [JsonPropertyName(@"t")]
-        public List<object> T { get; set; }
+        public List<object>? T { get; set; }
 
         /// <summary>
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Marker Marker { get; set; }
+        public Marker? Marker { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set; }
+        public string? IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hoverinfo .
         /// </summary>
         [JsonPropertyName(@"hoverinfosrc")]
-        public string HoverInfoSrc { get; set; }
+        public string? HoverInfoSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  r .
         /// </summary>
         [JsonPropertyName(@"rsrc")]
-        public string RSrc { get; set; }
+        public string? RSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  t .
         /// </summary>
         [JsonPropertyName(@"tsrc")]
-        public string TSrc { get; set; }
+        public string? TSrc { get; set; }
 
         public override bool Equals(object obj)
         {

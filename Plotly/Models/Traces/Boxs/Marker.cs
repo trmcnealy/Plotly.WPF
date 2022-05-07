@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Boxs
         ///     Sets the color of the outlier sample points.
         /// </summary>
         [JsonPropertyName(@"outliercolor")]
-        public object OutlierColor { get; set; }
+        public object? OutlierColor { get; set; }
 
         /// <summary>
         ///     Sets the marker symbol type. Adding 100 is equivalent to appending <c>-open</c>
@@ -48,13 +48,13 @@ namespace Plotly.Models.Traces.Boxs
         ///     the array or relative to <c>marker.cmin</c> and <c>marker.cmax</c> if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Markers.Line Line { get; set; }
+        public Markers.Line? Line { get; set; }
 
         public override bool Equals(object obj)
         {

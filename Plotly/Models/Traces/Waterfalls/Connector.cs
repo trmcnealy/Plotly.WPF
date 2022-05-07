@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Waterfalls
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the shape of connector lines.

@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     Gets or sets the Buttons.
         /// </summary>
         [JsonPropertyName(@"buttons")]
-        public List<Button> Buttons { get; set; }
+        public List<Button>? Buttons { get; set; }
 
         /// <summary>
         ///     Sets the x position (in normalized coordinates) of the range selector.
@@ -63,25 +63,25 @@ namespace Plotly.Models.Layouts.XAxes
         ///     Sets the font of the range selector button text.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public RangeSelectors.Font Font { get; set; }
+        public RangeSelectors.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the background color of the range selector buttons.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the background color of the active range selector button.
         /// </summary>
         [JsonPropertyName(@"activecolor")]
-        public object ActiveColor { get; set; }
+        public object? ActiveColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the range selector.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the range selector.

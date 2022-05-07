@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Waterfalls.Decreasings.Markers
         ///     Sets the line color of all decreasing values.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width of all decreasing values.

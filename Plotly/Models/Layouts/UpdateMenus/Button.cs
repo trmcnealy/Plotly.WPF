@@ -38,7 +38,7 @@ namespace Plotly.Models.Layouts.UpdateMenus
         ///     on click.
         /// </summary>
         [JsonPropertyName(@"args")]
-        public List<object> Args { get; set; }
+        public List<object>? Args { get; set; }
 
         /// <summary>
         ///     Sets a 2nd set of <c>args</c>, these arguments values are passed to the
@@ -46,13 +46,13 @@ namespace Plotly.Models.Layouts.UpdateMenus
         ///     active state. Use this to create toggle buttons.
         /// </summary>
         [JsonPropertyName(@"args2")]
-        public List<object> Args2 { get; set; }
+        public List<object>? Args2 { get; set; }
 
         /// <summary>
         ///     Sets the text label to appear on the button.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     When true, the API method is executed. When false, all other behaviors are
@@ -74,7 +74,7 @@ namespace Plotly.Models.Layouts.UpdateMenus
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -86,7 +86,7 @@ namespace Plotly.Models.Layouts.UpdateMenus
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

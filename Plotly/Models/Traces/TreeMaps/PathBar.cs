@@ -46,7 +46,7 @@ namespace Plotly.Models.Traces.TreeMaps
         ///     Sets the font used inside <c>pathbar</c>.
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public PathBars.TextFont TextFont { get; set; }
+        public PathBars.TextFont? TextFont { get; set; }
 
         public override bool Equals(object obj)
         {

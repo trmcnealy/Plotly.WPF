@@ -43,14 +43,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -58,7 +58,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set; }
+        public List<object>? Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -66,7 +66,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -80,7 +80,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -95,19 +95,19 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public HoverLabel HoverLabel { get; set; }
+        public HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -124,14 +124,14 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     A 2-dimensional array in which each element is an array of 3 or 4 numbers
         ///     representing a color.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public List<object> Z { get; set; }
+        public List<object>? Z { get; set; }
 
         /// <summary>
         ///     Color model used to map the numerical color components described in <c>z</c>
@@ -148,7 +148,7 @@ namespace Plotly.Models.Traces
         ///     0, 0].
         /// </summary>
         [JsonPropertyName(@"zmin")]
-        public List<object> ZMin { get; set; }
+        public List<object>? ZMin { get; set; }
 
         /// <summary>
         ///     Array defining the higher bound for each color component. Note that the
@@ -158,19 +158,19 @@ namespace Plotly.Models.Traces
         ///     colormodel, it is [360, 100, 100, 1].
         /// </summary>
         [JsonPropertyName(@"zmax")]
-        public List<object> ZMax { get; set; }
+        public List<object>? ZMax { get; set; }
 
         /// <summary>
         ///     Set the image&#39;s x position.
         /// </summary>
         [JsonPropertyName(@"x0")]
-        public object X0 { get; set; }
+        public object? X0 { get; set; }
 
         /// <summary>
         ///     Set the image&#39;s y position.
         /// </summary>
         [JsonPropertyName(@"y0")]
-        public object Y0 { get; set; }
+        public object? Y0 { get; set; }
 
         /// <summary>
         ///     Set the pixel&#39;s horizontal size.
@@ -188,13 +188,13 @@ namespace Plotly.Models.Traces
         ///     Sets the text elements associated with each z value.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public List<object> Text { get; set; }
+        public List<object>? Text { get; set; }
 
         /// <summary>
         ///     Same as <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public List<object> HoverText { get; set; }
+        public List<object>? HoverText { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -211,7 +211,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hoverinfo")]
         [Array]
-        public List<HoverInfoFlag?> HoverInfoArray { get; set; }
+        public List<HoverInfoFlag?>? HoverInfoArray { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -231,7 +231,7 @@ namespace Plotly.Models.Traces
         ///     To hide the secondary box completely, use an empty tag <c>&lt;extra&gt;&lt;/extra&gt;</c>.
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
-        public string HoverTemplate { get; set; }
+        public string? HoverTemplate { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -252,7 +252,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
         [Array]
-        public List<string> HoverTemplateArray { get; set; }
+        public List<string>? HoverTemplateArray { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s x coordinates and a 2D cartesian
@@ -260,7 +260,7 @@ namespace Plotly.Models.Traces
         ///     If <c>x2</c>, the x coordinates refer to <c>layout.xaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"xaxis")]
-        public string XAxis { get; set; }
+        public string? XAxis { get; set; }
 
         /// <summary>
         ///     Sets a reference between this trace&#39;s y coordinates and a 2D cartesian
@@ -268,55 +268,55 @@ namespace Plotly.Models.Traces
         ///     If <c>y2</c>, the y coordinates refer to <c>layout.yaxis2</c>, and so on.
         /// </summary>
         [JsonPropertyName(@"yaxis")]
-        public string YAxis { get; set; }
+        public string? YAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set; }
+        public string? IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  z .
         /// </summary>
         [JsonPropertyName(@"zsrc")]
-        public string ZSrc { get; set; }
+        public string? ZSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  text .
         /// </summary>
         [JsonPropertyName(@"textsrc")]
-        public string TextSrc { get; set; }
+        public string? TextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertext .
         /// </summary>
         [JsonPropertyName(@"hovertextsrc")]
-        public string HoverTextSrc { get; set; }
+        public string? HoverTextSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hoverinfo .
         /// </summary>
         [JsonPropertyName(@"hoverinfosrc")]
-        public string HoverInfoSrc { get; set; }
+        public string? HoverInfoSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertemplate .
         /// </summary>
         [JsonPropertyName(@"hovertemplatesrc")]
-        public string HoverTemplateSrc { get; set; }
+        public string? HoverTemplateSrc { get; set; }
 
         public override bool Equals(object obj)
         {

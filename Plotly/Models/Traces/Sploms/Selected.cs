@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Sploms
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Selecteds.Marker Marker { get; set; }
+        public Selecteds.Marker? Marker { get; set; }
 
         public override bool Equals(object obj)
         {

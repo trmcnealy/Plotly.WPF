@@ -18,7 +18,7 @@ namespace Plotly.Models.Traces.Cones
         ///     for more details.
         /// </summary>
         [JsonPropertyName(@"token")]
-        public string Token { get; set; }
+        public string? Token { get; set; }
 
         /// <summary>
         ///     Sets the maximum number of points to keep on the plots from an incoming

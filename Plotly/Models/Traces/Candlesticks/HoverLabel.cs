@@ -22,33 +22,33 @@ namespace Plotly.Models.Traces.Candlesticks
         ///     Sets the background color of the hover labels for this trace
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the background color of the hover labels for this trace
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
         [Array]
-        public List<object> BgColorArray { get; set; }
+        public List<object>? BgColorArray { get; set; }
 
         /// <summary>
         ///     Sets the border color of the hover labels for this trace.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the border color of the hover labels for this trace.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
         [Array]
-        public List<object> BorderColorArray { get; set; }
+        public List<object>? BorderColorArray { get; set; }
 
         /// <summary>
         ///     Sets the font used in hover labels.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the text content within hover label box.
@@ -63,7 +63,7 @@ namespace Plotly.Models.Traces.Candlesticks
         /// </summary>
         [JsonPropertyName(@"align")]
         [Array]
-        public List<AlignEnum?> AlignArray { get; set; }
+        public List<AlignEnum?>? AlignArray { get; set; }
 
         /// <summary>
         ///     Sets the default length (in number of characters) of the trace name in the
@@ -84,7 +84,7 @@ namespace Plotly.Models.Traces.Candlesticks
         /// </summary>
         [JsonPropertyName(@"namelength")]
         [Array]
-        public List<int?> NameLengthArray { get; set; }
+        public List<int?>? NameLengthArray { get; set; }
 
         /// <summary>
         ///     Show hover information (open, close, high, low) in separate labels.
@@ -96,25 +96,25 @@ namespace Plotly.Models.Traces.Candlesticks
         ///     Sets the source reference on Chart Studio Cloud for  bgcolor .
         /// </summary>
         [JsonPropertyName(@"bgcolorsrc")]
-        public string BgColorSrc { get; set; }
+        public string? BgColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  bordercolor .
         /// </summary>
         [JsonPropertyName(@"bordercolorsrc")]
-        public string BorderColorSrc { get; set; }
+        public string? BorderColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  align .
         /// </summary>
         [JsonPropertyName(@"alignsrc")]
-        public string AlignSrc { get; set; }
+        public string? AlignSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  namelength .
         /// </summary>
         [JsonPropertyName(@"namelengthsrc")]
-        public string NameLengthSrc { get; set; }
+        public string? NameLengthSrc { get; set; }
 
         public override bool Equals(object obj)
         {

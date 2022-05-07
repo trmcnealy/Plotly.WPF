@@ -19,13 +19,13 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Set the background color of the subplot
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     The number each triplet should sum to, and the maximum range of each axis
@@ -37,26 +37,26 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the AAxis.
         /// </summary>
         [JsonPropertyName(@"aaxis")]
-        public AAxis AAxis { get; set; }
+        public AAxis? AAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the BAxis.
         /// </summary>
         [JsonPropertyName(@"baxis")]
-        public BAxis BAxis { get; set; }
+        public BAxis? BAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the CAxis.
         /// </summary>
         [JsonPropertyName(@"caxis")]
-        public CAxis CAxis { get; set; }
+        public CAxis? CAxis { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in axis <c>min</c> and <c>title</c>,
         ///     if not overridden in the individual axes. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         public override bool Equals(object obj)
         {

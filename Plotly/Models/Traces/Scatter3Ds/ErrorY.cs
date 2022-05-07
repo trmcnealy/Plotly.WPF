@@ -46,7 +46,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     relative to the underlying data.
         /// </summary>
         [JsonPropertyName(@"array")]
-        public List<object> Array { get; set; }
+        public List<object>? Array { get; set; }
 
         /// <summary>
         ///     Sets the data corresponding the length of each error bar in the bottom (left)
@@ -54,7 +54,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     the underlying data.
         /// </summary>
         [JsonPropertyName(@"arrayminus")]
-        public List<object> ArrayMinus { get; set; }
+        public List<object>? ArrayMinus { get; set; }
 
         /// <summary>
         ///     Sets the value of either the percentage (if <c>type</c> is set to <c>percent</c>)
@@ -95,7 +95,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     Sets the stoke color of the error bars.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the thickness (in px) of the error bars.
@@ -113,13 +113,13 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     Sets the source reference on Chart Studio Cloud for  array .
         /// </summary>
         [JsonPropertyName(@"arraysrc")]
-        public string ArraySrc { get; set; }
+        public string? ArraySrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  arrayminus .
         /// </summary>
         [JsonPropertyName(@"arrayminussrc")]
-        public string ArrayMinusSrc { get; set; }
+        public string? ArrayMinusSrc { get; set; }
 
         public override bool Equals(object obj)
         {

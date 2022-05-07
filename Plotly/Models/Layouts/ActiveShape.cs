@@ -17,7 +17,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the color filling the active shape&#39; interior.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the active shape.

@@ -52,7 +52,7 @@ namespace Plotly.Models.Layouts
         ///     separately using the <c>gridcell</c> attribute.
         /// </summary>
         [JsonPropertyName(@"subplots")]
-        public List<object> Subplots { get; set; }
+        public List<object>? Subplots { get; set; }
 
         /// <summary>
         ///     Used with <c>yaxes</c> when the x and y axes are shared across columns and
@@ -62,7 +62,7 @@ namespace Plotly.Models.Layouts
         ///     is present, will generate consecutive IDs.
         /// </summary>
         [JsonPropertyName(@"xaxes")]
-        public List<object> XAxes { get; set; }
+        public List<object>? XAxes { get; set; }
 
         /// <summary>
         ///     Used with <c>yaxes</c> when the x and y axes are shared across columns and
@@ -72,7 +72,7 @@ namespace Plotly.Models.Layouts
         ///     is present, will generate consecutive IDs.
         /// </summary>
         [JsonPropertyName(@"yaxes")]
-        public List<object> YAxes { get; set; }
+        public List<object>? YAxes { get; set; }
 
         /// <summary>
         ///     If no <c>subplots</c>, <c>xaxes</c>, or <c>yaxes</c> are given but we do
@@ -104,7 +104,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Sets where the x axis labels and titles go. <c>bottom</c> means the very

@@ -196,6 +196,14 @@ namespace Plotly
         public CsPlotlyPlot()
         {
             _enableLogging = false;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = new Dictionary<string, (string type, object[] array)>();
             PlotData     = new List<ITrace>();
@@ -208,6 +216,14 @@ namespace Plotly
         public CsPlotlyPlot(bool enableLogging)
         {
             _enableLogging = enableLogging;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = new Dictionary<string, (string type, object[] array)>();
             PlotData     = new List<ITrace>();
@@ -223,6 +239,14 @@ namespace Plotly
                             Layout                                            layout)
         {
             _enableLogging = enableLogging;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = dataSource;
             PlotData     = data;
@@ -239,6 +263,14 @@ namespace Plotly
                             Config                                            config)
         {
             _enableLogging = enableLogging;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = dataSource;
             PlotData     = data;
@@ -255,6 +287,14 @@ namespace Plotly
                             List<Frames>                                      frames)
         {
             _enableLogging = enableLogging;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = dataSource;
             PlotData     = data;
@@ -272,6 +312,14 @@ namespace Plotly
                             List<Frames>                                      frames)
         {
             _enableLogging = enableLogging;
+            _plotData      = new();
+            _plotLayout    = new();
+            _plotConfig    = new();
+            _plotFrames    = new();
+            _data          = string.Empty;
+            _layout        = string.Empty;
+            _config        = string.Empty;
+            _frames        = string.Empty;
 
             DataSource   = dataSource;
             PlotData     = data;

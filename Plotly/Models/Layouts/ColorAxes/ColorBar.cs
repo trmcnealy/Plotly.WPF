@@ -92,7 +92,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"outlinecolor")]
-        public object OutlineColor { get; set; }
+        public object? OutlineColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the axis line.
@@ -104,7 +104,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) or the border enclosing this color bar.
@@ -116,7 +116,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets the color of padded area.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the tick mode for this axis. If <c>auto</c>, the number of ticks is
@@ -149,7 +149,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"tick0")]
-        public object Tick0 { get; set; }
+        public object? Tick0 { get; set; }
 
         /// <summary>
         ///     Sets the step in-between ticks on this axis. Use with <c>tick0</c>. Must
@@ -173,21 +173,21 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     to <c>M48</c>
         /// </summary>
         [JsonPropertyName(@"dtick")]
-        public object DTick { get; set; }
+        public object? DTick { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear. Only has an effect if
         ///     <c>tickmode</c> is set to <c>array</c>. Used with <c>ticktext</c>.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set; }
+        public List<object>? TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>. Only
         ///     has an effect if <c>tickmode</c> is set to <c>array</c>. Used with <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set; }
+        public List<object>? TickText { get; set; }
 
         /// <summary>
         ///     Determines whether ticks are drawn or not. If **, this axis&#39; ticks are
@@ -213,7 +213,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets the tick color.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set; }
+        public object? TickColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the tick labels are drawn.
@@ -225,7 +225,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets the color bar&#39;s tick label font
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set; }
+        public TickFont? TickFont { get; set; }
 
         /// <summary>
         ///     Sets the angle of the tick labels with respect to the horizontal. For example,
@@ -243,19 +243,19 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set; }
+        public string? TickFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the TickFormatStops.
         /// </summary>
         [JsonPropertyName(@"tickformatstops")]
-        public List<TickFormatStop> TickFormatStops { get; set; }
+        public List<TickFormatStop>? TickFormatStops { get; set; }
 
         /// <summary>
         ///     Sets a tick label prefix.
         /// </summary>
         [JsonPropertyName(@"tickprefix")]
-        public string TickPrefix { get; set; }
+        public string? TickPrefix { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all tick labels are displayed with a prefix. If <c>first</c>,
@@ -270,7 +270,7 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Sets a tick label suffix.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set; }
+        public string? TickSuffix { get; set; }
 
         /// <summary>
         ///     Same as <c>showtickprefix</c> but for tick suffixes.
@@ -305,19 +305,19 @@ namespace Plotly.Models.Layouts.ColorAxes
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public ColorBars.Title Title { get; set; }
+        public ColorBars.Title? Title { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set; }
+        public string? TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set; }
+        public string? TickTextSrc { get; set; }
 
         public override bool Equals(object obj)
         {

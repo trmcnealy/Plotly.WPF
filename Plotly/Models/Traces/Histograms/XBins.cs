@@ -27,7 +27,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     necessary) to differ from that one by an integer number of bins.
         /// </summary>
         [JsonPropertyName(@"start")]
-        public object Start { get; set; }
+        public object? Start { get; set; }
 
         /// <summary>
         ///     Sets the end value for the x axis bins. The last bin may not end exactly
@@ -37,7 +37,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     is based on the category serial numbers.
         /// </summary>
         [JsonPropertyName(@"end")]
-        public object End { get; set; }
+        public object? End { get; set; }
 
         /// <summary>
         ///     Sets the size of each x axis bin. Default behavior: If <c>nbinsx</c> is
@@ -52,7 +52,7 @@ namespace Plotly.Models.Traces.Histograms
         ///     to determine <c>size</c> as described above.
         /// </summary>
         [JsonPropertyName(@"size")]
-        public object Size { get; set; }
+        public object? Size { get; set; }
 
         public override bool Equals(object obj)
         {

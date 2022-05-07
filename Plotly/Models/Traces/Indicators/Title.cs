@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Indicators
         ///     Sets the title of this indicator.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the horizontal alignment of the title. It defaults to <c>center</c>
@@ -32,7 +32,7 @@ namespace Plotly.Models.Traces.Indicators
         ///     Set the font used to display the title
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -102,7 +102,7 @@ namespace Plotly.Models.Traces.Indicators
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

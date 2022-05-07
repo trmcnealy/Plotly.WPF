@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.PointClouds.Markers
         ///     slower zooming and panning.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Specifies what fraction of the marker area is covered with the border.

@@ -147,7 +147,7 @@ namespace Plotly.Models
         ///     several pies/funnelarea charts
         /// </summary>
         [JsonPropertyName(@"hiddenlabels")]
-        public List<object> HiddenLabels { get; set; }
+        public List<object>? HiddenLabels { get; set; }
 
         /// <summary>
         ///     Sets the default pie slice colors. Defaults to the main <c>colorway</c>
@@ -155,7 +155,7 @@ namespace Plotly.Models
         ///     with lighter and darker colors, see <c>extendpiecolors</c>.
         /// </summary>
         [JsonPropertyName(@"piecolorway")]
-        public List<object> PieColorway { get; set; }
+        public List<object>? PieColorway { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, the pie slice colors (whether given by <c>piecolorway</c>
@@ -172,7 +172,7 @@ namespace Plotly.Models
         ///     Sets the source reference on Chart Studio Cloud for  hiddenlabels .
         /// </summary>
         [JsonPropertyName(@"hiddenlabelssrc")]
-        public string HiddenLabelsSrc { get; set; }
+        public string? HiddenLabelsSrc { get; set; }
 
         /// <summary>
         ///     Sets the default sunburst slice colors. Defaults to the main <c>colorway</c>
@@ -180,7 +180,7 @@ namespace Plotly.Models
         ///     with lighter and darker colors, see <c>extendsunburstcolors</c>.
         /// </summary>
         [JsonPropertyName(@"sunburstcolorway")]
-        public List<object> SunburstColorway { get; set; }
+        public List<object>? SunburstColorway { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, the sunburst slice colors (whether given by <c>sunburstcolorway</c>
@@ -199,7 +199,7 @@ namespace Plotly.Models
         ///     with lighter and darker colors, see <c>extendtreemapcolors</c>.
         /// </summary>
         [JsonPropertyName(@"treemapcolorway")]
-        public List<object> TreeMapColorway { get; set; }
+        public List<object>? TreeMapColorway { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, the treemap slice colors (whether given by <c>treemapcolorway</c>
@@ -218,7 +218,7 @@ namespace Plotly.Models
         ///     with lighter and darker colors, see <c>extendfunnelareacolors</c>.
         /// </summary>
         [JsonPropertyName(@"funnelareacolorway")]
-        public List<object> FunnelAreaColorway { get; set; }
+        public List<object>? FunnelAreaColorway { get; set; }
 
         /// <summary>
         ///     If <c>true</c>, the funnelarea slice colors (whether given by <c>funnelareacolorway</c>
@@ -236,19 +236,19 @@ namespace Plotly.Models
         ///     inherit from the global font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         /// <summary>
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Title Title { get; set; }
+        public Title? Title { get; set; }
 
         /// <summary>
         ///     Gets or sets the UniformText.
         /// </summary>
         [JsonPropertyName(@"uniformtext")]
-        public UniformText UniformText { get; set; }
+        public UniformText? UniformText { get; set; }
 
         /// <summary>
         ///     Determines whether or not a layout width or height that has been left undefined
@@ -275,19 +275,19 @@ namespace Plotly.Models
         ///     Gets or sets the Margin.
         /// </summary>
         [JsonPropertyName(@"margin")]
-        public Margin Margin { get; set; }
+        public Margin? Margin { get; set; }
 
         /// <summary>
         ///     Sets the background color of the paper where the graph is drawn.
         /// </summary>
         [JsonPropertyName(@"paper_bgcolor")]
-        public object PaperBgColor { get; set; }
+        public object? PaperBgColor { get; set; }
 
         /// <summary>
         ///     Sets the background color of the plotting area in-between x and y axes.
         /// </summary>
         [JsonPropertyName(@"plot_bgcolor")]
-        public object PlotBgColor { get; set; }
+        public object? PlotBgColor { get; set; }
 
         /// <summary>
         ///     Sets the JsNumber and thousand separators. For example, &#39;. &#39; puts
@@ -295,7 +295,7 @@ namespace Plotly.Models
         ///     dflt is <c>.,</c> but other locales may alter this default.
         /// </summary>
         [JsonPropertyName(@"separators")]
-        public string Separators { get; set; }
+        public string? Separators { get; set; }
 
         /// <summary>
         ///     Determines whether or not a text link citing the data source is placed at
@@ -319,7 +319,7 @@ namespace Plotly.Models
         ///     Sets the default trace colors.
         /// </summary>
         [JsonPropertyName(@"colorway")]
-        public List<object> Colorway { get; set; }
+        public List<object>? Colorway { get; set; }
 
         /// <summary>
         ///     If provided, a changed value tells <c>Plotly.react</c> that one or more
@@ -330,7 +330,7 @@ namespace Plotly.Models
         ///     new data.
         /// </summary>
         [JsonPropertyName(@"datarevision")]
-        public object DataRevision { get; set; }
+        public object? DataRevision { get; set; }
 
         /// <summary>
         ///     Used to allow user interactions with the plot to persist after <c>Plotly.react</c>
@@ -348,21 +348,21 @@ namespace Plotly.Models
         ///     will reset but the x axis range will retain any user-driven zoom.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in &#39;editable: true&#39;
         ///     configuration, other than trace names and axis titles. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"editrevision")]
-        public object EditRevision { get; set; }
+        public object? EditRevision { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in selected points from all
         ///     traces.
         /// </summary>
         [JsonPropertyName(@"selectionrevision")]
-        public object SelectionRevision { get; set; }
+        public object? SelectionRevision { get; set; }
 
         /// <summary>
         ///     Default attributes to be applied to the plot. Templates can be created from
@@ -382,25 +382,25 @@ namespace Plotly.Models
         ///     and &#39;visible: false&#39;.
         /// </summary>
         [JsonPropertyName(@"template")]
-        public object Template { get; set; }
+        public object? Template { get; set; }
 
         /// <summary>
         ///     Gets or sets the ModeBar.
         /// </summary>
         [JsonPropertyName(@"modebar")]
-        public ModeBar ModeBar { get; set; }
+        public ModeBar? ModeBar { get; set; }
 
         /// <summary>
         ///     Gets or sets the NewShape.
         /// </summary>
         [JsonPropertyName(@"newshape")]
-        public NewShape NewShape { get; set; }
+        public NewShape? NewShape { get; set; }
 
         /// <summary>
         ///     Gets or sets the ActiveShape.
         /// </summary>
         [JsonPropertyName(@"activeshape")]
-        public ActiveShape ActiveShape { get; set; }
+        public ActiveShape? ActiveShape { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information that can be used in various <c>text</c> attributes.
@@ -412,7 +412,7 @@ namespace Plotly.Models
         ///     an object for example &#39;{key: value}&#39; which can be accessed %{meta[key]}.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information that can be used in various <c>text</c> attributes.
@@ -425,13 +425,13 @@ namespace Plotly.Models
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Sets transition options used during Plotly.react updates.
         /// </summary>
         [JsonPropertyName(@"transition")]
-        public Transition Transition { get; set; }
+        public Transition? Transition { get; set; }
 
         /// <summary>
         ///     Determines the mode of single click interactions. <c>event</c> is the default
@@ -501,7 +501,7 @@ namespace Plotly.Models
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public HoverLabel HoverLabel { get; set; }
+        public HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     When <c>dragmode</c> is set to <c>select</c>, this limits the selection
@@ -516,7 +516,7 @@ namespace Plotly.Models
         ///     Gets or sets the Grid.
         /// </summary>
         [JsonPropertyName(@"grid")]
-        public Grid Grid { get; set; }
+        public Grid? Grid { get; set; }
 
         /// <summary>
         ///     Sets the default calendar system to use for interpreting and displaying
@@ -530,61 +530,61 @@ namespace Plotly.Models
         /// </summary>
         [JsonPropertyName(@"xaxis")]
         [Subplot]
-        public List<XAxis> XAxis { get; set; }
+        public List<XAxis>? XAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the YAxis.
         /// </summary>
         [JsonPropertyName(@"yaxis")]
         [Subplot]
-        public List<YAxis> YAxis { get; set; }
+        public List<YAxis>? YAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the Ternary.
         /// </summary>
         [JsonPropertyName(@"ternary")]
         [Subplot]
-        public List<Ternary> Ternary { get; set; }
+        public List<Ternary>? Ternary { get; set; }
 
         /// <summary>
         ///     Gets or sets the Scene.
         /// </summary>
         [JsonPropertyName(@"scene")]
         [Subplot]
-        public List<Scene> Scene { get; set; }
+        public List<Scene>? Scene { get; set; }
 
         /// <summary>
         ///     Gets or sets the Geo.
         /// </summary>
         [JsonPropertyName(@"geo")]
         [Subplot]
-        public List<Geo> Geo { get; set; }
+        public List<Geo>? Geo { get; set; }
 
         /// <summary>
         ///     Gets or sets the MapBox.
         /// </summary>
         [JsonPropertyName(@"mapbox")]
         [Subplot]
-        public List<MapBox> MapBox { get; set; }
+        public List<MapBox>? MapBox { get; set; }
 
         /// <summary>
         ///     Gets or sets the Polar.
         /// </summary>
         [JsonPropertyName(@"polar")]
         [Subplot]
-        public List<Polar> Polar { get; set; }
+        public List<Polar>? Polar { get; set; }
 
         /// <summary>
         ///     Gets or sets the RadialAxis.
         /// </summary>
         [JsonPropertyName(@"radialaxis")]
-        public RadialAxis RadialAxis { get; set; }
+        public RadialAxis? RadialAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the AngularAxis.
         /// </summary>
         [JsonPropertyName(@"angularaxis")]
-        public AngularAxis AngularAxis { get; set; }
+        public AngularAxis? AngularAxis { get; set; }
 
         /// <summary>
         ///     Legacy polar charts are deprecated! Please switch to <c>polar</c> subplots.
@@ -604,56 +604,56 @@ namespace Plotly.Models
         ///     Gets or sets the Legend.
         /// </summary>
         [JsonPropertyName(@"legend")]
-        public Legend Legend { get; set; }
+        public Legend? Legend { get; set; }
 
         /// <summary>
         ///     Gets or sets the Annotations.
         /// </summary>
         [JsonPropertyName(@"annotations")]
-        public List<Annotation> Annotations { get; set; }
+        public List<Annotation>? Annotations { get; set; }
 
         /// <summary>
         ///     Gets or sets the Shapes.
         /// </summary>
         [JsonPropertyName(@"shapes")]
-        public List<Shape> Shapes { get; set; }
+        public List<Shape>? Shapes { get; set; }
 
         /// <summary>
         ///     Gets or sets the Images.
         /// </summary>
         [JsonPropertyName(@"images")]
-        public List<Image> Images { get; set; }
+        public List<Image>? Images { get; set; }
 
         /// <summary>
         ///     Gets or sets the UpdateMenus.
         /// </summary>
         [JsonPropertyName(@"updatemenus")]
-        public List<UpdateMenu> UpdateMenus { get; set; }
+        public List<UpdateMenu>? UpdateMenus { get; set; }
 
         /// <summary>
         ///     Gets or sets the Sliders.
         /// </summary>
         [JsonPropertyName(@"sliders")]
-        public List<Slider> Sliders { get; set; }
+        public List<Slider>? Sliders { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorScale.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public ColorScale ColorScale { get; set; }
+        public ColorScale? ColorScale { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorAxis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
         [Subplot]
-        public List<ColorAxis> ColorAxis { get; set; }
+        public List<ColorAxis>? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -1034,7 +1034,7 @@ namespace Plotly.Models
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Layout</returns>
-        public Layout DeepClone()
+        public Layout? DeepClone()
         {
             using MemoryStream ms = new();
 

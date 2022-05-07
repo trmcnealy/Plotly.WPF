@@ -19,14 +19,14 @@ namespace Plotly.Models.Traces.Carpets.BAxes
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets this axis&#39; title font. Note that the title&#39;s font used to be
         ///     set by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Titles.Font Font { get; set; }
+        public Titles.Font? Font { get; set; }
 
         /// <summary>
         ///     An additional amount by which to offset the title from the tick labels,
@@ -104,7 +104,7 @@ namespace Plotly.Models.Traces.Carpets.BAxes
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

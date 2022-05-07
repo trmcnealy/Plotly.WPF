@@ -26,8 +26,8 @@ namespace Plotly
             }
             
             InitializeJavascriptFile(Plotly_folder, "plotly.min.js",       Resources.plotly_js);
-            InitializeJavascriptFile(Plotly_folder, "PlotlyApp.min.js",    Resources.PlotlyApp_js);
-            InitializeJavascriptFile(Plotly_folder, "PlotlyWorker.min.js", Resources.PlotlyWorker_js);
+            InitializeJavascriptFile(Plotly_folder, "PlotlyApp.min.js",    Resources.PlotlyApp_min_js);
+            //InitializeJavascriptFile(Plotly_folder, "PlotlyWorker.min.js", Resources.PlotlyWorker_min_js);
         }
 
         internal static void InitializeJavascriptFile(string output_folder,

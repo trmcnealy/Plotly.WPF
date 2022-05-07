@@ -17,10 +17,10 @@ namespace Plotly
         public int PointNumber { get; set; }
 
         [JsonPropertyName("x")]
-        public object X { get; set; }
+        public object? X { get; set; }
 
         [JsonPropertyName("y")]
-        public object Y { get; set; }
+        public object? Y { get; set; }
 
         public static PlotlyEvent? FromJson(string json)
         {

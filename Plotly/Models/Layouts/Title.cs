@@ -21,14 +21,14 @@ namespace Plotly.Models.Layouts
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the title font. Note that the title&#39;s font used to be customized
         ///     by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Titles.Font Font { get; set; }
+        public Titles.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the container <c>x</c> refers to. <c>container</c> spans the entire
@@ -89,7 +89,7 @@ namespace Plotly.Models.Layouts
         ///     Padding is muted if the respective anchor value is <c>middle</c>/<c>center</c>.
         /// </summary>
         [JsonPropertyName(@"pad")]
-        public Pad Pad { get; set; }
+        public Pad? Pad { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -183,7 +183,7 @@ namespace Plotly.Models.Layouts
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

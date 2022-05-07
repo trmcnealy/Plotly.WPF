@@ -25,7 +25,7 @@ namespace Plotly.Models.Traces.Areas
         ///     the array or relative to <c>marker.cmin</c> and <c>marker.cmax</c> if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
@@ -35,7 +35,7 @@ namespace Plotly.Models.Traces.Areas
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
@@ -50,7 +50,7 @@ namespace Plotly.Models.Traces.Areas
         /// </summary>
         [JsonPropertyName(@"size")]
         [Array]
-        public List<JsNumber?> SizeArray { get; set; }
+        public List<JsNumber?>? SizeArray { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
@@ -71,7 +71,7 @@ namespace Plotly.Models.Traces.Areas
         /// </summary>
         [JsonPropertyName(@"symbol")]
         [Array]
-        public List<SymbolEnum?> SymbolArray { get; set; }
+        public List<SymbolEnum?>? SymbolArray { get; set; }
 
         /// <summary>
         ///     Area traces are deprecated! Please switch to the <c>barpolar</c> trace type.
@@ -86,31 +86,31 @@ namespace Plotly.Models.Traces.Areas
         /// </summary>
         [JsonPropertyName(@"opacity")]
         [Array]
-        public List<JsNumber?> OpacityArray { get; set; }
+        public List<JsNumber?>? OpacityArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  size .
         /// </summary>
         [JsonPropertyName(@"sizesrc")]
-        public string SizeSrc { get; set; }
+        public string? SizeSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  symbol .
         /// </summary>
         [JsonPropertyName(@"symbolsrc")]
-        public string SymbolSrc { get; set; }
+        public string? SymbolSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  opacity .
         /// </summary>
         [JsonPropertyName(@"opacitysrc")]
-        public string OpacitySrc { get; set; }
+        public string? OpacitySrc { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -41,13 +41,13 @@ namespace Plotly.Models
         ///     Gets or sets the Frame.
         /// </summary>
         [JsonPropertyName(@"frame")]
-        public Frame Frame { get; set; }
+        public Frame? Frame { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transition.
         /// </summary>
         [JsonPropertyName(@"transition")]
-        public Transition Transition { get; set; }
+        public Transition? Transition { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -125,7 +125,7 @@ namespace Plotly.Models
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Animation</returns>
-        public Animation DeepClone()
+        public Animation? DeepClone()
         {
             using MemoryStream ms = new();
 

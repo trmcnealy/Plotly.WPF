@@ -38,20 +38,20 @@ namespace Plotly.Models.Layouts.Sliders
         ///     on slide.
         /// </summary>
         [JsonPropertyName(@"args")]
-        public List<object> Args { get; set; }
+        public List<object>? Args { get; set; }
 
         /// <summary>
         ///     Sets the text label to appear on the slider
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     Sets the value of the slider step, used to refer to the step programatically.
         ///     Defaults to the slider label if not provided.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         ///     When true, the API method is executed. When false, all other behaviors are
@@ -73,7 +73,7 @@ namespace Plotly.Models.Layouts.Sliders
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -85,7 +85,7 @@ namespace Plotly.Models.Layouts.Sliders
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

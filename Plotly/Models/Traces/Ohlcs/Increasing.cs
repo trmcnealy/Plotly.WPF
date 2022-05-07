@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Ohlcs
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Increasings.Line Line { get; set; }
+        public Increasings.Line? Line { get; set; }
 
         public override bool Equals(object obj)
         {

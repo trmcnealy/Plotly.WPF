@@ -54,7 +54,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Buttons.
         /// </summary>
         [JsonPropertyName(@"buttons")]
-        public List<Button> Buttons { get; set; }
+        public List<Button>? Buttons { get; set; }
 
         /// <summary>
         ///     Sets the x position (in normalized coordinates) of the update menu.
@@ -88,25 +88,25 @@ namespace Plotly.Models.Layouts
         ///     Sets the padding around the buttons or dropdown menu.
         /// </summary>
         [JsonPropertyName(@"pad")]
-        public Pad Pad { get; set; }
+        public Pad? Pad { get; set; }
 
         /// <summary>
         ///     Sets the font of the update menu button text.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public UpdateMenus.Font Font { get; set; }
+        public UpdateMenus.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the background color of the update menu buttons.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the update menu.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the update menu.
@@ -123,7 +123,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -135,7 +135,7 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

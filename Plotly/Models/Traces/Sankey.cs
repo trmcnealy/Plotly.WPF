@@ -37,14 +37,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns id labels to each datum. These ids for object constancy of data
@@ -52,7 +52,7 @@ namespace Plotly.Models.Traces
         ///     other type.
         /// </summary>
         [JsonPropertyName(@"ids")]
-        public List<object> Ids { get; set; }
+        public List<object>? Ids { get; set; }
 
         /// <summary>
         ///     Assigns extra data each datum. This may be useful when listening to hover,
@@ -60,7 +60,7 @@ namespace Plotly.Models.Traces
         ///     customdata items in the markers DOM elements
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -74,7 +74,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -89,7 +89,7 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Array containing integer indices of selected points. Has an effect only
@@ -99,13 +99,13 @@ namespace Plotly.Models.Traces
         ///     and <c>unselected</c> styles have no effect.
         /// </summary>
         [JsonPropertyName(@"selectedpoints")]
-        public object SelectedPoints { get; set; }
+        public object? SelectedPoints { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -122,7 +122,7 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -138,13 +138,13 @@ namespace Plotly.Models.Traces
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public HoverLabel HoverLabel { get; set; }
+        public HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Sets the orientation of the Sankey diagram.
@@ -157,14 +157,14 @@ namespace Plotly.Models.Traces
         ///     similar to those of Python. See https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"valueformat")]
-        public string ValueFormat { get; set; }
+        public string? ValueFormat { get; set; }
 
         /// <summary>
         ///     Adds a unit to follow the value in the hover tooltip. Add a space if a separation
         ///     is necessary from the value.
         /// </summary>
         [JsonPropertyName(@"valuesuffix")]
-        public string ValueSuffix { get; set; }
+        public string? ValueSuffix { get; set; }
 
         /// <summary>
         ///     If value is <c>snap</c> (the default), the node arrangement is assisted
@@ -181,37 +181,37 @@ namespace Plotly.Models.Traces
         ///     Sets the font for node labels
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public TextFont TextFont { get; set; }
+        public TextFont? TextFont { get; set; }
 
         /// <summary>
         ///     The nodes of the Sankey plot.
         /// </summary>
         [JsonPropertyName(@"node")]
-        public Node Node { get; set; }
+        public Node? Node { get; set; }
 
         /// <summary>
         ///     The links of the Sankey plot.
         /// </summary>
         [JsonPropertyName(@"link")]
-        public Link Link { get; set; }
+        public Link? Link { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ids .
         /// </summary>
         [JsonPropertyName(@"idssrc")]
-        public string IdsSrc { get; set; }
+        public string? IdsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         public override bool Equals(object obj)
         {

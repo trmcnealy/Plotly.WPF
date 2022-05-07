@@ -20,25 +20,25 @@ namespace Plotly.Models.Traces.Indicators
         ///     similar to those of Python. See https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"valueformat")]
-        public string ValueFormat { get; set; }
+        public string? ValueFormat { get; set; }
 
         /// <summary>
         ///     Set the font used to display main number
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         /// <summary>
         ///     Sets a prefix appearing before the number.
         /// </summary>
         [JsonPropertyName(@"prefix")]
-        public string Prefix { get; set; }
+        public string? Prefix { get; set; }
 
         /// <summary>
         ///     Sets a suffix appearing next to the number.
         /// </summary>
         [JsonPropertyName(@"suffix")]
-        public string Suffix { get; set; }
+        public string? Suffix { get; set; }
 
         public override bool Equals(object obj)
         {

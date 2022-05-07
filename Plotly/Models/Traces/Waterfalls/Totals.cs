@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Waterfalls
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Marker Marker { get; set; }
+        public Marker? Marker { get; set; }
 
         public override bool Equals(object obj)
         {

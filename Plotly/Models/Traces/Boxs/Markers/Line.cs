@@ -20,7 +20,7 @@ namespace Plotly.Models.Traces.Boxs.Markers
         ///     if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the lines bounding the marker points.
@@ -32,7 +32,7 @@ namespace Plotly.Models.Traces.Boxs.Markers
         ///     Sets the border line color of the outlier sample points. Defaults to marker.color
         /// </summary>
         [JsonPropertyName(@"outliercolor")]
-        public object OutlierColor { get; set; }
+        public object? OutlierColor { get; set; }
 
         /// <summary>
         ///     Sets the border line width (in px) of the outlier sample points.

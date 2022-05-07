@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -82,7 +84,7 @@ namespace Plotly
         private static void OnDataSourcePropertyChanged(DependencyObject                   sender,
                                                         DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnDataSourcePropertyChanged");
+            //Debug.WriteLine("OnDataSourcePropertyChanged");
 
             if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableDictionary<string, (string type, object[] array)> data_source)
             {
@@ -133,7 +135,7 @@ namespace Plotly
         private static void OnPlotDataPropertyChanged(DependencyObject                   sender,
                                                       DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnPlotDataPropertyChanged");
+            //Debug.WriteLine("OnPlotDataPropertyChanged");
 
             if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableCollection<ITrace> plotData)
             {
@@ -163,7 +165,7 @@ namespace Plotly
         private static void OnPlotLayoutPropertyChanged(DependencyObject                   sender,
                                                         DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnPlotLayoutPropertyChanged");
+            //Debug.WriteLine("OnPlotLayoutPropertyChanged");
 
             if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is Layout layout)
             {
@@ -193,7 +195,7 @@ namespace Plotly
         private static void OnPlotConfigPropertyChanged(DependencyObject                   sender,
                                                         DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnPlotConfigPropertyChanged");
+            //Debug.WriteLine("OnPlotConfigPropertyChanged");
 
             if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is Config config)
             {
@@ -244,7 +246,7 @@ namespace Plotly
         private static void OnPlotFramesPropertyChanged(DependencyObject                   sender,
                                                         DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnPlotFramesPropertyChanged");
+            //Debug.WriteLine("OnPlotFramesPropertyChanged");
 
             if(sender is PlotlyView plotlyView && plotlyView.CsPlotlyPlot is not null && e.NewValue is ObservableCollection<Frames> frames)
             {
@@ -274,7 +276,7 @@ namespace Plotly
         private static void OnSelectedItemsPropertyChanged(DependencyObject                   sender,
                                                            DependencyPropertyChangedEventArgs e)
         {
-            Debug.WriteLine("OnSelectedItemsPropertyChanged");
+            //Debug.WriteLine("OnSelectedItemsPropertyChanged");
 
             //if(sender is PlotlyView plotlyView && e.NewValue is SelectedData[] selectedData)
             //{
@@ -496,7 +498,7 @@ namespace Plotly
                     //case "PlotlyWebglContextLost":
                     default:
                     {
-                        Debug.WriteLine(@event.Event);
+                        //Debug.WriteLine(@event.Event);
 
                         break;
                     }
@@ -544,15 +546,16 @@ namespace Plotly
         {
             WebViewElement = GetTemplateChild("WebView") as WebView2;
 
-            InitializeAsync();
+            if(!DesignerProperties.GetIsInDesignMode(this))
+            {
+                InitializeAsync();
+            }
         }
 
         public async void InitializeAsync()
         {
             if(WebViewElement != null)
             {
-                WebViewElement.Source = SourceUri;
-
                 WebViewElement.CoreWebView2InitializationCompleted += WebView_CoreWebView2Ready;
 
                 string? browserExecutableFolder = null;
@@ -561,11 +564,14 @@ namespace Plotly
                 //string                          localAppData            = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 //string                          cacheFolder             = Path.Combine(localAppData, "WindowsFormsWebView2");
 
-                CoreWebView2EnvironmentOptions options = new("--disk-cache-size=200");
+                CoreWebView2EnvironmentOptions options = new("--service-sandbox-type=none --no-delay-for-dx12-vulkan-info-collection --enable-unsafe-webgpu --embedded-browser-webview=1 --embedded-browser-webview-dpi-awareness=2 --noerrdialogs --webgl-antialiasing-mode=none --lang=en-US --unlimited-storage");//("--disk-cache-size=1073741824 --enable-features=enable-unsafe-webgpu,enable-gpu-rasterization");
 
-                CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options).ConfigureAwait(false);
+                CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options);
 
-                await WebViewElement.EnsureCoreWebView2Async(env).ConfigureAwait(false);
+                await WebViewElement.EnsureCoreWebView2Async(env);
+
+                WebViewElement.CoreWebView2.Navigate(SourceUri.AbsoluteUri);
+                //WebViewElement.Source = SourceUri;
             }
         }
 
@@ -601,7 +607,7 @@ namespace Plotly
             return data.ToString();
         }
 
-        public static readonly Regex javaScriptObjectRegex = new("\"data_source\\[\"(\\w)\"\\]\"", RegexOptions.Compiled);
+        public static readonly Regex JavaScriptObjectRegex = new("\"data_source\\[\"(\\w)\"\\]\"", RegexOptions.Compiled);
 
         public static string GetFullPath(string relativePath)
         {

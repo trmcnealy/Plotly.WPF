@@ -17,14 +17,14 @@ namespace Plotly.Models.Traces.Candlesticks
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Decreasings.Line Line { get; set; }
+        public Decreasings.Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the fill color. Defaults to a half-transparent variant of the line
         ///     color, marker color, or marker line color, whichever is available.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         public override bool Equals(object obj)
         {

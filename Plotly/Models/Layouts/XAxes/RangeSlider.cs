@@ -20,13 +20,13 @@ namespace Plotly.Models.Layouts.XAxes
         ///     Sets the background color of the range slider.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the border color of the range slider.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the border width of the range slider.
@@ -52,7 +52,7 @@ namespace Plotly.Models.Layouts.XAxes
         ///     serial number from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set; }
+        public List<object>? Range { get; set; }
 
         /// <summary>
         ///     The height of the range slider as a fraction of the total plot area height.
@@ -72,7 +72,7 @@ namespace Plotly.Models.Layouts.XAxes
         /// </summary>
         [JsonPropertyName(@"yaxis")]
         [Subplot]
-        public List<RangeSliders.YAxis> YAxis { get; set; }
+        public List<RangeSliders.YAxis>? YAxis { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -21,7 +21,7 @@ namespace Plotly.Models.Layouts.Geos
         ///     is set to 1. a map will fit either its x or y domain, but not both.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set; }
+        public List<object>? X { get; set; }
 
         /// <summary>
         ///     Sets the vertical domain of this geo subplot (in plot fraction). Note that
@@ -29,7 +29,7 @@ namespace Plotly.Models.Layouts.Geos
         ///     is set to 1. a map will fit either its x or y domain, but not both.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set; }
+        public List<object>? Y { get; set; }
 
         /// <summary>
         ///     If there is a layout grid, use the domain for this row in the grid for this

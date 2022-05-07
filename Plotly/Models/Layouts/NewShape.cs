@@ -19,7 +19,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the color filling new shapes&#39; interior. Please note that if using
@@ -27,7 +27,7 @@ namespace Plotly.Models.Layouts
         ///     moving the shape underneath, otherwise a new shape could be started over.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         /// <summary>
         ///     Determines the path&#39;s interior. For more info please visit https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/fill-rule

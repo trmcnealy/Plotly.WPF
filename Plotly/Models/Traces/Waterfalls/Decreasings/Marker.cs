@@ -19,13 +19,13 @@ namespace Plotly.Models.Traces.Waterfalls.Decreasings
         ///     Sets the marker color of all decreasing values.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         public override bool Equals(object obj)
         {

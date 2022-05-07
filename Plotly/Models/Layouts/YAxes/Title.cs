@@ -19,14 +19,14 @@ namespace Plotly.Models.Layouts.YAxes
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets this axis&#39; title font. Note that the title&#39;s font used to be
         ///     customized by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Titles.Font Font { get; set; }
+        public Titles.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the standoff distance (in px) between the axis labels and the title
@@ -108,7 +108,7 @@ namespace Plotly.Models.Layouts.YAxes
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

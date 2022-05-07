@@ -21,19 +21,19 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the BgColor.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Gets or sets the Camera.
         /// </summary>
         [JsonPropertyName(@"camera")]
-        public Camera Camera { get; set; }
+        public Camera? Camera { get; set; }
 
         /// <summary>
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     If <c>cube</c>, this scene&#39;s axes are drawn as a cube, regardless of
@@ -52,25 +52,25 @@ namespace Plotly.Models.Layouts
         ///     Sets this scene&#39;s axis aspectratio.
         /// </summary>
         [JsonPropertyName(@"aspectratio")]
-        public AspectRatio AspectRatio { get; set; }
+        public AspectRatio? AspectRatio { get; set; }
 
         /// <summary>
         ///     Gets or sets the XAxis.
         /// </summary>
         [JsonPropertyName(@"xaxis")]
-        public Scenes.XAxis XAxis { get; set; }
+        public Scenes.XAxis? XAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the YAxis.
         /// </summary>
         [JsonPropertyName(@"yaxis")]
-        public Scenes.YAxis YAxis { get; set; }
+        public Scenes.YAxis? YAxis { get; set; }
 
         /// <summary>
         ///     Gets or sets the ZAxis.
         /// </summary>
         [JsonPropertyName(@"zaxis")]
-        public ZAxis ZAxis { get; set; }
+        public ZAxis? ZAxis { get; set; }
 
         /// <summary>
         ///     Determines the mode of drag interactions for this scene.
@@ -89,13 +89,13 @@ namespace Plotly.Models.Layouts
         ///     to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Gets or sets the Annotations.
         /// </summary>
         [JsonPropertyName(@"annotations")]
-        public List<Scenes.Annotation> Annotations { get; set; }
+        public List<Scenes.Annotation>? Annotations { get; set; }
 
         public override bool Equals(object obj)
         {

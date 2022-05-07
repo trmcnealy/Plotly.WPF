@@ -54,7 +54,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     if <c>categoryorder</c> is set to <c>array</c>. Used with <c>categoryorder</c>.
         /// </summary>
         [JsonPropertyName(@"categoryarray")]
-        public List<object> CategoryArray { get; set; }
+        public List<object>? CategoryArray { get; set; }
 
         /// <summary>
         ///     Sets the format unit of the formatted <c>theta</c> values. Has an effect
@@ -95,14 +95,14 @@ namespace Plotly.Models.Layouts.Polars
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"hoverformat")]
-        public string HoverFormat { get; set; }
+        public string? HoverFormat { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in axis <c>rotation</c>. Defaults
         ///     to <c>polar&lt;N&gt;.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Sets default for all colors associated with this axis all at once: line,
@@ -110,7 +110,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     the plot background Individual pieces can override this.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Determines whether or not a line bounding this axis is drawn.
@@ -122,7 +122,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets the axis line color.
         /// </summary>
         [JsonPropertyName(@"linecolor")]
-        public object LineColor { get; set; }
+        public object? LineColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the axis line.
@@ -141,7 +141,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets the color of the grid lines.
         /// </summary>
         [JsonPropertyName(@"gridcolor")]
-        public object GridColor { get; set; }
+        public object? GridColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the grid lines.
@@ -180,7 +180,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     from zero in the order it appears.
         /// </summary>
         [JsonPropertyName(@"tick0")]
-        public object Tick0 { get; set; }
+        public object? Tick0 { get; set; }
 
         /// <summary>
         ///     Sets the step in-between ticks on this axis. Use with <c>tick0</c>. Must
@@ -204,21 +204,21 @@ namespace Plotly.Models.Layouts.Polars
         ///     to <c>M48</c>
         /// </summary>
         [JsonPropertyName(@"dtick")]
-        public object DTick { get; set; }
+        public object? DTick { get; set; }
 
         /// <summary>
         ///     Sets the values at which ticks on this axis appear. Only has an effect if
         ///     <c>tickmode</c> is set to <c>array</c>. Used with <c>ticktext</c>.
         /// </summary>
         [JsonPropertyName(@"tickvals")]
-        public List<object> TickVals { get; set; }
+        public List<object>? TickVals { get; set; }
 
         /// <summary>
         ///     Sets the text displayed at the ticks position via <c>tickvals</c>. Only
         ///     has an effect if <c>tickmode</c> is set to <c>array</c>. Used with <c>tickvals</c>.
         /// </summary>
         [JsonPropertyName(@"ticktext")]
-        public List<object> TickText { get; set; }
+        public List<object>? TickText { get; set; }
 
         /// <summary>
         ///     Determines whether ticks are drawn or not. If **, this axis&#39; ticks are
@@ -244,7 +244,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets the tick color.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set; }
+        public object? TickColor { get; set; }
 
         /// <summary>
         ///     Determines whether or not the tick labels are drawn.
@@ -265,7 +265,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets a tick label prefix.
         /// </summary>
         [JsonPropertyName(@"tickprefix")]
-        public string TickPrefix { get; set; }
+        public string? TickPrefix { get; set; }
 
         /// <summary>
         ///     Same as <c>showtickprefix</c> but for tick suffixes.
@@ -277,7 +277,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets a tick label suffix.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set; }
+        public string? TickSuffix { get; set; }
 
         /// <summary>
         ///     If <c>all</c>, all exponents are shown besides their significands. If <c>first</c>,
@@ -306,7 +306,7 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets the tick font.
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set; }
+        public TickFont? TickFont { get; set; }
 
         /// <summary>
         ///     Sets the angle of the tick labels with respect to the horizontal. For example,
@@ -324,13 +324,13 @@ namespace Plotly.Models.Layouts.Polars
         ///     tickformat <c>%H~%M~%S.%2f</c> would display <c>09~15~23.46</c>
         /// </summary>
         [JsonPropertyName(@"tickformat")]
-        public string TickFormat { get; set; }
+        public string? TickFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the TickFormatStops.
         /// </summary>
         [JsonPropertyName(@"tickformatstops")]
-        public List<TickFormatStop> TickFormatStops { get; set; }
+        public List<TickFormatStop>? TickFormatStops { get; set; }
 
         /// <summary>
         ///     Sets the layer on which this axis is displayed. If &#39;above traces&#39;,
@@ -347,19 +347,19 @@ namespace Plotly.Models.Layouts.Polars
         ///     Sets the source reference on Chart Studio Cloud for  categoryarray .
         /// </summary>
         [JsonPropertyName(@"categoryarraysrc")]
-        public string CategoryArraySrc { get; set; }
+        public string? CategoryArraySrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  tickvals .
         /// </summary>
         [JsonPropertyName(@"tickvalssrc")]
-        public string TickValsSrc { get; set; }
+        public string? TickValsSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  ticktext .
         /// </summary>
         [JsonPropertyName(@"ticktextsrc")]
-        public string TickTextSrc { get; set; }
+        public string? TickTextSrc { get; set; }
 
         public override bool Equals(object obj)
         {

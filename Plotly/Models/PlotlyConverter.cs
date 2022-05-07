@@ -87,7 +87,7 @@ namespace Plotly.Models
                     {
                         if(propertyValue == null)
                         {
-                            if(!options.IgnoreNullValues)
+                            if(options.DefaultIgnoreCondition != JsonIgnoreCondition.WhenWritingNull)
                             {
                                 writer.WritePropertyName(propertyName);
                                 writer.WriteNullValue();
@@ -101,7 +101,7 @@ namespace Plotly.Models
                     }
                     else if(containsArrayAttr)
                     {
-                        if(propertyValue == null && options.IgnoreNullValues)
+                        if(propertyValue == null && options.DefaultIgnoreCondition == JsonIgnoreCondition.WhenWritingNull)
                         {
                             continue;
                         }
@@ -128,7 +128,7 @@ namespace Plotly.Models
                     {
                         if(propertyValue == null)
                         {
-                            if(!options.IgnoreNullValues)
+                            if(options.DefaultIgnoreCondition != JsonIgnoreCondition.WhenWritingNull)
                             {
                                 writer.WriteNullValue();
                             }

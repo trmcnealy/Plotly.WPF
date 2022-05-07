@@ -51,7 +51,7 @@ namespace Plotly.Models.Layouts
         ///     is <c>date</c>, then you must convert the date to unix time in milliseconds.
         /// </summary>
         [JsonPropertyName(@"xref")]
-        public string XRef { get; set; }
+        public string? XRef { get; set; }
 
         /// <summary>
         ///     Sets the shapes&#39;s sizing mode along the x axis. If set to <c>scaled</c>,
@@ -74,21 +74,21 @@ namespace Plotly.Models.Layouts
         ///     not set to <c>pixel</c>.
         /// </summary>
         [JsonPropertyName(@"xanchor")]
-        public object XAnchor { get; set; }
+        public object? XAnchor { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s starting x position. See <c>type</c> and <c>xsizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"x0")]
-        public object X0 { get; set; }
+        public object? X0 { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s end x position. See <c>type</c> and <c>xsizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"x1")]
-        public object X1 { get; set; }
+        public object? X1 { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y coordinate axis. If set to an y axis id (e.g.
@@ -98,7 +98,7 @@ namespace Plotly.Models.Layouts
         ///     (<c>1</c>) corresponds to the bottom (top).
         /// </summary>
         [JsonPropertyName(@"yref")]
-        public string YRef { get; set; }
+        public string? YRef { get; set; }
 
         /// <summary>
         ///     Sets the shapes&#39;s sizing mode along the y axis. If set to <c>scaled</c>,
@@ -121,21 +121,21 @@ namespace Plotly.Models.Layouts
         ///     not set to <c>pixel</c>.
         /// </summary>
         [JsonPropertyName(@"yanchor")]
-        public object YAnchor { get; set; }
+        public object? YAnchor { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s starting y position. See <c>type</c> and <c>ysizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"y0")]
-        public object Y0 { get; set; }
+        public object? Y0 { get; set; }
 
         /// <summary>
         ///     Sets the shape&#39;s end y position. See <c>type</c> and <c>ysizemode</c>
         ///     for more info.
         /// </summary>
         [JsonPropertyName(@"y1")]
-        public object Y1 { get; set; }
+        public object? Y1 { get; set; }
 
         /// <summary>
         ///     For <c>type</c> <c>path</c> - a valid SVG path with the pixel values replaced
@@ -156,7 +156,7 @@ namespace Plotly.Models.Layouts
         ///     use underscore for this purpose: 2015-02-21_13:45:56.789
         /// </summary>
         [JsonPropertyName(@"path")]
-        public string Path { get; set; }
+        public string? Path { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the shape.
@@ -168,14 +168,14 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the color filling the shape&#39;s interior. Only applies to closed
         ///     shapes.
         /// </summary>
         [JsonPropertyName(@"fillcolor")]
-        public object FillColor { get; set; }
+        public object? FillColor { get; set; }
 
         /// <summary>
         ///     Determines which regions of complex paths constitute the interior. For more
@@ -201,7 +201,7 @@ namespace Plotly.Models.Layouts
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -213,7 +213,7 @@ namespace Plotly.Models.Layouts
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

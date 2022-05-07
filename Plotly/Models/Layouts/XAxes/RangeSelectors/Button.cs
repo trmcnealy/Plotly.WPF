@@ -51,7 +51,7 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors
         ///     Sets the text label to appear on the button.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -62,7 +62,7 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -74,7 +74,7 @@ namespace Plotly.Models.Layouts.XAxes.RangeSelectors
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

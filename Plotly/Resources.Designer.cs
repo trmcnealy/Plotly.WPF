@@ -19,7 +19,7 @@ namespace Plotly {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -109,18 +109,19 @@ namespace Plotly {
         ///   Looks up a localized string similar to var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(a){return a.raw=a};$jscomp.createTemplateTagFirstArgWithRaw=function(a,b){a.raw=b;return a};$jscomp.ASSUME_ES5=!1;$jscomp.ASSUME_NO_NATIVE_MAP=!1;$jscomp.ASSUME_NO_NATIVE_SET=!1;$jscomp.SIMPLE_FROUND_POLYFILL=!1;$jscomp.ISOLATE_POLYFILLS=!1;$jscomp.FORCE_POLYFILL_PROMISE=!1;$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION=!1;
         ///$jscomp.defineProperty=$jscomp.ASSUME_ES5||&quot;function&quot;==typeof Object.defineProperties?Obje [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PlotlyApp_js {
+        internal static string PlotlyApp_min_js {
             get {
-                return ResourceManager.GetString("PlotlyApp_js", resourceCulture);
+                return ResourceManager.GetString("PlotlyApp_min_js", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to self.onmessage=function(a){a=a.data;var b=a.point;a.array[a.id]={curveNumber:b.curveNumber,pointIndex:b.pointIndex,pointNumber:b.pointNumber,x:b.x,y:b.y};close()};
+        ///.
         /// </summary>
-        internal static string PlotlyWorker_js {
+        internal static string PlotlyWorker_min_js {
             get {
-                return ResourceManager.GetString("PlotlyWorker_js", resourceCulture);
+                return ResourceManager.GetString("PlotlyWorker_min_js", resourceCulture);
             }
         }
     }

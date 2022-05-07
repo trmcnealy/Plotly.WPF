@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges.Thresholds
         ///     Sets the color of the threshold line.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the threshold line.

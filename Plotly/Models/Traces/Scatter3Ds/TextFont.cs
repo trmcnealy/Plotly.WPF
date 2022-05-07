@@ -20,14 +20,14 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
@@ -40,7 +40,7 @@ namespace Plotly.Models.Traces.Scatter3Ds
         /// </summary>
         [JsonPropertyName(@"size")]
         [Array]
-        public List<JsNumber?> SizeArray { get; set; }
+        public List<JsNumber?>? SizeArray { get; set; }
 
         /// <summary>
         ///     HTML font family - the typeface that will be applied by the web browser.
@@ -56,19 +56,19 @@ namespace Plotly.Models.Traces.Scatter3Ds
         ///     New Roman&#39;.
         /// </summary>
         [JsonPropertyName(@"family")]
-        public string Family { get; set; }
+        public string? Family { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  size .
         /// </summary>
         [JsonPropertyName(@"sizesrc")]
-        public string SizeSrc { get; set; }
+        public string? SizeSrc { get; set; }
 
         public override bool Equals(object obj)
         {

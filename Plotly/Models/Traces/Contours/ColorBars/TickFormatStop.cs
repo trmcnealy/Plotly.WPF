@@ -28,13 +28,13 @@ namespace Plotly.Models.Traces.Contours.ColorBars
         ///     value by passing <c>null</c>
         /// </summary>
         [JsonPropertyName(@"dtickrange")]
-        public List<object> DTickRange { get; set; }
+        public List<object>? DTickRange { get; set; }
 
         /// <summary>
         ///     string - dtickformat for described zoom level, the same as <c>tickformat</c>
         /// </summary>
         [JsonPropertyName(@"value")]
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -45,7 +45,7 @@ namespace Plotly.Models.Traces.Contours.ColorBars
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -57,7 +57,7 @@ namespace Plotly.Models.Traces.Contours.ColorBars
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

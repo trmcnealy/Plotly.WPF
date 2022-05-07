@@ -21,14 +21,14 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.ColorBars
         ///     itself. This behavior has been deprecated.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets this color bar&#39;s title font. Note that the title&#39;s font used
         ///     to be set by the now deprecated <c>titlefont</c> attribute.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         /// <summary>
         ///     Determines the location of color bar&#39;s title with respect to the color
@@ -106,7 +106,7 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs.ColorBars
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Title</returns>
-        public Title DeepClone()
+        public Title? DeepClone()
         {
             using MemoryStream ms = new();
 

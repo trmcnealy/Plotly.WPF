@@ -17,13 +17,13 @@ namespace Plotly.Models.Traces.Indicators.Deltas
         ///     Sets the symbol to display for increasing value
         /// </summary>
         [JsonPropertyName(@"symbol")]
-        public string Symbol { get; set; }
+        public string? Symbol { get; set; }
 
         /// <summary>
         ///     Sets the color for increasing value.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         public override bool Equals(object obj)
         {

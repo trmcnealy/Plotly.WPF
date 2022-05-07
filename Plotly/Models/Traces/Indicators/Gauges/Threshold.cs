@@ -19,7 +19,7 @@ namespace Plotly.Models.Traces.Indicators.Gauges
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the thickness of the threshold line as a fraction of the thickness

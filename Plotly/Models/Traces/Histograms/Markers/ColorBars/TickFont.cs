@@ -27,7 +27,7 @@ namespace Plotly.Models.Traces.Histograms.Markers.ColorBars
         ///     New Roman&#39;.
         /// </summary>
         [JsonPropertyName(@"family")]
-        public string Family { get; set; }
+        public string? Family { get; set; }
 
         /// <summary>
         ///     Gets or sets the Size.
@@ -39,7 +39,7 @@ namespace Plotly.Models.Traces.Histograms.Markers.ColorBars
         ///     Gets or sets the Color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         public override bool Equals(object obj)
         {

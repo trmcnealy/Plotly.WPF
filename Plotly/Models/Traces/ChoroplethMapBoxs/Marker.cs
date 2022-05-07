@@ -22,7 +22,7 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the locations.
@@ -35,13 +35,13 @@ namespace Plotly.Models.Traces.ChoroplethMapBoxs
         /// </summary>
         [JsonPropertyName(@"opacity")]
         [Array]
-        public List<JsNumber?> OpacityArray { get; set; }
+        public List<JsNumber?>? OpacityArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  opacity .
         /// </summary>
         [JsonPropertyName(@"opacitysrc")]
-        public string OpacitySrc { get; set; }
+        public string? OpacitySrc { get; set; }
 
         public override bool Equals(object obj)
         {

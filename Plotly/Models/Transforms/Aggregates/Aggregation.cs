@@ -23,7 +23,7 @@ namespace Plotly.Models.Transforms.Aggregates
         ///     may only be referenced once.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         /// <summary>
         ///     Sets the aggregation function. All values from the linked <c>target</c>,

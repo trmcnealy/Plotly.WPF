@@ -18,20 +18,20 @@ namespace Plotly.Models
         ///     by animate to select a subset of frames.
         /// </summary>
         [JsonPropertyName(@"group")]
-        public string Group { get; set; }
+        public string? Group { get; set; }
 
         /// <summary>
         ///     A label by which to identify the frame
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     A list of trace indices that identify the respective traces in the data
         ///     attribute
         /// </summary>
         [JsonPropertyName(@"traces")]
-        public object Traces { get; set; }
+        public object? Traces { get; set; }
 
         /// <summary>
         ///     The name of the frame into which this frame&#39;s properties are merged
@@ -39,21 +39,21 @@ namespace Plotly.Models
         ///     the same values for the same properties in multiple frames.
         /// </summary>
         [JsonPropertyName(@"baseframe")]
-        public string BaseFrame { get; set; }
+        public string? BaseFrame { get; set; }
 
         /// <summary>
         ///     A list of traces this frame modifies. The format is identical to the normal
         ///     trace definition.
         /// </summary>
         [JsonPropertyName(@"data")]
-        public ITrace Data { get; set; }
+        public ITrace? Data { get; set; }
 
         /// <summary>
         ///     Layout properties which this frame modifies. The format is identical to
         ///     the normal layout definition.
         /// </summary>
         [JsonPropertyName(@"layout")]
-        public Layout Layout { get; set; }
+        public Layout? Layout { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -135,7 +135,7 @@ namespace Plotly.Models
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Frames</returns>
-        public Frames DeepClone()
+        public Frames? DeepClone()
         {
             using MemoryStream ms = new();
 

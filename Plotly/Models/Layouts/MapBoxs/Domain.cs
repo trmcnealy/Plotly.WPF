@@ -19,13 +19,13 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     Sets the horizontal domain of this mapbox subplot (in plot fraction).
         /// </summary>
         [JsonPropertyName(@"x")]
-        public List<object> X { get; set; }
+        public List<object>? X { get; set; }
 
         /// <summary>
         ///     Sets the vertical domain of this mapbox subplot (in plot fraction).
         /// </summary>
         [JsonPropertyName(@"y")]
-        public List<object> Y { get; set; }
+        public List<object>? Y { get; set; }
 
         /// <summary>
         ///     If there is a layout grid, use the domain for this row in the grid for this

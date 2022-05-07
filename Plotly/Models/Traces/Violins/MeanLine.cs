@@ -26,7 +26,7 @@ namespace Plotly.Models.Traces.Violins
         ///     Sets the mean line color.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the mean line width.

@@ -23,7 +23,7 @@ namespace Plotly.Models.Traces.ScatterGls.Selecteds
         ///     Sets the marker color of selected points.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the marker size of selected points.

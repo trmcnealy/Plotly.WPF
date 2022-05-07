@@ -18,7 +18,7 @@ namespace Plotly.Models.Traces.ContourCarpets
         ///     is set to <c>lines</c>.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the contour line width in (in px) Defaults to <c>0.5</c> when <c>contours.type</c>
@@ -33,7 +33,7 @@ namespace Plotly.Models.Traces.ContourCarpets
         ///     a dash length list in px (eg <c>5px,10px,2px,2px</c>).
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set; }
+        public string? Dash { get; set; }
 
         /// <summary>
         ///     Sets the amount of smoothing for the contour lines, where <c>0</c> corresponds

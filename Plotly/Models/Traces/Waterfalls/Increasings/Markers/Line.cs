@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Waterfalls.Increasings.Markers
         ///     Sets the line color of all increasing values.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width of all increasing values.

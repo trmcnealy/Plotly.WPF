@@ -38,7 +38,7 @@ namespace Plotly.Models.Transforms
         ///     is applied.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public string Target { get; set; }
+        public string? Target { get; set; }
 
         /// <summary>
         ///     Sets the target by which the sort transform is applied. If a string, <c>target</c>
@@ -50,7 +50,7 @@ namespace Plotly.Models.Transforms
         /// </summary>
         [JsonPropertyName(@"target")]
         [Array]
-        public List<string> TargetArray { get; set; }
+        public List<string>? TargetArray { get; set; }
 
         /// <summary>
         ///     Sets the sort transform order.
@@ -62,7 +62,7 @@ namespace Plotly.Models.Transforms
         ///     Sets the source reference on Chart Studio Cloud for  target .
         /// </summary>
         [JsonPropertyName(@"targetsrc")]
-        public string TargetSrc { get; set; }
+        public string? TargetSrc { get; set; }
 
         public override bool Equals(object obj)
         {

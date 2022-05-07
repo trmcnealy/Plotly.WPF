@@ -21,7 +21,7 @@ namespace Plotly.Models.Traces.Sunbursts.Markers
         ///     value.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the color of the line enclosing each sector. Defaults to the <c>paper_bgcolor</c>
@@ -29,7 +29,7 @@ namespace Plotly.Models.Traces.Sunbursts.Markers
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the line enclosing each sector.
@@ -42,19 +42,19 @@ namespace Plotly.Models.Traces.Sunbursts.Markers
         /// </summary>
         [JsonPropertyName(@"width")]
         [Array]
-        public List<JsNumber?> WidthArray { get; set; }
+        public List<JsNumber?>? WidthArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  width .
         /// </summary>
         [JsonPropertyName(@"widthsrc")]
-        public string WidthSrc { get; set; }
+        public string? WidthSrc { get; set; }
 
         public override bool Equals(object obj)
         {

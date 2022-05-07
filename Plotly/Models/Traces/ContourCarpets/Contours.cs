@@ -69,14 +69,14 @@ namespace Plotly.Models.Traces.ContourCarpets
         ///     from the lines, if shown. The default family and size come from <c>layout.font</c>.
         /// </summary>
         [JsonPropertyName(@"labelfont")]
-        public LabelFont LabelFont { get; set; }
+        public LabelFont? LabelFont { get; set; }
 
         /// <summary>
         ///     Sets the contour label formatting rule using d3 formatting mini-language
         ///     which is very similar to Python, see: https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"labelformat")]
-        public string LabelFormat { get; set; }
+        public string? LabelFormat { get; set; }
 
         /// <summary>
         ///     Sets the constraint operation. <c>=</c> keeps regions equal to <c>value</c>
@@ -99,7 +99,7 @@ namespace Plotly.Models.Traces.ContourCarpets
         ///     upper bound.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public object Value { get; set; }
+        public object? Value { get; set; }
 
         public override bool Equals(object obj)
         {

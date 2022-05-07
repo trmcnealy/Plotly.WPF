@@ -58,7 +58,7 @@ namespace Plotly.Models.Layouts
         ///     of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -88,7 +88,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set; }
+        public ColorBar? ColorBar { get; set; }
 
         public override bool Equals(object obj)
         {

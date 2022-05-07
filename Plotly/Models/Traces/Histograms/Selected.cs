@@ -19,13 +19,13 @@ namespace Plotly.Models.Traces.Histograms
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Selecteds.Marker Marker { get; set; }
+        public Selecteds.Marker? Marker { get; set; }
 
         /// <summary>
         ///     Gets or sets the TextFont.
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public TextFont TextFont { get; set; }
+        public TextFont? TextFont { get; set; }
 
         public override bool Equals(object obj)
         {

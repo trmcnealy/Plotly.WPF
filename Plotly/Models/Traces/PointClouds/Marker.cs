@@ -21,7 +21,7 @@ namespace Plotly.Models.Traces.PointClouds
         ///     slower zooming and panning.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the marker opacity. The default value is <c>1</c> (fully opaque). If
@@ -59,7 +59,7 @@ namespace Plotly.Models.Traces.PointClouds
         ///     Gets or sets the Border.
         /// </summary>
         [JsonPropertyName(@"border")]
-        public Border Border { get; set; }
+        public Border? Border { get; set; }
 
         public override bool Equals(object obj)
         {

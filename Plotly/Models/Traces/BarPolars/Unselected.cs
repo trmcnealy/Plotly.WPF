@@ -19,13 +19,13 @@ namespace Plotly.Models.Traces.BarPolars
         ///     Gets or sets the Marker.
         /// </summary>
         [JsonPropertyName(@"marker")]
-        public Unselecteds.Marker Marker { get; set; }
+        public Unselecteds.Marker? Marker { get; set; }
 
         /// <summary>
         ///     Gets or sets the TextFont.
         /// </summary>
         [JsonPropertyName(@"textfont")]
-        public TextFont TextFont { get; set; }
+        public TextFont? TextFont { get; set; }
 
         public override bool Equals(object obj)
         {

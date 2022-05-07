@@ -22,13 +22,13 @@ namespace Plotly.Models.Traces.Sunbursts
         ///     trace color set is used to pick the sector colors.
         /// </summary>
         [JsonPropertyName(@"colors")]
-        public List<object> Colors { get; set; }
+        public List<object>? Colors { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -75,7 +75,7 @@ namespace Plotly.Models.Traces.Sunbursts
         ///     list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -107,7 +107,7 @@ namespace Plotly.Models.Traces.Sunbursts
         ///     Gets or sets the ColorBar.
         /// </summary>
         [JsonPropertyName(@"colorbar")]
-        public ColorBar ColorBar { get; set; }
+        public ColorBar? ColorBar { get; set; }
 
         /// <summary>
         ///     Sets a reference to a shared color axis. References to these shared color
@@ -117,13 +117,13 @@ namespace Plotly.Models.Traces.Sunbursts
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set; }
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  colors .
         /// </summary>
         [JsonPropertyName(@"colorssrc")]
-        public string ColorsSrc { get; set; }
+        public string? ColorsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -27,7 +27,7 @@ namespace Plotly.Models.Traces.BarPolars.Markers
         /// </summary>
         [JsonPropertyName(@"width")]
         [Array]
-        public List<JsNumber?> WidthArray { get; set; }
+        public List<JsNumber?>? WidthArray { get; set; }
 
         /// <summary>
         ///     Sets themarker.linecolor. It accepts either a specific color or an array
@@ -36,7 +36,7 @@ namespace Plotly.Models.Traces.BarPolars.Markers
         ///     if set.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets themarker.linecolor. It accepts either a specific color or an array
@@ -46,7 +46,7 @@ namespace Plotly.Models.Traces.BarPolars.Markers
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Determines whether or not the color domain is computed with respect to the
@@ -95,7 +95,7 @@ namespace Plotly.Models.Traces.BarPolars.Markers
         ///     name string of the following list: Greys,YlGnBu,Greens,YlOrRd,Bluered,RdBu,Reds,Blues,Picnic,Rainbow,Portland,Jet,Hot,Blackbody,Earth,Electric,Viridis,Cividis.
         /// </summary>
         [JsonPropertyName(@"colorscale")]
-        public object ColorScale { get; set; }
+        public object? ColorScale { get; set; }
 
         /// <summary>
         ///     Determines whether the colorscale is a default palette (&#39;autocolorscale:
@@ -125,19 +125,19 @@ namespace Plotly.Models.Traces.BarPolars.Markers
         ///     to the same color axis.
         /// </summary>
         [JsonPropertyName(@"coloraxis")]
-        public string ColorAxis { get; set; }
+        public string? ColorAxis { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  width .
         /// </summary>
         [JsonPropertyName(@"widthsrc")]
-        public string WidthSrc { get; set; }
+        public string? WidthSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         public override bool Equals(object obj)
         {

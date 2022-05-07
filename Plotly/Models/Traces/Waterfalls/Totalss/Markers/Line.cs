@@ -17,7 +17,7 @@ namespace Plotly.Models.Traces.Waterfalls.Totalss.Markers
         ///     Sets the line color of all intermediate sums and total values.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the line width of all intermediate sums and total values.

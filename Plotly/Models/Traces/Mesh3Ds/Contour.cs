@@ -23,7 +23,7 @@ namespace Plotly.Models.Traces.Mesh3Ds
         ///     Sets the color of the contour lines.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the width of the contour lines.

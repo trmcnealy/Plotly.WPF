@@ -39,25 +39,25 @@ namespace Plotly.Models.Traces.Indicators
         ///     similar to those of Python. See https://github.com/d3/d3-3.x-api-reference/blob/master/Formatting.md#d3_format
         /// </summary>
         [JsonPropertyName(@"valueformat")]
-        public string ValueFormat { get; set; }
+        public string? ValueFormat { get; set; }
 
         /// <summary>
         ///     Gets or sets the Increasing.
         /// </summary>
         [JsonPropertyName(@"increasing")]
-        public Increasing Increasing { get; set; }
+        public Increasing? Increasing { get; set; }
 
         /// <summary>
         ///     Gets or sets the Decreasing.
         /// </summary>
         [JsonPropertyName(@"decreasing")]
-        public Decreasing Decreasing { get; set; }
+        public Decreasing? Decreasing { get; set; }
 
         /// <summary>
         ///     Set the font used to display the delta
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Font Font { get; set; }
+        public Font? Font { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -22,13 +22,13 @@ namespace Plotly.Models.Layouts
         ///     Defines the start and end point of this radial axis.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set; }
+        public List<object>? Range { get; set; }
 
         /// <summary>
         ///     Polar chart subplots are not supported yet. This key has currently no effect.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public List<object> Domain { get; set; }
+        public List<object>? Domain { get; set; }
 
         /// <summary>
         ///     Legacy polar charts are deprecated! Please switch to <c>polar</c> subplots.
@@ -73,14 +73,14 @@ namespace Plotly.Models.Layouts
         ///     Sets the color of the tick lines on this radial axis.
         /// </summary>
         [JsonPropertyName(@"tickcolor")]
-        public object TickColor { get; set; }
+        public object? TickColor { get; set; }
 
         /// <summary>
         ///     Legacy polar charts are deprecated! Please switch to <c>polar</c> subplots.
         ///     Sets the length of the tick lines on this radial axis.
         /// </summary>
         [JsonPropertyName(@"ticksuffix")]
-        public string TickSuffix { get; set; }
+        public string? TickSuffix { get; set; }
 
         /// <summary>
         ///     Legacy polar charts are deprecated! Please switch to <c>polar</c> subplots.

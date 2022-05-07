@@ -19,13 +19,13 @@ namespace Plotly.Models.Layouts
         ///     Sets the legend background color. Defaults to <c>layout.paper_bgcolor</c>.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the legend.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the width (in px) of the border enclosing the legend.
@@ -37,7 +37,7 @@ namespace Plotly.Models.Layouts
         ///     Sets the font used to text the legend items.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Legends.Font Font { get; set; }
+        public Legends.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets the orientation of the legend.
@@ -132,7 +132,7 @@ namespace Plotly.Models.Layouts
         ///     Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Sets the vertical alignment of the symbols with respect to their associated
@@ -145,7 +145,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Title.
         /// </summary>
         [JsonPropertyName(@"title")]
-        public Legends.Title Title { get; set; }
+        public Legends.Title? Title { get; set; }
 
         public override bool Equals(object obj)
         {

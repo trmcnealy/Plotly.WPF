@@ -19,7 +19,7 @@ namespace Plotly.Models.Layouts.Geos
         ///     Sets the range of this axis (in degrees), sets the map&#39;s clipped coordinates.
         /// </summary>
         [JsonPropertyName(@"range")]
-        public List<object> Range { get; set; }
+        public List<object>? Range { get; set; }
 
         /// <summary>
         ///     Sets whether or not graticule are shown on the map.
@@ -43,7 +43,7 @@ namespace Plotly.Models.Layouts.Geos
         ///     Sets the graticule&#39;s stroke color.
         /// </summary>
         [JsonPropertyName(@"gridcolor")]
-        public object GridColor { get; set; }
+        public object? GridColor { get; set; }
 
         /// <summary>
         ///     Sets the graticule&#39;s stroke width (in px).

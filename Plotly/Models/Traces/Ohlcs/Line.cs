@@ -28,7 +28,7 @@ namespace Plotly.Models.Traces.Ohlcs
         ///     <c>decreasing.line.dash</c>.
         /// </summary>
         [JsonPropertyName(@"dash")]
-        public string Dash { get; set; }
+        public string? Dash { get; set; }
 
         public override bool Equals(object obj)
         {

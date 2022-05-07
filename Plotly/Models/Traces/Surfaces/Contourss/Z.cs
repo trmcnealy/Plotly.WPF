@@ -43,13 +43,13 @@ namespace Plotly.Models.Traces.Surfaces.Contourss
         ///     Gets or sets the Project.
         /// </summary>
         [JsonPropertyName(@"project")]
-        public Project Project { get; set; }
+        public Project? Project { get; set; }
 
         /// <summary>
         ///     Sets the color of the contour lines.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     An alternate to <c>color</c>. Determines whether or not the contour lines
@@ -75,7 +75,7 @@ namespace Plotly.Models.Traces.Surfaces.Contourss
         ///     Sets the color of the highlighted contour lines.
         /// </summary>
         [JsonPropertyName(@"highlightcolor")]
-        public object HighlightColor { get; set; }
+        public object? HighlightColor { get; set; }
 
         /// <summary>
         ///     Sets the width of the highlighted contour lines.

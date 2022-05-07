@@ -25,19 +25,19 @@ namespace Plotly.Models.Layouts.Scenes
         ///     Sets the annotation&#39;s x position.
         /// </summary>
         [JsonPropertyName(@"x")]
-        public object X { get; set; }
+        public object? X { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s y position.
         /// </summary>
         [JsonPropertyName(@"y")]
-        public object Y { get; set; }
+        public object? Y { get; set; }
 
         /// <summary>
         ///     Sets the annotation&#39;s z position.
         /// </summary>
         [JsonPropertyName(@"z")]
-        public object Z { get; set; }
+        public object? Z { get; set; }
 
         /// <summary>
         ///     Sets the x component of the arrow tail about the arrow head (in pixels).
@@ -98,7 +98,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     Tags &lt;em&gt;, &lt;sup&gt;, &lt;sub&gt; &lt;span&gt; are also supported.
         /// </summary>
         [JsonPropertyName(@"text")]
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         ///     Sets the angle at which the <c>text</c> is drawn with respect to the horizontal.
@@ -110,7 +110,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     Sets the annotation text font.
         /// </summary>
         [JsonPropertyName(@"font")]
-        public Annotations.Font Font { get; set; }
+        public Annotations.Font? Font { get; set; }
 
         /// <summary>
         ///     Sets an explicit width for the text box. null (default) lets the text set
@@ -153,13 +153,13 @@ namespace Plotly.Models.Layouts.Scenes
         ///     Sets the background color of the annotation.
         /// </summary>
         [JsonPropertyName(@"bgcolor")]
-        public object BgColor { get; set; }
+        public object? BgColor { get; set; }
 
         /// <summary>
         ///     Sets the color of the border enclosing the annotation <c>text</c>.
         /// </summary>
         [JsonPropertyName(@"bordercolor")]
-        public object BorderColor { get; set; }
+        public object? BorderColor { get; set; }
 
         /// <summary>
         ///     Sets the padding (in px) between the <c>text</c> and the enclosing border.
@@ -185,7 +185,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     Sets the color of the annotation arrow.
         /// </summary>
         [JsonPropertyName(@"arrowcolor")]
-        public object ArrowColor { get; set; }
+        public object? ArrowColor { get; set; }
 
         /// <summary>
         ///     Sets the end annotation arrow head style.
@@ -250,13 +250,13 @@ namespace Plotly.Models.Layouts.Scenes
         ///     no hover label will appear.
         /// </summary>
         [JsonPropertyName(@"hovertext")]
-        public string HoverText { get; set; }
+        public string? HoverText { get; set; }
 
         /// <summary>
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public Annotations.HoverLabel HoverLabel { get; set; }
+        public Annotations.HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Determines whether the annotation text box captures mouse move and click
@@ -277,7 +277,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -289,7 +289,7 @@ namespace Plotly.Models.Layouts.Scenes
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

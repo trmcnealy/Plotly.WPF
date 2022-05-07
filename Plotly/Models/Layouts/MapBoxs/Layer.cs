@@ -35,20 +35,20 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     is set to <c>image</c>, <c>source</c> can be a URL to an image.
         /// </summary>
         [JsonPropertyName(@"source")]
-        public object Source { get; set; }
+        public object? Source { get; set; }
 
         /// <summary>
         ///     Specifies the layer to use from a vector tile source (mapbox.layer.source-layer).
         ///     Required for <c>vector</c> source type that supports multiple layers.
         /// </summary>
         [JsonPropertyName(@"sourcelayer")]
-        public string SourceLayer { get; set; }
+        public string? SourceLayer { get; set; }
 
         /// <summary>
         ///     Sets the attribution for this source.
         /// </summary>
         [JsonPropertyName(@"sourceattribution")]
-        public string SourceAttribution { get; set; }
+        public string? SourceAttribution { get; set; }
 
         /// <summary>
         ///     Sets the layer type, that is the how the layer data set in <c>source</c>
@@ -69,7 +69,7 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     bottom left. Only has an effect for <c>image</c> <c>sourcetype</c>.
         /// </summary>
         [JsonPropertyName(@"coordinates")]
-        public object Coordinates { get; set; }
+        public object? Coordinates { get; set; }
 
         /// <summary>
         ///     Determines if the layer will be inserted before the layer with the specified
@@ -77,7 +77,7 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     existing layer.
         /// </summary>
         [JsonPropertyName(@"below")]
-        public string Below { get; set; }
+        public string? Below { get; set; }
 
         /// <summary>
         ///     Sets the primary layer color. If <c>type</c> is <c>circle</c>, color corresponds
@@ -87,7 +87,7 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     If <c>type</c> is <c>symbol</c>, color corresponds to the icon color (mapbox.layer.paint.icon-color)
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the opacity of the layer. If <c>type</c> is <c>circle</c>, opacity
@@ -118,25 +118,25 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     Gets or sets the Circle.
         /// </summary>
         [JsonPropertyName(@"circle")]
-        public Circle Circle { get; set; }
+        public Circle? Circle { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Gets or sets the Fill.
         /// </summary>
         [JsonPropertyName(@"fill")]
-        public Fill Fill { get; set; }
+        public Fill? Fill { get; set; }
 
         /// <summary>
         ///     Gets or sets the Symbol.
         /// </summary>
         [JsonPropertyName(@"symbol")]
-        public Symbol Symbol { get; set; }
+        public Symbol? Symbol { get; set; }
 
         /// <summary>
         ///     When used in a template, named items are created in the output figure in
@@ -147,7 +147,7 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     of a template.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Used to refer to a named item in this array in the template. Named items
@@ -159,7 +159,7 @@ namespace Plotly.Models.Layouts.MapBoxs
         ///     it with &#39;visible: true&#39;.
         /// </summary>
         [JsonPropertyName(@"templateitemname")]
-        public string TemplateItemName { get; set; }
+        public string? TemplateItemName { get; set; }
 
         public override bool Equals(object obj)
         {

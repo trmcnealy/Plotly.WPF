@@ -37,14 +37,14 @@ namespace Plotly.Models.Traces
         ///     Sets the trace name. The trace name appear as the legend item and on hover.
         /// </summary>
         [JsonPropertyName(@"name")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         ///     Assign an id to this trace, Use this to provide object constancy between
         ///     traces during animations and transitions.
         /// </summary>
         [JsonPropertyName(@"uid")]
-        public string UId { get; set; }
+        public string? UId { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -58,7 +58,7 @@ namespace Plotly.Models.Traces
         ///     and <c>n</c> is the trace index.
         /// </summary>
         [JsonPropertyName(@"meta")]
-        public object Meta { get; set; }
+        public object? Meta { get; set; }
 
         /// <summary>
         ///     Assigns extra meta information associated with this trace that can be used
@@ -73,19 +73,19 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"meta")]
         [Array]
-        public List<object> MetaArray { get; set; }
+        public List<object>? MetaArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the Stream.
         /// </summary>
         [JsonPropertyName(@"stream")]
-        public Stream Stream { get; set; }
+        public Stream? Stream { get; set; }
 
         /// <summary>
         ///     Gets or sets the Transforms.
         /// </summary>
         [JsonPropertyName(@"transforms")]
-        public List<ITransform> Transforms { get; set; }
+        public List<ITransform>? Transforms { get; set; }
 
         /// <summary>
         ///     Controls persistence of some user-driven changes to the trace: <c>constraintrange</c>
@@ -102,13 +102,13 @@ namespace Plotly.Models.Traces
         ///     changes if you give each trace a <c>uid</c> that stays with it as it moves.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         /// <summary>
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear on hover. If <c>none</c> or <c>skip</c>
@@ -146,7 +146,7 @@ namespace Plotly.Models.Traces
         ///     To hide the secondary box completely, use an empty tag <c>&lt;extra&gt;&lt;/extra&gt;</c>.
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
-        public string HoverTemplate { get; set; }
+        public string? HoverTemplate { get; set; }
 
         /// <summary>
         ///     Sets the drag interaction mode for categories and dimensions. If <c>perpendicular</c>,
@@ -175,25 +175,25 @@ namespace Plotly.Models.Traces
         ///     Sets the font for the <c>dimension</c> labels.
         /// </summary>
         [JsonPropertyName(@"labelfont")]
-        public LabelFont LabelFont { get; set; }
+        public LabelFont? LabelFont { get; set; }
 
         /// <summary>
         ///     Sets the font for the <c>category</c> labels.
         /// </summary>
         [JsonPropertyName(@"tickfont")]
-        public TickFont TickFont { get; set; }
+        public TickFont? TickFont { get; set; }
 
         /// <summary>
         ///     Gets or sets the Dimensions.
         /// </summary>
         [JsonPropertyName(@"dimensions")]
-        public List<Dimension> Dimensions { get; set; }
+        public List<Dimension>? Dimensions { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     The number of observations represented by each state. Defaults to 1 so that
@@ -208,19 +208,19 @@ namespace Plotly.Models.Traces
         /// </summary>
         [JsonPropertyName(@"counts")]
         [Array]
-        public List<JsNumber?> CountsArray { get; set; }
+        public List<JsNumber?>? CountsArray { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  meta .
         /// </summary>
         [JsonPropertyName(@"metasrc")]
-        public string MetaSrc { get; set; }
+        public string? MetaSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  counts .
         /// </summary>
         [JsonPropertyName(@"countssrc")]
-        public string CountsSrc { get; set; }
+        public string? CountsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

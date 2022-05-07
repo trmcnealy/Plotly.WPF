@@ -21,7 +21,7 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Domain.
         /// </summary>
         [JsonPropertyName(@"domain")]
-        public Domain Domain { get; set; }
+        public Domain? Domain { get; set; }
 
         /// <summary>
         ///     Sets the mapbox access token to be used for this mapbox map. Alternatively,
@@ -31,7 +31,7 @@ namespace Plotly.Models.Layouts
         ///     and/or a layout layer references the Mapbox server.
         /// </summary>
         [JsonPropertyName(@"accesstoken")]
-        public string AccessToken { get; set; }
+        public string? AccessToken { get; set; }
 
         /// <summary>
         ///     Defines the map layers that are rendered by default below the trace layers
@@ -52,13 +52,13 @@ namespace Plotly.Models.Layouts
         ///      Mapbox style URLs are of the form: mapbox://mapbox.mapbox-&lt;name&gt;-&lt;version&gt;
         /// </summary>
         [JsonPropertyName(@"style")]
-        public object Style { get; set; }
+        public object? Style { get; set; }
 
         /// <summary>
         ///     Gets or sets the Center.
         /// </summary>
         [JsonPropertyName(@"center")]
-        public Center Center { get; set; }
+        public Center? Center { get; set; }
 
         /// <summary>
         ///     Sets the zoom level of the map (mapbox.zoom).
@@ -84,14 +84,14 @@ namespace Plotly.Models.Layouts
         ///     Gets or sets the Layers.
         /// </summary>
         [JsonPropertyName(@"layers")]
-        public List<Layer> Layers { get; set; }
+        public List<Layer>? Layers { get; set; }
 
         /// <summary>
         ///     Controls persistence of user-driven changes in the view: <c>center</c>,
         ///     <c>zoom</c>, <c>bearing</c>, <c>pitch</c>. Defaults to <c>layout.uirevision</c>.
         /// </summary>
         [JsonPropertyName(@"uirevision")]
-        public object UiRevision { get; set; }
+        public object? UiRevision { get; set; }
 
         public override bool Equals(object obj)
         {

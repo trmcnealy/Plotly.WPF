@@ -22,7 +22,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     The shown name of the link.
         /// </summary>
         [JsonPropertyName(@"label")]
-        public List<object> Label { get; set; }
+        public List<object>? Label { get; set; }
 
         /// <summary>
         ///     Sets the <c>link</c> color. It can be a single value, or an array for specifying
@@ -30,7 +30,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     a translucent grey link will be used.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the <c>link</c> color. It can be a single value, or an array for specifying
@@ -39,39 +39,39 @@ namespace Plotly.Models.Traces.Sankeys
         /// </summary>
         [JsonPropertyName(@"color")]
         [Array]
-        public List<object> ColorArray { get; set; }
+        public List<object>? ColorArray { get; set; }
 
         /// <summary>
         ///     Assigns extra data to each link.
         /// </summary>
         [JsonPropertyName(@"customdata")]
-        public List<object> CustomData { get; set; }
+        public List<object>? CustomData { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     An integer number &#39;[0..nodes.length - 1]&#39; that represents the source
         ///     node.
         /// </summary>
         [JsonPropertyName(@"source")]
-        public List<object> Source { get; set; }
+        public List<object>? Source { get; set; }
 
         /// <summary>
         ///     An integer number &#39;[0..nodes.length - 1]&#39; that represents the target
         ///     node.
         /// </summary>
         [JsonPropertyName(@"target")]
-        public List<object> Target { get; set; }
+        public List<object>? Target { get; set; }
 
         /// <summary>
         ///     A numeric value representing the flow volume value.
         /// </summary>
         [JsonPropertyName(@"value")]
-        public List<object> Value { get; set; }
+        public List<object>? Value { get; set; }
 
         /// <summary>
         ///     Determines which trace information appear when hovering links. If <c>none</c>
@@ -85,7 +85,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     Gets or sets the HoverLabel.
         /// </summary>
         [JsonPropertyName(@"hoverlabel")]
-        public Links.HoverLabel HoverLabel { get; set; }
+        public Links.HoverLabel? HoverLabel { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -105,7 +105,7 @@ namespace Plotly.Models.Traces.Sankeys
         ///     To hide the secondary box completely, use an empty tag <c>&lt;extra&gt;&lt;/extra&gt;</c>.
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
-        public string HoverTemplate { get; set; }
+        public string? HoverTemplate { get; set; }
 
         /// <summary>
         ///     Template string used for rendering the information that appear on hover
@@ -126,55 +126,55 @@ namespace Plotly.Models.Traces.Sankeys
         /// </summary>
         [JsonPropertyName(@"hovertemplate")]
         [Array]
-        public List<string> HoverTemplateArray { get; set; }
+        public List<string>? HoverTemplateArray { get; set; }
 
         /// <summary>
         ///     Gets or sets the ColorScales.
         /// </summary>
         [JsonPropertyName(@"colorscales")]
-        public List<ConcentrationScales> ColorScales { get; set; }
+        public List<ConcentrationScales>? ColorScales { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  label .
         /// </summary>
         [JsonPropertyName(@"labelsrc")]
-        public string LabelSrc { get; set; }
+        public string? LabelSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  color .
         /// </summary>
         [JsonPropertyName(@"colorsrc")]
-        public string ColorSrc { get; set; }
+        public string? ColorSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  customdata .
         /// </summary>
         [JsonPropertyName(@"customdatasrc")]
-        public string CustomDataSrc { get; set; }
+        public string? CustomDataSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  source .
         /// </summary>
         [JsonPropertyName(@"sourcesrc")]
-        public string SourceSrc { get; set; }
+        public string? SourceSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  target .
         /// </summary>
         [JsonPropertyName(@"targetsrc")]
-        public string TargetSrc { get; set; }
+        public string? TargetSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  value .
         /// </summary>
         [JsonPropertyName(@"valuesrc")]
-        public string ValueSrc { get; set; }
+        public string? ValueSrc { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  hovertemplate .
         /// </summary>
         [JsonPropertyName(@"hovertemplatesrc")]
-        public string HoverTemplateSrc { get; set; }
+        public string? HoverTemplateSrc { get; set; }
 
         public override bool Equals(object obj)
         {

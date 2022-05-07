@@ -22,19 +22,19 @@ namespace Plotly.Models.Traces.FunnelAreas
         ///     set is used to pick the sector colors.
         /// </summary>
         [JsonPropertyName(@"colors")]
-        public List<object> Colors { get; set; }
+        public List<object>? Colors { get; set; }
 
         /// <summary>
         ///     Gets or sets the Line.
         /// </summary>
         [JsonPropertyName(@"line")]
-        public Line Line { get; set; }
+        public Line? Line { get; set; }
 
         /// <summary>
         ///     Sets the source reference on Chart Studio Cloud for  colors .
         /// </summary>
         [JsonPropertyName(@"colorssrc")]
-        public string ColorsSrc { get; set; }
+        public string? ColorsSrc { get; set; }
 
         public override bool Equals(object obj)
         {

@@ -30,7 +30,7 @@ namespace Plotly.Models
         ///     to true.
         /// </summary>
         [JsonPropertyName(@"plotlyServerURL")]
-        public string PlotlyServerUrl { get; set; }
+        public string? PlotlyServerUrl { get; set; }
 
         /// <summary>
         ///     Determines whether the graph is editable or not. Sets all pieces of <c>edits</c>
@@ -43,7 +43,7 @@ namespace Plotly.Models
         ///     Gets or sets the Edits.
         /// </summary>
         [JsonPropertyName(@"edits")]
-        public Edits Edits { get; set; }
+        public Edits? Edits { get; set; }
 
         /// <summary>
         ///     Determines whether the graphs are plotted with respect to layout.autosize:true
@@ -133,7 +133,7 @@ namespace Plotly.Models
         ///     Sets the text appearing in the <c>showLink</c> link.
         /// </summary>
         [JsonPropertyName(@"linkText")]
-        public string LinkText { get; set; }
+        public string? LinkText { get; set; }
 
         /// <summary>
         ///     If <c>showLink</c> is true, does it contain data just link to a Chart Studio
@@ -146,7 +146,7 @@ namespace Plotly.Models
         ///     Adds a source-displaying function to show sources on the resulting graphs.
         /// </summary>
         [JsonPropertyName(@"showSources")]
-        public object ShowSources { get; set; }
+        public object? ShowSources { get; set; }
 
         /// <summary>
         ///     Determines the mode bar display mode. If <c>true</c>, the mode bar is always
@@ -182,14 +182,14 @@ namespace Plotly.Models
         ///     the list of names.
         /// </summary>
         [JsonPropertyName(@"modeBarButtonsToRemove")]
-        public ModeBarButtons[] ModeBarButtonsToRemove { get; set; }
+        public ModeBarButtons[]? ModeBarButtonsToRemove { get; set; }
 
         /// <summary>
         ///     Add mode bar button using config objects See ./components/modebar/buttons.js
         ///     for list of arguments.
         /// </summary>
         [JsonPropertyName(@"modeBarButtonsToAdd")]
-        public ModeBarButtons[] ModeBarButtonsToAdd { get; set; }
+        public ModeBarButtons[]? ModeBarButtonsToAdd { get; set; }
 
         /// <summary>
         ///     Define fully custom mode bar buttons as nested array, where the outer arrays
@@ -198,14 +198,14 @@ namespace Plotly.Models
         ///     info.
         /// </summary>
         [JsonPropertyName(@"modeBarButtons")]
-        public object ModeBarButtons { get; set; }
+        public object? ModeBarButtons { get; set; }
 
         /// <summary>
         ///     Statically override options for toImage modebar button allowed keys are
         ///     format, filename, width, height, scale see ../components/modebar/buttons.js
         /// </summary>
         [JsonPropertyName(@"toImageButtonOptions")]
-        public ImageButtonOptions ToImageButtonOptions { get; set; }
+        public ImageButtonOptions? ToImageButtonOptions { get; set; }
 
         /// <summary>
         ///     Determines whether or not the plotly logo is displayed on the end of the
@@ -234,7 +234,7 @@ namespace Plotly.Models
         ///     to string <c>opaque</c> to ensure there is white behind it.
         /// </summary>
         [JsonPropertyName(@"setBackground")]
-        public object SetBackground { get; set; }
+        public object? SetBackground { get; set; }
 
         /// <summary>
         ///     Set the URL to topojson used in geo charts. By default, the topojson files
@@ -243,15 +243,15 @@ namespace Plotly.Models
         ///     plotly.js module.
         /// </summary>
         [JsonPropertyName(@"topojsonURL")]
-        public string TopoJsonUrl { get; set; }
+        public string? TopoJsonUrl { get; set; }
 
         /// <summary>
         ///     Mapbox access token (required to plot mapbox trace types) If using an Mapbox
         ///     Atlas server, set this option to &#39;&#39; so that plotly.js won&#39;t
-        ///     attempt to authenticate to the public Mapbox server.
+        ///     attempt to authenticate to the public Mapbox? server.
         /// </summary>
         [JsonPropertyName(@"mapboxAccessToken")]
-        public string MapboxAccessToken { get; set; }
+        public string? MapboxAccessToken { get; set; }
 
         /// <summary>
         ///     Turn all console logging on or off (errors will be thrown) This should ONLY
@@ -279,13 +279,13 @@ namespace Plotly.Models
         ///     Set global transform to be applied to all traces with no specification needed
         /// </summary>
         [JsonPropertyName(@"globalTransforms")]
-        public object GlobalTransforms { get; set; }
+        public object? GlobalTransforms { get; set; }
 
         /// <summary>
         ///     Which localization should we use? Should be a string like <c>en</c> or <c>en-US</c>.
         /// </summary>
         [JsonPropertyName(@"locale")]
-        public string Locale { get; set; }
+        public string? Locale { get; set; }
 
         /// <summary>
         ///     Localization definitions Locales can be provided either here (specific to
@@ -303,7 +303,7 @@ namespace Plotly.Models
         ///     for our automatic number formatting, but can be used in custom formats.
         /// </summary>
         [JsonPropertyName(@"locales")]
-        public object Locales { get; set; }
+        public object? Locales { get; set; }
 
         public override bool Equals(object obj)
         {
@@ -521,7 +521,7 @@ namespace Plotly.Models
         ///     Gets a deep copy of this instance.
         /// </summary>
         /// <returns>Config</returns>
-        public Config DeepClone()
+        public Config? DeepClone()
         {
             using MemoryStream ms = new();
 

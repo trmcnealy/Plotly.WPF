@@ -25,7 +25,7 @@ namespace Plotly.Models.Traces.ScatterGls.Unselecteds
         ///     exists.
         /// </summary>
         [JsonPropertyName(@"color")]
-        public object Color { get; set; }
+        public object? Color { get; set; }
 
         /// <summary>
         ///     Sets the marker size of unselected points, applied only when a selection

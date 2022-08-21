@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Markup;
 
 using Plotly.Models;
@@ -18,12 +19,19 @@ using Plotly.Models;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 
+
+
+
+//StaticMap
+//https://api.mapbox.com/styles/v1/mapbox/{style_id}/static/{overlay}/{lon},{lat},{zoom},{bearing},{pitch}|{auto}|{bbox}/{width}x{height}{padding}{@2x}?access_token=
+
+
+
 //https://github.com/cefsharp/CefSharp
 //https://github.com/cefsharp/CefSharp.MinimalExample/tree/master/CefSharp.MinimalExample.Wpf
 
 [assembly: XmlnsPrefix("http://www.plotly.com", "plotly")]
 [assembly: XmlnsDefinition("http://www.plotly.com", "Plotly")]
-
 namespace Plotly
 {
     [TemplatePart(Name = "WebViewElement", Type = typeof(WebView2))]
@@ -31,7 +39,7 @@ namespace Plotly
     //[TemplateVisualState(Name = "Waiting", GroupName    = "ValueStates")]
     //[TemplateVisualState(Name = "Focused", GroupName    = "FocusedStates")]
     //[TemplateVisualState(Name = "Unfocused", GroupName  = "FocusedStates")]
-    public class PlotlyView : Control
+    public class PlotlyView : Control, IDisposable
     {
         private static readonly string Plotly_folder;
 
@@ -325,6 +333,10 @@ namespace Plotly
 
         public string Id { get; }
 
+        public bool IsDisposed { get; private set; }
+
+        private KeyGesture modifiers;
+
         private static Guid MakeGuid(string guid)
         {
             if(Guid.TryParse(guid, out Guid newGuid))
@@ -367,8 +379,51 @@ namespace Plotly
 
         ~PlotlyView()
         {
-            Shutdown(this, new EventArgs());
+            Dispose(false);
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (IsDisposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                Shutdown(this, new EventArgs());
+
+                if (WebViewElement.CoreWebView2 != null)
+                {
+                    WebViewElement.CoreWebView2.FrameNavigationStarting -= OnFrameNavigationStarting;
+                    WebViewElement.CoreWebView2.WebResourceRequested    -= OnWebResourceRequested;
+                    WebViewElement.CoreWebView2.NewWindowRequested      -= OnNewWindowRequested;
+                    WebViewElement.CoreWebView2.ProcessFailed           -= OnWebViewProcessFailed;
+
+                    //if (Microsoft.PowerBI.Client.Shared.PowerBIApplicationOptions.ForceTracing)
+                    //{
+                    //    WebViewElement.CoreWebView2.GetDevToolsProtocolEventReceiver("Log.entryAdded").DevToolsProtocolEventReceived           -= this.OnConsoleMessage;
+                    //    WebViewElement.CoreWebView2.GetDevToolsProtocolEventReceiver("Runtime.consoleAPICalled").DevToolsProtocolEventReceived -= this.OnConsoleMessage;
+                    //}
+                }
+
+                WebViewElement.NavigationCompleted -= OnWebViewNavigationCompleted;
+                WebViewElement.NavigationStarting  -= OnWebViewNavigationStarting;
+                WebViewElement.KeyDown             -= OnKeyDown;
+
+                //this.interop.Dispose();
+                //this.interopCoreWrapper.Dispose();
+            }
+            IsDisposed = true;
+        }
+
+
 
         private void Shutdown(object?   sender,
                               EventArgs e)
@@ -563,12 +618,18 @@ namespace Plotly
 
                 //string                          localAppData            = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
                 //string                          cacheFolder             = Path.Combine(localAppData, "WindowsFormsWebView2");
-
-                CoreWebView2EnvironmentOptions options = new("--service-sandbox-type=none --no-delay-for-dx12-vulkan-info-collection --enable-unsafe-webgpu --embedded-browser-webview=1 --embedded-browser-webview-dpi-awareness=2 --noerrdialogs --webgl-antialiasing-mode=none --lang=en-US --unlimited-storage");//("--disk-cache-size=1073741824 --enable-features=enable-unsafe-webgpu,enable-gpu-rasterization");
+                
+                CoreWebView2EnvironmentOptions options = new("--disable-features=msSmartScreenProtection --js-flags=\"--max-old-space-size=8192\"", null, null, false);//"--service-sandbox-type=none --no-delay-for-dx12-vulkan-info-collection --webview-draw-functor-uses-vulkan --enable-gpu-rasterization --enable-unsafe-webgpu --enable-unsafe-fast-js-calls --embedded-browser-webview=1 --embedded-browser-webview-dpi-awareness=2 --noerrdialogs --webgl-antialiasing-mode=none --lang=en-US --unlimited-storage");//("--disk-cache-size=1073741824 --enable-features=enable-unsafe-webgpu,enable-gpu-rasterization");
 
                 CoreWebView2Environment env = await CoreWebView2Environment.CreateAsync(browserExecutableFolder, userDataFolder, options);
 
                 await WebViewElement.EnsureCoreWebView2Async(env);
+
+                WebViewElement.NavigationStarting  += OnWebViewNavigationStarting;
+                WebViewElement.NavigationCompleted += OnWebViewNavigationCompleted;
+                WebViewElement.KeyDown             += OnKeyDown;
+                WebViewElement.KeyUp               += OnKeyUp;
+                WebViewElement.LostFocus           += OnLostFocus;
 
                 WebViewElement.CoreWebView2.Navigate(SourceUri.AbsoluteUri);
                 //WebViewElement.Source = SourceUri;
@@ -592,6 +653,222 @@ namespace Plotly
         //    base.OnLostFocus(e);
         //    //UpdateStates(true);
         //}
+
+        private static ModifierKeys ToModifier(Key keyCode)
+        {
+            if (keyCode <= Key.Apps)
+            {
+                if ((keyCode == Key.LeftCtrl) | (keyCode == Key.RightCtrl))
+                {
+                    return ModifierKeys.Control;
+                }
+                if (keyCode != Key.Apps)
+                {
+                    return ModifierKeys.None;
+                }
+            }
+            else
+            {
+                if (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl))
+                {
+                    return ModifierKeys.Control;
+                }
+                if (keyCode != Key.Apps)
+                {
+                    return ModifierKeys.None;
+                }
+            }
+            return ModifierKeys.Alt;
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            //modifiers |= ToModifier(e.Key);
+
+            //Key key = e.Key | modifiers;
+
+            //if (this.host.PreProcessKeyEvent(key))
+            //{
+            //    e.Handled = true;
+            //    return;
+            //}
+        }
+
+        private void OnKeyUp(object sender, KeyEventArgs e)
+        {
+            //modifiers &= ~ToModifier(e.Key);
+        }
+
+        private void OnLostFocus(object sender, RoutedEventArgs e)
+        {
+            //modifiers = Key.None;
+        }
+
+        private void OnNewWindowRequested(object sender, CoreWebView2NewWindowRequestedEventArgs e)
+        {
+            if (!e.IsUserInitiated)
+            {
+                e.Handled = true;
+                return;
+            }
+            //bool hasPopupProperties = !string.IsNullOrEmpty(e.Name) || e.WindowFeatures.HasSize || e.WindowFeatures.HasPosition || !e.WindowFeatures.ShouldDisplayMenuBar || !e.WindowFeatures.ShouldDisplayScrollBars || !e.WindowFeatures.ShouldDisplayStatus || !e.WindowFeatures.ShouldDisplayToolbar;
+            //e.Handled = this.HandleOnNewWindowRequested(e.Uri, hasPopupProperties);
+        }
+
+        private void OnWebViewNavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
+        {
+            //if (this.navigationSuccessCount > 0)
+            //{
+            //    string webResourceUrl = this.GetWebResourceUrl(e.Uri);
+            //    if (!this.Restrictions.CanBrowserNavigateTo(webResourceUrl))
+            //    {
+            //        if (e.IsUserInitiated && this.Restrictions.CanOpenExternalBrowser(webResourceUrl))
+            //        {
+            //            this.host.OpenExternalUrl(webResourceUrl, false);
+            //        }
+            //        e.Cancel = true;
+            //        return;
+            //    }
+            //    this.internals.Init();
+            //    EventHandler reloading = this.Reloading;
+            //    if (reloading != null)
+            //    {
+            //        reloading(sender, new EventArgs());
+            //    }
+            //}
+            //this.trace.LogInfo(FormattableString.Invariant(System.Runtime.CompilerServices.FormattableStringFactory.Create("{0} Url={1}", new object[]
+            //{
+            //    "OnWebViewNavigationStarting",
+            //    e.Uri
+            //})), null);
+        }
+
+        private void OnWebViewNavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
+        {
+            //if (args.IsSuccess)
+            //{
+            //    if (this.navigationSuccessCount > 0)
+            //    {
+            //        EventHandler reloaded = this.Reloaded;
+            //        if (reloaded != null)
+            //        {
+            //            reloaded(sender, new EventArgs());
+            //        }
+            //    }
+            //    this.navigationSuccessCount++;
+            //    if (Microsoft.PowerBI.Client.Shared.PowerBIApplicationOptions.ShowDevToolsAtStartup || Microsoft.PowerBI.Client.Shared.PowerBIApplicationOptions.ShowDevToolsForBrowsers.ToUpperInvariant().Contains(this.name.ToUpperInvariant()))
+            //    {
+            //        this.ShowDevTools();
+            //    }
+            //}
+            //else if (args.WebErrorStatus != CoreWebView2WebErrorStatus.OperationCanceled && this.navigationFailedCount < 0xA)
+            //{
+            //    WebViewElement.Reload();
+            //    this.navigationFailedCount++;
+            //}
+            //this.trace.LogInfo(FormattableString.Invariant(System.Runtime.CompilerServices.FormattableStringFactory.Create("{0} IsSuccess={1}, WebErrorStatus={2}", new object[]
+            //{
+            //    "OnWebViewNavigationCompleted",
+            //    args.IsSuccess,
+            //    args.WebErrorStatus
+            //})), null);
+        }
+
+        private void OnWebViewProcessFailed(object sender, CoreWebView2ProcessFailedEventArgs args)
+        {
+            //this.Crashed = true;
+            //Microsoft.PowerBI.Telemetry.PBIWinWebView2ProcessFailed telemetryEvent = new Microsoft.PowerBI.Telemetry.PBIWinWebView2ProcessFailed(args.ExitCode.ToString(System.Globalization.CultureInfo.InvariantCulture), args.ProcessDescription, args.ProcessFailedKind.ToString(), args.Reason.ToString(), this.name);
+            //this.telemetryService.Log(telemetryEvent);
+            //this.telemetryService.Flush();
+            //try
+            //{
+            //    throw new Microsoft.PowerBI.Client.Windows.WebView2.WebView2ProcessCrashException(this.name, WebViewElement, args);
+            //}
+            //catch (Microsoft.PowerBI.Client.Windows.WebView2.WebView2ProcessCrashException ex)
+            //{
+            //    this.trace.LogError("OnWebViewProcessFailed", ex, null);
+            //    bool flag = ex.IsFatal;
+            //    if (ex.BrowserNeedsReload)
+            //    {
+            //        if (this.host.CanReload(this) && this.navigationFailedCount < 0xA)
+            //        {
+            //            WebViewElement.Reload();
+            //            this.navigationFailedCount++;
+            //        }
+            //        else
+            //        {
+            //            flag = true;
+            //        }
+            //    }
+            //    if (flag)
+            //    {
+            //        this.host.OnFatalError(ex, null, null);
+            //    }
+            //    else
+            //    {
+            //        this.telemetryService.LogHandledException(ex, "WebView2BrowserWrapper");
+            //    }
+            //}
+        }
+
+        private void OnFrameNavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs e)
+        {
+            //string webResourceUrl = this.GetWebResourceUrl(e.Uri);
+
+            //if (!this.Restrictions.CanFrameNavigateTo(webResourceUrl))
+            //{
+            //    if (e.IsUserInitiated && this.Restrictions.CanOpenExternalBrowser(webResourceUrl))
+            //    {
+            //        this.host.OpenExternalUrl(webResourceUrl, true);
+            //    }
+
+            //    e.Cancel = true;
+            //}
+        }
+
+        private void OnWebResourceRequested(object sender, CoreWebView2WebResourceRequestedEventArgs args)
+        {
+            //Microsoft.PowerBI.Client.Windows.WebView2.WebView2BrowserWrapper.<>c__DisplayClass80_0 CS$<>8__locals1 = new Microsoft.PowerBI.Client.Windows.WebView2.WebView2BrowserWrapper.<>c__DisplayClass80_0();
+            //CS$<>8__locals1.<>4__this = this;
+            //CS$<>8__locals1.args = args;
+            //this.exceptionHandler.HandleAsyncExceptions(async delegate
+            //{
+            //    using (CS$<>8__locals1.args.GetDeferral())
+            //    {
+            //        string uri = CS$<>8__locals1.args.Request.Uri;
+            //        if (CS$<>8__locals1.<>4__this.pluggableProtocolScheme.HasHttpsPluggableDomain(uri))
+            //        {
+            //            Microsoft.PowerBI.Client.Windows.WebView2.WebView2BrowserWrapper.<>c__DisplayClass80_1 CS$<>8__locals2 = new Microsoft.PowerBI.Client.Windows.WebView2.WebView2BrowserWrapper.<>c__DisplayClass80_1();
+            //            CS$<>8__locals2.CS$<>8__locals1 = CS$<>8__locals1;
+            //            CS$<>8__locals2.requestUri = CS$<>8__locals1.<>4__this.pluggableProtocolScheme.GetWebResourceUri(uri);
+            //            if (uri.EndsWith("/pbi/Web/ts/WebView2InteropServices.js", StringComparison.OrdinalIgnoreCase))
+            //            {
+            //                string dynamicInteropJs = CS$<>8__locals1.<>4__this.interop.GetDynamicInteropJs();
+            //                CS$<>8__locals1.args.Response = CS$<>8__locals1.<>4__this.CreateOkWebResourceResponse(new MemoryStream(Encoding.UTF8.GetBytes(dynamicInteropJs)), "text/javascript");
+            //                return;
+            //            }
+            //            CS$<>8__locals2.found = false;
+            //            CS$<>8__locals2.contentType = null;
+            //            CS$<>8__locals2.responseStream = null;
+            //            await Task.Run(delegate()
+            //            {
+            //                bool flag = CS$<>8__locals2.CS$<>8__locals1.<>4__this.host.UIHost.PluggableProtocolRegistration.TryGetHandlerForUri(CS$<>8__locals2.requestUri, out CS$<>8__locals2.requestHandler, out CS$<>8__locals2.relativeUri);
+            //                if (flag && CS$<>8__locals2.requestHandler != null && CS$<>8__locals2.relativeUri != null)
+            //                {
+            //                    flag = CS$<>8__locals2.requestHandler.TryHandleRequest(CS$<>8__locals2.relativeUri, CS$<>8__locals2.requestUri.Query, out CS$<>8__locals2.contentType, out CS$<>8__locals2.responseStream);
+            //                    if (flag && CS$<>8__locals2.contentType != null && CS$<>8__locals2.responseStream != null)
+            //                    {
+            //                        CS$<>8__locals2.found = true;
+            //                    }
+            //                }
+            //            });
+            //            CS$<>8__locals1.args.Response = (CS$<>8__locals2.found ? CS$<>8__locals1.<>4__this.CreateOkWebResourceResponse(CS$<>8__locals2.responseStream, CS$<>8__locals2.contentType) : CS$<>8__locals1.<>4__this.CreateNotFoundWebResourceResponse());
+            //            CS$<>8__locals2 = null;
+            //        }
+            //    }
+            //    CoreWebView2Deferral coreWebView2Deferral = null;
+            //});
+        }
 
         public static string ArrayToString(List<object> values)
         {

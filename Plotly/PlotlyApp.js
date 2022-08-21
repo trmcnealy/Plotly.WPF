@@ -300,7 +300,7 @@ const PlotlyApp = {
     let plotly_container = window[`plotly_container_${window.ID}`];
 
     if(window.EnableLogging) {
-      console.log({ data: plotly_data, layout: plotly_layout, config: plotly_config, frames: plotly_frames });
+      //console.log({ data: plotly_data, layout: plotly_layout, config: plotly_config, frames: plotly_frames });
     }
     window.Plotly.newPlot(plotly_container, { data: plotly_data, layout: plotly_layout, config: plotly_config, frames: plotly_frames });
   },
@@ -309,7 +309,7 @@ const PlotlyApp = {
 
     for(let i = 0;i < plotly_data.length;++i) {
       if(window.EnableLogging) {
-        console.log(plotly_data[i]);
+        //console.log(plotly_data[i]);
       }
 
       if(window.IsNull(plotly_data[i].text) && window.IsNotNull(plotly_data[i].textsrc)) {
@@ -371,7 +371,7 @@ const PlotlyApp = {
 
     for(let i = 0;i < plotly_data.length;++i) {
       if(window.EnableLogging) {
-        console.log(plotly_data[i]);
+        //console.log(plotly_data[i]);
       }
 
       if(window.IsNull(plotly_data[i].text) && window.IsNotNull(plotly_data[i].textsrc)) {
@@ -457,7 +457,7 @@ const PlotlyApp = {
 
     for(let i = 0;i < plotly_data.length;++i) {
       if(window.EnableLogging) {
-        console.log(plotly_data[i]);
+        //console.log(plotly_data[i]);
       }
 
       if(window.IsNull(plotly_data[i].text) && window.IsNotNull(plotly_data[i].textsrc)) {
